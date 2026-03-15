@@ -5,16 +5,19 @@
 If you discover a security vulnerability or issue in this repository, please follow these guidelines:
 
 1. **Do Not Exploit**
-   Do not attempt to exploit any vulnerability or run scripts against systems you do not own or have explicit permission to test.
 
-3. **Responsible Disclosure**  
-   Report any issues directly to the repository owner:  
-   - GitHub Issues: [https://github.com/secwexen/cyber-threat-playbook/issues](https://github.com/secwexen/cyber-threat-playbook/issues)  
-   - Include a clear description, steps to reproduce, and any relevant files or screenshots.
+Do not attempt to exploit any vulnerability or run scripts against systems you do not own or have explicit permission to test.
 
-4. **Handling Vulnerabilities**  
-   - Security reports will be reviewed as soon as possible.  
-   - Fixes or updates will be applied and documented in the repository.
+3. **Responsible Disclosure**
+
+Report any issues directly to the repository owner:
+- GitHub Issues: [https://github.com/secwexen/cyber-threat-playbook/issues](https://github.com/secwexen/cyber-threat-playbook/issues)  
+- Include a clear description, steps to reproduce, and any relevant files or screenshots.
+
+5. **Handling Vulnerabilities**
+
+- Security reports will be reviewed as soon as possible.  
+- Fixes or updates will be applied and documented in the repository.
 
 ## Security Best Practices
 
