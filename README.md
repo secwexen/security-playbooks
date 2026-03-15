@@ -34,7 +34,7 @@ git clone https://github.com/secwexen/cyber-threat-playbook.git
 cd cyber-threat-playbook
 ```
 
-See the [quickstart.md](docs/quickstart.md) file for full details.
+See the [quick_start.md](docs/quick_start.md) file for full details.
 
 ## Ethical Use
 
