@@ -27,6 +27,13 @@ This repository is designed to **demonstrate professional cybersecurity skills**
 - **Examples:** Sample outputs, screenshots, and logs to visualize results.  
 - **Docs & Tools:** Quick Start guides, architecture explanations, and optional helper scripts to support learning and experimentation.  
 
+## Quick Start
+
+```bash
+git clone https://github.com/secwexen/cyber-threat-playbook.git
+cd cyber-threat-playbook
+```
+
 ## Ethical Use
 
 All tools in this repository are developed **strictly for educational and ethical purposes**.  
