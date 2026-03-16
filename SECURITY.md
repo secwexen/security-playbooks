@@ -11,7 +11,7 @@ Do not attempt to exploit any vulnerability or run scripts against systems you d
 ### Responsible Disclosure
 
 Report any issues directly to the repository owner:
-- GitHub Issues: [https://github.com/secwexen/cyber-threat-playbook/issues](https://github.com/secwexen/cyber-threat-playbook/issues)  
+- **Preferred method:** Open a **[private GitHub Security Advisory](https://github.com/secwexen/cyber-threat-playbook/security/advisories/new)**.
 - Include a clear description, steps to reproduce, and any relevant files or screenshots.
 
 ### Handling Vulnerabilities
