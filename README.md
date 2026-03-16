@@ -27,6 +27,18 @@ This repository is designed to **demonstrate professional cybersecurity skills**
 - **Examples:** Sample outputs, screenshots, and logs to visualize results.  
 - **Docs & Tools:** Quick Start guides, architecture explanations, and optional helper scripts to support learning and experimentation.  
 
+## Repository Structure
+
+```
+cyber-threat-playbook/
+├─ detection-rules/    # Sigma, YARA, Suricata rules for threat detection
+├─ scenarios/          # MITRE ATT&CK-based attack simulations
+├─ labs/               # PoC scripts and lab walkthroughs
+├─ examples/           # Sample outputs, logs, and screenshots
+├─ docs/               # Documentation and guides
+└─ tools/              # Helper scripts and parsers
+```
+
 ## Quick Start
 
 ```bash
