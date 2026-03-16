@@ -1,1 +1,9 @@
-
+alert http any any -> any any (
+    msg:"POTENTIAL Suspicious HTTP User-Agent - curl";
+    flow:established,to_server;
+    content:"User-Agent|3A| curl";
+    http_header;
+    classtype:policy-violation;
+    sid:1000010;
+    rev:1;
+)
