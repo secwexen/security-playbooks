@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-This guide will help you quickly set up and start using the **Cyber Threat Playbook** for educational and lab purposes.
+This guide will help you quickly set up and start using the **Security Playbook** for educational and lab purposes.
 
 ## 1. Prerequisites
 
@@ -15,8 +15,8 @@ Before starting, make sure you have:
 ## 2. Clone the Repository
 
 ```bash
-git clone https://github.com/secwexen/cyber-threat-playbook.git
-cd cyber-threat-playbook
+git clone https://github.com/secwexen/security-playbook.git
+cd security-playbook
 ```
 
 ## 3. Install Dependencies
@@ -58,10 +58,10 @@ python scan.py
 
 ## 6. Learning Workflow
 
-1. Start by reading **[architecture.md](https://github.com/secwexen/cyber-threat-playbook/blob/main/docs/architecture.md)** to understand the repo layout.
-2. Explore **[](detection-rules/)** to see how threats are detected.
-3. Execute **[scenarios/](https://github.com/secwexen/cyber-threat-playbook/tree/main/scenarios)** and **[labs/](https://github.com/secwexen/cyber-threat-playbook/tree/main/labs)** to learn attack simulation and response.
-4. Reference **[examples/](https://github.com/secwexen/cyber-threat-playbook/tree/main/examples)** to validate results and outputs.
+1. Start by reading **[architecture.md](https://github.com/secwexen/security-playbook/blob/main/docs/architecture.md)** to understand the repo layout.
+2. Explore **[detection-rules/](detection-rules/)** to see how threats are detected.
+3. Execute **[scenarios/](https://github.com/secwexen/security-playbook/tree/main/scenarios)** and **[labs/](https://github.com/secwexen/security-playbook/tree/main/labs)** to learn attack simulation and response.
+4. Reference **[examples/](https://github.com/secwexen/security-playbook/tree/main/examples)** to validate results and outputs.
 
 ## 7. Notes
 
