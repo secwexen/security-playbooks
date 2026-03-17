@@ -1,1 +1,8 @@
-
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (  
+    msg: "PowerShell Encoded Command Execution Detected";
+    flow: to_server, established;
+    content: "powershell"; nocase;
+    content: "-enc"; nocase;
+    sid: 100001;
+    rev: 1;
+)
