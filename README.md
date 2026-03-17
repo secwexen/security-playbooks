@@ -99,7 +99,9 @@ See the [LICENSE](LICENSE) file for full details.
 
 ## Disclaimer
 
-The contents of this repository are for educational and research purposes. The repository owner assumes no responsibility for misuse or legal consequences. For full details, see [DISCLAIMER.md](/DISCLAIMER.md).
+The contents of this repository are for educational and research purposes. The repository owner assumes no responsibility for misuse or legal consequences. 
+
+For full details, see [DISCLAIMER.md](/DISCLAIMER.md).
 
 ## Security
 
