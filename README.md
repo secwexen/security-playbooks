@@ -110,7 +110,7 @@ See the [RUN_COMMANDS.md](docs/RUN_COMMANDS.md) file for full details.
 
 To quickly test the project, run:
 ```
-python labs/lab2_log_analysis/parser.py examples/phishing_log_example.txt
+python labs/lab2_log_analysis/parser.py examples/malware_log_example.txt
 ```
 
 ## Ethical Use
