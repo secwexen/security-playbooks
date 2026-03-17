@@ -1,13 +1,13 @@
-# Cyber Threat Playbook
+# Cyber Threat Playbooks
 
 [![License](https://img.shields.io/github/license/secwexen/cyber-threat-playbook)](https://github.com/secwexen/cyber-threat-playbook/blob/main/LICENSE)
 [![Status](https://img.shields.io/badge/status-active-brightgreen)](https://github.com/secwexen/cyber-threat-playbook)
 
-Cyber Threat Playbook is an open-source, comprehensive cybersecurity playbook featuring MITRE ATT&CK attack simulations, detection engineering rules (Sigma, YARA, Suricata), PoC labs, and threat hunting workflows.
+Cyber Threat Playbooks is an open-source, comprehensive cybersecurity playbooks featuring MITRE ATT&CK attack simulations, detection engineering rules (Sigma, YARA, Suricata), PoC labs, and threat hunting workflows.
 
 ## About
 
-The **Cyber Threat Playbook** is an open-source, educational, and portfolio-focused repository for cybersecurity professionals.  
+The **Cyber Threat Playbooks** is an open-source, educational, and portfolio-focused repository for cybersecurity professionals.  
 It provides a structured collection of:
 
 - MITRE ATT&CK-based attack scenarios  
@@ -19,7 +19,7 @@ This repository is designed to **demonstrate professional cybersecurity skills**
 
 ## Overview
 
-**Cyber Threat Playbook** is organized to give users a clear and practical view of real-world cybersecurity workflows:
+**Cyber Threat Playbooks** is organized to give users a clear and practical view of real-world cybersecurity workflows:
 
 - **Detection Rules:** Ready-to-use Sigma/YARA/Suricata rules for threat detection and analysis.  
 - **Scenarios:** Simulated attacks based on MITRE ATT&CK, including phishing, malware, and lateral movement exercises.  
@@ -70,7 +70,7 @@ This repository contains multiple playbook-style scenarios:
 
 ## Who Is This Playbook For
 
-The Cyber Threat Playbook is intended for cybersecurity expert who want to practice, analyze, and understand real-world cyber threats in a structured and controlled environment:
+The Cyber Threat Playbooks is intended for cybersecurity expert who want to practice, analyze, and understand real-world cyber threats in a structured and controlled environment:
 
 - **SOC Analysts** – for detection engineering, alert analysis, and log investigation  
 - **Threat Hunters** – for hypothesis-driven hunting and adversary behavior analysis  
