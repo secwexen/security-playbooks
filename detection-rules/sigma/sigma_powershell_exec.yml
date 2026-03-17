@@ -1,1 +1,25 @@
-
+title: PowerShell Encoded Command Execution
+id: f1a2b3c4-d5e6-7890-1234-56789abcdef0
+status: experimental
+description: Detects PowerShell execution with encoded (-enc) commands in Windows environments.
+author: Secwexen
+date: 2026/03/17
+references:
+  - https://attack.mitre.org/techniques/T1059/
+tags:
+  - attack.execution
+  - powershell
+  - encoded-command
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    Image|endswith: 
+      - '\powershell.exe'
+    CommandLine|contains:
+      - '-enc'
+  condition: selection
+falsepositives:
+  - Legitimate administrative PowerShell scripts may use encoded commands
+level: high
