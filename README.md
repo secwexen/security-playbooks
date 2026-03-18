@@ -3,8 +3,8 @@
 **Official Website:** [https://secwexen.github.io/security-playbooks/](https://secwexen.github.io/security-playbooks/)
 
 [![CodeQL](https://github.com/secwexen/security-playbooks/actions/workflows/github-code-scanning/codeql/badge.svg?branch=main&event=push)](https://github.com/secwexen/security-playbooks/actions/workflows/github-code-scanning/codeql)
-[![License](https://img.shields.io/github/license/secwexen/cyber-threat-playbook)](https://github.com/secwexen/cyber-threat-playbook/blob/main/LICENSE)
-[![Status](https://img.shields.io/badge/status-active-brightgreen)](https://github.com/secwexen/cyber-threat-playbook)
+[![License](https://img.shields.io/github/license/secwexen/security-playbooks)](https://github.com/secwexen/security-playbooks/blob/main/LICENSE)
+[![Status](https://img.shields.io/badge/status-active-brightgreen)](https://github.com/secwexen/security-playbook)
 
 **Security Playbooks** is an open‑source, high‑quality cybersecurity repository featuring **MITRE ATT&CK attack simulations**, **detection engineering rules** (Sigma, YARA, Suricata), **incident response labs**, **log analysis workflows**, and **threat‑hunting playbooks**.  
 This project is designed for SOC analysts, blue teamers, threat hunters, and cybersecurity who want to build real‑world skills through hands‑on examples.
@@ -97,8 +97,8 @@ security-playbook/
 ## Quick Start
 
 ```bash
-git clone https://github.com/secwexen/security-playbook.git
-cd security-playbook
+git clone https://github.com/secwexen/security-playbooks.git
+cd security-playbooks
 ```
 
 See the [quick_start.md](docs/quick_start.md) file for full details.
