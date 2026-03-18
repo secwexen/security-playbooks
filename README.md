@@ -85,7 +85,7 @@ The Security Playbooks is intended for cybersecurity expert who want to practice
 ## Repository Structure
 
 ```
-security-playbook/
+security-playbooks/
 ├─ detection-rules/    # Sigma, YARA, Suricata rules for threat detection
 ├─ scenarios/          # MITRE ATT&CK-based attack simulations
 ├─ labs/               # PoC scripts and lab walkthroughs
