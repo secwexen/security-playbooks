@@ -164,6 +164,20 @@ For full details, see [DISCLAIMER.md](/DISCLAIMER.md).
 
 For guidance on safe usage and reporting vulnerabilities, see [SECURITY.md](/SECURITY.md).
 
+## Contributing
+
+Contributions are welcome!
+
+- Fork the repository and create a feature or fix branch (e.g. `feature/your-feature` or `fix/bug-name`).
+- Make your changes and add relevant tests.
+- Ensure all tests pass (`pytest`) and code style checks (e.g. `make lint`).
+- Open a pull request referencing related issues/discussion when possible.
+- All PRs must pass CI checks before merging.
+
+Please open an issue before submitting major changes or new features.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines.
+
 ## Development Status
 
 **Security Playbooks** is currently in **Active Development** stage.
