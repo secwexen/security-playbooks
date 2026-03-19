@@ -160,3 +160,13 @@ For guidance on safe usage and reporting vulnerabilities, see [SECURITY.md](/SEC
 ## Note
 
 Scripts, scenarios, and detection rules are for **educational and lab use only**.
+
+## External References
+
+- **MITRE ATT&CK Framework** — [https://attack.mitre.org](https://attack.mitre.org)  
+- **NIST Cybersecurity Framework (CSF)** — [https://www.nist.gov/cyberframework](https://www.nist.gov/cyberframework)  
+- **OWASP Security Projects** — [https://owasp.org](https://owasp.org)  
+- **Microsoft Security Research & Threat Intelligence** — [https://www.microsoft.com/en-us/security/blog/](https://www.microsoft.com/en-us/security/blog/)  
+- **Google Red Team** — [https://redteam.google/](https://redteam.google/)  
+- **Elastic Security Labs** — [https://www.elastic.co/security-labs](https://www.elastic.co/security-labs)  
+- **Sigma HQ** — [https://github.com/SigmaHQ/sigma](https://github.com/SigmaHQ/sigma)  
