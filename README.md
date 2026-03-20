@@ -1,5 +1,9 @@
 # Security Playbooks
 
+<p align="center">
+<img src="assets/images/security-playbooks-logo.png" width="500" alt="Security Playbooks Logo" loading="lazy">
+</p>
+
 **Official Website:** [https://secwexen.github.io/security-playbooks/](https://secwexen.github.io/security-playbooks/)
 
 [![CodeQL](https://github.com/secwexen/security-playbooks/actions/workflows/github-code-scanning/codeql/badge.svg?branch=main&event=push)](https://github.com/secwexen/security-playbooks/actions/workflows/github-code-scanning/codeql)
