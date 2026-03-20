@@ -5,3 +5,28 @@ authors:
   - name: "Secwexen"
 repository-code: "https://github.com/secwexen/security-playbooks"
 url: "https://github.com/secwexen/security-playbooks"
+license: "MIT"
+abstract: >
+  A comprehensive Security Playbooks providing MITRE ATT&CK-based attack scenarios, detection rules (Sigma, YARA, Suricata), PoC scripts, and hands-on lab walkthroughs.
+keywords:
+  - python
+  - log-analysis
+  - incident-response
+  - playbook
+  - cybersecurity
+  - suricata
+  - pentesting
+  - threat-hunting
+  - malware-analysis
+  - yara
+  - ethical-hacking
+  - red-team
+  - blue-team
+  - security-research
+  - mitre-attack
+  - cyber-threats
+  - sigma-rules
+  - open-source-security
+  - vulnerability-testing
+  - lab
+date-released: 2026-03-17
