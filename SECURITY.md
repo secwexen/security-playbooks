@@ -27,4 +27,5 @@ Report any issues directly to the repository owner:
 
 ---
 
+> [!NOTE]
 > By using this repository, you acknowledge that the owner is **not responsible for misuse** of the materials and that they are provided for **educational and research purposes only**.
