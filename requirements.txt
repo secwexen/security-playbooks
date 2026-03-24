@@ -9,7 +9,7 @@ rich==13.7.1
 
 # Data & log processing
 pandas==2.2.2
-orjson==3.10.7
+orjson==3.11.6
 
 # Parsing & utilities
 regex==2024.5.15
