@@ -5,7 +5,7 @@ pytest-mock==3.14.0
 
 # Linting & Formatting
 flake8==7.0.0
-black==24.4.2
+black==26.3.1
 isort==5.13.2
 
 # Type Checking
