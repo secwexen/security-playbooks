@@ -177,6 +177,24 @@ Please open an issue before submitting major changes or new features.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines.
 
+## Roadmap
+
+This document outlines the planned development path for the **Security Playbooks** repository, including short‑term improvements, medium‑term expansions, and long‑term strategic goals.
+
+Planned improvements include:
+
+- expanded ATT&CK-mapped playbooks
+- enhanced detection rules (Sigma, YARA, Suricata)
+- structured SOC and incident response workflows
+- automation-ready playbooks (SOAR integration)
+- lab and simulation scenarios
+- standardized schemas for machine-readable playbooks
+- alignment with security frameworks (NIST, CIS, ISO)
+
+For the full roadmap and upcoming features, see [ROADMAP.md](docs/roadmap.md).
+
+The roadmap evolves based on community feedback, operational needs, and contributor input. Contributions and suggestions are welcome.
+
 ## Development Status
 
 **Security Playbooks** is currently in **Active Development** stage.
