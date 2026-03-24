@@ -91,6 +91,31 @@ The Security Playbooks is intended for cybersecurity expert who want to practice
 - **Cybersecurity Students** – for hands-on learning and portfolio development  
 - **Red Teamers (lab-only)** – for adversary emulation and controlled attack simulations  
 
+## Installation Requirements
+
+Security Playbooks requires a minimal and modern environment to run detection rules, labs, and analysis tools.
+
+### Supported Operating Systems
+
+- Windows 10 / 11  
+- Linux (Ubuntu 20.04+, Debian-based distros)  
+- macOS (Intel & Apple Silicon)
+
+### Python Requirements
+
+- Python **3.11+**  
+- pip 23+  
+- Virtual environment recommended
+
+### Required Tools (Depending on Scenario)
+
+- **Sysmon** (Windows logging)  
+- **Suricata** (Network IDS)  
+- **YARA** (Malware pattern matching)  
+- **Sigma CLI** (Rule conversion)  
+- **Wireshark / tcpdump** (PCAP analysis)  
+- **Python libraries** (installed via [requirements.txt](requirements.txt))
+
 ## Quick Start
 
 ```bash
@@ -115,6 +140,16 @@ python labs/lab2_log_analysis/parser.py examples/malware_log_example.txt
 
 For full details, refer to the [Quick Start](docs/quickstart.md) file.  
 For complete command information, refer to the [RUN COMMANDS](docs/RUN_COMMANDS.md) file.
+
+## Use Cases
+
+Security Playbooks is designed for real-world cybersecurity workflows.
+
+- **SOC Analysts**
+- **Threat Hunters**
+- **Blue Team Engineers**
+- **Cybersecurity Experts**
+- **Red Teamers (Lab Only)**
 
 ## Ethical Use
 
