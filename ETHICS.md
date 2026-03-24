@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The Cyber Threat Playbook is designed **strictly for educational, research, and ethical cybersecurity purposes**.  
+The Security Playbooks is designed **strictly for educational, research, and ethical cybersecurity purposes**.  
 This document outlines ethical guidelines for using the repository and its content.
 
 ## Ethical Principles
@@ -37,5 +37,5 @@ This document outlines ethical guidelines for using the repository and its conte
 ---
 
 **Maintainer:** Secwexen  
-**Date:** 2026-03-17  
-**Repository:** [Cyber Threat Playbook](https://github.com/secwexen/cyber-threat-playbook)
+**Date:** 2026-03-24  
+**Repository:** [Security Playbooks](https://github.com/secwexen/security-playbooks)
