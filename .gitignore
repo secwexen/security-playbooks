@@ -205,3 +205,29 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Runtime output
+/output/
+output/detection_results/
+output/enriched_iocs/
+
+# Notebook temp / export
+*.nbconvert.ipynb
+
+# Logs
+*.log.*
+logs/
+
+# Local config / secrets
+config/*.local.yaml
+config/*.secret.yaml
+
+# Terraform / Lab temp
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/.terraform/
+lab-environment/docker/*.log
+lab-environment/docker/*.pid
+
+# IDE
+.vscode/
