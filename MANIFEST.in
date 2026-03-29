@@ -1,1 +1,11 @@
+include README.md
+include LICENSE
+include requirements.txt
+include dev-requirements.txt
 
+recursive-include rules *
+recursive-include playbooks *
+recursive-include scripts *
+
+global-exclude *.pyc
+global-exclude __pycache__/*
