@@ -22,7 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 
 # Release v0.2.0 – 2026-03-31
 
-## **v0.2.0 — adds a testing engine, SOAR, reports, new rules, and integrations.**
+## v0.2.0 — A testing engine, SOAR, reports, new rules, and integrations were added.
 
 ### Added
 
