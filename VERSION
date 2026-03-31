@@ -1,1 +1,8 @@
+# Security Playbooks Version Information
+# Title: Security Playbooks v0.2.0
+# Format: MAJOR.MINOR.PATCH
+# Date: 2026-03-31
 
+VERSION=0.2.0
+RELEASE_DATE=2026-03-31
+DESCRIPTION="A testing engine, SOAR, reports, new rules, and integrations were added."
