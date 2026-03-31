@@ -12,7 +12,7 @@ keywords:
   - python
   - log-analysis
   - incident-response
-  - playbook
+  - playbooks
   - cybersecurity
   - suricata
   - pentesting
@@ -29,4 +29,5 @@ keywords:
   - open-source-security
   - vulnerability-testing
   - lab
+version: "0.2.0"
 date-released: 2026-03-17
