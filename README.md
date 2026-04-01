@@ -9,6 +9,7 @@
 **Official Website:** [https://secwexen.github.io/security-playbooks/](https://secwexen.github.io/security-playbooks/)
 
 [![CI](https://github.com/secwexen/security-playbooks/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/secwexen/security-playbooks/actions/workflows/ci.yml)
+[![Coverage](https://codecov.io/gh/secwexen/security-playbooks/branch/main/graph/badge.svg?branch=main&event=pull_request)](https://codecov.io/gh/secwexen/security-playbooks)
 [![CodeQL](https://github.com/secwexen/security-playbooks/actions/workflows/github-code-scanning/codeql/badge.svg?branch=main&event=push)](https://github.com/secwexen/security-playbooks/actions/workflows/github-code-scanning/codeql)
 [![Python Version](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
 [![Release](https://img.shields.io/github/v/release/secwexen/security-playbooks?include_prereleases)](https://github.com/secwexen/security-playbooks/releases)
