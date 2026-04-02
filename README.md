@@ -153,7 +153,8 @@ Detailed guides and references are also available in the repository:
 
 - [**Repository Structure**](docs/architecture.md)
 - [Quick Start](docs/quickstart.md)
-- [Roadmap & Milestones](docs/roadmap.md)
+- [Examples](docs/examples.md)
+- [Roadmap & Milestones](ROADMAP.md)
 - [Contributing Guidelines](CONTRIBUTING.md)
 - [Changelog](CHANGELOG.md)
 - [Security Policy](SECURITY.md)
