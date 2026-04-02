@@ -174,12 +174,12 @@ For full details, see [DISCLAIMER.md](/DISCLAIMER.md).
 
 ## Community
 
-📌 Check out [Issues](https://github.com/secwexen/security-playbooks/issues) for tasks and ideas.  
-💬 Join [Discussions](https://github.com/secwexen/security-playbooks/discussions) to share feedback and proposals.  
-**⭐ Found Security Playbooks Repository useful? Give us a star and help grow the community!**  
-🤝 Contribute code, documentation, or testing — see [CONTRIBUTING.md](CONTRIBUTING.md) for details.  
-🌐 Visit the [Official Website](https://secwexen.github.io/security-playbooks/) for documentation, updates, and project information.  
-📘 Visit the [Wiki — Full Documentation](https://github.com/secwexen/security-playbooks/wiki) for detailed guides, architecture, agent behavior models, and project updates.
+- Check out [Issues](https://github.com/secwexen/security-playbooks/issues) for tasks and ideas.  
+- Join [Discussions](https://github.com/secwexen/security-playbooks/discussions) to share feedback and proposals.  
+- ⭐ **Found Security Playbooks Repository useful? Give us a star and help grow the community!**  
+- 🤝 **Contribute code, documentation, or testing — see [CONTRIBUTING.md](CONTRIBUTING.md) for details.**  
+- Visit the [Official Website](https://secwexen.github.io/security-playbooks/) for documentation, updates, and project information.  
+- Visit the [Wiki — Full Documentation](https://github.com/secwexen/security-playbooks/wiki) for detailed guides, architecture, agent behavior models, and project updates.
 
 ## Security
 
