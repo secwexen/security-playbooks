@@ -67,14 +67,6 @@ This repository contains multiple playbook-style scenarios:
 | Malware Analysis | Malware | Various | [malware_analysis/README.md](scenarios/malware_analysis/README.md) |
 | Phishing Simulation | Social Engineering | T1566 | [phishing_simulation/README.md](scenarios/phishing_simulation/README.md) |
 
-## Features
-
-- MITRE ATT&CK–based attack scenarios
-- Sigma / YARA / Suricata detection rules
-- PoC examples for isolated lab environments
-- Log analysis samples
-- Threat hunting practice workflows
-
 ## Who Is This Playbook For
 
 Security Playbooks is intended for cybersecurity professionals who want to practice, analyze, and understand real-world cyber threats in a structured and controlled environment.
