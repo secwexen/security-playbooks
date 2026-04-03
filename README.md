@@ -151,7 +151,8 @@ I do **not** endorse or support illegal activity of any kind.
 
 Detailed guides and references are also available in the repository:
 
-- [**Repository Structure**](docs/architecture.md)
+- [Wiki — Full Documentation](https://github.com/secwexen/security-playbooks/wiki)
+- [Repository Structure](docs/architecture.md)
 - [Quick Start](docs/quickstart.md)
 - [Examples](docs/examples.md)
 - [Roadmap & Milestones](ROADMAP.md)
