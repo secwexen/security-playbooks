@@ -38,4 +38,4 @@ This document outlines ethical guidelines for using the repository and its conte
 
 **Maintainer:** Secwexen  
 **Date:** 2026-03-24  
-**Repository:** [Security Playbooks](https://github.com/secwexen/security-playbooks)
+**GitHub Repository:** [Security Playbooks](https://github.com/secwexen/security-playbooks)
