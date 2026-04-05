@@ -137,16 +137,6 @@ python labs/lab2_log_analysis/parser.py examples/malware_log_example.txt
 For full details, refer to the [Quick Start](docs/quickstart.md) file.  
 For complete command information, refer to the [RUN COMMANDS](docs/RUN_COMMANDS.md) file.
 
-## Ethical Use
-
-All tools in this repository are developed **strictly for educational and ethical purposes**.  
-They are intended to be used for:
-
-- Research and learning  
-- Lab experiments in isolated environments
-
-I do **not** endorse or support illegal activity of any kind.
-
 ## Docs & Resources
 
 Detailed guides and references are also available in the repository:
