@@ -6,8 +6,6 @@ The **Security Playbooks** is structured to provide a clear, modular, and profes
 
 ```
 security-playbooks
-├── .github/
-│   └── workflows/
 ├── assets
 │   └── images/
 ├── automation
