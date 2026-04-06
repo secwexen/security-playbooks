@@ -22,6 +22,47 @@ It focuses on delivering realistic, MITRE ATT&CK–aligned attack scenarios, det
 
 The project aims to bridge the gap between theoretical knowledge and real-world security operations by providing structured, reproducible, and practical cybersecurity workflows.
 
+## Architecture Overview
+
+Security Playbooks follows a simplified enterprise SOC detection pipeline to simulate how real-world security operations function.
+
+```text
+[Data Sources]
+  - Sysmon Logs
+  - Windows Event Logs
+  - Network Traffic (PCAP)
+  - Threat Intelligence Feeds
+        ↓
+[Ingestion & Parsing Layer]
+  - log_loader.py
+  - sysmon_parser.py
+        ↓
+[Detection Engine]
+  - Sigma / YARA / Suricata Rules
+  - rule_loader.py
+        ↓
+[Detection Pipeline]
+  - detection_pipeline.py
+  - pipeline.yaml
+        ↓
+[Enrichment Layer]
+  - VirusTotal / AbuseIPDB integrations
+        ↓
+[SOAR / Response Engine]
+  - isolate_host.py
+  - block_ip.py
+  - disable_user.py
+        ↓
+[Playbook Execution Engine]
+  - playbook_parser.py
+  - executor.py
+        ↓
+[Outputs & Reporting]
+  - reports/
+  - metrics/
+  - dashboards/
+```
+
 ## Features
 
 - **Detection Rules** – Ready-to-use Sigma, YARA, and Suricata rules for threat detection  
@@ -83,6 +124,36 @@ Security Playbooks supports a range of practical cybersecurity workflows and rea
 - **Incident Response Simulation** – Follow structured procedures to investigate and respond to security incidents  
 - **Adversary Emulation (Lab Only)** – Reproduce attacker techniques to validate defensive capabilities  
 - **Training & Skill Development** – Strengthen technical skills through hands-on, scenario-based exercises  
+
+## Detection Validation Framework
+
+All detection rules and scenarios in this repository are designed to be **testable, reproducible, and verifiable**.
+
+### Validation Workflow
+
+Each detection follows a structured validation process:
+
+1. **Attack Simulation**  
+2. **Log Generation**  
+3. **Detection Execution**  
+4. **Alert Verification**  
+5. **Analysis & Tuning**  
+
+### Example Validation Flow
+
+```text
+[Simulated Attack]
+        ↓
+[Log Generated]
+        ↓
+[Detection Pipeline Execution]
+        ↓
+[Rule Triggered]
+        ↓
+[Test Validation]
+        ↓
+[Metrics Collection]
+```
 
 ## Installation
 
