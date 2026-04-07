@@ -183,7 +183,7 @@ Security Playbooks requires a minimal and modern environment to run detection ru
 ## Quick Start
 
 ```bash
-# Clone repo
+# Clone repository
 git clone https://github.com/secwexen/security-playbooks.git
 cd security-playbooks
 
