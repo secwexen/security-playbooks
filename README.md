@@ -4,8 +4,7 @@
 <img src="assets/images/security-playbooks-logo.png" width="600" alt="Security Playbooks Logo" loading="lazy" decoding="async">
 </p>
 
-**Security Playbooks | MITRE ATT&CK Red & Blue Team Labs for SOC Analysts**  
-**Open‑source ATT&CK scenarios, detection rules, and practical blue‑team labs.**
+**Security Playbooks | MITRE ATT&CK Red & Blue Team Labs for SOC Analysts**
 
 **Official Website:** [https://secwexen.github.io/security-playbooks/](https://secwexen.github.io/security-playbooks/)
 
