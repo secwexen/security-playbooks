@@ -31,7 +31,7 @@ Each directory includes its own README for easier navigation.
 
 ## Key Components
 
-### **Playbooks**
+### Playbooks
 
 Step‑by‑step workflows for detection, investigation, and response.  
 Each playbook includes:
@@ -41,7 +41,7 @@ Each playbook includes:
 - Hunting queries  
 - Validation steps  
 
-### **Detection Rules**
+### Detection Rules
 
 A curated set of:
 
@@ -51,7 +51,7 @@ A curated set of:
 
 All rules include descriptions, references, and ATT&CK technique IDs.
 
-### **Labs**
+### Labs
 
 Hands‑on exercises covering:
 
