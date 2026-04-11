@@ -15,25 +15,23 @@ Before starting, make sure you have:
 ## 2. Clone the Repository
 
 ```bash
+# Clone repository
 git clone https://github.com/secwexen/security-playbooks.git
 cd security-playbooks
-```
 
-## 3. Install Dependencies
-
-Some PoC scripts may require additional Python packages. You can install them using:
-
-```bash
-pip install -r requirements.txt
-```
-
-> Create a virtual environment to avoid conflicts with your system Python.
-
-```bash
+# Create virtual environment
 python -m venv venv
-source venv/bin/activate  # Linux/macOS
+source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
+
+# Install dependencies
 pip install -r requirements.txt
+
+# Install dev dependencies
+pip install -r dev-requirements.txt
+
+# To quickly test the project, run:
+python labs/lab2_log_analysis/parser.py examples/malware_log_example.txt
 ```
 
 ## 4. Explore the Repository
