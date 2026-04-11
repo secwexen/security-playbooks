@@ -29,11 +29,6 @@ This document outlines ethical guidelines for using the repository and its conte
    - Always run scripts and scenarios in a controlled, isolated lab.
    - Avoid actions that could affect real-world networks, users, or data.
 
-## Disclaimer
-
-- This repository owner assumes **no responsibility** for misuse, damage, or illegal actions arising from using this playbook.
-- Following the guidelines above is your responsibility as a user.
-
 ---
 
 **Maintainer:** Secwexen  
