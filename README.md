@@ -33,7 +33,7 @@ By integrating attack simulations with detection engineering and incident respon
 
 Security Playbooks follows a simplified enterprise SOC detection pipeline to simulate how real-world security operations function.
 
-```text
+```bash
 [Data Sources]
   - Sysmon Logs
   - Windows Event Logs
@@ -148,7 +148,7 @@ Each detection follows a structured validation process:
 
 ### Example Validation Flow
 
-```text
+```bash
 [Simulated Attack]
         ↓
 [Log Generated]
@@ -247,7 +247,7 @@ For full details, see [DISCLAIMER.md](/DISCLAIMER.md).
 
 ## Security
 
-For guidance on safe usage and reporting vulnerabilities, see [SECURITY.md](/SECURITY.md).
+For guidance on safe usage and reporting vulnerabilities, see [SECURITY.md](SECURITY.md).
 
 ## Contributing
 
