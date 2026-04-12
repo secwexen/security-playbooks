@@ -10,24 +10,28 @@ This document explains the contribution process, guidelines, and expectations.
 You may contribute in several ways:
 
 ### Code Contributions
+
 - Python scripts  
 - Detection engineering logic  
 - Automation improvements  
 - Lab enhancements  
 
 ### Detection Rules
+
 - Sigma rules  
 - YARA rules  
 - Suricata rules  
 - MITRE ATT&CK mappings  
 
 ### Documentation
+
 - Playbook improvements  
 - Lab walkthroughs  
 - Threat‑hunting guides  
 - Architecture explanations  
 
 ### Issues & Suggestions
+
 - Bug reports  
 - Feature requests  
 - Scenario ideas  
@@ -36,6 +40,7 @@ You may contribute in several ways:
 ## Before You Start
 
 ### 1. **Open an Issue First**
+
 Before submitting a Pull Request, please open an issue describing:
 - What you want to add or fix  
 - Why it is needed  
@@ -44,6 +49,7 @@ Before submitting a Pull Request, please open an issue describing:
 This helps maintain project structure and prevents duplicate work.
 
 ### 2. **Fork the Repository**
+
 Create your own fork and work on a dedicated branch:
 ```
 feature/my-new-feature
@@ -52,6 +58,7 @@ rule/sigma-rule-name
 ```
 
 ### 3. **Follow the Project Structure**
+
 Please keep files in their correct directories:
 ```
 detection-rules/
@@ -65,18 +72,21 @@ examples/
 ## Code & Rule Quality Guidelines
 
 ### General Guidelines
+
 - Keep code clean, readable, and well‑commented  
 - Follow Python best practices (PEP8 recommended)  
 - Use meaningful filenames and commit messages  
 - Avoid breaking existing functionality  
 
 ### Detection Rules
+
 - Include MITRE ATT&CK technique IDs  
 - Add clear descriptions and references  
 - Test rules on sample logs if possible  
 - Follow Sigma/YARA/Suricata syntax standards  
 
-### Documentation 
+### Documentation
+
 - Include examples, screenshots, or logs when helpful  
 - Keep formatting consistent  
 
@@ -89,8 +99,8 @@ examples/
 5. Requested changes (if any) must be completed
 6. Once approved, your PR will be merged
 
-**Note:**  
-Large or complex PRs may require additional review time.
+> [!NOTE]
+> Large or complex PRs may require additional review time.
 
 ## Code of Conduct
 
