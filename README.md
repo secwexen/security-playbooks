@@ -4,8 +4,7 @@
 <img src="assets/images/security-playbooks-logo.png" width="600" alt="Security Playbooks Logo" loading="lazy" decoding="async">
 </p>
 
-**Security Playbooks | MITRE ATT&CK Red & Blue Team Labs for SOC Analysts**  
-**Open‑source ATT&CK scenarios, detection rules, and practical blue‑team labs.**
+**Security Playbooks | MITRE ATT&CK Red & Blue Team Labs for SOC Analysts**
 
 **Official Website:** [https://secwexen.github.io/security-playbooks/](https://secwexen.github.io/security-playbooks/)
 
@@ -16,11 +15,58 @@
 
 ## About
 
-Security Playbooks is an open-source, educational, and portfolio-focused repository designed for cybersecurity professionals.
+Security Playbooks is an open-source, educational repository designed for cybersecurity professionals.
 
 It focuses on delivering realistic, MITRE ATT&CK–aligned attack scenarios, detection engineering content, and hands-on labs to help users build practical skills in threat hunting, incident response, and adversary simulation within controlled environments.
 
 The project aims to bridge the gap between theoretical knowledge and real-world security operations by providing structured, reproducible, and practical cybersecurity workflows.
+
+## Overview
+
+Security Playbooks is a structured, MITRE ATT&CK–aligned learning and simulation platform that models real-world Security Operations Center (SOC) workflows. It provides hands-on playbooks, detection rules, and lab scenarios that enable users to analyze, detect, and respond to modern cyber threats in controlled environments.
+
+By integrating attack simulations with detection engineering and incident response processes, the project allows users to move beyond theory and practice end-to-end security operations — from log ingestion and rule execution to investigation, enrichment, and response.
+
+## Architecture Overview
+
+Security Playbooks follows a simplified enterprise SOC detection pipeline to simulate how real-world security operations function.
+
+```bash
+[Data Sources]
+  - Sysmon Logs
+  - Windows Event Logs
+  - Network Traffic (PCAP)
+  - Threat Intelligence Feeds
+        ↓
+[Ingestion & Parsing Layer]
+  - log_loader.py
+  - sysmon_parser.py
+        ↓
+[Detection Engine]
+  - Sigma / YARA / Suricata Rules
+  - rule_loader.py
+        ↓
+[Detection Pipeline]
+  - detection_pipeline.py
+  - pipeline.yaml
+        ↓
+[Enrichment Layer]
+  - VirusTotal / AbuseIPDB integrations
+        ↓
+[SOAR / Response Engine]
+  - isolate_host.py
+  - block_ip.py
+  - disable_user.py
+        ↓
+[Playbook Execution Engine]
+  - playbook_parser.py
+  - executor.py
+        ↓
+[Outputs & Reporting]
+  - reports/
+  - metrics/
+  - dashboards/
+```
 
 ## Features
 
@@ -84,6 +130,36 @@ Security Playbooks supports a range of practical cybersecurity workflows and rea
 - **Adversary Emulation (Lab Only)** – Reproduce attacker techniques to validate defensive capabilities  
 - **Training & Skill Development** – Strengthen technical skills through hands-on, scenario-based exercises  
 
+## Detection Validation Framework
+
+All detection rules and scenarios in this repository are designed to be **testable, reproducible, and verifiable**.
+
+### Validation Workflow
+
+Each detection follows a structured validation process:
+
+1. **Attack Simulation**  
+2. **Log Generation**  
+3. **Detection Execution**  
+4. **Alert Verification**  
+5. **Analysis & Tuning**  
+
+### Example Validation Flow
+
+```bash
+[Simulated Attack]
+        ↓
+[Log Generated]
+        ↓
+[Detection Pipeline Execution]
+        ↓
+[Rule Triggered]
+        ↓
+[Test Validation]
+        ↓
+[Metrics Collection]
+```
+
 ## Installation
 
 Security Playbooks requires a minimal and modern environment to run detection rules, labs, and analysis tools.
@@ -112,7 +188,7 @@ Security Playbooks requires a minimal and modern environment to run detection ru
 ## Quick Start
 
 ```bash
-# Clone repo
+# Clone repository
 git clone https://github.com/secwexen/security-playbooks.git
 cd security-playbooks
 
@@ -164,12 +240,12 @@ For full details, see [DISCLAIMER.md](/DISCLAIMER.md).
 
 - Check out [Issues](https://github.com/secwexen/security-playbooks/issues) for tasks and ideas.  
 - Join [Discussions](https://github.com/secwexen/security-playbooks/discussions) to share feedback and proposals.  
-- **Found Security Playbooks repository useful? Give us a star and help grow the community!**  
+- **If you find this project valuable, consider giving it a star.**  
 - Contribute code, documentation, or testing — see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## Security
 
-For guidance on safe usage and reporting vulnerabilities, see [SECURITY.md](/SECURITY.md).
+For guidance on safe usage and reporting vulnerabilities, see [SECURITY.md](SECURITY.md).
 
 ## Contributing
 
