@@ -13,6 +13,8 @@
 [![Release](https://img.shields.io/github/v/release/secwexen/security-playbooks?include_prereleases)](https://github.com/secwexen/security-playbooks/releases)
 [![License](https://img.shields.io/github/license/secwexen/security-playbooks)](https://github.com/secwexen/security-playbooks/blob/main/LICENSE)
 
+**⭐ If you find this project valuable, consider giving it a star.**
+
 ## About
 
 Security Playbooks is an open-source, educational repository designed for cybersecurity professionals.
@@ -240,7 +242,7 @@ For full details, see [DISCLAIMER.md](/DISCLAIMER.md).
 
 - Check out [Issues](https://github.com/secwexen/security-playbooks/issues) for tasks and ideas.  
 - Join [Discussions](https://github.com/secwexen/security-playbooks/discussions) to share feedback and proposals.  
-- **Found Security Playbooks repository useful? Give us a star and help grow the community!**  
+- **If you find this project valuable, consider giving it a star.**  
 - Contribute code, documentation, or testing — see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## Security
