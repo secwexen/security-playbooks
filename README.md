@@ -236,17 +236,6 @@ The contents of this repository are for educational and research purposes. The r
 
 For full details, see [DISCLAIMER.md](/DISCLAIMER.md).
 
-## Community & Support
-
-- Check out [Issues](https://github.com/secwexen/security-playbooks/issues) for tasks and ideas.  
-- Join [Discussions](https://github.com/secwexen/security-playbooks/discussions) to share feedback and proposals.  
-- **If you find this project valuable, consider giving it a star.**  
-- Contribute code, documentation, or testing — see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
-
-## Security
-
-For guidance on safe usage and reporting vulnerabilities, see [SECURITY.md](SECURITY.md).
-
 ## Contributing
 
 Contributions are welcome!
@@ -282,3 +271,14 @@ The roadmap evolves based on community feedback, operational needs, and contribu
 ## Development Status
 
 **Security Playbooks** is currently in **Active Development** stage.
+
+## Community & Support
+
+- Check out [Issues](https://github.com/secwexen/security-playbooks/issues) for tasks and ideas.  
+- Join [Discussions](https://github.com/secwexen/security-playbooks/discussions) to share feedback and proposals.  
+- **If you find this project valuable, consider giving it a star.**  
+- Contribute code, documentation, or testing — see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+## Security
+
+For guidance on safe usage and reporting vulnerabilities, see [SECURITY.md](SECURITY.md).
