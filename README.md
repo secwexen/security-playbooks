@@ -236,17 +236,6 @@ The contents of this repository are for educational and research purposes. The r
 
 For full details, see [DISCLAIMER.md](/DISCLAIMER.md).
 
-## Community & Support
-
-- Check out [Issues](https://github.com/secwexen/security-playbooks/issues) for tasks and ideas.  
-- Join [Discussions](https://github.com/secwexen/security-playbooks/discussions) to share feedback and proposals.  
-- **If you find this project valuable, consider giving it a star.**  
-- Contribute code, documentation, or testing — see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
-
-## Security
-
-For guidance on safe usage and reporting vulnerabilities, see [SECURITY.md](SECURITY.md).
-
 ## Contributing
 
 Contributions are welcome!
@@ -283,12 +272,13 @@ The roadmap evolves based on community feedback, operational needs, and contribu
 
 **Security Playbooks** is currently in **Active Development** stage.
 
-## External References
+## Community & Support
 
-- **MITRE ATT&CK Framework** — [https://attack.mitre.org](https://attack.mitre.org)  
-- **NIST Cybersecurity Framework** — [https://www.nist.gov/cyberframework](https://www.nist.gov/cyberframework)  
-- **OWASP Security Projects** — [https://owasp.org](https://owasp.org)  
-- **Microsoft Security Research** — [https://www.microsoft.com/en-us/security/blog/](https://www.microsoft.com/en-us/security/blog/)  
-- **Google Red Team** — [https://redteam.google/](https://redteam.google/)  
-- **Elastic Security Labs** — [https://www.elastic.co/security-labs](https://www.elastic.co/security-labs)  
-- **Sigma HQ** — [https://github.com/SigmaHQ/sigma](https://github.com/SigmaHQ/sigma)  
+- Check out [Issues](https://github.com/secwexen/security-playbooks/issues) for tasks and ideas.  
+- Join [Discussions](https://github.com/secwexen/security-playbooks/discussions) to share feedback and proposals.  
+- **If you find this project valuable, consider giving it a star.**  
+- Contribute code, documentation, or testing — see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+## Security
+
+For guidance on safe usage and reporting vulnerabilities, see [SECURITY.md](SECURITY.md).
