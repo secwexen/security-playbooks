@@ -28,9 +28,3 @@ This document outlines ethical guidelines for using the repository and its conte
 6. **Safe Environment**
    - Always run scripts and scenarios in a controlled, isolated lab.
    - Avoid actions that could affect real-world networks, users, or data.
-
----
-
-**Maintainer:** Secwexen  
-**Date:** 2026-03-24  
-**GitHub Repository:** [Security Playbooks](https://github.com/secwexen/security-playbooks)
