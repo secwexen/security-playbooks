@@ -208,8 +208,6 @@ For complete command information, refer to the [RUN COMMANDS](docs/RUN_COMMANDS.
 
 ## Docs & Resources
 
-Detailed guides and references are also available in the repository:
-
 - [Wiki — Full Documentation](https://github.com/secwexen/security-playbooks/wiki)
 - [Repository Structure](docs/architecture.md)
 - [Quick Start](docs/quickstart.md)
