@@ -160,8 +160,6 @@ Each detection follows a structured validation process:
 
 ## Installation
 
-Security Playbooks requires a minimal and modern environment to run detection rules, labs, and analysis tools.
-
 ### Supported Operating Systems
 
 - Windows 10 / 11  
@@ -230,13 +228,13 @@ See the [LICENSE](LICENSE) file for full details.
 
 ## Disclaimer
 
-The contents of this repository are for educational and research purposes. The repository owner assumes no responsibility for misuse or legal consequences. 
+The contents of this repository, including scripts, scenarios, and detection rules, are provided **for educational, research purposes only**.
 
-For full details, see [DISCLAIMER.md](/DISCLAIMER.md).
+For full details, see [DISCLAIMER](DISCLAIMER.md).
 
 ## Contributing
 
-Contributions are welcome!
+Contributions and suggestions are welcome!
 
 - Fork the repository and create a feature or fix branch (e.g. `feature/your-feature` or `fix/bug-name`).
 - Make your changes and add relevant tests.
@@ -246,7 +244,7 @@ Contributions are welcome!
 
 Please open an issue before submitting major changes or new features.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines.
+See [CONTRIBUTING](CONTRIBUTING.md) for detailed contribution guidelines.
 
 ## Roadmap
 
@@ -262,9 +260,7 @@ Planned improvements include:
 - standardized schemas for machine-readable playbooks
 - alignment with security frameworks (NIST, CIS, ISO)
 
-For the full roadmap and upcoming features, see [ROADMAP.md](docs/roadmap.md).
-
-The roadmap evolves based on community feedback, operational needs, and contributor input. Contributions and suggestions are welcome.
+For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
 ## Development Status
 
@@ -275,7 +271,7 @@ The roadmap evolves based on community feedback, operational needs, and contribu
 - Check out [Issues](https://github.com/secwexen/security-playbooks/issues) for tasks and ideas.  
 - Join [Discussions](https://github.com/secwexen/security-playbooks/discussions) to share feedback and proposals.  
 - **If you find this project valuable, consider giving it a star.**  
-- Contribute code, documentation, or testing — see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+- Contribute code, documentation, or testing — see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
 
