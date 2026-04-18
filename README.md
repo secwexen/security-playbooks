@@ -6,6 +6,8 @@
 
 **Security Playbooks | MITRE ATT&CK Red & Blue Team Labs for SOC Analysts**
 
+⭐ If you find this project valuable, consider giving it a star.
+
 [![CI](https://github.com/secwexen/security-playbooks/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/secwexen/security-playbooks/actions/workflows/ci.yml)
 [![Coverage](https://codecov.io/gh/secwexen/security-playbooks/branch/main/graph/badge.svg?branch=main&event=pull_request)](https://codecov.io/gh/secwexen/security-playbooks)
 [![Release](https://img.shields.io/github/v/release/secwexen/security-playbooks?include_prereleases)](https://github.com/secwexen/security-playbooks/releases)
@@ -25,16 +27,6 @@ Security Playbooks is a structured, MITRE ATT&CK–aligned learning and simulati
 
 By integrating attack simulations with detection engineering and incident response processes, the platform enables end-to-end security operations — from log ingestion and rule execution to investigation, enrichment, and response.
 
-## Who Is This For
-
-Security Playbooks is intended for cybersecurity professionals who want to practice, analyze, and understand real-world cyber threats in a structured and controlled environment.
-
-- **SOC Analysts** – Perform alert triage, log analysis, and incident investigation  
-- **Threat Hunters** – Conduct hypothesis-driven hunts and analyze adversary behavior  
-- **Blue Team Engineers** – Build, test, and optimize detection rules (Sigma, YARA, Suricata)  
-- **Cybersecurity Professionals** – Gain hands-on experience and develop practical expertise  
-- **Red Teamers (Lab Use Only)** – Emulate adversary techniques in controlled, isolated environments  
-
 ## Use Cases
 
 Security Playbooks supports a range of practical cybersecurity workflows and real-world scenarios:
@@ -46,6 +38,16 @@ Security Playbooks supports a range of practical cybersecurity workflows and rea
 - **Adversary Emulation (Lab Only)** – Reproduce attacker techniques to validate defensive capabilities  
 - **Training & Skill Development** – Strengthen technical skills through hands-on, scenario-based exercises  
 
+## Who Is This For
+
+Security Playbooks is intended for cybersecurity professionals who want to practice, analyze, and understand real-world cyber threats in a structured and controlled environment.
+
+- **SOC Analysts** – Perform alert triage, log analysis, and incident investigation  
+- **Threat Hunters** – Conduct hypothesis-driven hunts and analyze adversary behavior  
+- **Blue Team Engineers** – Build, test, and optimize detection rules (Sigma, YARA, Suricata)  
+- **Cybersecurity Professionals** – Gain hands-on experience and develop practical expertise  
+- **Red Teamers (Lab Use Only)** – Emulate adversary techniques in controlled, isolated environments  
+
 ## Features
 
 - **Detection Rules** – Ready-to-use Sigma, YARA, and Suricata rules for threat detection  
@@ -54,7 +56,7 @@ Security Playbooks supports a range of practical cybersecurity workflows and rea
 - **Log Analysis Examples** – Sample logs, outputs, and visual artifacts  
 - **Documentation & Tools** – Quick Start guides, architecture docs, and helper scripts
 
-## Architecture Overview
+## Architecture
 
 Security Playbooks follows a simplified enterprise SOC detection pipeline to simulate how real-world security operations function.
 
@@ -266,10 +268,9 @@ For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
 ## Community & Support
 
-- Check out [Issues](https://github.com/secwexen/security-playbooks/issues) for tasks and ideas.  
-- Join [Discussions](https://github.com/secwexen/security-playbooks/discussions) to share feedback and proposals.  
-- **If you find this project valuable, consider giving it a star.**  
-- Contribute code, documentation, or testing — see [CONTRIBUTING](CONTRIBUTING.md) for details.
+- Contribute code, documentation, or testing — see [CONTRIBUTING](CONTRIBUTING.md) for details.  
+- Join [Discussions](https://github.com/secwexen/aapp-mart/discussions) to share feedback and proposals.  
+- Check out [Issues](https://github.com/secwexen/aapp-mart/issues) for tasks and ideas.  
 
 ## Security
 
