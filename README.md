@@ -21,12 +21,6 @@ It focuses on delivering realistic, MITRE ATT&CK–aligned attack scenarios, det
 
 The project aims to bridge the gap between theoretical knowledge and real-world security operations by providing structured, reproducible, and practical cybersecurity workflows.
 
-## Overview
-
-Security Playbooks is a structured, MITRE ATT&CK–aligned learning and simulation platform that models real-world Security Operations Center (SOC) workflows. It provides hands-on playbooks, detection rules, and lab scenarios.
-
-By integrating attack simulations with detection engineering and incident response processes, the platform enables end-to-end security operations — from log ingestion and rule execution to investigation, enrichment, and response.
-
 ## Use Cases
 
 Security Playbooks supports a range of practical cybersecurity workflows and real-world scenarios:
