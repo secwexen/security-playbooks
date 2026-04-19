@@ -164,15 +164,14 @@ Each detection follows a structured validation process:
 
 ### Supported Operating Systems
 
-- Windows 10 / 11  
-- Linux (Ubuntu 20.04+, Debian-based distros)  
-- macOS (Intel & Apple Silicon)
+- Windows 10 and 11  
+- Linux (Ubuntu 20.04+, Debian 11+)  
+- macOS (Intel and Apple Silicon)
 
-### Python Requirements
+### Requirements
 
 - Python **3.11+**  
-- pip 23+  
-- Virtual environment recommended
+- pip **23+**
 
 ### Required Tools (Depending on Scenario)
 
