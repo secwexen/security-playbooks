@@ -223,8 +223,6 @@ See the [LICENSE](LICENSE) file for full details.
 
 The contents of this repository, including scripts, scenarios, and detection rules, are provided **for educational, research purposes only**.
 
-For full details, see [DISCLAIMER](DISCLAIMER.md).
-
 ## Contributing
 
 Contributions and suggestions are welcome!
