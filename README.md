@@ -32,6 +32,12 @@ Security Playbooks supports a range of practical cybersecurity workflows and rea
 - **Adversary Emulation (Lab Only)** – Reproduce attacker techniques to validate defensive capabilities  
 - **Training & Skill Development** – Strengthen technical skills through hands-on, scenario-based exercises  
 
+## Disclaimer
+
+The contents of this repository, including scripts, scenarios, and detection rules, are provided **for educational, research purposes only**. No responsibility for any damage, misuse, or legal consequences resulting from the use of this material.
+
+This software is provided “as is” without warranty of any kind, express or implied.
+
 ## Who Is This For
 
 Security Playbooks is intended for cybersecurity professionals who want to practice, analyze, and understand real-world cyber threats in a structured and controlled environment.
