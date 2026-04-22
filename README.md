@@ -222,10 +222,6 @@ Copyright © 2026 secwexen.
 This project is licensed under the **MIT License**.  
 See the [LICENSE](LICENSE) file for full details.
 
-## Disclaimer
-
-The contents of this repository, including scripts, scenarios, and detection rules, are provided **for educational, research purposes only**.
-
 ## Contributing
 
 Contributions and suggestions are welcome!
