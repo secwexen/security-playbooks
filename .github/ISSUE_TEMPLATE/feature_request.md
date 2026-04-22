@@ -1,7 +1,10 @@
 ---
 name: Feature Request
 about: Suggest a new feature or improvement for Security Playbooks
+title: ''
 labels: enhancement
+assignees: ''
+
 ---
 
 ## Summary
