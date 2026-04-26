@@ -23,8 +23,4 @@ Report any issues directly to the repository owner:
 
 - All scripts and labs are intended for **educational and lab use only**.  
 - Use **isolated environments** (VMs, containers, sandboxes) to avoid affecting production systems.  
-- Follow **ethical guidelines** and local laws when experimenting with scripts or scenarios.  
-
----
-
-> By using this repository, you acknowledge that the owner is **not responsible for misuse** of the materials and that they are provided for **educational and research purposes only**.
+- Follow **ethical guidelines** and local laws when experimenting with scripts or scenarios.
