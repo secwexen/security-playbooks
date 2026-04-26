@@ -99,14 +99,6 @@ Please read:
 
 Pull requests are welcome.
 
-## Maintainer
-
-Project Maintainer: **Secwexen**  
-GitHub: [https://github.com/secwexen](https://github.com/secwexen)
-
-For general questions, open an issue.  
-For sensitive matters, follow the security policy.
-
 ## Thank You
 
 Your feedback helps improve the project and supports the cybersecurity community.  
