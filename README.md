@@ -30,6 +30,16 @@ Security Playbooks supports a range of practical cybersecurity workflows and rea
 - **Adversary Emulation (Lab Only)** – Reproduce attacker techniques to validate defensive capabilities  
 - **Training & Skill Development** – Strengthen technical skills through hands-on, scenario-based exercises  
 
+## Legal & Authorized Use Only
+
+This Security Playbooks repository is intended strictly for **educational, research, and authorized security testing purposes only**.
+
+Unauthorized use of this software, including deployment against systems without explicit permission, is strictly prohibited.
+
+Users are solely responsible for ensuring their activities comply with all applicable laws and regulations.
+
+The maintainers assume no liability for misuse or any damages resulting from the use of this project.
+
 ## Disclaimer
 
 The contents of this repository, including scripts, scenarios, and detection rules, are provided **for educational, research purposes only**. No responsibility for any damage, misuse, or legal consequences resulting from the use of this material.
@@ -162,14 +172,14 @@ Each detection follows a structured validation process:
 
 ### Supported Operating Systems
 
-- Windows 10 and 11  
+- Windows 10 / 11  
 - Linux (Ubuntu 20.04+, Debian 11+)  
 - macOS (Intel and Apple Silicon)
 
 ### Requirements
 
 - Python **3.11+**  
-- pip **23+**
+- pip **23+**  
 
 ### Required Tools (Depending on Scenario)
 
@@ -221,10 +231,6 @@ Copyright © 2026 secwexen.
 
 This project is licensed under the **MIT License**.  
 See the [LICENSE](LICENSE) file for full details.
-
-## Disclaimer
-
-The contents of this repository, including scripts, scenarios, and detection rules, are provided **for educational, research purposes only**.
 
 ## Contributing
 
