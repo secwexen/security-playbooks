@@ -1,6 +1,4 @@
-# Disclaimer
-
-**License:** MIT License
+# Legal Disclaimer
 
 The contents of this repository, including scripts, scenarios, and detection rules, are provided **for educational, research, and portfolio purposes only**. 
 
