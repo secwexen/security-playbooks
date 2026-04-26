@@ -1,4 +1,4 @@
-# Disclaimer
+# Legal Disclaimer
 
 The contents of this repository, including scripts, scenarios, and detection rules, are provided **for educational, research purposes only**. 
 
