@@ -40,7 +40,7 @@ Users are solely responsible for ensuring their activities comply with all appli
 
 The maintainers assume no liability for misuse or any damages resulting from the use of this project.
 
-## Disclaimer
+## Legal Disclaimer
 
 The contents of this repository, including scripts, scenarios, and detection rules, are provided **for educational, research purposes only**. No responsibility for any damage, misuse, or legal consequences resulting from the use of this material.
 
