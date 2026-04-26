@@ -172,7 +172,7 @@ Each detection follows a structured validation process:
 
 ### Supported Operating Systems
 
-- Windows 10 and 11  
+- Windows 10 / 11  
 - Linux (Ubuntu 20.04+, Debian 11+)  
 - macOS (Intel and Apple Silicon)
 
