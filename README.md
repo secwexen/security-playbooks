@@ -181,14 +181,13 @@ Each detection follows a structured validation process:
 - Python **3.11+**  
 - pip **23+**  
 
-### Required Tools (Depending on Scenario)
+### Optional Tools (Depending on Scenario)
 
 - **Sysmon** (Windows logging)  
 - **Suricata** (Network IDS)  
 - **YARA** (Malware pattern matching)  
 - **Sigma CLI** (Rule conversion)  
-- **Wireshark / tcpdump** (PCAP analysis)  
-- **Python libraries** (installed via [requirements.txt](requirements.txt) and [dev-requirements.txt](dev-requirements.txt))
+- **Wireshark / tcpdump** (PCAP analysis)
 
 ## Quick Start
 
@@ -212,8 +211,7 @@ pip install -r dev-requirements.txt
 python labs/lab2_log_analysis/parser.py examples/malware_log_example.txt
 ```
 
-For full details, refer to the [Quick Start](docs/quickstart.md) file.  
-For complete command information, refer to the [RUN COMMANDS](docs/RUN_COMMANDS.md) file.
+For full details, refer to the [Quick Start](docs/quickstart.md) file.
 
 ## Docs & Resources
 
