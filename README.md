@@ -11,6 +11,8 @@
 [![Release](https://img.shields.io/github/v/release/secwexen/security-playbooks?include_prereleases)](https://github.com/secwexen/security-playbooks/releases)
 [![License](https://img.shields.io/github/license/secwexen/security-playbooks)](https://github.com/secwexen/security-playbooks/blob/main/LICENSE)
 
+⭐ If you find this project valuable, consider starring the repository.
+
 ## About
 
 **Security Playbooks is an open-source, educational repository designed for cybersecurity professionals.**
