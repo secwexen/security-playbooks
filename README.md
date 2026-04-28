@@ -181,7 +181,7 @@ Each detection follows a structured validation process:
 - Python **3.11+**  
 - pip **23+**  
 
-### Optional Tools (Depending on Scenario)
+### Optional Tools
 
 - **Sysmon** (Windows logging)  
 - **Suricata** (Network IDS)  
