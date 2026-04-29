@@ -32,13 +32,13 @@ Please include:
 
 Before opening an issue, check the documentation:
 
-- `/docs/` — Guides, architecture notes, quick start  
-- `/labs/` — Lab walkthroughs  
-- `/scenarios/` — MITRE ATT&CK attack simulations  
-- `/detection-rules/` — Sigma, YARA, Suricata rules  
-- `README.md` — Overview & structure  
-- `SECURITY.md` — Safe usage guidelines  
-- `DISCLAIMER.md` — Legal & ethical notes  
+- [docs/](docs/) — Guides, architecture notes, quick start  
+- [labs/](labs/) — Lab walkthroughs  
+- [scenarios/](scenarios/) — MITRE ATT&CK attack simulations  
+- [detection-rules/](detection-rules/) — Sigma, YARA, Suricata rules  
+- [README.md](README.md) — Overview & structure  
+- [SECURITY.md](SECURITY.md) — Safe usage guidelines  
+- [DISCLAIMER.md](DISCLAIMER.md) — Legal & ethical notes  
 
 Most common questions are already answered there.
 
