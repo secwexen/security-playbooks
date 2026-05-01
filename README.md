@@ -231,8 +231,9 @@ See the [LICENSE](LICENSE) file for full details.
 
 Contributions and suggestions are welcome!
 
-- Fork the repository and create a feature or fix branch (e.g. `feature/your-feature` or `fix/bug-name`).
+- Fork the repository and create a feature or fix branch (e.g. `feature/your-feature`, `fix/bug-name`, `docs/update-readme`, `chore/dependency-update`).
 - Make your changes and add relevant tests.
+- Use clear commit messages (e.g. Conventional Commits: feat:, fix:, docs:, refactor:).
 - Ensure all tests pass (`pytest`) and code style checks (e.g. `make lint`).
 - Open a pull request referencing related issues/discussion when possible.
 - All PRs must pass CI checks before merging.
