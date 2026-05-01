@@ -29,9 +29,6 @@ pip install -r requirements.txt
 
 # Install dev dependencies
 pip install -r dev-requirements.txt
-
-# To quickly test the project, run:
-python labs/lab2_log_analysis/parser.py examples/malware_log_example.txt
 ```
 
 ## 4. Explore the Repository
