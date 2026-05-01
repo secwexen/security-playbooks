@@ -272,4 +272,4 @@ For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
 ## Security
 
-For guidance on safe usage and reporting vulnerabilities, see [SECURITY.md](SECURITY.md).
+For guidance on safe usage and reporting vulnerabilities, see [SECURITY](SECURITY.md).
