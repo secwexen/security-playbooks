@@ -30,40 +30,6 @@ Security Playbooks supports a range of practical cybersecurity workflows and rea
 - **Adversary Emulation (Lab Only)** – Reproduce attacker techniques to validate defensive capabilities  
 - **Training & Skill Development** – Strengthen technical skills through hands-on, scenario-based exercises  
 
-## Legal & Authorized Use Only
-
-This Security Playbooks repository is intended strictly for **educational, research, and authorized security testing purposes only**.
-
-Unauthorized use of this software, including deployment against systems without explicit permission, is strictly prohibited.
-
-Users are solely responsible for ensuring their activities comply with all applicable laws and regulations.
-
-The maintainers assume no liability for misuse or any damages resulting from the use of this project.
-
-## Legal Disclaimer
-
-The contents of this repository, including scripts, scenarios, and detection rules, are provided **for educational, research purposes only**. No responsibility for any damage, misuse, or legal consequences resulting from the use of this material.
-
-This software is provided “as is” without warranty of any kind, express or implied.
-
-## Who Is This For
-
-Security Playbooks is intended for cybersecurity professionals who want to practice, analyze, and understand real-world cyber threats in a structured and controlled environment.
-
-- **SOC Analysts** – Perform alert triage, log analysis, and incident investigation  
-- **Threat Hunters** – Conduct hypothesis-driven hunts and analyze adversary behavior  
-- **Blue Team Engineers** – Build, test, and optimize detection rules (Sigma, YARA, Suricata)  
-- **Cybersecurity Professionals** – Gain hands-on experience and develop practical expertise  
-- **Red Teamers (Lab Use Only)** – Emulate adversary techniques in controlled, isolated environments  
-
-## Features
-
-- **Detection Rules** – Ready-to-use Sigma, YARA, and Suricata rules for threat detection  
-- **Attack Scenarios** – MITRE ATT&CK–based simulations (phishing, malware, lateral movement)  
-- **Hands-on Labs** – Practical exercises with PoC scripts for controlled environments  
-- **Log Analysis Examples** – Sample logs, outputs, and visual artifacts  
-- **Documentation & Tools** – Quick Start guides, architecture docs, and helper scripts
-
 ## Architecture
 
 Security Playbooks follows a simplified enterprise SOC detection pipeline to simulate how real-world security operations function.
@@ -104,6 +70,40 @@ Security Playbooks follows a simplified enterprise SOC detection pipeline to sim
   - metrics/
   - dashboards/
 ```
+
+## Legal & Authorized Use Only
+
+This Security Playbooks repository is intended strictly for **educational, research, and authorized security testing purposes only**.
+
+Unauthorized use of this software, including deployment against systems without explicit permission, is strictly prohibited.
+
+Users are solely responsible for ensuring their activities comply with all applicable laws and regulations.
+
+The maintainers assume no liability for misuse or any damages resulting from the use of this project.
+
+## Legal Disclaimer
+
+The contents of this repository, including scripts, scenarios, and detection rules, are provided **for educational, research purposes only**. No responsibility for any damage, misuse, or legal consequences resulting from the use of this material.
+
+This software is provided “as is” without warranty of any kind, express or implied.
+
+## Who Is This For
+
+Security Playbooks is intended for cybersecurity professionals who want to practice, analyze, and understand real-world cyber threats in a structured and controlled environment.
+
+- **SOC Analysts** – Perform alert triage, log analysis, and incident investigation  
+- **Threat Hunters** – Conduct hypothesis-driven hunts and analyze adversary behavior  
+- **Blue Team Engineers** – Build, test, and optimize detection rules (Sigma, YARA, Suricata)  
+- **Cybersecurity Professionals** – Gain hands-on experience and develop practical expertise  
+- **Red Teamers (Lab Use Only)** – Emulate adversary techniques in controlled, isolated environments  
+
+## Features
+
+- **Detection Rules** – Ready-to-use Sigma, YARA, and Suricata rules for threat detection  
+- **Attack Scenarios** – MITRE ATT&CK–based simulations (phishing, malware, lateral movement)  
+- **Hands-on Labs** – Practical exercises with PoC scripts for controlled environments  
+- **Log Analysis Examples** – Sample logs, outputs, and visual artifacts  
+- **Documentation & Tools** – Quick Start guides, architecture docs, and helper scripts
 
 ## Threat Model
 
