@@ -111,7 +111,7 @@ Respectful and professional communication is expected at all times.
 
 By submitting a contribution, you agree that your work will be licensed under the project’s license:
  
-- **Security‑Playbooks:** [MIT License](https://github.com/secwexen/security-playbooks/blob/main/LICENSE)  
+- **Security Playbooks:** [MIT License](https://github.com/secwexen/security-playbooks/blob/main/LICENSE)  
 
 ## Thank You
 
