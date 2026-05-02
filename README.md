@@ -7,7 +7,6 @@
 **Security Playbooks | MITRE ATT&CK Red & Blue Team Labs for SOC Analysts**
 
 [![CI](https://github.com/secwexen/security-playbooks/actions/workflows/ci.yml/badge.svg)](https://github.com/secwexen/security-playbooks/actions/workflows/ci.yml)
-[![Coverage](https://codecov.io/gh/secwexen/security-playbooks/branch/main/graph/badge.svg)](https://codecov.io/gh/secwexen/security-playbooks)
 [![Release](https://img.shields.io/github/v/release/secwexen/security-playbooks?include_prereleases)](https://github.com/secwexen/security-playbooks/releases)
 [![License](https://img.shields.io/github/license/secwexen/security-playbooks)](https://github.com/secwexen/security-playbooks/blob/main/LICENSE)
 
@@ -29,40 +28,6 @@ Security Playbooks supports a range of practical cybersecurity workflows and rea
 - **Incident Response Simulation** – Follow structured procedures to investigate and respond to security incidents  
 - **Adversary Emulation (Lab Only)** – Reproduce attacker techniques to validate defensive capabilities  
 - **Training & Skill Development** – Strengthen technical skills through hands-on, scenario-based exercises  
-
-## Legal & Authorized Use Only
-
-This Security Playbooks repository is intended strictly for **educational, research, and authorized security testing purposes only**.
-
-Unauthorized use of this software, including deployment against systems without explicit permission, is strictly prohibited.
-
-Users are solely responsible for ensuring their activities comply with all applicable laws and regulations.
-
-The maintainers assume no liability for misuse or any damages resulting from the use of this project.
-
-## Legal Disclaimer
-
-The contents of this repository, including scripts, scenarios, and detection rules, are provided **for educational, research purposes only**. No responsibility for any damage, misuse, or legal consequences resulting from the use of this material.
-
-This software is provided “as is” without warranty of any kind, express or implied.
-
-## Who Is This For
-
-Security Playbooks is intended for cybersecurity professionals who want to practice, analyze, and understand real-world cyber threats in a structured and controlled environment.
-
-- **SOC Analysts** – Perform alert triage, log analysis, and incident investigation  
-- **Threat Hunters** – Conduct hypothesis-driven hunts and analyze adversary behavior  
-- **Blue Team Engineers** – Build, test, and optimize detection rules (Sigma, YARA, Suricata)  
-- **Cybersecurity Professionals** – Gain hands-on experience and develop practical expertise  
-- **Red Teamers (Lab Use Only)** – Emulate adversary techniques in controlled, isolated environments  
-
-## Features
-
-- **Detection Rules** – Ready-to-use Sigma, YARA, and Suricata rules for threat detection  
-- **Attack Scenarios** – MITRE ATT&CK–based simulations (phishing, malware, lateral movement)  
-- **Hands-on Labs** – Practical exercises with PoC scripts for controlled environments  
-- **Log Analysis Examples** – Sample logs, outputs, and visual artifacts  
-- **Documentation & Tools** – Quick Start guides, architecture docs, and helper scripts
 
 ## Architecture
 
@@ -104,6 +69,40 @@ Security Playbooks follows a simplified enterprise SOC detection pipeline to sim
   - metrics/
   - dashboards/
 ```
+
+## Legal & Authorized Use Only
+
+This Security Playbooks repository is intended strictly for **educational, research, and authorized security testing purposes only**.
+
+Unauthorized use of this software, including deployment against systems without explicit permission, is strictly prohibited.
+
+Users are solely responsible for ensuring their activities comply with all applicable laws and regulations.
+
+The maintainers assume no liability for misuse or any damages resulting from the use of this project.
+
+## Legal Disclaimer
+
+The contents of this repository, including scripts, scenarios, and detection rules, are provided **for educational, research purposes only**. No responsibility for any damage, misuse, or legal consequences resulting from the use of this material.
+
+This software is provided “as is” without warranty of any kind, express or implied.
+
+## Who Is This For
+
+Security Playbooks is intended for cybersecurity professionals who want to practice, analyze, and understand real-world cyber threats in a structured and controlled environment.
+
+- **SOC Analysts** – Perform alert triage, log analysis, and incident investigation  
+- **Threat Hunters** – Conduct hypothesis-driven hunts and analyze adversary behavior  
+- **Blue Team Engineers** – Build, test, and optimize detection rules (Sigma, YARA, Suricata)  
+- **Cybersecurity Professionals** – Gain hands-on experience and develop practical expertise  
+- **Red Teamers (Lab Use Only)** – Emulate adversary techniques in controlled, isolated environments  
+
+## Features
+
+- **Detection Rules** – Ready-to-use Sigma, YARA, and Suricata rules for threat detection  
+- **Attack Scenarios** – MITRE ATT&CK–based simulations (phishing, malware, lateral movement)  
+- **Hands-on Labs** – Practical exercises with PoC scripts for controlled environments  
+- **Log Analysis Examples** – Sample logs, outputs, and visual artifacts  
+- **Documentation & Tools** – Quick Start guides, architecture docs, and helper scripts
 
 ## Threat Model
 
@@ -206,9 +205,6 @@ pip install -r requirements.txt
 
 # Install dev dependencies
 pip install -r dev-requirements.txt
-
-# To quickly test the project, run:
-python labs/lab2_log_analysis/parser.py examples/malware_log_example.txt
 ```
 
 For full details, refer to the [Quick Start](docs/quickstart.md) file.
@@ -234,8 +230,9 @@ See the [LICENSE](LICENSE) file for full details.
 
 Contributions and suggestions are welcome!
 
-- Fork the repository and create a feature or fix branch (e.g. `feature/your-feature` or `fix/bug-name`).
+- Fork the repository and create a feature or fix branch (e.g. `feature/your-feature`, `fix/bug-name`, `docs/update-readme`, `chore/dependency-update`).
 - Make your changes and add relevant tests.
+- Use clear commit messages (e.g. Conventional Commits: feat:, fix:, docs:, refactor:).
 - Ensure all tests pass (`pytest`) and code style checks (e.g. `make lint`).
 - Open a pull request referencing related issues/discussion when possible.
 - All PRs must pass CI checks before merging.
@@ -250,13 +247,11 @@ This document outlines the planned development path for the **Security Playbooks
 
 Planned improvements include:
 
-- expanded ATT&CK-mapped playbooks
-- enhanced detection rules (Sigma, YARA, Suricata)
-- structured SOC and incident response workflows
-- automation-ready playbooks (SOAR integration)
-- lab and simulation scenarios
-- standardized schemas for machine-readable playbooks
-- alignment with security frameworks (NIST, CIS, ISO)
+- expanded ATT&CK-mapped playbooks and lab scenarios  
+- enhanced and validated detection rules (Sigma, YARA, Suricata)  
+- structured SOC workflows with SOAR-ready automation  
+- standardized, machine-readable playbook formats  
+- alignment with security frameworks (NIST, CIS, ISO)  
 
 For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
@@ -272,4 +267,4 @@ For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
 ## Security
 
-For guidance on safe usage and reporting vulnerabilities, see [SECURITY.md](SECURITY.md).
+For guidance on safe usage and reporting vulnerabilities, see [SECURITY](SECURITY.md).
