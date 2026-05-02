@@ -248,13 +248,11 @@ This document outlines the planned development path for the **Security Playbooks
 
 Planned improvements include:
 
-- expanded ATT&CK-mapped playbooks
-- enhanced detection rules (Sigma, YARA, Suricata)
-- structured SOC and incident response workflows
-- automation-ready playbooks (SOAR integration)
-- lab and simulation scenarios
-- standardized schemas for machine-readable playbooks
-- alignment with security frameworks (NIST, CIS, ISO)
+- expanded ATT&CK-mapped playbooks and lab scenarios  
+- enhanced and validated detection rules (Sigma, YARA, Suricata)  
+- structured SOC workflows with SOAR-ready automation  
+- standardized, machine-readable playbook formats  
+- alignment with security frameworks (NIST, CIS, ISO)  
 
 For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
