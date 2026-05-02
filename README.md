@@ -7,7 +7,6 @@
 **Security Playbooks | MITRE ATT&CK Red & Blue Team Labs for SOC Analysts**
 
 [![CI](https://github.com/secwexen/security-playbooks/actions/workflows/ci.yml/badge.svg)](https://github.com/secwexen/security-playbooks/actions/workflows/ci.yml)
-[![Coverage](https://codecov.io/gh/secwexen/security-playbooks/branch/main/graph/badge.svg)](https://codecov.io/gh/secwexen/security-playbooks)
 [![Release](https://img.shields.io/github/v/release/secwexen/security-playbooks?include_prereleases)](https://github.com/secwexen/security-playbooks/releases)
 [![License](https://img.shields.io/github/license/secwexen/security-playbooks)](https://github.com/secwexen/security-playbooks/blob/main/LICENSE)
 
