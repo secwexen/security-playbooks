@@ -52,7 +52,7 @@ If you discover a **security issue**, do **NOT** open a public GitHub issue.
 
 Instead, follow the instructions in:
 
-[SECURITY.md](SECURITY.md)
+- [SECURITY.md](SECURITY.md)
 
 This ensures responsible disclosure and safe handling.
 
