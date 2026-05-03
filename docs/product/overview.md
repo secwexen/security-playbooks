@@ -16,19 +16,6 @@ Security Playbooks aims to:
 
 The repository is designed to be both educational and operational, supporting real‑world SOC environments as well as training labs.
 
-## Repository Structure
-
-```
-/playbooks/              → MITRE ATT&CK–based security playbooks
-/detection-rules/        → Sigma, YARA, Suricata detection rules
-/labs/                   → Incident response & threat‑hunting labs
-/docs/                   → Documentation files
-/tools/                  → Utility scripts and helper tools
-/examples/               → Sample logs, datasets, and scenarios
-```
-
-Each directory includes its own README for easier navigation.
-
 ## Key Components
 
 ### Playbooks
