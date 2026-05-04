@@ -1,9 +1,7 @@
-# Contributing to This Project
+# Contributing to Security Playbooks
 
 Thank you for your interest in contributing to this project!  
 We welcome high‑quality contributions that improve the functionality, documentation, detection rules, scenarios, and overall quality of the repository.
-
-This document explains the contribution process, guidelines, and expectations.
 
 ## Contribution Types Accepted
 

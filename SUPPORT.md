@@ -28,20 +28,6 @@ Please include:
 - Logs, screenshots, or error messages  
 - Environment details (OS, Python version, tools used)
 
-## Documentation
-
-Before opening an issue, check the documentation:
-
-- [docs/](docs/) — Guides, architecture notes, quick start  
-- [labs/](labs/) — Lab walkthroughs  
-- [scenarios/](scenarios/) — MITRE ATT&CK attack simulations  
-- [detection-rules/](detection-rules/) — Sigma, YARA, Suricata rules  
-- [README.md](README.md) — Overview & structure  
-- [SECURITY.md](SECURITY.md) — Safe usage guidelines  
-- [DISCLAIMER.md](DISCLAIMER.md) — Legal & ethical notes  
-
-Most common questions are already answered there.
-
 ## Lab & Scenario Support
 
 If you need help running:
@@ -66,11 +52,11 @@ If you discover a **security issue**, do **NOT** open a public GitHub issue.
 
 Instead, follow the instructions in:
 
-[SECURITY.md](SECURITY.md)
+- [SECURITY.md](SECURITY.md)
 
 This ensures responsible disclosure and safe handling.
 
-## What Support Is *Not* Provided
+## What Support Is **Not** Provided
 
 This project does **NOT** provide support for:
 
@@ -94,8 +80,8 @@ If you want to contribute:
 
 Please read:
 
-[CONTRIBUTING.md](CONTRIBUTING.md)  
-[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+- [CONTRIBUTING.md](CONTRIBUTING.md)  
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
 Pull requests are welcome.
 
