@@ -8,16 +8,41 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 
 ## Security Playbooks — Initial Release
 
-### Added
+This is the first official release of the **Security Playbooks** project.  
+It includes foundational detection content, incident response playbooks, and hands‑on lab scenarios designed to support SOC analysts, blue teamers, and cybersecurity experts.
 
-- Initial project structure
-- Detection rules (Sigma-based)
-- MITRE ATT&CK-aligned mappings
-- Incident response playbooks
-- Lab scenarios for hands-on practice
-- Sample logs and datasets
+## Included in This Release  
 
-### Notes
+### Detection Rules
 
-- Established baseline project structure
-- Prepared foundation for future detection and automation features
+- Sigma rules for common attack techniques  
+- MITRE ATT&CK–aligned detection logic  
+- Example log sources and mappings  
+
+### Incident Response Playbooks
+
+- Step‑by‑step response procedures  
+- Containment, eradication, and recovery guidelines  
+- Analyst checklists and decision trees  
+
+### Lab Scenarios
+
+- Practical exercises for testing detections  
+- Simulated attack chains  
+- Walkthroughs for hands‑on learning  
+
+## Purpose of This Release
+ 
+- Establish a baseline version of the project  
+- Provide a stable snapshot for users and contributors  
+- Prepare the structure for future enhancements (v0.2.0, v0.3.0, etc.)
+
+## What's Changed
+* Potential fix for code scanning alert no. 1: Workflow does not contain permissions by @secwexen in https://github.com/secwexen/security-playbooks/pull/1
+* Bump the pip group across 1 directory with 2 updates by @dependabot[bot] in https://github.com/secwexen/security-playbooks/pull/10
+
+## New Contributors
+* @secwexen made their first contribution in https://github.com/secwexen/security-playbooks/pull/1
+* @dependabot[bot] made their first contribution in https://github.com/secwexen/security-playbooks/pull/10
+
+**Full Changelog**: https://github.com/secwexen/security-playbooks/commits/v0.1.0
