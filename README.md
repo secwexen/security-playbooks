@@ -127,16 +127,6 @@ This playbook assumes a realistic enterprise environment and adversary behavior.
   - Demonstrate detection engineering and threat hunting workflows
   - Provide hands-on lab exercises for portfolio and learning purposes
 
-## Scenarios
-
-This repository contains multiple playbook-style scenarios:
-
-| Scenario | Type | MITRE ATT&CK | Playbook File |
-|----------|------|--------------|---------------|
-| PowerShell Execution | T1059 | Command & Scripting Interpreter | [T1059_PowerShell_Execution.md](scenarios/T1059_PowerShell_Execution.md) |
-| Malware Analysis | Malware | Various | [malware_analysis/README.md](scenarios/malware_analysis/README.md) |
-| Phishing Simulation | Social Engineering | T1566 | [phishing_simulation/README.md](scenarios/phishing_simulation/README.md) |
-
 ## Detection Validation Framework
 
 All detection rules and scenarios in this repository are designed to be **testable, reproducible, and verifiable**.
