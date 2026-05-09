@@ -4,11 +4,13 @@
 <img src="assets/images/security-playbooks-logo.png" width="600" alt="Security Playbooks Logo" loading="lazy" decoding="async">
 </p>
 
-**Security Playbooks | MITRE ATT&CK Red & Blue Team Labs for SOC Analysts**
+Security Playbooks: MITRE ATT&CK Red & Blue Team Labs for SOC Analysts
 
 [![CI](https://github.com/secwexen/security-playbooks/actions/workflows/ci.yml/badge.svg)](https://github.com/secwexen/security-playbooks/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/secwexen/security-playbooks?include_prereleases)](https://github.com/secwexen/security-playbooks/releases)
 [![License](https://img.shields.io/github/license/secwexen/security-playbooks)](https://github.com/secwexen/security-playbooks/blob/main/LICENSE)
+
+⭐ If you find this project valuable, consider starring the repository.
 
 ## About
 
@@ -126,16 +128,6 @@ This playbook assumes a realistic enterprise environment and adversary behavior.
 - **Goals:** 
   - Demonstrate detection engineering and threat hunting workflows
   - Provide hands-on lab exercises for portfolio and learning purposes
-
-## Scenarios
-
-This repository contains multiple playbook-style scenarios:
-
-| Scenario | Type | MITRE ATT&CK | Playbook File |
-|----------|------|--------------|---------------|
-| PowerShell Execution | T1059 | Command & Scripting Interpreter | [T1059_PowerShell_Execution.md](scenarios/T1059_PowerShell_Execution.md) |
-| Malware Analysis | Malware | Various | [malware_analysis/README.md](scenarios/malware_analysis/README.md) |
-| Phishing Simulation | Social Engineering | T1566 | [phishing_simulation/README.md](scenarios/phishing_simulation/README.md) |
 
 ## Detection Validation Framework
 
@@ -261,9 +253,9 @@ For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
 ## Community & Support
 
-- Contribute code, documentation, or testing — see [CONTRIBUTING](CONTRIBUTING.md) for details.  
+- Contribute code, documentation, and testing. See [CONTRIBUTING](CONTRIBUTING.md) for details.  
 - Join [Discussions](https://github.com/secwexen/aapp-mart/discussions) to share feedback and proposals.  
-- Check out [Issues](https://github.com/secwexen/aapp-mart/issues) for tasks and ideas.  
+- Check out [Issues](https://github.com/secwexen/aapp-mart/issues) for tasks and ideas.
 
 ## Security
 
