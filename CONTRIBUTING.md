@@ -55,18 +55,6 @@ fix/bug-description
 rule/sigma-rule-name
 ```
 
-### 3. **Follow the Project Structure**
-
-Please keep files in their correct directories:
-```
-detection-rules/
-scenarios/
-labs/
-docs/
-tools/
-examples/
-```
-
 ## Code & Rule Quality Guidelines
 
 ### General Guidelines
