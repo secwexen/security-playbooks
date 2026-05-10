@@ -4,8 +4,6 @@
 <img src="assets/images/security-playbooks-logo.png" width="600" alt="Security Playbooks Logo" loading="lazy" decoding="async">
 </p>
 
-Security Playbooks: MITRE ATT&CK Red & Blue Team Labs for SOC Analysts
-
 [![CI](https://github.com/secwexen/security-playbooks/actions/workflows/ci.yml/badge.svg)](https://github.com/secwexen/security-playbooks/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/secwexen/security-playbooks?include_prereleases)](https://github.com/secwexen/security-playbooks/releases)
 [![License](https://img.shields.io/github/license/secwexen/security-playbooks)](https://github.com/secwexen/security-playbooks/blob/main/LICENSE)
