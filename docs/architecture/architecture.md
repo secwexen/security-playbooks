@@ -5,7 +5,7 @@ The **Security Playbooks** is structured to provide a clear, modular, and profes
 ## Repository Structure
 
 ```
-security-playbooks
+security-playbooks/
 ├── assets
 │   └── images/
 ├── automation
