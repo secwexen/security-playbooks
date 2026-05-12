@@ -250,7 +250,6 @@ For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 ## Community & Support
 
 - Contribute code, documentation, and testing. See [CONTRIBUTING](CONTRIBUTING.md) for details.  
-- Join [Discussions](https://github.com/secwexen/aapp-mart/discussions) to share feedback and proposals.  
 - Check out [Issues](https://github.com/secwexen/aapp-mart/issues) for tasks and ideas.
 
 ## Security
