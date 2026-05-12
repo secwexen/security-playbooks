@@ -202,7 +202,7 @@ For full details, refer to the [Quick Start](docs/quickstart.md) file.
 - [Repository Structure](docs/architecture.md)
 - [Quick Start](docs/quickstart.md)
 - [Examples](docs/examples.md)
-- [Roadmap & Milestones](ROADMAP.md)
+- [Roadmap](ROADMAP.md)
 - [Contributing Guidelines](CONTRIBUTING.md)
 - [Changelog](CHANGELOG.md)
 - [Security Policy](SECURITY.md)
