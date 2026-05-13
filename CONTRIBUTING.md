@@ -85,9 +85,6 @@ rule/sigma-rule-name
 5. Requested changes (if any) must be completed
 6. Once approved, your PR will be merged
 
-> [!NOTE]
-> Large or complex PRs may require additional review time.
-
 ## Code of Conduct
 
 By contributing, you agree to follow the project’s **Code of Conduct**.  
@@ -96,8 +93,8 @@ Respectful and professional communication is expected at all times.
 ## License
 
 By submitting a contribution, you agree that your work will be licensed under the project’s license:
- 
-- **Security Playbooks:** [MIT License](https://github.com/secwexen/security-playbooks/blob/main/LICENSE)  
+
+For full license details, see [LICENSE](LICENSE).
 
 ## Thank You
 
