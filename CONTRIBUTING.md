@@ -7,33 +7,10 @@ We welcome high‑quality contributions that improve the functionality, document
 
 You may contribute in several ways:
 
-### Code Contributions
-
-- Python scripts  
-- Detection engineering logic  
-- Automation improvements  
-- Lab enhancements  
-
-### Detection Rules
-
-- Sigma rules  
-- YARA rules  
-- Suricata rules  
-- MITRE ATT&CK mappings  
-
-### Documentation
-
-- Playbook improvements  
-- Lab walkthroughs  
-- Threat‑hunting guides  
-- Architecture explanations  
-
-### Issues & Suggestions
-
-- Bug reports  
-- Feature requests  
-- Scenario ideas  
-- Detection improvements  
+- Code Contributions  
+- Detection Rules  
+- Documentation  
+- Issues & Suggestions
 
 ## Before You Start
 
