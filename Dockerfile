@@ -28,4 +28,4 @@ COPY . .
 RUN pip install --no-cache-dir .
 
 # Default command (runs CLI)
-CMD ["python", "-m", "security_playbooks.cli.main"]
+CMD ["python", "main.py"]
