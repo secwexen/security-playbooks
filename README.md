@@ -165,8 +165,7 @@ Each detection follows a structured validation process:
 
 ### Requirements
 
-- Python **3.11+**  
-- pip **23+**  
+- Python **3.11+**
 
 ### Optional Tools
 
