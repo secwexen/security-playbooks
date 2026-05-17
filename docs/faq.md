@@ -2,7 +2,7 @@
 
 This document provides answers to the most frequently asked questions about **Security Playbooks**.
 
-## What is Security Playbooks?
+## 1. What is Security Playbooks?
 
 Security Playbooks is an open-source educational cybersecurity repository focused on:
 
