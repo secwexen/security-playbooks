@@ -246,11 +246,6 @@ For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
 **Security Playbooks** is currently in **Active Development** stage.
 
-## Community & Support
-
-- Contribute code, documentation, and testing. See [CONTRIBUTING](CONTRIBUTING.md) for details.  
-- Check out [Issues](https://github.com/secwexen/aapp-mart/issues) for tasks and ideas.
-
 ## Security
 
 For guidance on safe usage and reporting vulnerabilities, see [SECURITY](SECURITY.md).
