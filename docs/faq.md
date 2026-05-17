@@ -13,3 +13,25 @@ Security Playbooks is an open-source educational cybersecurity repository focuse
 - Security operations workflows
 
 The project is designed to help users gain practical, hands-on experience in controlled environments.
+
+## 2. Is this tool safe to use on real systems?
+
+No. **Security Playbooks is strictly intended for controlled, authorized lab environments only.**
+
+It simulates adversary behavior and detection pipelines (e.g., MITRE ATT&CK techniques), which can generate alerts, modify logs, or trigger defensive actions (isolation, blocking, etc.) in a SOAR-like workflow. Running it on production systems could disrupt services or violate organizational policy.
+
+## 3. What skills do I need before using it?
+
+You don’t need advanced expertise, but you should be familiar with:
+
+- Basic Windows/Linux administration
+- Log sources (especially Windows Event Logs / Sysmon)
+- Introductory networking concepts (TCP/IP, DNS, HTTP)
+- Basic cybersecurity concepts (threats, malware, phishing)
+
+Advanced use cases (detection engineering, rule tuning) benefit from knowledge of:
+
+- MITRE ATT&CK framework
+- Sigma rules
+- YARA signatures
+- SIEM platforms (Splunk, Elastic, Sentinel, etc.)
