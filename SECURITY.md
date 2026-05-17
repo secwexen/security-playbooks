@@ -19,6 +19,11 @@ Report any issues directly to the repository owner:
 - Security reports will be reviewed as soon as possible.  
 - Fixes or updates will be applied and documented in the repository.
 
+## Supported Versions
+
+Security updates are provided **only for the latest stable release** of Security Playbooks.  
+Older versions may not receive security fixes.
+
 ## Security Best Practices
 
 - All scripts and labs are intended for **educational and lab use only**.  
