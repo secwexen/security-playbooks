@@ -165,8 +165,7 @@ Each detection follows a structured validation process:
 
 ### Requirements
 
-- Python **3.11+**  
-- pip **23+**  
+- Python **3.11+**
 
 ### Optional Tools
 
@@ -202,7 +201,7 @@ For full details, refer to the [Quick Start](docs/quickstart.md) file.
 - [Repository Structure](docs/architecture.md)
 - [Quick Start](docs/quickstart.md)
 - [Examples](docs/examples.md)
-- [Roadmap & Milestones](ROADMAP.md)
+- [Roadmap](ROADMAP.md)
 - [Contributing Guidelines](CONTRIBUTING.md)
 - [Changelog](CHANGELOG.md)
 - [Security Policy](SECURITY.md)
@@ -246,12 +245,6 @@ For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 ## Development Status
 
 **Security Playbooks** is currently in **Active Development** stage.
-
-## Community & Support
-
-- Contribute code, documentation, and testing. See [CONTRIBUTING](CONTRIBUTING.md) for details.  
-- Join [Discussions](https://github.com/secwexen/aapp-mart/discussions) to share feedback and proposals.  
-- Check out [Issues](https://github.com/secwexen/aapp-mart/issues) for tasks and ideas.
 
 ## Security
 
