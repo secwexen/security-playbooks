@@ -25,48 +25,7 @@ Security Playbooks supports a range of practical cybersecurity workflows and rea
 - **Detection Engineering & Validation** – Develop, test, and refine detection logic against simulated threats  
 - **Incident Response Simulation** – Follow structured procedures to investigate and respond to security incidents  
 - **Adversary Emulation (Lab Only)** – Reproduce attacker techniques to validate defensive capabilities  
-- **Training & Skill Development** – Strengthen technical skills through hands-on, scenario-based exercises  
-
-## Architecture
-
-Security Playbooks follows a simplified enterprise SOC detection pipeline to simulate how real-world security operations function.
-
-```bash
-[Data Sources]
-  - Sysmon Logs
-  - Windows Event Logs
-  - Network Traffic (PCAP)
-  - Threat Intelligence Feeds
-        ↓
-[Ingestion & Parsing Layer]
-  - log_loader.py
-  - sysmon_parser.py
-        ↓
-[Detection Engine]
-  - Sigma / YARA / Suricata Rules
-  - rule_loader.py
-        ↓
-[Detection Pipeline]
-  - detection_pipeline.py
-  - pipeline.yaml
-        ↓
-[Enrichment Layer]
-  - VirusTotal / AbuseIPDB integrations
-        ↓
-[SOAR / Response Engine]
-  - isolate_host.py
-  - block_ip.py
-  - disable_user.py
-        ↓
-[Playbook Execution Engine]
-  - playbook_parser.py
-  - executor.py
-        ↓
-[Outputs & Reporting]
-  - reports/
-  - metrics/
-  - dashboards/
-```
+- **Training & Skill Development** – Strengthen technical skills through hands-on, scenario-based exercises
 
 ## Legal & Authorized Use Only
 
