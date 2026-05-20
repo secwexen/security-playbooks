@@ -117,6 +117,45 @@ security-playbooks/
 
 - **Purpose:** Helper scripts to parse, validate, or simulate scenarios (e.g., Sigma parser).
 
+## SOC Detection Pipeline
+
+```bash
+[Data Sources]
+  - Sysmon Logs
+  - Windows Event Logs
+  - Network Traffic (PCAP)
+  - Threat Intelligence Feeds
+        ↓
+[Ingestion & Parsing Layer]
+  - log_loader.py
+  - sysmon_parser.py
+        ↓
+[Detection Engine]
+  - Sigma / YARA / Suricata Rules
+  - rule_loader.py
+        ↓
+[Detection Pipeline]
+  - detection_pipeline.py
+  - pipeline.yaml
+        ↓
+[Enrichment Layer]
+  - VirusTotal / AbuseIPDB integrations
+        ↓
+[SOAR / Response Engine]
+  - isolate_host.py
+  - block_ip.py
+  - disable_user.py
+        ↓
+[Playbook Execution Engine]
+  - playbook_parser.py
+  - executor.py
+        ↓
+[Outputs & Reporting]
+  - reports/
+  - metrics/
+  - dashboards/
+```
+
 ## Design Principles
 
 1. **Modularity:** Each component is independent and reusable.  
