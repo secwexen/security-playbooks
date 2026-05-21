@@ -203,7 +203,7 @@ For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
 ## Development Status
 
-**Security Playbooks** is currently in **Active Development** stage.
+Active development.
 
 ## Security
 
