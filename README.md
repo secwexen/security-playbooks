@@ -128,11 +128,11 @@ Each detection follows a structured validation process:
 
 ### Optional Tools
 
-- **Sysmon** (Windows logging)  
-- **Suricata** (Network IDS)  
-- **YARA** (Malware pattern matching)  
-- **Sigma CLI** (Rule conversion)  
-- **Wireshark / tcpdump** (PCAP analysis)
+- Sysmon  
+- Suricata  
+- YARA  
+- Sigma CLI  
+- Wireshark / tcpdump
 
 ## Quick Start
 
