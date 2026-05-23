@@ -13,18 +13,18 @@ Product capabilities and use cases:
 
 System design and technical structure:  
 - `architecture.md` – Overall architecture  
-- `system_design.md` – Internal system design and workflows
+- `system-design.md` – Internal system design and workflows
 
 ### 3. `contributing/`
 
 Contribution guidelines and standards:  
-- `COMMIT_CONVENTION.md` – Commit message format and standards
+- `commit-convention.md` – Commit message format and standards
 
 ### 4. `getting-started/`
 
 Setup guides and usage examples:  
 - `quickstart.md` – Quick installation and setup  
-- `RUN_COMMANDS.md` – Common execution commands  
+- `run-commands.md` – Common execution commands  
 - `examples.md` – Example workflows and detections
 
 ### 5. `playbooks/`
