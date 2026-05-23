@@ -100,7 +100,7 @@ Each detection follows a structured validation process:
 
 ### Example Validation Flow
 
-```bash
+```text
 [Simulated Attack]
         ↓
 [Log Generated]
@@ -203,7 +203,7 @@ For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
 ## Development Status
 
-Active development.
+This project is under active development.
 
 ## Security
 
