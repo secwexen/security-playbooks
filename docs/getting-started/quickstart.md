@@ -59,8 +59,6 @@ python scan.py
 3. Execute **[scenarios/](https://github.com/secwexen/security-playbook/tree/main/scenarios)** and **[labs/](https://github.com/secwexen/security-playbook/tree/main/labs)** to learn attack simulation and response.
 4. Reference **[examples/](https://github.com/secwexen/security-playbook/tree/main/examples)** to validate results and outputs.
 
-## 7. Notes
-
-- All scripts are for **educational purposes only**.
-- Do **not** run scripts on live systems without permission.
-- Follow ethical and legal guidelines during all testing and lab exercises.
+> [!NOTE]
+> - Do **not** run scripts on live systems without permission.  
+> - Follow ethical and legal guidelines during all testing and lab exercises.
