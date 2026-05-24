@@ -51,7 +51,7 @@ Security Playbooks is intended for cybersecurity professionals who want to pract
 - **Threat Hunters** – Conduct hypothesis-driven hunts and analyze adversary behavior  
 - **Blue Team Engineers** – Build, test, and optimize detection rules (Sigma, YARA, Suricata)  
 - **Cybersecurity Professionals** – Gain hands-on experience and develop practical expertise  
-- **Red Teamers (Lab Use Only)** – Emulate adversary techniques in controlled, isolated environments  
+- **Red Teamers (Lab Use Only)** – Emulate adversary techniques in controlled, isolated environments
 
 ## Features
 
