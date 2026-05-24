@@ -1,8 +1,8 @@
-## Detection Validation Framework
+# Detection Validation Framework
 
 All detection rules and scenarios in this repository are designed to be **testable, reproducible, and verifiable**.
 
-### Validation Workflow
+## Validation Workflow
 
 Each detection follows a structured validation process:
 
@@ -12,7 +12,7 @@ Each detection follows a structured validation process:
 4. **Alert Verification**  
 5. **Analysis & Tuning**  
 
-### Example Validation Flow
+## Example Validation Flow
 
 ```text
 [Simulated Attack]
