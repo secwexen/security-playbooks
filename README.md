@@ -143,14 +143,13 @@ pip install -r dev-requirements.txt
 
 For full details, refer to the [Quick Start](docs/quickstart.md) file.
 
-## Docs & Resources
+## Documentation
 
-- [Repository Structure](docs/architecture.md)
-- [Quick Start](docs/quickstart.md)
-- [Examples](docs/examples.md)
-- [Roadmap](ROADMAP.md)
-- [Contributing Guidelines](CONTRIBUTING.md)
-- [Changelog](CHANGELOG.md)
+- [Quick Start](docs/quickstart.md)  
+- [Examples](docs/examples.md)  
+- [Roadmap](ROADMAP.md)  
+- [Contributing Guidelines](CONTRIBUTING.md)  
+- [Changelog](CHANGELOG.md)  
 - [Security Policy](SECURITY.md)
 
 ## License
