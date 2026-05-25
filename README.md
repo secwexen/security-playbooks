@@ -122,14 +122,6 @@ ATT&CK        : Application Layer Protocol
 
 - Python **3.11+**
 
-### Optional Tools
-
-- Sysmon  
-- Suricata  
-- YARA  
-- Sigma CLI  
-- Wireshark / tcpdump
-
 ## Quick Start
 
 ```bash
