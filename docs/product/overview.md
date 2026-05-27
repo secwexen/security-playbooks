@@ -57,8 +57,4 @@ Security Playbooks is ideal for:
 - Incident Responders  
 - Detection Engineers  
 - Cybersecurity Students  
-- Blue/Red/Purple Teamers  
-
-## Additional Documentation
-
-More detailed guides, examples, and references can be found throughout the [docs/](docs/) directory and the repository Wiki.
+- Blue/Red/Purple Teamers
