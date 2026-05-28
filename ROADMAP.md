@@ -18,7 +18,7 @@ This document outlines the planned development path for the **Security Playbooks
 
 ### Documentation Enhancements
 
-- Update [OVERVIEW](docs/overview.md) and create a clear [RUN_COMMANDS](docs/RUN_COMMANDS.md).
+- Update [Overview](docs/product/overview.md) and create a clear [Run Commands](docs/getting-started/run-commands.md).
 - Add step‑by‑step walkthroughs for lab environments.
 - Establish a versioning and naming standard for all playbooks and detection rules.
 
