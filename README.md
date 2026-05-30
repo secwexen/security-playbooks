@@ -120,7 +120,12 @@ ATT&CK        : Application Layer Protocol
 
 ### Requirements
 
-- Python **3.11+**
+- Python 3.11+  
+- Docker  
+- YAML-based configuration system  
+- JSON data structures  
+- Sigma, YARA, Suricata, KQL rule formats  
+- Bash / Make (for automation)
 
 ## Quick Start
 
