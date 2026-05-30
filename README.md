@@ -114,9 +114,9 @@ ATT&CK        : Application Layer Protocol
 
 ### Supported Operating Systems
 
-- Windows 10 / 11  
-- Linux (Ubuntu 20.04+, Debian 11+)  
-- macOS (Intel and Apple Silicon)
+- Linux  
+- Windows  
+- macOS
 
 ### Requirements
 
