@@ -114,9 +114,9 @@ ATT&CK        : Application Layer Protocol
 
 ### Supported Operating Systems
 
-- Linux  
-- Windows  
-- macOS
+- Linux (primary, recommended)  
+- Windows (WSL2 recommended)  
+- macOS (Docker or native Python supported)
 
 ### Requirements
 
