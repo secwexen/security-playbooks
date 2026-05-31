@@ -12,7 +12,7 @@ From the project root directory, execute the following commands
 python demo/ioc_detection_demo.py
 ```
 
-### Output Example
+### Demo Output
 
 ```text
 [INFO] Generating simulated network logs...
