@@ -1,4 +1,4 @@
-# Support & Assistance Guide
+# Support
 
 Thank you for your interest in the **Security Playbooks** project.  
 This repository is designed for educational, research and we aim to provide a safe and structured environment for cybersecurity learning.
