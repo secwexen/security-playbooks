@@ -67,7 +67,7 @@ Security Playbooks is intended for cybersecurity professionals who want to pract
 python demo/ioc_detection_demo.py
 ```
 
-### Output Example
+### Demo Output
 
 ```text
 [INFO] Generating simulated network logs...
