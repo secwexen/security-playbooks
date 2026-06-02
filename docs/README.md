@@ -42,9 +42,3 @@ Technical reference materials:
 
 Legal, compliance, and ethics documents:  
 - `ethics.md` – Ethics policy
-
-### 8. `docs/`
-
-All project documentation folder:  
-- `README.md` – Project introduction and entry point  
-- `faq.md` – Frequently asked questions
