@@ -111,7 +111,7 @@ security-playbooks/
 ### 5. Docs
 
 - **Purpose:** Provide Quick Start guides, architecture overview, and usage instructions.
-- **File Example:** [architecture.md](docs/architecture.md), [quick_start.md](docs/quick_start.md).
+- **File Example:** [architecture.md](docs/architecture/architecture.md), [Quick Start.md](docs/getting-started/quick-start.md).
 
 ### 6. Tools
 
