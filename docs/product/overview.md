@@ -46,15 +46,4 @@ Hands‑on exercises covering:
 - Malware behavior  
 - Lateral movement  
 - Persistence detection  
-- Incident response workflows  
-
-## Who Is This For?
-
-Security Playbooks is ideal for:
-
-- SOC Analysts  
-- Threat Hunters  
-- Incident Responders  
-- Detection Engineers  
-- Cybersecurity Students  
-- Blue/Red/Purple Teamers
+- Incident response workflows
