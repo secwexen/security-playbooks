@@ -2,10 +2,6 @@
 
 This folder contains sample data designed to test the core workflow of the Security Playbooks project.
 
-## How to Run
-
-From the project root directory, execute the following commands
-
 ## IOC Detection Demo
 
 ```bash
