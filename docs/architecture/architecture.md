@@ -165,7 +165,7 @@ security-playbooks/
 
 ## Recommended Usage
 
-1. Start with [quick_start.md](docs/quick_start.md) to set up your lab environment.  
+1. Start with [quick-start.md](docs/getting-started/quick-start.md) to set up your lab environment.  
 2. Explore detection rules in [detection-rules/](detection-rules/).  
 3. Run scenarios in [scenarios/](scenarios/) with labs as guided exercises.  
 4. Reference [examples/](examples/) to validate your results.  
