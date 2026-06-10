@@ -80,7 +80,7 @@ Security Playbooks includes integrations for common security platforms and colla
 - Elastic
 - Slack
 
-See `src/security_playbooks/integrations/` for implementation details.
+See [Integrations](src/security_playbooks/integrations/) for implementation details.
 
 ## Installation
 
