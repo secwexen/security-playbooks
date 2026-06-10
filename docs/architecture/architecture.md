@@ -80,7 +80,7 @@ security-playbooks/
 ├── dev-requirements.txt
 ├── pyproject.toml
 ├── requirements.txt
-└── setup.cfg
+└── trivyignore
 ```
 
 ## Key Components
