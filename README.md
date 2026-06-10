@@ -61,6 +61,27 @@ Security Playbooks is intended for cybersecurity professionals who want to pract
 - **Log Analysis Examples** – Sample logs, outputs, and visual artifacts  
 - **Documentation & Tools** – Quick Start guides, architecture docs, and helper scripts
 
+## MITRE ATT&CK Coverage
+
+Coverage mappings are maintained in:
+
+- `detection-rules/mappings/mitre_mapping.yaml`  
+- `detection-rules/mappings/coverage_matrix.md`  
+- `detection-rules/mappings/attack_coverage.json`
+
+## Supported Integrations
+
+Security Playbooks includes integrations for common security platforms and collaboration tools:
+
+- Microsoft Defender
+- CrowdStrike Falcon
+- Microsoft Sentinel
+- Splunk
+- Elastic
+- Slack
+
+See `src/security_playbooks/integrations/` for implementation details.
+
 ## Installation
 
 ### Supported Operating Systems
