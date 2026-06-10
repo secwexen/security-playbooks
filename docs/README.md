@@ -13,7 +13,9 @@ Product capabilities and use cases:
 
 System design and technical structure:  
 - `architecture.md` – Overall architecture  
-- `system-design.md` – Internal system design and workflows
+- `system-design.md` – Internal system design and workflows  
+- `threat-model.md` – Threat modeling and risk assessment  
+- `detection-validation.md` – Detection validation methodology and testing
 
 ### 3. `contributing/`
 
@@ -42,3 +44,4 @@ Technical reference materials:
 
 Legal, compliance, and ethics documents:  
 - `ethics.md` – Ethics policy
+- `terms-of-service.md` – Terms of service and usage conditions
