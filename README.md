@@ -118,11 +118,11 @@ pip install -r requirements.txt
 pip install -r dev-requirements.txt
 ```
 
-For full details, refer to the [Quick Start](docs/quickstart.md) file.
+For full details, refer to the [Quick Start](docs/getting-started/quickstart.md) file.
 
 ## Documentation
 
-- [Quick Start](docs/quickstart.md)  
+- [Quick Start](docs/getting-started/quickstart.md)  
 - [Examples](docs/examples.md)  
 - [Roadmap](ROADMAP.md)  
 - [Contributing Guidelines](CONTRIBUTING.md)  
