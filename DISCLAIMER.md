@@ -21,6 +21,6 @@ Use them responsibly and ethically.
 4. **Reference Only**  
    Detection rules and attack scenarios are **for reference and learning purposes**. They may require adaptation before real-world application.
 
----
+This repository may reference third-party tools, frameworks, or resources. The repository owner is not responsible for the content, security, availability, or functionality of any third-party materials.
 
 By using this repository, you acknowledge and accept these terms.
