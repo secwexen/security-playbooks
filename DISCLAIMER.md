@@ -23,4 +23,6 @@ Use them responsibly and ethically.
 
 This repository may reference third-party tools, frameworks, or resources. The repository owner is not responsible for the content, security, availability, or functionality of any third-party materials.
 
+This repository is provided “as is” without warranty of any kind, express or implied.
+
 By using this repository, you acknowledge and accept these terms.
