@@ -8,7 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 
 ## Security Playbooks — Initial Open Source Pre-Release
 
-This is the first official Pre-release of the **Security Playbooks** project.  
+This is the first official Pre-release of the **Security Playbooks** project.
+
 It includes foundational detection content, incident response playbooks, and hands‑on lab scenarios designed to support SOC analysts, blue teamers, and cybersecurity experts.
 
 ## Included in This Release  
