@@ -1,4 +1,4 @@
-# Quick Start Guide
+# Quick Start
 
 This guide will help you quickly set up and start using the **Security Playbooks** for educational and lab purposes.
 
@@ -10,7 +10,6 @@ Before starting, make sure you have:
 - Git installed (`git --version`)  
 - A safe **lab environment** (virtual machines, containers, or isolated sandbox)  
 - Optional: Bash, PowerShell, or Rust toolchains for certain scripts
-
 
 ## 2. Clone the Repository
 
@@ -31,33 +30,10 @@ pip install -r requirements.txt
 pip install -r dev-requirements.txt
 ```
 
-## 4. Explore the Repository
-
-- **detection-rules/** – Review Sigma, YARA, and Suricata rules
-- **scenarios/** – Start with MITRE ATT&CK attack simulations
-- **labs/** – Run PoC scripts in isolated environments
-- **examples/** – Check sample outputs and logs
-- **docs/** – Read architecture and guides
-- **tools/** – Use helper scripts if needed
-
-## 5. Running a Lab Scenario
-
-Example: Running a network scan lab:
-
-```bash
-cd labs/lab1_network_scan
-python scan.py
-```
-
-> [!NOTE]
-> Always ensure you are in a **safe lab environment** before executing any scripts.
-
-## 6. Learning Workflow
+## 3. Learning Workflow
 
 1. Start by reading **[architecture.md](https://github.com/secwexen/security-playbook/blob/main/docs/architecture.md)** to understand the repo layout.
 2. Explore **[detection-rules/](detection-rules/)** to see how threats are detected.
-3. Execute **[scenarios/](https://github.com/secwexen/security-playbook/tree/main/scenarios)** and **[labs/](https://github.com/secwexen/security-playbook/tree/main/labs)** to learn attack simulation and response.
-4. Reference **[examples/](https://github.com/secwexen/security-playbook/tree/main/examples)** to validate results and outputs.
 
 > [!NOTE]
 > - Do **not** run scripts on live systems without permission.  
