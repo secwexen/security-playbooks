@@ -35,3 +35,12 @@ Advanced use cases (detection engineering, rule tuning) benefit from knowledge o
 - Sigma rules
 - YARA signatures
 - SIEM platforms (Splunk, Elastic, Sentinel, etc.)
+
+## 4. Can this project run in cloud environments?
+
+Yes, Security Playbooks can be used in cloud-based lab environments, provided they are properly isolated.
+
+Supported setups include:
+
+- Docker-based deployments  
+- SIEM-integrated lab environments (e.g., Microsoft Sentinel, Elastic Cloud)
