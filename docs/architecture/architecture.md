@@ -9,57 +9,43 @@ security-playbooks/
 ├── assets
 │   └── images/
 ├── automation
-│   ├── integrations/
-│   └── scripts/
-├── workflows/
-├── cli/
+│   ├── workflows/
 ├── config/
-├── core/
 ├── dashboards/
-├── deployments/
-│   ├── elastic/
-│   ├── sentinel/
-│   └── splunk/
 ├── detection-rules/
 │   ├── mappings/
 │   ├── sigma/
 │   ├── suricata/
 │   └── yara/
 ├── docs/
-│   └── architecture/
-├── examples/
-│   ├── alerts/
-│   ├── case-studies/
-│   ├── logs/
-│   └── lab-environment/
-│       ├── docker/
-│       └── setup-guides/
-├── terraform/
-├── labs/
-│   ├── lab1_network_scan/
-│   └── lab2_log_analysis/
-├── metrics/
-├── pipelines/
+│   ├── architecture/
+│   ├── contributing/
+│   ├── getting-started/
+│   ├── legal/
+│   ├── playbooks/
+│   ├── product/
+│   └── reference/
 ├── playbooks/
-│   ├── execution/
 │   ├── exfiltration/
 │   ├── initial-access/
 │   └── lateral-movement/
-├── scenarios/
-│   ├── malware_analysis/
-│   └── phishing_simulation/
+├── samples/
+│   ├── benign/
+│   ├── iocs/
+│   ├── logs/
+│   └── malicious/
 ├── schemas/
 ├── tests/
 │   ├── detection_tests/
 │   ├── integration_tests/
-│   └── playbook_tests/
-├── threat-intel/
-│   ├── actors/
-│   ├── enrichment/
-│   └── ioc-feeds/
+│   ├── playbook_tests/
+│   └── security_tests/
 ├── tools/
-│   ├── parsers/
-│   └── utils/
+│   └── parsers/
+├── utils/
+├── validation/
+│   ├── sigma/
+│   └── yara/
 ├── CHANGELOG.md
 ├── CITATION.cff
 ├── CODE_OF_CONDUCT.md
