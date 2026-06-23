@@ -2,7 +2,7 @@
 
 The **Security Playbooks** is structured to provide a clear, modular, and professional layout for cybersecurity research, lab simulations. The architecture is designed for educational, hands-on use while maintaining real-world workflow relevance.
 
-## Repository Structure
+## Project Structure
 
 ```text
 security-playbooks/
@@ -60,11 +60,6 @@ security-playbooks/
 ├── tools/
 │   ├── parsers/
 │   └── utils/
-├── .editorconfig
-├── .env.example
-├── .gitattributes
-├── .gitignore
-├── .pre-commit-config.yaml
 ├── CHANGELOG.md
 ├── CITATION.cff
 ├── CODE_OF_CONDUCT.md
