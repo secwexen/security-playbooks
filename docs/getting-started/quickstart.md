@@ -9,7 +9,7 @@ Before starting, make sure you have:
 - **Python 3.11+** installed  
 - Git installed (`git --version`)  
 - A safe **lab environment** (virtual machines, containers, or isolated sandbox)  
-- Optional: Bash, PowerShell, or Rust toolchains for certain scripts
+- Optional: Bash and PowerShell toolchains for certain scripts
 
 ## 2. Clone the Repository
 
