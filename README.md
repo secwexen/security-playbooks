@@ -12,11 +12,11 @@
 
 ## About
 
-**Security Playbooks** is an **open-source, educational repository** designed for **cybersecuritys**.
+**Security Playbooks** is an open-source, educational repository designed for cybersecuritys.
 
-It focuses on delivering realistic, **MITRE ATT&CK–aligned attack scenarios**, **detection engineering content**, and **hands-on labs** to help users build practical skills in **threat hunting**, **incident response**, and **adversary simulation** within controlled environments.
+It focuses on delivering realistic, MITRE ATT&CK–aligned attack scenarios, detection engineering content, and hands-on labs to help users build practical skills in threat hunting, incident response, and adversary simulation within controlled environments.
 
-The project aims to bridge the gap between **theoretical knowledge** and **real-world security operations** by providing **structured, reproducible, and practical cybersecurity workflows**.
+The project aims to bridge the gap between theoretical knowledge and real-world security operations by providing structured, reproducible, and practical cybersecurity workflows.
 
 ## Use Cases
 
@@ -31,7 +31,7 @@ Security Playbooks supports a range of practical cybersecurity workflows and rea
 
 ## Legal & Authorized Use Only
 
-This Security Playbooks repository is intended strictly for **educational, research, and authorized security testing purposes only**.
+This Security Playbooks repository is intended strictly for educational, research, and authorized security testing purposes only.
 
 Unauthorized use of this software, including deployment against systems without explicit permission, is strictly prohibited.
 
@@ -41,7 +41,7 @@ The maintainers assume no liability for misuse or any damages resulting from the
 
 ## Legal Disclaimer
 
-The contents of this repository, including scripts, scenarios, and detection rules, are provided **for educational, research purposes only**. No responsibility for any damage, misuse, or legal consequences resulting from the use of this material.
+The contents of this repository, including scripts, scenarios, and detection rules, are provided for educational, research purposes only. No responsibility for any damage, misuse, or legal consequences resulting from the use of this material.
 
 This software is provided “as is” without warranty of any kind, express or implied.
 
@@ -155,7 +155,7 @@ See [CONTRIBUTING](CONTRIBUTING.md) for detailed contribution guidelines.
 
 ## Roadmap
 
-This document outlines the planned development path for the **Security Playbooks** repository, including short‑term improvements, medium‑term expansions, and long‑term strategic goals.
+This document outlines the planned development path for the Security Playbooks repository, including short‑term improvements, medium‑term expansions, and long‑term strategic goals.
 
 Planned improvements include:
 
