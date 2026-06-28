@@ -14,7 +14,7 @@ You may contribute in several ways:
 
 ## Before You Start
 
-### 1. **Open an Issue First**
+### 1. Open an Issue First
 
 Before submitting a Pull Request, please open an issue describing:
 - What you want to add or fix  
@@ -23,7 +23,7 @@ Before submitting a Pull Request, please open an issue describing:
 
 This helps maintain project structure and prevents duplicate work.
 
-### 2. **Fork the Repository**
+### 2. Fork the Repository
 
 Create your own fork and work on a dedicated branch:
 ```
