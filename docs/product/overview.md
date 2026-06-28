@@ -1,6 +1,6 @@
 # Overview
 
-**Security Playbooks** is a comprehensive collection of cybersecurity playbooks, MITRE ATT&CK–aligned attack scenarios, detection rules, threat‑hunting workflows, and incident‑response labs designed for SOC analysts, detection engineers, threat hunters, and cybersecurity learners.
+Security Playbooks is a comprehensive collection of cybersecurity playbooks, MITRE ATT&CK–aligned attack scenarios, detection rules, threat‑hunting workflows, and incident‑response labs designed for SOC analysts, detection engineers, threat hunters, and cybersecurity learners.
 
 The project provides structured, reproducible, and practical security content that helps defenders understand adversary behavior, validate detections, and improve incident response capabilities in controlled and authorized environments.
 
