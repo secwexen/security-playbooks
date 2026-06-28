@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-This document provides answers to the most frequently asked questions about **Security Playbooks**.
+This document provides answers to the most frequently asked questions about Security Playbooks.
 
 ## 1. What is Security Playbooks?
 
@@ -16,7 +16,7 @@ The project is designed to help users gain practical, hands-on experience in con
 
 ## 2. Is this tool safe to use on real systems?
 
-No. **Security Playbooks is strictly intended for controlled, authorized lab environments only.**
+No. Security Playbooks is strictly intended for controlled, authorized lab environments only.
 
 It simulates adversary behavior and detection pipelines (e.g., MITRE ATT&CK techniques), which can generate alerts, modify logs, or trigger defensive actions (isolation, blocking, etc.) in a SOAR-like workflow. Running it on production systems could disrupt services or violate organizational policy.
 
