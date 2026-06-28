@@ -11,7 +11,7 @@ Do not attempt to exploit any vulnerability or run scripts against systems you d
 ### Responsible Disclosure
 
 Report any issues directly to the repository owner:
-- **Preferred method:** Open a **[private GitHub Security Advisory](https://github.com/secwexen/cyber-threat-playbook/security/advisories/new)**.
+- Preferred method: Open a [private GitHub Security Advisory](https://github.com/secwexen/cyber-threat-playbook/security/advisories/new).
 - Include a clear description, steps to reproduce, and any relevant files or screenshots.
 
 ### Handling Vulnerabilities
@@ -21,11 +21,11 @@ Report any issues directly to the repository owner:
 
 ## Supported Versions
 
-Security updates are provided **only for the latest stable release** of Security Playbooks.  
+Security updates are provided only for the latest stable release of Security Playbooks.  
 Older versions may not receive security fixes.
 
 ## Security Best Practices
 
-- All scripts and labs are intended for **educational and lab use only**.  
-- Use **isolated environments** (VMs, containers, sandboxes) to avoid affecting production systems.  
+- All scripts and labs are intended for educational and lab use only.  
+- Use isolated environments (VMs, containers, sandboxes) to avoid affecting production systems.  
 - Follow **ethical guidelines** and local laws when experimenting with scripts or scenarios.
