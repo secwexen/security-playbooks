@@ -1,6 +1,6 @@
 # Architecture
 
-The **Security Playbooks** is structured to provide a clear, modular, and professional layout for cybersecurity research, lab simulations. The architecture is designed for educational, hands-on use while maintaining real-world workflow relevance.
+The Security Playbooks is structured to provide a clear, modular, and professional layout for cybersecurity research, lab simulations. The architecture is designed for educational, hands-on use while maintaining real-world workflow relevance.
 
 ## Project Structure
 
@@ -68,35 +68,35 @@ security-playbooks/
 
 ### 1. Detection Rules
 
-- **Purpose:** Identify suspicious activities and simulate detection in lab environments.
-- **Formats:** Sigma, YARA, and Suricata.
-- **Use Case:** Threat hunting, SIEM integration, or educational analysis.
+- Purpose: Identify suspicious activities and simulate detection in lab environments.
+- Formats: Sigma, YARA, and Suricata.
+- Use Case: Threat hunting, SIEM integration, or educational analysis.
 
 ### 2. Scenarios
 
-- **Purpose:** Provide realistic attack simulations based on MITRE ATT&CK.
-- **Examples:** Phishing campaigns, malware propagation, lateral movement.
-- **Use Case:** Red/Blue team exercises, understanding attacker tactics.
+- Purpose: Provide realistic attack simulations based on MITRE ATT&CK.
+- Examples: Phishing campaigns, malware propagation, lateral movement.
+- Use Case: Red/Blue team exercises, understanding attacker tactics.
 
 ### 3. Labs
 
-- **Purpose:** Hands-on exercises with scripts and walkthroughs.
-- **Languages:** Python primarily, with optional Bash or PowerShell scripts.
-- **Use Case:** Practice detection, incident response, or research in isolated environments.
+- Purpose: Hands-on exercises with scripts and walkthroughs.
+- Languages: Python primarily, with optional Bash or PowerShell scripts.
+- Use Case: Practice detection, incident response, or research in isolated environments.
 
 ### 4. Examples
 
-- **Purpose:** Visualize outputs of detection rules and scenario executions.
-- **Contents:** Screenshots, log extracts, and sample alerts.
+- Purpose: Visualize outputs of detection rules and scenario executions.
+- Contents: Screenshots, log extracts, and sample alerts.
 
 ### 5. Docs
 
-- **Purpose:** Provide Quick Start guides, architecture overview, and usage instructions.
-- **File Example:** [architecture.md](docs/architecture/architecture.md), [Quick Start.md](docs/getting-started/quick-start.md).
+- Purpose: Provide Quick Start guides, architecture overview, and usage instructions.
+- File Example: [architecture.md](docs/architecture/architecture.md), [Quick Start.md](docs/getting-started/quick-start.md).
 
 ### 6. Tools
 
-- **Purpose:** Helper scripts to parse, validate, or simulate scenarios (e.g., Sigma parser).
+- Purpose: Helper scripts to parse, validate, or simulate scenarios (e.g., Sigma parser).
 
 ## SOC Detection Pipeline
 
