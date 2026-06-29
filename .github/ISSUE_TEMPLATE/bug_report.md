@@ -24,7 +24,7 @@ What actually happened.
 ## Environment
 - OS:
 - Python version:
-- AAPP-MART version:
+- Security Playbooks version:
 
 ## Additional Context
 Add any other context or screenshots here.
