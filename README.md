@@ -10,7 +10,7 @@
 
 ## About
 
-**Security Playbooks** is an open-source, educational repository designed for cybersecuritys.
+**Security Playbooks** is an open-source, educational repository designed for cybersecurity professionals.
 
 It focuses on delivering realistic, MITRE ATT&CK–aligned attack scenarios, detection engineering content, and hands-on labs to help users build practical skills in threat hunting, incident response, and adversary simulation within controlled environments.
 
@@ -45,12 +45,12 @@ This software is provided “as is” without warranty of any kind, express or i
 
 ## Who Is This For
 
-Security Playbooks is intended for cybersecuritys who want to practice, analyze, and understand real-world cyber threats in a structured and controlled environment.
+Security Playbooks is intended for cybersecurity professionals who want to practice, analyze, and understand real-world cyber threats in a structured and controlled environment.
 
 - **SOC Analysts** – Perform alert triage, log analysis, and incident investigation  
 - **Threat Hunters** – Conduct hypothesis-driven hunts and analyze adversary behavior  
 - **Blue Team Engineers** – Build, test, and optimize detection rules (Sigma, YARA, Suricata)  
-- **Cybersecuritys** – Gain hands-on experience and develop practical expertise  
+- **Cybersecurity professionals** – Gain hands-on experience and develop practical expertise  
 - **Red Teamers (Lab Use Only)** – Emulate adversary techniques in controlled, isolated environments
 
 ## Features
@@ -65,9 +65,8 @@ Security Playbooks is intended for cybersecuritys who want to practice, analyze,
 
 Coverage mappings are maintained in:
 
-- `detection-rules/mappings/mitre_mapping.yaml`  
-- `detection-rules/mappings/coverage_matrix.md`  
-- `detection-rules/mappings/attack_coverage.json`
+- `detection-rules/mappings/mitre_mapping.yaml` – MITRE ATT&CK techniques mapping
+- `detection-rules/mappings/coverage_matrix.md` – Detection coverage matrix
 
 ## Supported Integrations
 
@@ -80,45 +79,7 @@ Security Playbooks includes integrations for common security platforms and colla
 - Elastic
 - Slack
 
-See [Integrations](src/security_playbooks/integrations/) for implementation details.
-
-## Installation
-
-### Supported Operating Systems
-
-- Linux (primary, recommended)  
-- Windows (WSL2 recommended)  
-- macOS (Docker or native Python supported)
-
-### Requirements
-
-- Python 3.10+  
-- Docker  
-- YAML-based configuration system  
-- JSON data structures  
-- Sigma, YARA, Suricata, KQL rule formats  
-- Bash / Make (for automation)
-
-## Quick Start
-
-```bash
-# Clone repository
-git clone https://github.com/secwexen/security-playbooks.git
-cd security-playbooks
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Install dev dependencies
-pip install -r dev-requirements.txt
-```
-
-For full details, refer to the [Quick Start](docs/getting-started/quickstart.md) file.
+See [Integrations](integrations/) for implementation details.
 
 ## Documentation
 
@@ -141,9 +102,8 @@ See the [LICENSE](LICENSE) file for full details.
 Contributions and suggestions are welcome!
 
 - Fork the repository and create a feature or fix branch (e.g. `feature/your-feature`, `fix/bug-name`, `docs/update-readme`, `chore/dependency-update`).
-- Make your changes and add relevant tests.
+- Make your changes and update the relevant documentation, playbooks, or detection rules as needed.
 - Use clear commit messages (e.g. Conventional Commits: feat:, fix:, docs:, refactor:).
-- Ensure all tests pass (`pytest`) and code style checks (e.g. `make lint`).
 - Open a pull request referencing related issues/discussion when possible.
 - All PRs must pass CI checks before merging.
 
@@ -159,7 +119,7 @@ Planned improvements include:
 
 - expanded ATT&CK-mapped playbooks and lab scenarios  
 - enhanced and validated detection rules (Sigma, YARA, Suricata)  
-- structured SOC workflows with SOAR-ready automation  
+- structured SOC workflows and incident response playbooks  
 - standardized, machine-readable playbook formats  
 - alignment with security frameworks (NIST, CIS, ISO)  
 
