@@ -92,7 +92,7 @@ See [Integrations](src/security_playbooks/integrations/) for implementation deta
 
 ### Requirements
 
-- Python 3.11+  
+- Python 3.10  
 - Docker  
 - YAML-based configuration system  
 - JSON data structures  
