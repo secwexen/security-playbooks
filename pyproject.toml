@@ -1,1 +1,37 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
 
+[project]
+name = "security-playbooks"
+description = "Security Playbooks is a collection of MITRE ATT&CK-based attack scenarios, detection rules (Sigma, YARA, and Suricata), PoC scripts, and hands-on lab walkthroughs for cybersecurity and SOC analysts."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "secwexen"}
+]
+keywords = ["cybersecurity", "mitre-attack", "threat-detection", "yara-rules", "sigma-rules", "suricata", "blue-team"]
+
+dependencies = [
+    "pyyaml>=6.0",
+    "requests>=2.28.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "black>=22.0",
+    "flake8>=4.0",
+    "mypy>=0.950",
+]
+
+[tool.setuptools]
+packages = ["security_playbooks"]
+
+[tool.black]
+line-length = 100
+target-version = ['py39']
+
+[tool.mypy]
+python_version = "3.10"
