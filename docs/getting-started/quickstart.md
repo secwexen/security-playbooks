@@ -6,7 +6,7 @@ This guide will help you quickly set up and start using the Security Playbooks f
 
 Before starting, make sure you have:
 
-- Python 3.10 installed  
+- Python 3.10+ installed  
 - Git installed (`git --version`)  
 - A safe **lab environment** (virtual machines, containers, or isolated sandbox)  
 - Optional: Bash and PowerShell toolchains for certain scripts
