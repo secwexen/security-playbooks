@@ -44,3 +44,13 @@ Supported setups include:
 
 - Docker-based deployments  
 - SIEM-integrated lab environments (e.g., Microsoft Sentinel, Elastic Cloud)
+
+## 5. What detection rule formats are supported?
+
+Security Playbooks supports multiple detection rule formats to accommodate different SIEM platforms and security tools:
+
+- Sigma Rules – Platform-agnostic detection rules that can be translated to various SIEM formats
+- YARA Rules – Malware and file-based detection signatures
+- Suricata Rules – Network-based intrusion detection rules for IDS/IPS systems
+
+All rules are mapped to MITRE ATT&CK techniques for standardized threat coverage. Rules are stored in the [Detection Rules](detection-rules/) directory and can be integrated with your existing security infrastructure.
