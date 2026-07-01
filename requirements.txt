@@ -1,16 +1,31 @@
-requests==2.33.0
+# YAML processing
 PyYAML==6.0.1
-python-dateutil==2.9.0
-lxml==6.1.0
+ruamel.yaml==0.18.6
 
-# CLI & usability
+# Validation
+jsonschema==4.22.0
+
+# HTTP (IOC/ATT&CK/STIX downloads)
+requests==2.33.0
+
+# CLI
 click==8.1.7
 rich==13.7.1
 
-# Data & log processing
-pandas==2.2.2
-orjson==3.11.6
+# Detection rule parsing
+pysigma==0.11.18
 
-# Parsing & utilities
-regex==2024.5.15
+# Data parsing
+orjson==3.11.6
+python-dateutil==2.9.0
+
+# IOC validation
+validators==0.35.0
 tldextract==5.1.2
+dnspython==2.7.0
+
+# Reporting
+Jinja2==3.1.6
+
+# Logging
+structlog==24.4.0
