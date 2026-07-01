@@ -4,8 +4,8 @@ pytest-cov==5.0.0
 pytest-mock==3.14.0
 
 # Linting & Formatting
-flake8==7.0.0
 black==26.3.1
+flake8==7.0.0
 isort==5.13.2
 
 # Type Checking
@@ -17,9 +17,15 @@ types-PyYAML
 bandit==1.7.8
 pip-audit==2.7.3
 
-# Pre-commit hooks
+# Pre-commit
 pre-commit==3.7.1
 
 # Validation
 yamllint==1.35.1
 jsonschema==4.22.0
+
+# Documentation 
+markdownlint-cli==0.41.0
+
+# GitHub Actions lint 
+actionlint==1.7.7
