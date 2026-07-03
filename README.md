@@ -12,11 +12,11 @@
 
 ## About
 
-**Security Playbooks** is an open-source, cybersecurity, blue team, threat hunting, detection engineering, incident response, and educational repository designed for cybersecurity professionals, SOC teams and security researchers.
+**Security Playbooks** is an open-source, cybersecurity, blue team, threat hunting, detection engineering, incident response, Sigma rules, YARA rules, Suricata rules, and educational repository designed for cybersecurity professionals, SOC teams and security researchers.
 
 It focuses on delivering realistic, MITRE ATT&CK–aligned attack scenarios, detection rules, security playbooks, SOC workflows, adversary emulation, threat intelligence, detection engineering content, and hands-on labs to help users build practical skills in threat hunting, incident response, and adversary simulation within controlled environments.
 
-The project aims to bridge the gap between theoretical knowledge and real-world security operations by providing structured, reproducible, practical cybersecurity workflows, and security operations (SecOps).
+The project aims to bridge the gap between theoretical knowledge and real-world security operations by providing structured, reproducible, practical cybersecurity workflows, detection engineering, threat intelligence, and security operations (SecOps).
 
 ## Use Cases
 
