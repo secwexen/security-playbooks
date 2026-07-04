@@ -1,4 +1,4 @@
-# Security Playbooks Collection
+# Security Playbooks Readme
 
 This directory contains a structured collection of **MITRE ATT&CK–aligned security playbooks** designed for blue team operations, detection engineering, and incident response training.
 
@@ -42,14 +42,5 @@ Every playbook follows a consistent structure:
 - **Investigation Steps** – SOC analysis workflow
 - **Response Actions** – Incident containment and remediation
 - **Hardening Recommendations** – Prevention strategies
-
-## Use Cases
-
-These playbooks can be used for:
-
-- SOC alert triage and investigation
-- Threat hunting exercises
-- Detection engineering validation
-- Purple team simulations
 - Security training and labs
 - Incident response practice
