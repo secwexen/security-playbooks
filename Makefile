@@ -2,7 +2,7 @@
 
 help:
 	@echo "Security Playbooks Commands"
-	@echo "--------------------------"
+	@echo "---------------------------"
 	@echo "install     Install dependencies"
 	@echo "lint        Run lint checks"
 	@echo "validate    Validate rules & playbooks"
