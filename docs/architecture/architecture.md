@@ -21,7 +21,6 @@ security-playbooks
 ├── SUPPORT.md
 ├── requirements-dev.txt
 ├── requirements.txt
-├── trivyignore
 ├── assets/
 │   └── images/
 │
