@@ -30,15 +30,12 @@ security-playbooks/
 ├── config/
 │
 ├── detection-rules/
-│   ├── README.md
 │   ├── mappings/
 │   ├── sigma/
 │   ├── suricata/
 │   └── yara/
 │
 ├── docs/
-│   ├── FAQ.md
-│   ├── README.md
 │   ├── architecture/
 │   ├── contributing/
 │   ├── detection-engineering/
