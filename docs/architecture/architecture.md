@@ -19,6 +19,9 @@ security-playbooks
 ├── ROADMAP.md
 ├── SECURITY.md
 ├── SUPPORT.md
+├── requirements-dev.txt
+├── requirements.txt
+├── trivyignore
 ├── assets/
 │   └── images/
 │
@@ -92,8 +95,6 @@ security-playbooks
 │   ├── parsers/
 │   ├── reports/
 │   └── utils/
-│
-├── trivyignore
 │
 └── validation/
     ├── sigma/
