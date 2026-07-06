@@ -5,63 +5,102 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 ## Project Structure
 
 ```text
-security-playbooks/
-├── assets
-│   └── images/
-├── automation
-│   ├── workflows/
-├── config/
-├── dashboards/
-├── detection-rules/
-│   ├── mappings/
-│   ├── sigma/
-│   ├── suricata/
-│   └── yara/
-├── docs/
-│   ├── architecture/
-│   ├── contributing/
-│   ├── getting-started/
-│   ├── legal/
-│   ├── playbooks/
-│   ├── product/
-│   └── reference/
-├── playbooks/
-│   ├── exfiltration/
-│   ├── initial-access/
-│   └── lateral-movement/
-├── samples/
-│   ├── benign/
-│   ├── iocs/
-│   ├── logs/
-│   └── malicious/
-├── schemas/
-├── tests/
-│   ├── detection_tests/
-│   ├── integration_tests/
-│   ├── playbook_tests/
-│   └── security_tests/
-├── tools/
-│   └── parsers/
-├── utils/
-├── validation/
-│   ├── sigma/
-│   └── yara/
+security-playbooks
+├── ACKNOWLEDGEMENTS.md
 ├── CHANGELOG.md
 ├── CITATION.cff
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── DISCLAIMER.md
-├── ETHICS.md
 ├── LICENSE
 ├── MAINTAINERS
-├── MANIFEST.in
+├── Makefile
 ├── README.md
+├── ROADMAP.md
 ├── SECURITY.md
 ├── SUPPORT.md
-├── dev-requirements.txt
-├── pyproject.toml
-├── requirements.txt
-└── trivyignore
+├── assets/
+│   └── images/
+│
+├── config/
+│
+├── detection-rules/
+│   ├── README.md
+│   ├── mappings/
+│   ├── sigma/
+│   ├── suricata/
+│   └── yara/
+│
+├── docs/
+│   ├── FAQ.md
+│   ├── README.md
+│   ├── architecture/
+│   ├── contributing/
+│   ├── detection-engineering/
+│   ├── getting-started/
+│   ├── glossary.md
+│   ├── legal/
+│   ├── playbooks/
+│   ├── product/
+│   └── reference/
+│
+├── integrations/
+│
+├── iocs/
+│   └── feeds/
+│
+├── labs/
+│   ├── datasets/
+│   │   ├── linux/
+│   │   ├── network
+│   │   │   └── pcaps/
+│   │   └── windows/
+│   │       └── pcaps/
+│   ├── logs/
+│   ├── samples/
+│   │   ├── benign/
+│   │   └── events/
+│   └── scenarios/
+│
+├── playbooks
+│   ├── README.md
+│   ├── collection/
+│   ├── credential-access/
+│   ├── defense-evasion/
+│   ├── discovery/
+│   ├── exfiltration/
+│   ├── impact/
+│   ├── index.md
+│   ├── initial-access/
+│   ├── lateral-movement/
+│   ├── persistence/
+│   ├── privilege-escalation/
+│   └── templates/
+│
+├── reports/
+│
+├── schemas/
+│
+├── scripts/
+│
+├── templates/
+│
+├── tests/
+│   └── sigma/
+│
+├── tools/
+│   ├── parsers/
+│   ├── reports/
+│   └── utils/
+│
+├── trivyignore
+│
+└── validation/
+    ├── sigma/
+    └── yara/
+        ├── suricata/
+        │   └── test_pcaps/
+        └── test_samples/
 ```
 
 ## Key Components
