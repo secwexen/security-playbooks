@@ -83,6 +83,27 @@ Security Playbooks includes integrations for common security platforms and colla
 
 See [Integrations](integrations/) for implementation details.
 
+## Quick Start
+
+```bash
+# Clone repository
+git clone https://github.com/secwexen/security-playbooks.git
+cd security-playbooks
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Install dev dependencies
+pip install -r requirements-dev.txt
+```
+
+For full details, refer to the [Quick Start](docs/getting-started/quickstart.md) file.
+
 ## Documentation
 
 - [Quick Start](docs/getting-started/quickstart.md)  
