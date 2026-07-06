@@ -64,8 +64,7 @@ security-playbooks/
 │   │   └── events/
 │   └── scenarios/
 │
-├── playbooks
-│   ├── README.md
+├── playbooks/
 │   ├── collection/
 │   ├── credential-access/
 │   ├── defense-evasion/
