@@ -21,7 +21,7 @@ lint:
 	flake8 tools/
 
 validate:
-	python tools/validation/rule_validator.py
+	python tools/validation/suricata_validator.py
 	python tools/validation/sigma_validator.py
 	python tools/validation/yara_validator.py
 
