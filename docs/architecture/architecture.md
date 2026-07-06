@@ -23,6 +23,7 @@ security-playbooks
 ├── docker-compose.yml
 ├── requirements-dev.txt
 ├── requirements.txt
+│
 ├── assets/
 │   └── images/
 │
