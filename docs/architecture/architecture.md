@@ -12,6 +12,7 @@ security-playbooks
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── DISCLAIMER.md
+├── Dockerfile
 ├── LICENSE
 ├── MAINTAINERS
 ├── Makefile
@@ -19,6 +20,7 @@ security-playbooks
 ├── ROADMAP.md
 ├── SECURITY.md
 ├── SUPPORT.md
+├── docker-compose.yml
 ├── requirements-dev.txt
 ├── requirements.txt
 ├── assets/
