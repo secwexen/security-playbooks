@@ -83,6 +83,22 @@ Security Playbooks includes integrations for common security platforms and colla
 
 See [Integrations](integrations/) for implementation details.
 
+## Installation
+
+### Supported Operating Systems
+
+- Linux (primary, production & deployment recommended)  
+- Windows (WSL2 + Docker required for full compatibility)  
+- macOS (Docker or native development supported)
+
+### Requirements
+
+- Python 3.11+  
+- Docker (recommended)  
+- Make (for automation)  
+- YAML / JSON configuration support  
+- Sigma, YARA, Suricata rule formats
+
 ## Quick Start
 
 ```bash
