@@ -184,6 +184,5 @@ security-playbooks/
 
 1. Start with [quickstart.md](docs/getting-started/quickstart.md) to set up your lab environment.  
 2. Explore detection rules in [detection-rules/](detection-rules/).  
-3. Run scenarios in [scenarios/](scenarios/) with labs as guided exercises.  
-4. Reference [examples/](examples/) to validate your results.  
-5. Extend repository content with new scripts or detection rules as needed.
+3. Run scenarios in [scenarios/](labs/scenarios/) with labs as guided exercises.  
+4. Extend repository content with new scripts or detection rules as needed.
