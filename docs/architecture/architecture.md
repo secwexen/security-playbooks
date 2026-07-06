@@ -128,7 +128,7 @@ security-playbooks/
 ### 5. Docs
 
 - Purpose: Provide Quick Start guides, architecture overview, and usage instructions.
-- File Example: [architecture.md](docs/architecture/architecture.md), [Quick Start.md](docs/getting-started/quick-start.md).
+- File Example: [Architecture](docs/architecture/architecture.md), [Quick Start](docs/getting-started/quick-start.md).
 
 ### 6. Tools
 
@@ -182,7 +182,7 @@ security-playbooks/
 
 ## Recommended Usage
 
-1. Start with [quickstart.md](docs/getting-started/quickstart.md) to set up your lab environment.  
-2. Explore detection rules in [detection-rules/](detection-rules/).  
-3. Run scenarios in [scenarios/](labs/scenarios/) with labs as guided exercises.  
+1. Start with [Quick Start](docs/getting-started/quickstart.md) to set up your lab environment.  
+2. Explore detection rules in [Detection Rules](detection-rules/).  
+3. Run scenarios in [Scenarios](labs/scenarios/) with labs as guided exercises.  
 4. Extend repository content with new scripts or detection rules as needed.
