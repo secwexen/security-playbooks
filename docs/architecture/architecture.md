@@ -5,7 +5,7 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 ## Project Structure
 
 ```text
-security-playbooks
+security-playbooks/
 ├── ACKNOWLEDGEMENTS.md
 ├── CHANGELOG.md
 ├── CITATION.cff
