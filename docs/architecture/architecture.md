@@ -40,7 +40,6 @@ security-playbooks/
 │   ├── contributing/
 │   ├── detection-engineering/
 │   ├── getting-started/
-│   ├── glossary.md
 │   ├── legal/
 │   ├── playbooks/
 │   ├── product/
@@ -71,7 +70,6 @@ security-playbooks/
 │   ├── discovery/
 │   ├── exfiltration/
 │   ├── impact/
-│   ├── index.md
 │   ├── initial-access/
 │   ├── lateral-movement/
 │   ├── persistence/
