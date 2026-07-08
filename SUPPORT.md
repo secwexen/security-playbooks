@@ -31,7 +31,6 @@ Please include:
 
 If you need help running:
 
-- PoC scripts  
 - Log analysis tools  
 - Detection rules  
 - MITRE ATT&CK scenarios  
