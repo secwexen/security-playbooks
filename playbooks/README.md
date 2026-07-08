@@ -1,4 +1,4 @@
-# Security Playbooks Readme
+# Playbooks Readme
 
 This directory contains a structured collection of **MITRE ATT&CK–aligned security playbooks** designed for blue team operations, detection engineering, and incident response training.
 
