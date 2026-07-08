@@ -39,10 +39,12 @@ It includes foundational detection content, incident response playbooks, and han
 - Prepare the structure for future enhancements (v0.2.0, v0.3.0, etc.)
 
 ## What's Changed
+
 * Potential fix for code scanning alert no. 1: Workflow does not contain permissions by @secwexen in https://github.com/secwexen/security-playbooks/pull/1
 * Bump the pip group across 1 directory with 2 updates by @dependabot[bot] in https://github.com/secwexen/security-playbooks/pull/10
 
 ## New Contributors
+
 * @secwexen made their first contribution in https://github.com/secwexen/security-playbooks/pull/1
 * @dependabot[bot] made their first contribution in https://github.com/secwexen/security-playbooks/pull/10
 
