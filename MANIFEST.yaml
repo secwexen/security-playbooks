@@ -1,0 +1,173 @@
+project:
+  name: Security Playbooks
+  version: v0.2.1
+  description: >
+    Security Playbooks is a collection of MITRE ATT&CK attack scenarios, 
+    detection rules (Sigma, YARA, and Suricata), security automation scripts, 
+    and hands-on lab for cybersecurity professionals and SOC analysts.
+
+  license: MIT
+  status: active-development
+  repository_type: cybersecurity-framework
+
+maintainer:
+  name: secwexen
+
+supported_platforms:
+  - Linux
+  - Windows
+  - macOS
+
+languages:
+  - Python
+  - YAML
+  - JSON
+  - Markdown
+
+detection_frameworks:
+  sigma:
+    enabled: true
+    path: detection-rules/sigma
+
+  yara:
+    enabled: true
+    path: detection-rules/yara
+
+  suricata:
+    enabled: true
+    path: detection-rules/suricata
+
+security_frameworks:
+  - MITRE ATT&CK
+  - NIST Cybersecurity Framework
+  - Sigma
+  - YARA
+  - Suricata
+
+components:
+
+  detection_engineering:
+    enabled: true
+    includes:
+      - detection rules
+      - rule metadata
+      - ATT&CK mappings
+      - validation workflows
+      - detection lifecycle documentation
+
+  threat_hunting:
+    enabled: true
+    includes:
+      - hunting methodology
+      - hunting hypotheses
+      - KQL queries
+      - SPL queries
+      - Elastic queries
+
+  threat_intelligence:
+    enabled: true
+    includes:
+      - threat actors
+      - malware intelligence
+      - campaigns
+      - IOC management
+      - TLP classification
+
+  incident_response:
+    enabled: true
+    includes:
+      - response playbooks
+      - triage procedures
+      - containment guidance
+      - recovery workflows
+
+  security_operations:
+    enabled: true
+    includes:
+      - SOC workflows
+      - alert triage
+      - analyst procedures
+
+  adversary_emulation:
+    enabled: true
+    includes:
+      - attack scenarios
+      - MITRE ATT&CK aligned simulations
+      - controlled lab exercises
+
+  validation:
+    enabled: true
+    includes:
+      - Sigma testing
+      - YARA testing
+      - Suricata testing
+      - validation reports
+
+content:
+
+  playbooks:
+    path: playbooks
+    format:
+      - Markdown
+
+  detection_rules:
+    path: detection-rules
+    formats:
+      - Sigma
+      - YARA
+      - Suricata
+
+  documentation:
+    path: docs
+    format:
+      - Markdown
+
+  labs:
+    path: labs
+    includes:
+      - datasets
+      - logs
+      - PCAP samples
+      - attack scenarios
+
+  integrations:
+    path: integrations
+    supported:
+      - Elastic
+      - Splunk
+      - Microsoft Sentinel
+      - CrowdStrike Falcon
+      - Microsoft Defender
+
+validation:
+  enabled: true
+  test_frameworks:
+    - Sigma
+    - YARA
+    - Suricata
+
+  reports:
+    path: reports
+
+automation:
+  scripts:
+    enabled: true
+    path: scripts
+
+ci_cd:
+  enabled: true
+  platform:
+    - GitHub Actions
+
+security:
+  policies:
+    - SECURITY.md
+    - DISCLAIMER.md
+    - ethics.md
+    - terms-of-service
+    - CODE_OF_CONDUCT.md
+
+development:
+  python_version: "3.11+"
+  package_manager:
+    - pip
