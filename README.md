@@ -86,13 +86,12 @@ See [Integrations](integrations/) for implementation details.
 ### Supported Operating Systems
 
 - Linux (primary, production & deployment recommended)  
-- Windows (WSL2 + Docker required for full compatibility)  
-- macOS (Docker or native development supported)
+- Windows (WSL2)  
+- macOS (native development supported)
 
 ### Requirements
 
 - Python 3.11+  
-- Docker (recommended)  
 - Make (for automation)  
 - YAML / JSON configuration support  
 - Sigma, YARA, Suricata rule formats
