@@ -161,10 +161,6 @@ Planned improvements include:
 
 For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
-## Development Status
-
-This project is under active development.
-
 ## Security
 
 For guidance on safe usage and reporting vulnerabilities, see [SECURITY](SECURITY.md).
