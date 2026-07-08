@@ -19,7 +19,7 @@ Use the **Issues** tab for:
 - Feature requests  
 - General questions about repository usage  
 
-Create an issue here: [https://github.com/secwexen/security-playbooks/issues](https://github.com/secwexen/security-playbooks/issues)
+Create an issue here: [Issues](https://github.com/secwexen/security-playbooks/issues)
 
 Please include:
 
@@ -52,7 +52,7 @@ If you discover a **security issue**, do **NOT** open a public GitHub issue.
 
 Instead, follow the instructions in:
 
-- [SECURITY.md](SECURITY.md)
+- [SECURITY](SECURITY.md)
 
 This ensures responsible disclosure and safe handling.
 
@@ -80,8 +80,8 @@ If you want to contribute:
 
 Please read:
 
-- [CONTRIBUTING.md](CONTRIBUTING.md)  
-- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+- [CONTRIBUTING](CONTRIBUTING.md)  
+- [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md)
 
 Pull requests are welcome.
 
