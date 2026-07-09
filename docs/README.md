@@ -29,18 +29,12 @@ Setup guides and usage examples:
 - `run-commands.md` – Common execution commands  
 - `examples.md` – Example workflows and detections
 
-### 5. `playbooks/`
-
-Operational and incident response playbooks:  
-- `playbooks.md` – Playbook overview  
-- `playbook-template.md` – Standard playbook template
-
-### 6. `reference/`
+### 5. `reference/`
 
 Technical reference materials:  
 - `references.md` – Security frameworks and references
 
-### 7. `legal/`
+### 6. `legal/`
 
 Legal, compliance, and ethics documents:  
 - `ethics.md` – Ethics policy
