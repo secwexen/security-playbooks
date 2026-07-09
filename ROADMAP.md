@@ -63,9 +63,3 @@ This document outlines the planned development path for the Security Playbooks r
 - Add threat‑actor‑specific playbooks.
 - Include TTP evolution notes and historical context.
 - Provide enrichment templates for TI platforms.
-
-### Community & Contribution Model
-
-- Create contribution guidelines and templates.
-- Introduce a review workflow for new playbooks.
-- Build a tagging system for complexity, required tools, and environment type.
