@@ -10,12 +10,6 @@ This document outlines the planned development path for the Security Playbooks r
 - Enrich existing playbooks with detailed log sources, detection notes, and response steps.
 - Introduce IOC/IOA sections for all current and future playbooks.
 
-### Detection Engineering Improvements
-
-- Reorganize Sigma rules by category and ATT&CK technique.
-- Expand YARA rules with additional malware families.
-- Align Suricata rules with network‑centric ATT&CK techniques.
-
 ### Documentation Enhancements
 
 - Update [Overview](docs/product/overview.md) and create a clear [Run Commands](docs/getting-started/run-commands.md).
