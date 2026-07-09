@@ -174,10 +174,3 @@ security-playbooks/
 2. **Educational Focus:** Scripts and scenarios are safe to run in isolated labs.  
 3. **Realistic Simulations:** Scenarios mimic real-world attacks without targeting production systems.  
 4. **Extensible:** Users can add new rules, scenarios, or labs easily.
-
-## Recommended Usage
-
-1. Start with [Quick Start](docs/getting-started/quickstart.md) to set up your lab environment.  
-2. Explore detection rules in [Detection Rules](detection-rules/).  
-3. Run scenarios in [Scenarios](labs/scenarios/) with labs as guided exercises.  
-4. Extend repository content with new scripts or detection rules as needed.
