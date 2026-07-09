@@ -32,12 +32,6 @@ It includes foundational detection content, incident response playbooks, and han
 - Simulated attack chains  
 - Walkthroughs for hands‑on learning  
 
-## Purpose of This Release
- 
-- Establish a baseline version of the project  
-- Provide a stable snapshot for users and contributors  
-- Prepare the structure for future enhancements (v0.2.0, v0.3.0, etc.)
-
 ## What's Changed
 
 * Potential fix for code scanning alert no. 1: Workflow does not contain permissions by @secwexen in https://github.com/secwexen/security-playbooks/pull/1
