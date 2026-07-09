@@ -22,6 +22,14 @@ This document outlines the planned development path for the Security Playbooks r
 - Add step‑by‑step walkthroughs for lab environments.
 - Establish a versioning and naming standard for all playbooks and detection rules.
 
+### Detection Engineering Improvements
+
+- Improve detection rule quality, consistency, and documentation.
+- Expand automated validation and testing capabilities.
+- Improve detection coverage tracking and detection gap analysis.
+- Enhance threat hunting content and incident response workflows.
+- Maintain consistent standards across Sigma, YARA, and Suricata detection rules.
+
 ## 2. Mid‑Term Goals
 
 ### SOC & Incident Response Playbooks
