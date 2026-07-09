@@ -120,17 +120,12 @@ security-playbooks/
 - Languages: Python primarily, with optional Bash or PowerShell scripts.
 - Use Case: Practice detection, incident response, or research in isolated environments.
 
-### 4. Examples
-
-- Purpose: Visualize outputs of detection rules and scenario executions.
-- Contents: Screenshots, log extracts, and sample alerts.
-
-### 5. Docs
+### 4. Docs
 
 - Purpose: Provide Quick Start guides, architecture overview, and usage instructions.
 - File Example: [Architecture](docs/architecture/architecture.md), [Quick Start](docs/getting-started/quick-start.md).
 
-### 6. Tools
+### 5. Tools
 
 - Purpose: Helper scripts to parse, validate, or simulate scenarios (e.g., Sigma parser).
 
