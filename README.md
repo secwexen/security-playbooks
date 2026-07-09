@@ -65,8 +65,8 @@ Security Playbooks is intended for cybersecurity professionals who want to pract
 
 Coverage mappings are maintained in:
 
-- `detection-rules/mappings/mitre_mapping.yaml` – MITRE ATT&CK techniques mapping
-- `detection-rules/mappings/coverage_matrix.md` – Detection coverage matrix
+- [Mitre Mapping](detection-rules/mappings/mitre-mapping.yaml) – MITRE ATT&CK techniques mapping
+- [Coverage Matrix](detection-rules/mappings/coverage-matrix.md) – Detection coverage matrix
 
 ## Supported Integrations
 
