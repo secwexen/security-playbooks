@@ -10,7 +10,7 @@
 
 ## About
 
-**Security Playbooks** is an open-source, cybersecurity educational repository designed for detection engineers, threat hunters, incident responders, security engineers, cybersecurity professionals and SOC analysts.
+**Security Playbooks** is a cybersecurity educational repository designed for detection engineers, threat hunters, incident responders, security engineers, cybersecurity professionals and SOC analysts.
 
 It focuses on delivering realistic, MITRE ATT&CK mapping, detection rules, security playbooks, SOC workflows, adversary emulation, threat intelligence, detection engineering content, and hands-on labs to help users build practical skills in threat hunting, incident response, and adversary simulation within controlled environments.
 
