@@ -48,7 +48,7 @@ It includes foundational detection content, incident response playbooks, and han
 
 ## Security Playbooks — Operational Expansion Release
 
-This release expands the **Security Playbooks** project from a foundational security repository into a broader defensive security framework covering detection engineering, threat hunting, security operations, threat intelligence, and validation workflows.
+This Pre-release expands the **Security Playbooks** project from a foundational security repository into a broader defensive security framework covering detection engineering, threat hunting, security operations, threat intelligence, and validation workflows.
 
 ## Included in This Release
 
