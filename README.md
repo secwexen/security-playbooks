@@ -150,8 +150,6 @@ See [CONTRIBUTING](CONTRIBUTING.md) for detailed contribution guidelines.
 
 ## Roadmap
 
-This document outlines the planned development path for the Security Playbooks repository, including short‑term improvements, medium‑term expansions, and long‑term strategic goals.
-
 Planned improvements include:
 
 - expanded ATT&CK-mapped playbooks and lab scenarios  
