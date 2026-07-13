@@ -165,4 +165,4 @@ For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
 If you discover a security vulnerability, please follow our responsible disclosure process.
 
-For guidance on safe usage and reporting vulnerabilities, see [SECURITY](SECURITY.md).
+See [SECURITY](SECURITY.md) for detailed information.
