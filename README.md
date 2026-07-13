@@ -24,6 +24,7 @@ The project aims to bridge the gap between theoretical knowledge and real-world 
 - Incident Response Simulation  
 - Adversary Emulation (Lab Only)  
 - Training & Skill Development  
+- Alert Investigation & Triage
 
 ## Legal & Authorized Use Only
 
@@ -47,7 +48,9 @@ This software is provided “as is” without warranty of any kind, express or i
 - Threat Hunters  
 - Blue Team Engineers  
 - Cybersecurity professionals  
-- Red Teamers (Lab Use Only)
+- Red Teamers (Lab Use Only)  
+- Detection Engineers  
+- Threat Intelligence Analysts
 
 ## Features
 
@@ -55,7 +58,9 @@ This software is provided “as is” without warranty of any kind, express or i
 - Attack Scenarios  
 - Hands-on Labs  
 - Log Analysis Examples  
-- Documentation & Tools
+- Documentation & Tools  
+- Sigma, YARA & Suricata Rules  
+- IOC Enrichment & Threat Feeds
 
 ## MITRE ATT&CK Coverage
 
