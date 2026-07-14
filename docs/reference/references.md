@@ -1,5 +1,7 @@
 # External References
 
+The following resources are recommended for additional learning, research, and reference.
+
 - MITRE ATT&CK Framework — https://attack.mitre.org  
 - MITRE D3FEND — https://d3fend.mitre.org  
 - NIST Cybersecurity Framework (CSF) — https://www.nist.gov/cyberframework  
