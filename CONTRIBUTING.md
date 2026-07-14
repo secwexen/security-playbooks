@@ -43,13 +43,17 @@ cd security-playbooks
 git checkout -b feature/your-feature-name
 ```
 
-### 3. Set up a local development environment:
+### 3. Set up a local development environment
 
 ```bash
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
+```
 
+### 4. Install dependencies
+
+```bash
 pip install -r requirements.txt
 pip install -r requirements-dev.txt
 ```
