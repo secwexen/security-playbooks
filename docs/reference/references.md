@@ -1,8 +1,9 @@
 # External References
 
 - MITRE ATT&CK Framework — https://attack.mitre.org  
-- NIST Cybersecurity Framework — https://www.nist.gov/cyberframework  
-- OWASP Security Projects — https://owasp.org  
-- Microsoft Security Research — https://www.microsoft.com/en-us/security/blog/  
+- MITRE D3FEND — https://d3fend.mitre.org  
+- NIST Cybersecurity Framework (CSF) — https://www.nist.gov/cyberframework  
+- OWASP — https://owasp.org  
+- Sigma HQ — https://github.com/SigmaHQ/sigma  
 - Elastic Security Labs — https://www.elastic.co/security-labs  
-- Sigma HQ — https://github.com/SigmaHQ/sigma
+- Microsoft Security Blog — https://www.microsoft.com/en-us/security/blog/
