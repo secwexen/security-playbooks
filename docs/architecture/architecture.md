@@ -167,10 +167,3 @@ security-playbooks/
   - metrics/
   - dashboards/
 ```
-
-## Design Principles
-
-1. **Modularity:** Each component is independent and reusable.  
-2. **Educational Focus:** Scripts and scenarios are safe to run in isolated labs.  
-3. **Realistic Simulations:** Scenarios mimic real-world attacks without targeting production systems.  
-4. **Extensible:** Users can add new rules, scenarios, or labs easily.
