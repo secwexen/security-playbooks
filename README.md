@@ -121,7 +121,6 @@ For full details, refer to the [Quick Start](docs/getting-started/quickstart.md)
 ## Documentation
 
 - [Quick Start](docs/getting-started/quickstart.md)  
-- [Examples](docs/examples.md)  
 - [Roadmap](ROADMAP.md)  
 - [Contributing Guidelines](CONTRIBUTING.md)  
 - [Changelog](CHANGELOG.md)  
