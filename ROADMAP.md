@@ -1,6 +1,6 @@
 # Roadmap
 
-This document outlines the planned development path for the Security Playbooks repository, including short‑term improvements, medium‑term expansions, and long‑term strategic goals.
+This document outlines the planned development path for the Security Playbooks repository, including short‑term improvements, medium‑term expansions, and long‑term goals.
 
 ## 1. Short‑Term Goals
 
