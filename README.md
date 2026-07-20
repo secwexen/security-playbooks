@@ -152,7 +152,7 @@ See [CONTRIBUTING](CONTRIBUTING.md) for detailed contribution guidelines.
 Planned improvements include:
 
 - expanded ATT&CK-mapped playbooks and lab scenarios  
-- enhanced and validated detection rules (Sigma, YARA, Suricata)  
+- enhanced and validated detection rules (Sigma, YARA, and Suricata)  
 - structured SOC workflows and incident response playbooks  
 - standardized, machine-readable playbook formats  
 - alignment with security frameworks (NIST, CIS, ISO)  
