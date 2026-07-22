@@ -4,7 +4,7 @@ This document provides answers to the most frequently asked questions about Secu
 
 ## 1. What is Security Playbooks?
 
-Security Playbooks is an open-source educational cybersecurity repository focused on:
+Security Playbooks is a educational cybersecurity repository focused on:
 
 - Detection engineering
 - Threat hunting
