@@ -8,7 +8,7 @@ project:
 
   license: MIT
   status: active
-  repository_type: cybersecurity-repository
+  repository_type: cybersecurity
 
 maintainer:
   name: secwexen
