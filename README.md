@@ -30,8 +30,6 @@ The project aims to bridge the gap between theoretical knowledge and real-world 
 
 This Security Playbooks repository is intended strictly for educational, research, and authorized security testing purposes only.
 
-Unauthorized use of this software, including deployment against systems without explicit permission, is strictly prohibited.
-
 Users are solely responsible for ensuring their activities comply with all applicable laws and regulations.
 
 The maintainers assume no liability for misuse or any damages resulting from the use of this project.
