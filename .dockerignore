@@ -19,6 +19,7 @@ dist/
 
 # Git
 .git/
+.git
 .gitignore
 
 # IDE / Editor / DevContainer
