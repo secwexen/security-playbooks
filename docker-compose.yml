@@ -1,1 +1,12 @@
-
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    working_dir: /app
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: tail -f /dev/null
+    restart: unless-stopped
