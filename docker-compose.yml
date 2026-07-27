@@ -10,5 +10,4 @@ services:
     working_dir: /app
     environment:
       - PYTHONUNBUFFERED=1
-    command: tail -f /dev/null
     restart: unless-stopped
