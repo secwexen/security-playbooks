@@ -42,4 +42,4 @@ clean:
 	rm -rf .pytest_cache .coverage htmlcov
 
 docs:
-	echo "Docs generation placeholder"
+	mkdocs build
