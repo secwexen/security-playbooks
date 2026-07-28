@@ -54,19 +54,6 @@ Instead, follow the instructions in:
 
 This ensures responsible disclosure and safe handling.
 
-## What Support Is **Not** Provided
-
-This project does **NOT** provide support for:
-
-- Illegal activity  
-- Real-world exploitation  
-- Attacking live systems  
-- Bypassing security controls  
-- Malware deployment outside isolated labs  
-- Corporate network intrusion assistance  
-
-All content is strictly for **educational and ethical** use.
-
 ## Contributing
 
 If you want to contribute:
