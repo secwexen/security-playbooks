@@ -33,4 +33,4 @@ This repository is provided **“as is”** and **"as available"**, without warr
 
 ## 7. Acknowledgement & Acceptance
 
-By using this repository, you acknowledge and accept these terms.
+By accessing, cloning, or using this repository, you acknowledge that you have read, understood, and agreed to all terms listed in this disclaimer.
