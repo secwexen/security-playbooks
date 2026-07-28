@@ -29,7 +29,7 @@ This repository may reference third-party tools, frameworks, or resources. The r
 
 ## 6. Disclaimer of Warranty
 
-This repository is provided “as is” without warranty of any kind, express or implied.
+This repository is provided “as is” and "as available", without warranty of any kind, express or implied.
 
 ## 7. Acknowledgement & Acceptance
 
