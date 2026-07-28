@@ -32,6 +32,9 @@ security:
 	trivy fs .
 	bandit -r tools/
 
+build:
+	docker build -t security-playbooks:latest.
+
 check: lint validate test security
 
 clean:
