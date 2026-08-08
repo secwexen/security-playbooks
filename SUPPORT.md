@@ -27,23 +27,6 @@ Please include:
 - Logs, screenshots, or error messages  
 - Environment details (OS, Python version, tools used)
 
-## Lab & Scenario Support
-
-If you need help running:
-
-- Log analysis tools  
-- Detection rules  
-- MITRE ATT&CK scenarios  
-
-Please include:
-
-- The exact file or scenario name  
-- Command you executed  
-- Output or error message  
-- Your lab environment setup  
-
-This helps maintainers reproduce the issue quickly.
-
 ## Security & Vulnerability Reports
 
 If you discover a **security issue**, do **NOT** open a public GitHub issue.
