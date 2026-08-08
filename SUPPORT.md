@@ -54,6 +54,12 @@ Instead, follow the instructions in:
 
 This ensures responsible disclosure and safe handling.
 
+## Response Commitments
+
+- Response Time: We aim to respond to issues within 24 business hours.  
+- Critical Bugs: Security or production-impacting bugs are prioritized.  
+- Community Contributions: Pull requests are reviewed within 3 business days.
+
 ## Contributing
 
 If you want to contribute:
