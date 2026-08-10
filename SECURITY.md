@@ -13,7 +13,7 @@ Do not attempt to exploit any vulnerability or run scripts against systems you d
 
 ### Responsible Disclosure
 
-Report any issues directly to the repository owner:
+Report any issues directly to the repository owner.
 
 - Preferred method: 
 
