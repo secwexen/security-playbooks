@@ -1,5 +1,8 @@
 # Security Policy
 
+Security Playbooks values responsible disclosure and safe, ethical security research.
+This document outlines the security policy for reporting vulnerabilities, response expectations.
+
 ## Reporting Security Issues
 
 If you discover a security vulnerability or issue in this repository, please follow these guidelines:
