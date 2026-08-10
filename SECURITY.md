@@ -17,10 +17,25 @@ Report any issues directly to the repository owner:
 - Preferred method: Open a [private GitHub Security Advisory](https://github.com/secwexen/cyber-threat-playbook/security/advisories/new).
 - Include a clear description, steps to reproduce, and any relevant files or screenshots.
 
+> [!IMPORTANT]
+> Do **not disclose security issues publicly** until a fix or mitigation has been released.
+
 ### Handling Vulnerabilities
 
 - Security reports will be reviewed as soon as possible.  
 - Fixes or updates will be applied and documented in the repository.
+
+## Response Expectations
+
+- Initial response: We aim to respond within 48 bussiens hours  
+- Fix or mitigation: as soon as reasonably possible  
+- Security issues will be tracked via a ticket system or CVE where applicable  
+- Coordinated disclosure will be handled in collaboration with the reporter
+
+## CVE Process
+
+Where applicable, security vulnerabilities may be assigned a **CVE (Common Vulnerabilities and Exposures)** identifier.  
+We will coordinate with the reporter to request and publish CVEs for confirmed issues, ensuring transparency and industry-standard tracking.
 
 ## Supported Versions
 
