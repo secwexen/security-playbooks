@@ -6,6 +6,12 @@ We gratefully acknowledge the individuals, projects, and organizations whose sup
 
 We extend our gratitude to the maintainers of the key dependencies, foundational tools, and open-source packages that made the development of Security Playbooks possible.
 
+## Open-Source Community
+
+Security Playbooks benefits from the broader open-source software ecosystem.
+
+We acknowledge the maintainers, contributors, reviewers, and communities who develop and maintain the libraries, frameworks, development tools, infrastructure components, and security tooling on which modern software engineering depends.
+
 ## Community & Feedback
 
 Special thanks to the security researchers whose valuable feedback, testing, and discussions helped refine Security Playbooks.
