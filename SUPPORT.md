@@ -33,8 +33,7 @@ If you discover a **security issue**, do **NOT** open a public GitHub issue.
 
 Instead, follow the instructions in:
 
-- Open a [Private GitHub Security Advisory](https://github.com/secwexen/security-playbooks/security/advisories/new)  
-- [SECURITY](SECURITY.md)
+- Open a [Private GitHub Security Advisory](https://github.com/secwexen/security-playbooks/security/advisories/new)
 
 This ensures responsible disclosure and safe handling.
 
