@@ -16,7 +16,7 @@
 
 It focuses on delivering realistic, MITRE ATT&CK mapping, detection rules, detection validation, threat hunters, incident response playbooks, cybersecurity playbooks, SOC workflows, adversary emulation, threat intelligence, security engineers, detection engineering content, and hands-on labs to help users build practical skills in threat hunting, incident response, and adversary simulation within controlled environments.
 
-The project aims to bridge the gap between theoretical knowledge and real-world security operations by providing structured, reproducible, practical cybersecurity workflows, threat intelligence, and security operations (SecOps).
+The project aims to bridge the gap between theoretical knowledge and real-world security operations by providing structured, reproducible, practical cybersecurity workflows, threat intelligence, and security operations (SecOps), detection engineering, incident response, and security validation capabilities.
 
 ## Use Cases
 
