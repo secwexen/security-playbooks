@@ -1,1 +1,187 @@
-
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://security-playbooks.local/schemas/detection_rule.schema.json",
+  "title": "Security Playbooks Detection Rule",
+  "description": "Normalized metadata schema for defensive Sigma, YARA, Suricata and custom detection rules.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "type",
+    "status",
+    "severity",
+    "description",
+    "author",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._:-]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "sigma",
+        "suricata",
+        "yara",
+        "custom"
+      ]
+    },
+    "version": {
+      "type": "string",
+      "default": "1.0.0"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "experimental",
+        "testing",
+        "stable",
+        "deprecated"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "informational",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "confidence": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "author": {
+      "type": "string",
+      "minLength": 1
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "mitre_attack": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^T[0-9]{4}(\\.[0-9]{3})?$"
+      },
+      "uniqueItems": true
+    },
+    "log_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "product": {
+            "type": "string"
+          },
+          "service": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "detection_logic": {
+      "type": "object"
+    },
+    "query": {
+      "type": "string"
+    },
+    "query_language": {
+      "type": "string",
+      "enum": [
+        "sigma",
+        "yara",
+        "suricata",
+        "kql",
+        "spl",
+        "eql",
+        "lucene",
+        "custom"
+      ]
+    },
+    "false_positives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "references_attack": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "validated": {
+          "type": "boolean"
+        },
+        "last_validated": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "test_suite": {
+          "type": "string"
+        },
+        "expected_result": {
+          "type": "string",
+          "enum": [
+            "match",
+            "no_match",
+            "alert",
+            "no_alert",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
