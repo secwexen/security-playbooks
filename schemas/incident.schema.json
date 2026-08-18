@@ -1,1 +1,158 @@
-
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://security-playbooks.local/schemas/incident.schema.json",
+  "title": "Security Incident",
+  "description": "Structured incident representation for SOC training, triage, investigation and response scenarios.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "severity",
+    "status",
+    "created_at"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "informational",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "triaged",
+        "investigating",
+        "contained",
+        "eradicated",
+        "recovering",
+        "resolved",
+        "closed",
+        "false_positive"
+      ]
+    },
+    "alert_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "ioc_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "affected_hosts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "affected_users": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "mitre_attack": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^T[0-9]{4}(\\.[0-9]{3})?$"
+      },
+      "uniqueItems": true
+    },
+    "threat_actors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "playbook_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "timeline": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "timestamp",
+          "event"
+        ],
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "event": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "closed_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  }
+}
