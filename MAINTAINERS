@@ -1,11 +1,11 @@
 MAINTAINERS
 
-M: Secwexen (https://github.com/secwexen)
+M: The Secwexen (https://github.com/secwexen)
 R: Project Lead & Maintainer
 A: Full Project Scope
 S: active
 C: GitHub Discussions (https://github.com/secwexen/security-playbooks/discussions)
-Last-updated: 2026-07-31
+Last-updated: 2026-08-18
 
 # References:
 # - See CODEOWNERS for path-to-owner mappings
