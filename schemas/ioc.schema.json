@@ -1,1 +1,148 @@
-
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://security-playbooks.local/schemas/ioc.schema.json",
+  "title": "Indicator of Compromise",
+  "description": "Schema for indicators used by threat intelligence, enrichment and detection validation workflows.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "value"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "ipv4",
+        "ipv6",
+        "domain",
+        "url",
+        "md5",
+        "sha1",
+        "sha256",
+        "email",
+        "hostname",
+        "cve",
+        "user_agent",
+        "registry_key",
+        "mutex",
+        "other"
+      ]
+    },
+    "value": {
+      "type": "string",
+      "minLength": 1
+    },
+    "normalized_value": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "informational",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "expired",
+        "false_positive",
+        "unknown"
+      ]
+    },
+    "source": {
+      "type": "string"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "internal",
+        "open_source",
+        "commercial",
+        "community",
+        "manual",
+        "lab",
+        "unknown"
+      ]
+    },
+    "first_seen": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "last_seen": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "mitre_attack": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^T[0-9]{4}(\\.[0-9]{3})?$"
+      },
+      "uniqueItems": true
+    },
+    "threat_actors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "malware_families": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "campaigns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "related_iocs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "metadata": {
+      "type": "object"
+    }
+  }
+}
