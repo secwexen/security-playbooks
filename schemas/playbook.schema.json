@@ -1,1 +1,221 @@
-
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://security-playbooks.local/schemas/playbook.schema.json",
+  "title": "Security Playbooks",
+  "description": "Machine-readable schema for defensive SOC, threat hunting, triage and incident response playbooks.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "category",
+    "status",
+    "description",
+    "steps"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._:-]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "default": "1.0.0"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "collection",
+        "credential-access",
+        "defense-evasion",
+        "discovery",
+        "exfiltration",
+        "impact",
+        "initial-access",
+        "lateral-movement",
+        "persistence",
+        "privilege-escalation",
+        "response",
+        "triage",
+        "threat-hunting",
+        "custom"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "testing",
+        "approved",
+        "active",
+        "deprecated"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "objective": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "informational",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "mitre_attack": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^T[0-9]{4}(\\.[0-9]{3})?$"
+      },
+      "uniqueItems": true
+    },
+    "triggers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "order",
+          "name",
+          "action"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "name": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "collect",
+              "triage",
+              "investigate",
+              "hunt",
+              "enrich",
+              "validate",
+              "analyze",
+              "contain",
+              "eradicate",
+              "recover",
+              "notify",
+              "document",
+              "escalate",
+              "custom"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "commands": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "queries": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "expected_result": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "scenario": {
+          "type": "string"
+        },
+        "last_validated": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "validated": {
+          "type": "boolean"
+        }
+      }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
