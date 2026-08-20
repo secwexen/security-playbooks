@@ -1,1 +1,143 @@
+version: "1.0"
 
+metadata:
+  name: "severity"
+  description: "Standardized severity and response urgency classification."
+  owner: "security-operations"
+  immutable_values: true
+
+levels:
+
+  informational:
+    rank: 1
+    score: 10
+    label: "Informational"
+
+    impact:
+      confidentiality: "none"
+      integrity: "none"
+      availability: "none"
+
+    urgency:
+      response: "none"
+      target_minutes: null
+
+    examples:
+      - "expected administrative activity"
+      - "low-risk telemetry correlation"
+
+    automation:
+      auto_containment: false
+      auto_block: false
+
+  low:
+    rank: 2
+    score: 30
+    label: "Low"
+
+    impact:
+      confidentiality: "low"
+      integrity: "low"
+      availability: "none"
+
+    urgency:
+      response: "monitor"
+      target_minutes: 1440
+
+    examples:
+      - "suspicious but weak activity"
+      - "low-impact policy violation"
+
+    automation:
+      auto_containment: false
+      auto_block: false
+
+  medium:
+    rank: 3
+    score: 50
+    label: "Medium"
+
+    impact:
+      confidentiality: "moderate"
+      integrity: "moderate"
+      availability: "low"
+
+    urgency:
+      response: "investigate"
+      target_minutes: 240
+
+    examples:
+      - "credential access indicators"
+      - "suspicious persistence"
+      - "lateral movement indicators"
+
+    automation:
+      auto_containment: false
+      auto_block: false
+
+  high:
+    rank: 4
+    score: 75
+    label: "High"
+
+    impact:
+      confidentiality: "high"
+      integrity: "high"
+      availability: "moderate"
+
+    urgency:
+      response: "urgent"
+      target_minutes: 60
+
+    examples:
+      - "confirmed malicious execution"
+      - "privilege escalation"
+      - "credential theft"
+      - "command and control"
+
+    automation:
+      auto_containment: false
+      auto_block: false
+      requires_approval: true
+
+  critical:
+    rank: 5
+    score: 100
+    label: "Critical"
+
+    impact:
+      confidentiality: "critical"
+      integrity: "critical"
+      availability: "critical"
+
+    urgency:
+      response: "immediate"
+      target_minutes: 15
+
+    examples:
+      - "active ransomware behavior"
+      - "confirmed destructive activity"
+      - "mass credential compromise"
+      - "active high-confidence data exfiltration"
+
+    automation:
+      auto_containment: true
+      auto_block: true
+      requires_approval: false
+
+policy:
+  default: "medium"
+
+  minimum_confidence_by_severity:
+    informational: "very_low"
+    low: "low"
+    medium: "medium"
+    high: "high"
+    critical: "very_high"
+
+  production_allowed:
+    - "informational"
+    - "low"
+    - "medium"
+    - "high"
+    - "critical"
