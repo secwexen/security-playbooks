@@ -1,1 +1,117 @@
+version: "1.0"
 
+metadata:
+  name: "ownership"
+  description: "Ownership and accountability model for detection content."
+  owner: "security-engineering"
+  immutable_values: false
+
+teams:
+
+  detection_engineering:
+    display_name: "Detection Engineering"
+    responsibility:
+      - "rule_development"
+      - "rule_validation"
+      - "rule_tuning"
+      - "detection_quality"
+    escalation: "security-engineering"
+
+  threat_hunting:
+    display_name: "Threat Hunting"
+    responsibility:
+      - "hypothesis_development"
+      - "hunt_validation"
+      - "behavioral_analysis"
+    escalation: "security-engineering"
+
+  soc:
+    display_name: "Security Operations Center"
+    responsibility:
+      - "alert_triage"
+      - "incident_escalation"
+      - "operational_feedback"
+    escalation: "incident-response"
+
+  incident_response:
+    display_name: "Incident Response"
+    responsibility:
+      - "incident_handling"
+      - "containment"
+      - "forensics"
+    escalation: "security-leadership"
+
+  threat_intelligence:
+    display_name: "Threat Intelligence"
+    responsibility:
+      - "ioc_enrichment"
+      - "actor_tracking"
+      - "malware_tracking"
+      - "campaign_tracking"
+    escalation: "security-engineering"
+
+  security_engineering:
+    display_name: "Security Engineering"
+    responsibility:
+      - "platform_security"
+      - "integration"
+      - "pipeline"
+      - "automation"
+    escalation: "security-leadership"
+
+  platform_security:
+    display_name: "Platform Security"
+    responsibility:
+      - "endpoint"
+      - "cloud"
+      - "identity"
+      - "network"
+    escalation: "security-engineering"
+
+  unknown:
+    display_name: "Unassigned"
+    responsibility: []
+    escalation: "security-engineering"
+
+ownership_model:
+  required: true
+
+  required_fields:
+    - "owner"
+    - "maintainer"
+
+  optional_fields:
+    - "reviewer"
+    - "escalation_team"
+    - "service_owner"
+
+  role_definitions:
+    owner:
+      description: "Accountable for detection correctness and lifecycle."
+
+    maintainer:
+      description: "Responsible for implementation and routine maintenance."
+
+    reviewer:
+      description: "Responsible for peer review and release approval."
+
+    escalation_team:
+      description: "Team responsible for operational escalation."
+
+  default:
+    owner: "detection_engineering"
+    maintainer: "detection_engineering"
+    escalation_team: "security_engineering"
+
+review:
+  required_for_production: true
+  minimum_reviewers: 1
+  require_independent_reviewer: true
+
+lifecycle:
+  ownership_transfer_requires:
+    - "new_owner"
+    - "transfer_reason"
+    - "effective_date"
+
+  archived_rule_owner: "security_engineering"
