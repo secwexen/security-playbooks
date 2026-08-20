@@ -1,1 +1,176 @@
+version: 1
+disable_existing_loggers: false
 
+project:
+  name: "security-playbooks"
+
+formatters:
+  standard:
+    format: "%(asctime)s %(levelname)s %(name)s %(message)s"
+    datefmt: "%Y-%m-%dT%H:%M:%S%z"
+
+  detailed:
+    format: "%(asctime)s %(levelname)s %(name)s %(module)s %(funcName)s:%(lineno)d %(message)s"
+    datefmt: "%Y-%m-%dT%H:%M:%S%z"
+
+  json:
+    (): "pythonjsonlogger.jsonlogger.JsonFormatter"
+    format: >
+      asctime,levelname,name,message,module,funcName,lineno,
+      process,thread,environment,component,operation,rule_id,
+      correlation_id,duration_ms,status,error_type
+    datefmt: "%Y-%m-%dT%H:%M:%S%z"
+
+handlers:
+  console:
+    class: "logging.StreamHandler"
+    level: "${LOG_LEVEL:-INFO}"
+    formatter: "standard"
+    stream: "ext://sys.stdout"
+
+  stderr:
+    class: "logging.StreamHandler"
+    level: "ERROR"
+    formatter: "detailed"
+    stream: "ext://sys.stderr"
+
+  json_console:
+    class: "logging.StreamHandler"
+    level: "${JSON_LOG_LEVEL:-INFO}"
+    formatter: "json"
+    stream: "ext://sys.stdout"
+
+loggers:
+  security_playbooks:
+    level: "${LOG_LEVEL:-INFO}"
+    handlers:
+      - "console"
+    propagate: false
+
+  security_playbooks.pipeline:
+    level: "INFO"
+    handlers:
+      - "console"
+
+  security_playbooks.validation:
+    level: "INFO"
+    handlers:
+      - "console"
+
+  security_playbooks.detection:
+    level: "INFO"
+    handlers:
+      - "console"
+
+  security_playbooks.enrichment:
+    level: "INFO"
+    handlers:
+      - "console"
+
+  security_playbooks.threat_intelligence:
+    level: "INFO"
+    handlers:
+      - "console"
+
+  security_playbooks.tests:
+    level: "INFO"
+    handlers:
+      - "console"
+
+  security_playbooks.security:
+    level: "INFO"
+    handlers:
+      - "console"
+      - "stderr"
+
+  urllib3:
+    level: "WARNING"
+    handlers:
+      - "console"
+    propagate: false
+
+  requests:
+    level: "WARNING"
+    handlers:
+      - "console"
+    propagate: false
+
+root:
+  level: "${ROOT_LOG_LEVEL:-WARNING}"
+  handlers:
+    - "console"
+
+runtime:
+  environment: "${SECURITY_PLAYBOOKS_ENV:-development}"
+  correlation_id:
+    enabled: true
+    header_name: "X-Correlation-ID"
+
+  redaction:
+    enabled: true
+
+    fields:
+      - "password"
+      - "passwd"
+      - "secret"
+      - "token"
+      - "access_token"
+      - "refresh_token"
+      - "api_key"
+      - "apikey"
+      - "authorization"
+      - "cookie"
+      - "session"
+      - "private_key"
+      - "client_secret"
+
+    replacement: "[REDACTED]"
+
+  pii_redaction:
+    enabled: true
+    fields:
+      - "email"
+      - "phone"
+      - "username"
+      - "user_id"
+
+  network_logging:
+    enabled: true
+    include_request_method: true
+    include_status_code: true
+    include_latency: true
+    exclude_request_body: true
+    exclude_response_body: true
+
+performance:
+  include_duration: true
+  duration_field: "duration_ms"
+  slow_operation_threshold_ms: 1000
+
+audit:
+  enabled: true
+  events:
+    - "configuration_loaded"
+    - "rule_loaded"
+    - "rule_validated"
+    - "rule_rejected"
+    - "rule_published"
+    - "pipeline_started"
+    - "pipeline_completed"
+    - "pipeline_failed"
+    - "enrichment_started"
+    - "enrichment_completed"
+    - "security_gate_failed"
+
+retention:
+  enabled: false
+  days: 30
+
+sampling:
+  enabled: false
+  default_rate: 1.0
+
+security:
+  prohibit_sensitive_content: true
+  prohibit_rule_payload_logging: false
+  prohibit_ioc_raw_payload_logging: true
