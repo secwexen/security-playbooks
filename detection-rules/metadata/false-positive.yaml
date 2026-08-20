@@ -1,1 +1,103 @@
+version: "1.0"
 
+metadata:
+  name: "false-positive"
+  description: "Standard taxonomy and handling policy for detection false positives."
+  owner: "detection-engineering"
+  immutable_values: true
+
+classification:
+
+  none:
+    label: "No Known False Positive"
+    risk: "minimal"
+    action: "monitor"
+
+  rare:
+    label: "Rare"
+    risk: "low"
+    action: "monitor"
+
+  occasional:
+    label: "Occasional"
+    risk: "moderate"
+    action: "tune"
+
+  frequent:
+    label: "Frequent"
+    risk: "high"
+    action: "tune"
+
+  excessive:
+    label: "Excessive"
+    risk: "critical"
+    action: "disable_or_rework"
+
+causes:
+
+  - "administrative_activity"
+  - "security_tool_activity"
+  - "software_update"
+  - "developer_activity"
+  - "automation"
+  - "backup_activity"
+  - "monitoring"
+  - "legitimate_remote_access"
+  - "known_application_behavior"
+  - "scanner_activity"
+  - "unknown"
+
+handling:
+  monitor:
+    description: "Track alerts without immediate rule modification."
+
+  tune:
+    description: "Refine detection logic, exclusions, thresholds, or context."
+
+  disable_or_rework:
+    description: >
+      Disable production deployment temporarily or redesign detection logic
+      when alert quality is unacceptable.
+
+  allowlist:
+    description: >
+      Apply an explicitly documented exception only when the benign source
+      is stable, verified, and low risk.
+
+  suppress:
+    description: >
+      Suppress duplicate or non-actionable alerts without removing the
+      underlying detection signal.
+
+policy:
+  require_documentation: true
+
+  required_fields:
+    - "classification"
+    - "cause"
+    - "rationale"
+
+  stable_rule_requirements:
+    classification_not_allowed:
+      - "excessive"
+
+  production_thresholds:
+    rare:
+      max_fp_rate: 0.01
+
+    occasional:
+      max_fp_rate: 0.05
+
+    frequent:
+      max_fp_rate: 0.10
+
+    excessive:
+      max_fp_rate: 1.00
+
+review:
+  periodic_review_days:
+    none: 365
+    rare: 180
+    occasional: 90
+    frequent: 30
+    excessive: 7
