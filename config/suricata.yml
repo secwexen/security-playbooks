@@ -1,1 +1,159 @@
+version: "1.0"
 
+project:
+  name: "security-playbooks"
+
+suricata:
+  supported_version:
+    minimum: "7.0"
+    recommended: "7.0"
+
+  paths:
+    rules: "detection-rules/suricata"
+    examples: "detection-rules/examples"
+    tests: "tests/suricata"
+    pcaps: "labs/pcaps"
+    scenarios: "scenarios/suricata"
+
+  discovery:
+    recursive: true
+    extensions:
+      - ".rules"
+
+  validation:
+    enabled: true
+    strict: true
+
+    required_rule_fields:
+      - "action"
+      - "protocol"
+      - "source"
+      - "source_port"
+      - "direction"
+      - "destination"
+      - "destination_port"
+
+    allowed_actions:
+      - "alert"
+      - "drop"
+      - "reject"
+      - "pass"
+
+    allowed_protocols:
+      - "tcp"
+      - "udp"
+      - "icmp"
+      - "ip"
+      - "http"
+      - "tls"
+      - "dns"
+      - "ssh"
+      - "smb"
+      - "smtp"
+      - "ftp"
+
+    require_sid: true
+    require_revision: true
+    require_message: true
+
+  identifiers:
+    sid:
+      min: 1000000
+      max: 999999999
+      reserved:
+        min: 1
+        max: 999999
+
+    revision:
+      minimum: 1
+
+  metadata:
+    require_reference: false
+    require_classtype: true
+    require_priority: true
+    require_category: false
+
+  priority:
+    min: 1
+    max: 255
+    recommended:
+      critical: 1
+      high: 2
+      medium: 3
+      low: 4
+
+  flow:
+    allow:
+      - "to_server"
+      - "from_server"
+      - "established"
+      - "not_established"
+      - "stateless"
+      - "only_stream"
+      - "no_stream"
+      - "only_frag"
+      - "no_frag"
+
+  content:
+    require_case_modifier_for_case_insensitive_match: true
+    max_content_length: 2048
+    max_pcre_length: 4096
+    reject_empty_content: true
+
+  pcre:
+    enabled: true
+    validate_syntax: true
+    prohibit_dangerous_backtracking: true
+    max_expression_length: 4096
+
+  http:
+    enabled: true
+    allowed_buffers:
+      - "http.uri"
+      - "http.method"
+      - "http.host"
+      - "http.user_agent"
+      - "http.request_body"
+      - "http.response_body"
+      - "http.stat_code"
+
+  dns:
+    enabled: true
+    inspect_queries: true
+    inspect_answers: true
+    detect_tunneling_patterns: true
+
+  tls:
+    enabled: true
+    inspect_sni: true
+    inspect_certificate_subject: true
+    inspect_ja3: true
+    inspect_ja4: true
+
+  testing:
+    enabled: true
+    test_manifest: "tests/suricata/test-pcaps.yaml"
+    expected_alerts: "scenarios/suricata/expected_alerts.json"
+    runner: "scripts/run_suricata_tests.py"
+
+    policy:
+      require_positive_traffic: true
+      require_negative_traffic: true
+      fail_on_unexpected_alert: true
+      fail_on_missing_alert: true
+      minimum_pass_rate: 1.0
+
+  performance:
+    max_rules_per_category: 1000
+    max_pcre_rules: 500
+    warn_on_expensive_rule: true
+
+  quality:
+    require_unique_sid: true
+    require_unique_signature: false
+    require_message_prefix: true
+    message_prefix: "[SECURITY-PLAYBOOKS]"
+
+  output:
+    compiled_rules_directory: "reports/suricata/generated"
+    validation_report: "reports/suricata/validation_report.json"
