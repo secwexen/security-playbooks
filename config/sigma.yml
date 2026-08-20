@@ -1,1 +1,178 @@
+version: "1.0"
 
+project:
+  name: "security-playbooks"
+
+sigma:
+  specification:
+    supported: "2.x"
+    compatibility_mode: true
+
+  paths:
+    rules: "detection-rules/sigma"
+    examples: "detection-rules/examples"
+    tests: "tests/sigma"
+    templates: "templates/sigma-template.yml"
+    mappings: "detection-rules/mappings/mitre-mapping.yaml"
+
+  discovery:
+    recursive: true
+    extensions:
+      - ".yml"
+      - ".yaml"
+    ignore_patterns:
+      - "*example*"
+      - "*.disabled.yml"
+      - "*.deprecated.yml"
+
+  validation:
+    enabled: true
+    strict: true
+
+    required_fields:
+      - "title"
+      - "id"
+      - "status"
+      - "logsource"
+      - "detection"
+
+    recommended_fields:
+      - "description"
+      - "references"
+      - "author"
+      - "date"
+      - "modified"
+      - "tags"
+      - "falsepositives"
+      - "level"
+
+    enforce_uuid: true
+    enforce_unique_id: true
+    enforce_unique_title: false
+    require_detection_condition: true
+
+  rule_policy:
+    allowed_status:
+      - "experimental"
+      - "test"
+      - "stable"
+      - "deprecated"
+
+    release_status:
+      production:
+        - "stable"
+
+      non_production:
+        - "experimental"
+        - "test"
+
+      deprecated:
+        - "deprecated"
+
+    allowed_levels:
+      - "informational"
+      - "low"
+      - "medium"
+      - "high"
+      - "critical"
+
+    require_false_positive_documentation: true
+    require_attack_mapping_for_stable: true
+    require_reference_for_stable: true
+
+  logsource:
+    allowed_categories:
+      - "process_creation"
+      - "process_access"
+      - "network_connection"
+      - "dns_query"
+      - "file_event"
+      - "registry_event"
+      - "image_load"
+      - "authentication"
+      - "webserver"
+      - "firewall"
+      - "proxy"
+      - "cloud"
+      - "powershell"
+
+    normalize_values: true
+
+  detection:
+    require_condition: true
+    allow_named_selections: true
+    allow_condition_aliases: true
+    reject_empty_selection: true
+
+  tags:
+    required_prefixes:
+      - "attack."
+
+    recommended_prefixes:
+      - "cve."
+      - "detection."
+      - "malware."
+      - "threat_actor."
+      - "tool."
+
+    validate_attack_tags: true
+    allow_custom_tags: true
+
+  backends:
+    enabled: true
+
+    splunk:
+      enabled: true
+      output_directory: "reports/sigma/splunk"
+      backend: "splunk"
+      pipeline:
+        - "sysmon"
+        - "windows"
+        - "generic"
+
+    elastic:
+      enabled: true
+      output_directory: "reports/sigma/elastic"
+      backend: "esql"
+
+    sentinel:
+      enabled: true
+      output_directory: "reports/sigma/sentinel"
+      backend: "sentinel"
+
+    microsoft_defender:
+      enabled: true
+      output_directory: "reports/sigma/defender"
+      backend: "microsoft365defender"
+
+  testing:
+    enabled: true
+    test_cases: "tests/sigma/test-cases.yaml"
+    expected_results: "scenarios/sigma/expected_results.json"
+    runner: "scripts/run_sigma_tests.py"
+
+    policy:
+      require_positive_test: true
+      require_negative_test: true
+      require_expected_result: true
+      fail_on_unexpected_match: true
+      fail_on_missing_match: true
+
+    minimum_pass_rate: 1.0
+
+  normalization:
+    enabled: true
+    sort_tags: true
+    normalize_field_names: true
+    normalize_whitespace: true
+    require_utf8: true
+
+  quality:
+    max_rule_complexity: 20
+    max_condition_length: 10000
+    max_selection_count: 50
+
+  output:
+    preserve_source_order: false
+    write_normalized_rules: false
+    generated_directory: "reports/sigma/generated"
