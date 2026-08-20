@@ -23,8 +23,7 @@ The project aims to bridge the gap between theoretical knowledge and real-world 
 - Detection Engineering & Validation  
 - Incident Response Simulation  
 - Adversary Emulation (Lab Only)  
-- Training & Skill Development  
-- Alert Investigation & Triage
+- Training & Skill Development
 
 ## Legal & Authorized Use Only
 
@@ -64,8 +63,9 @@ This software is provided “as is” without warranty of any kind, express or i
 
 Coverage mappings are maintained in:
 
-- [Mitre Mapping](detection-rules/mappings/mitre-mapping.yaml) – MITRE ATT&CK techniques mapping
-- [Coverage Matrix](detection-rules/mappings/coverage-matrix.md) – Detection coverage matrix
+- [Mitre Mapping](detection-rules/mappings/mitre-mapping.yaml) – MITRE ATT&CK techniques mapping  
+- [Coverage Matrix](detection-rules/mappings/coverage-matrix.md) – Detection coverage matrix  
+- [Coverage Report](reports/coverage-summary.md) – Detection coverage summary and analysis
 
 ## Supported Integrations
 
@@ -118,6 +118,7 @@ For full details, refer to the [Quick Start](docs/getting-started/quickstart.md)
 
 ## Documentation
 
+- [Project Index](INDEX.md)
 - [Quick Start](docs/getting-started/quickstart.md)  
 - [Roadmap](ROADMAP.md)  
 - [Contributing Guidelines](CONTRIBUTING.md)  
