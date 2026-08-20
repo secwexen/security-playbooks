@@ -1,1 +1,394 @@
+# Detection Pipeline Configuration
+# Purpose: Define the canonical lifecycle for detection content validation, enrichment, testing, reporting, and release gating.
 
+version: "1.0"
+
+project:
+  name: "security-playbooks"
+  environment: "${SECURITY_PLAYBOOKS_ENV:-development}"
+  timezone: "UTC"
+
+pipeline:
+  name: "default-detection-pipeline"
+  description: >
+    Canonical pipeline for linting, schema validation, static analysis,
+    unit testing, enrichment, ATT&CK mapping validation, coverage analysis,
+    reporting, and release gating of detection content.
+
+  fail_fast: false
+  continue_on_non_blocking_failure: true
+  max_parallel_jobs: 4
+
+  stages:
+    - id: "discover"
+      name: "Content Discovery"
+      enabled: true
+      order: 10
+      blocking: true
+      actions:
+        - "discover_detection_files"
+        - "discover_test_files"
+        - "discover_metadata"
+
+    - id: "normalize"
+      name: "Content Normalization"
+      enabled: true
+      order: 20
+      blocking: true
+      actions:
+        - "normalize_yaml"
+        - "normalize_json"
+        - "normalize_rule_metadata"
+
+    - id: "lint"
+      name: "Static Linting"
+      enabled: true
+      order: 30
+      blocking: true
+      actions:
+        - "lint_yaml"
+        - "lint_json"
+        - "lint_sigma"
+        - "lint_suricata"
+        - "lint_yara"
+        - "lint_markdown"
+
+    - id: "schema"
+      name: "Schema Validation"
+      enabled: true
+      order: 40
+      blocking: true
+      actions:
+        - "validate_rule_schema"
+        - "validate_ioc_schema"
+        - "validate_playbook_schema"
+        - "validate_enrichment_schema"
+        - "validate_metadata"
+
+    - id: "semantic"
+      name: "Semantic Validation"
+      enabled: true
+      order: 50
+      blocking: true
+      actions:
+        - "validate_rule_identifiers"
+        - "validate_required_fields"
+        - "validate_severity"
+        - "validate_confidence"
+        - "validate_status"
+        - "validate_ownership"
+        - "validate_attack_mappings"
+        - "detect_duplicate_rules"
+
+    - id: "tests"
+      name: "Detection Testing"
+      enabled: true
+      order: 60
+      blocking: true
+      actions:
+        - "run_sigma_tests"
+        - "run_suricata_tests"
+        - "run_yara_tests"
+
+    - id: "enrichment"
+      name: "Threat Intelligence Enrichment"
+      enabled: true
+      order: 70
+      blocking: false
+      actions:
+        - "enrich_iocs"
+        - "resolve_attack_techniques"
+        - "resolve_threat_actors"
+        - "resolve_malware_families"
+
+    - id: "coverage"
+      name: "Coverage Analysis"
+      enabled: true
+      order: 80
+      blocking: false
+      actions:
+        - "calculate_attack_coverage"
+        - "calculate_rule_coverage"
+        - "identify_detection_gaps"
+
+    - id: "report"
+      name: "Reporting"
+      enabled: true
+      order: 90
+      blocking: false
+      actions:
+        - "generate_validation_report"
+        - "generate_coverage_report"
+        - "generate_execution_trace"
+
+    - id: "release-gate"
+      name: "Release Gate"
+      enabled: true
+      order: 100
+      blocking: true
+      actions:
+        - "evaluate_quality_gates"
+        - "evaluate_security_gates"
+        - "evaluate_test_gates"
+
+paths:
+  detection_rules:
+    root: "detection-rules"
+    sigma: "detection-rules/sigma"
+    suricata: "detection-rules/suricata"
+    yara: "detection-rules/yara"
+    mappings: "detection-rules/mappings"
+    examples: "detection-rules/examples"
+
+  metadata: "metadata"
+  schemas: "schemas"
+  config: "config"
+  tests: "tests"
+  scripts: "scripts"
+
+  reports:
+    root: "reports"
+    validation: "reports/validation"
+    coverage: "reports/coverage"
+    execution: "reports/execution"
+
+  threat_intelligence:
+    root: "threat-intelligence"
+    feeds: "threat-intelligence/feeds"
+    indicators: "threat-intelligence/indicators"
+
+processing:
+  supported_rule_types:
+    - "sigma"
+    - "suricata"
+    - "yara"
+
+  supported_data_formats:
+    - "yaml"
+    - "json"
+    - "text"
+
+  recursive_discovery: true
+  ignore_hidden_files: true
+  ignore_patterns:
+    - "*.bak"
+    - "*.tmp"
+    - "*.swp"
+    - "__pycache__"
+    - ".git"
+    - ".venv"
+    - "venv"
+
+normalization:
+  yaml:
+    enabled: true
+    encoding: "utf-8"
+    reject_duplicate_keys: true
+    reject_unknown_schema_fields: false
+    preserve_comments: false
+
+  json:
+    enabled: true
+    encoding: "utf-8"
+    reject_duplicate_keys: true
+    sort_keys_for_reporting: true
+
+  rules:
+    trim_whitespace: true
+    normalize_line_endings: true
+    require_final_newline: true
+    normalize_identifier_case: false
+
+validation:
+  severity:
+    enabled: true
+    allowed_file: "metadata/severity.yaml"
+
+  confidence:
+    enabled: true
+    allowed_file: "metadata/confidence.yaml"
+
+  status:
+    enabled: true
+    allowed_file: "metadata/status.yaml"
+
+  ownership:
+    enabled: true
+    allowed_file: "metadata/ownership.yaml"
+
+  false_positive:
+    enabled: true
+    allowed_file: "metadata/false-positive.yaml"
+
+  schema:
+    enabled: true
+    schema_directory: "schemas"
+    strict: true
+
+  attack_mapping:
+    enabled: true
+    mapping_file: "detection-rules/mappings/mitre-mapping.yaml"
+    require_valid_techniques: true
+    allow_subtechniques: true
+    require_tactic_for_technique: false
+
+  duplicate_detection:
+    enabled: true
+    compare:
+      - "rule_id"
+      - "name"
+      - "normalized_logic"
+    severity: "error"
+
+testing:
+  sigma:
+    enabled: true
+    test_file: "tests/sigma/test-cases.yaml"
+    runner: "scripts/run_sigma_tests.py"
+    require_expected_results: true
+    minimum_pass_rate: 1.0
+
+  suricata:
+    enabled: true
+    test_file: "tests/suricata/test-pcaps.yaml"
+    runner: "scripts/run_suricata_tests.py"
+    require_expected_alerts: true
+    minimum_pass_rate: 1.0
+
+  yara:
+    enabled: true
+    test_file: "tests/yara/test-samples.yaml"
+    runner: "scripts/run_yara_tests.py"
+    require_expected_matches: true
+    minimum_pass_rate: 1.0
+
+  regression:
+    enabled: true
+    reject_unexpected_alerts: true
+    reject_missing_expected_alerts: true
+
+enrichment:
+  enabled: true
+
+  ioc:
+    enabled: true
+    enrich_hashes: true
+    enrich_domains: true
+    enrich_ips: true
+    enrich_urls: true
+
+  threat_intelligence:
+    enabled: true
+    sources:
+      - "internal_feed"
+      - "abuseipdb"
+      - "alienvault_otx"
+
+  attack:
+    enabled: true
+    mapping_file: "detection-rules/mappings/mitre-mapping.yaml"
+
+  cache:
+    enabled: true
+    ttl_seconds: 86400
+    fail_open: true
+
+coverage:
+  enabled: true
+  minimum_technique_coverage: 0.0
+  target_technique_coverage: 0.70
+  include_disabled_rules: false
+  include_deprecated_rules: false
+
+quality_gates:
+  syntax:
+    max_errors: 0
+    max_warnings: 50
+
+  schema:
+    max_errors: 0
+
+  tests:
+    minimum_pass_rate: 1.0
+    maximum_unexpected_alert_rate: 0.0
+
+  security:
+    block_secrets: true
+    block_invalid_iocs: false
+    block_unsafe_paths: true
+
+  metadata:
+    require_owner: true
+    require_severity: true
+    require_confidence: true
+    require_status: true
+
+  coverage:
+    enforce_target: false
+    fail_on_unmapped_rule: true
+
+security:
+  fail_closed_for:
+    - "schema_validation"
+    - "rule_parsing"
+    - "duplicate_rule_detection"
+    - "security_scan"
+    - "release_gate"
+
+  secret_detection:
+    enabled: true
+    block_on_match: true
+
+  path_traversal_protection:
+    enabled: true
+
+  unsafe_command_detection:
+    enabled: true
+
+performance:
+  timeouts:
+    discovery_seconds: 60
+    lint_seconds: 120
+    schema_seconds: 120
+    tests_seconds: 600
+    enrichment_seconds: 180
+    reporting_seconds: 120
+
+  resource_limits:
+    max_file_size_mb: 10
+    max_total_input_mb: 500
+    max_rules_per_job: 5000
+
+logging:
+  config_file: "config/logging.yml"
+  level: "${LOG_LEVEL:-INFO}"
+  include_execution_trace: true
+
+outputs:
+  validation_report:
+    enabled: true
+    path: "reports/validation-summary.json"
+    format: "json"
+
+  coverage_report:
+    enabled: true
+    path: "reports/coverage_report.json"
+    format: "json"
+
+  execution_trace:
+    enabled: true
+    path: "reports/execution_trace.json"
+    format: "json"
+
+  human_report:
+    enabled: true
+    path: "reports/coverage-summary.md"
+    format: "markdown"
+
+exit_codes:
+  success: 0
+  validation_error: 2
+  test_failure: 3
+  security_failure: 4
+  configuration_error: 5
+  runtime_error: 10
