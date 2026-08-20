@@ -1,1 +1,139 @@
+version: "1.0"
 
+project:
+  name: "security-playbooks"
+
+yara:
+  supported_version:
+    minimum: "4.3"
+    recommended: "4.5"
+
+  paths:
+    rules: "detection-rules/yara"
+    templates: "templates/yara-template.yar"
+    tests: "tests/yara"
+    samples: "labs/datasets"
+    expected_matches: "scenarios/yara/expected_matches.json"
+
+  discovery:
+    recursive: true
+    extensions:
+      - ".yar"
+      - ".yara"
+
+    ignore_patterns:
+      - "*example*"
+      - "*.disabled.yar"
+      - "*.deprecated.yar"
+
+  validation:
+    enabled: true
+    strict: true
+
+    require_rule_identifier: true
+    require_condition: true
+    require_metadata: true
+    require_non_empty_rule: true
+
+  rule_policy:
+    allowed_rule_types:
+      - "normal"
+      - "global"
+      - "private"
+
+    production_requires_metadata: true
+
+    required_metadata:
+      - "author"
+      - "description"
+      - "date"
+      - "reference"
+      - "severity"
+      - "confidence"
+      - "status"
+
+  metadata:
+    allowed_files:
+      severity: "metadata/severity.yaml"
+      confidence: "metadata/confidence.yaml"
+      status: "metadata/status.yaml"
+      ownership: "metadata/ownership.yaml"
+
+  strings:
+    enabled: true
+
+    allowed_modifiers:
+      - "ascii"
+      - "wide"
+      - "nocase"
+      - "fullword"
+      - "xor"
+      - "base64"
+      - "base64wide"
+      - "private"
+
+    max_strings_per_rule: 500
+    max_string_length: 4096
+    reject_empty_string: true
+
+  regex:
+    enabled: true
+    validate_syntax: true
+    max_length: 4096
+
+  condition:
+    required: true
+    max_length: 10000
+    max_complexity: 50
+
+  imports:
+    allowed:
+      - "pe"
+      - "elf"
+      - "math"
+      - "hash"
+      - "dotnet"
+
+    reject_unknown_imports: true
+
+  external_variables:
+    enabled: true
+    allow:
+      - "filename"
+      - "filepath"
+      - "extension"
+      - "target"
+      - "environment"
+
+  testing:
+    enabled: true
+    manifest: "tests/yara/test-samples.yaml"
+    expected_matches: "scenarios/yara/expected_matches.json"
+    runner: "scripts/run_yara_tests.py"
+
+    policy:
+      require_positive_sample: true
+      require_negative_sample: true
+      fail_on_unexpected_match: true
+      fail_on_missing_match: true
+      minimum_pass_rate: 1.0
+
+  false_positive:
+    enabled: true
+    require_documented_false_positives: true
+    maximum_expected_false_positive_rate: 0.01
+
+  performance:
+    max_rule_scan_time_ms: 500
+    warn_on_expensive_rule: true
+    reject_unbounded_wildcards: true
+
+  security:
+    reject_unsafe_imports: true
+    reject_embedded_scripts: false
+    prohibit_network_access: true
+    isolate_sample_processing: true
+
+  output:
+    generated_directory: "reports/yara/generated"
+    validation_report: "reports/yara/validation_report.json"
