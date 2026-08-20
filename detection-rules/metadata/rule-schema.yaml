@@ -1,1 +1,265 @@
+version: "1.0"
 
+metadata:
+  name: "security-playbooks-rule-schema"
+  description: >
+    Canonical metadata contract shared by Sigma, YARA, and Suricata
+    detection content.
+  owner: "detection-engineering"
+
+rule:
+  required:
+    - "id"
+    - "name"
+    - "type"
+    - "status"
+    - "severity"
+    - "confidence"
+    - "owner"
+
+  fields:
+
+    id:
+      type: "string"
+      pattern: "^[A-Za-z0-9._:-]{8,128}$"
+      unique: true
+
+    name:
+      type: "string"
+      min_length: 5
+      max_length: 200
+
+    type:
+      type: "string"
+      enum:
+        - "sigma"
+        - "suricata"
+        - "yara"
+
+    description:
+      type: "string"
+      min_length: 20
+      max_length: 10000
+      required_for:
+        - "stable"
+        - "monitoring"
+
+    status:
+      type: "string"
+      reference: "metadata/status.yaml"
+
+    severity:
+      type: "string"
+      reference: "metadata/severity.yaml"
+
+    confidence:
+      type: "string"
+      reference: "metadata/confidence.yaml"
+
+    owner:
+      type: "string"
+      reference: "metadata/ownership.yaml"
+
+    maintainer:
+      type: "string"
+      reference: "metadata/ownership.yaml"
+
+    reviewer:
+      type: "string"
+      reference: "metadata/ownership.yaml"
+
+    references:
+      type: "array"
+      items:
+        type: "string"
+      min_items: 0
+
+    tags:
+      type: "array"
+      items:
+        type: "string"
+      unique: true
+
+    attack:
+      type: "object"
+
+      fields:
+        tactics:
+          type: "array"
+          items:
+            type: "string"
+
+        techniques:
+          type: "array"
+          items:
+            type: "string"
+            pattern: "^T[0-9]{4}(\\.[0-9]{3})?$"
+
+        data_sources:
+          type: "array"
+          items:
+            type: "string"
+
+    false_positive:
+      type: "object"
+
+      fields:
+        classification:
+          type: "string"
+          reference: "metadata/false-positive.yaml"
+
+        cause:
+          type: "string"
+
+        rationale:
+          type: "string"
+
+        known_benign_sources:
+          type: "array"
+          items:
+            type: "string"
+
+    lifecycle:
+      type: "object"
+
+      fields:
+        created:
+          type: "date"
+
+        modified:
+          type: "date"
+
+        reviewed:
+          type: "date"
+
+        deprecated:
+          type: "date"
+
+        next_review:
+          type: "date"
+
+    testing:
+      type: "object"
+
+      fields:
+        positive_tests:
+          type: "integer"
+          minimum: 0
+
+        negative_tests:
+          type: "integer"
+          minimum: 0
+
+        last_tested:
+          type: "date"
+
+        pass_rate:
+          type: "number"
+          minimum: 0
+          maximum: 1
+
+        regression_protected:
+          type: "boolean"
+
+    detection:
+      type: "object"
+
+      fields:
+        native_rule_id:
+          type: "string"
+
+        native_rule_format:
+          type: "string"
+          enum:
+            - "sigma"
+            - "suricata"
+            - "yara"
+
+        backend_compatibility:
+          type: "array"
+          items:
+            type: "string"
+
+    operational:
+      type: "object"
+
+      fields:
+        expected_alert_volume:
+          type: "string"
+          enum:
+            - "very_low"
+            - "low"
+            - "medium"
+            - "high"
+            - "very_high"
+
+        alert_fidelity:
+          type: "string"
+          enum:
+            - "poor"
+            - "moderate"
+            - "good"
+            - "excellent"
+
+        response_action:
+          type: "string"
+          enum:
+            - "monitor"
+            - "investigate"
+            - "escalate"
+            - "contain"
+            - "block"
+
+        suppression_allowed:
+          type: "boolean"
+
+        automation_allowed:
+          type: "boolean"
+
+policy:
+
+  naming:
+    id_prefix: "SP"
+    recommended_format: "SP-<TYPE>-<DOMAIN>-<NNNN>"
+    examples:
+      - "SP-SIGMA-AUTH-0001"
+      - "SP-SIGMA-EXEC-0002"
+      - "SP-SURI-C2-0001"
+      - "SP-YARA-MALWARE-0001"
+
+  environment:
+    allowed:
+      - "lab"
+      - "development"
+      - "staging"
+      - "production"
+
+  production:
+    mandatory_fields:
+      - "id"
+      - "name"
+      - "type"
+      - "description"
+      - "status"
+      - "severity"
+      - "confidence"
+      - "owner"
+      - "maintainer"
+      - "false_positive"
+      - "testing"
+      - "attack"
+
+    minimum_confidence: "medium"
+
+  security:
+    reject_embedded_secrets: true
+    reject_private_credentials: true
+    reject_unapproved_external_references: false
+    reject_path_traversal: true
+
+  quality:
+    require_unique_id: true
+    require_unique_name: false
+    require_documentation: true
+    require_tests: true
+    require_review: true
