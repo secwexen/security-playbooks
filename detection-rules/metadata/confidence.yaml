@@ -1,1 +1,103 @@
+version: "1.0"
 
+metadata:
+  name: "confidence"
+  description: "Standardized confidence levels for Security Playbooks detections."
+  owner: "detection-engineering"
+  immutable_values: true
+
+levels:
+
+  very_low:
+    rank: 1
+    score: 20
+    label: "Very Low"
+    description: >
+      Detection has weak evidentiary value and a high probability of
+      benign or ambiguous matches.
+    recommended_for:
+      - "experimental"
+      - "research"
+    production_allowed: false
+
+  low:
+    rank: 2
+    score: 40
+    label: "Low"
+    description: >
+      Detection contains useful behavioral signal but significant ambiguity
+      remains.
+    recommended_for:
+      - "experimental"
+      - "test"
+    production_allowed: false
+
+  medium:
+    rank: 3
+    score: 60
+    label: "Medium"
+    description: >
+      Detection provides a meaningful signal with known limitations
+      and manageable false-positive risk.
+    recommended_for:
+      - "test"
+      - "stable"
+    production_allowed: true
+
+  high:
+    rank: 4
+    score: 80
+    label: "High"
+    description: >
+      Detection has strong contextual and behavioral evidence and is
+      expected to produce a reliable signal.
+    recommended_for:
+      - "stable"
+    production_allowed: true
+
+  very_high:
+    rank: 5
+    score: 95
+    label: "Very High"
+    description: >
+      Detection is strongly indicative of malicious or unauthorized
+      behavior and has been validated against representative data.
+    recommended_for:
+      - "stable"
+    production_allowed: true
+
+policy:
+  default: "medium"
+
+  minimum_for_production: "medium"
+
+  minimum_for_blocking_action: "high"
+
+  minimum_for_automated_response: "very_high"
+
+  require_test_evidence_for_high:
+    enabled: true
+
+  require_positive_and_negative_tests:
+    enabled: true
+
+scoring:
+  factors:
+    behavioral_specificity:
+      weight: 0.30
+
+    telemetry_quality:
+      weight: 0.20
+
+    threat_intelligence_correlation:
+      weight: 0.15
+
+    test_validation:
+      weight: 0.20
+
+    false_positive_history:
+      weight: 0.15
+
+  normalization:
+    min: 0
+    max: 100
