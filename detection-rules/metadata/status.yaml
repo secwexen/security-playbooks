@@ -1,1 +1,203 @@
+version: "1.0"
 
+metadata:
+  name: "status"
+  description: "Detection rule lifecycle and deployment status."
+  owner: "detection-engineering"
+  immutable_values: true
+
+statuses:
+
+  draft:
+    rank: 10
+    label: "Draft"
+    description: "Rule is being developed and is not ready for validation."
+    deployable: false
+    testable: true
+    production_allowed: false
+
+  experimental:
+    rank: 20
+    label: "Experimental"
+    description: >
+      Rule has initial logic but insufficient operational validation
+      for production use.
+    deployable: true
+    testable: true
+    production_allowed: false
+
+  test:
+    rank: 30
+    label: "Test"
+    description: >
+      Rule is undergoing validation in a controlled environment
+      or limited operational deployment.
+    deployable: true
+    testable: true
+    production_allowed: false
+
+  stable:
+    rank: 40
+    label: "Stable"
+    description: >
+      Rule has passed validation and is approved for production use.
+    deployable: true
+    testable: true
+    production_allowed: true
+
+  monitoring:
+    rank: 50
+    label: "Monitoring"
+    description: >
+      Rule is deployed while detection quality, false positives,
+      and operational impact are actively monitored.
+    deployable: true
+    testable: true
+    production_allowed: true
+
+  tuning:
+    rank: 60
+    label: "Tuning"
+    description: >
+      Rule remains operational but is under active refinement.
+    deployable: true
+    testable: true
+    production_allowed: true
+
+  deprecated:
+    rank: 70
+    label: "Deprecated"
+    description: >
+      Rule should no longer receive new deployments and is retained
+      for historical compatibility or migration.
+    deployable: false
+    testable: true
+    production_allowed: false
+
+  disabled:
+    rank: 80
+    label: "Disabled"
+    description: "Rule is intentionally inactive."
+    deployable: false
+    testable: true
+    production_allowed: false
+
+  archived:
+    rank: 90
+    label: "Archived"
+    description: >
+      Rule is retained for audit, historical analysis, or reproducibility
+      and is no longer part of active detection.
+    deployable: false
+    testable: false
+    production_allowed: false
+
+lifecycle:
+
+  allowed_transitions:
+    draft:
+      - "experimental"
+
+    experimental:
+      - "test"
+      - "draft"
+      - "disabled"
+
+    test:
+      - "stable"
+      - "experimental"
+      - "tuning"
+      - "disabled"
+
+    stable:
+      - "monitoring"
+      - "tuning"
+      - "deprecated"
+      - "disabled"
+
+    monitoring:
+      - "stable"
+      - "tuning"
+      - "deprecated"
+      - "disabled"
+
+    tuning:
+      - "monitoring"
+      - "stable"
+      - "disabled"
+      - "deprecated"
+
+    deprecated:
+      - "archived"
+
+    disabled:
+      - "test"
+      - "tuning"
+      - "deprecated"
+      - "archived"
+
+    archived: []
+
+  release_requirements:
+
+    experimental:
+      required:
+        - "syntax_valid"
+        - "schema_valid"
+
+    test:
+      required:
+        - "syntax_valid"
+        - "schema_valid"
+        - "positive_test"
+        - "negative_test"
+
+    stable:
+      required:
+        - "syntax_valid"
+        - "schema_valid"
+        - "positive_test"
+        - "negative_test"
+        - "metadata_complete"
+        - "attack_mapping_valid"
+        - "owner_assigned"
+        - "review_completed"
+        - "false_positive_documented"
+
+    monitoring:
+      required:
+        - "stable_release"
+
+    tuning:
+      required:
+        - "tuning_reason"
+        - "owner_assigned"
+
+    deprecated:
+      required:
+        - "deprecation_reason"
+        - "replacement_documented"
+
+    archived:
+      required:
+        - "archive_reason"
+        - "historical_reference"
+
+policy:
+  default: "draft"
+
+  production_statuses:
+    - "stable"
+    - "monitoring"
+    - "tuning"
+
+  non_production_statuses:
+    - "draft"
+    - "experimental"
+    - "test"
+    - "deprecated"
+    - "disabled"
+    - "archived"
+
+  require_status_change_reason: true
+  require_audit_trail: true
