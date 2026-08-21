@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "security-playbooks"
+version = "0.2.1"
+description = "Security Playbooks is a collection of MITRE ATT&CK mapping, detection rules (Sigma, YARA, and Suricata), detection validation, and hands-on lab for cybersecurity professionals and SOC analysts."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-ra"
