@@ -367,64 +367,28 @@ def main() -> None:
 
             invalid_rules += 1
 
-            print(
-                f"[FAIL] {rule_file.name}"
-            )
+            print(f"[FAIL] {rule_file.name}")
 
             continue
 
         valid_rules += 1
 
-        print(
-            f"\n=== {rule_file.name} ==="
-        )
+        print(f"\n=== {rule_file.name} ===")
 
-        print(
-            f"Name     : {rule['name']}"
-        )
-
-        print(
-            f"ID       : {rule['id']}"
-        )
-
-        print(
-            f"Type     : {rule['type']}"
-        )
-
-        print(
-            f"Status   : {rule['status']}"
-        )
-
-        print(
-            f"Severity : {rule['severity']}"
-        )
-
-        print(
-            f"Author   : {rule['author']}"
-        )
-
-        print(
-            f"MITRE    : {rule.get('mitre_attack', [])}"
-        )
-
-        print(
-            "Schema    : VALID"
-        )
+        print(f"Name     : {rule['name']}")
+        print(f"ID       : {rule['id']}")
+        print(f"Type     : {rule['type']}")
+        print(f"Status   : {rule['status']}")
+        print(f"Severity : {rule['severity']}")
+        print(f"Author   : {rule['author']}")
+        print(f"MITRE    : {rule.get('mitre_attack', [])}")
+        print("Schema    : VALID")
 
     print("\n=== Summary ===")
 
-    print(
-        f"Valid   : {valid_rules}"
-    )
-
-    print(
-        f"Invalid : {invalid_rules}"
-    )
-
-    print(
-        f"Total   : {len(rule_files)}"
-    )
-
+    print(f"Valid   : {valid_rules}")
+    print(f"Invalid : {invalid_rules}")
+    print(f"Total   : {len(rule_files)}")
 
 if __name__ == "__main__":
     main()
