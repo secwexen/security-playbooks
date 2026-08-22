@@ -408,7 +408,7 @@ def main() -> None:
         )
 
         print(
-            "Schema   : VALID"
+            "Schema    : VALID"
         )
 
     print("\n=== Summary ===")
