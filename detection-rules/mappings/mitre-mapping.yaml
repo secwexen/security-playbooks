@@ -1,1 +1,14 @@
+rules:
+  - rule_id: f1a2b3c4-d5e6-7890-1234-56789abcdef0
+    rule_name: PowerShell Encoded Command Execution
+    techniques:
+      - T1059
+    source:
+      - https://attack.mitre.org/techniques/T1059/
 
+  - rule_id: example-sigma-001
+    rule_name: Suspicious Login Attempt
+    techniques:
+      - T1110
+    source:
+      - https://attack.mitre.org/techniques/T1110/
