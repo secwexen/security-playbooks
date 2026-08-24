@@ -1,1 +1,10 @@
+tests:
+  - name: powershell_encoded_command_match
+    rule: sigma_powershell_exec.yml
+    fixture: powershell_events.json
+    expected: match
 
+  - name: suspicious_login_match
+    rule: suspicious_login.yml
+    fixture: suspicious_login_events.json
+    expected: match
