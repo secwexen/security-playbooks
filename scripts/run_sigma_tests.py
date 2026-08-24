@@ -157,55 +157,65 @@ def evaluate_detection(
     event: dict[str, Any],
 ) -> bool:
     """
-    Evaluate the current project's Sigma detection logic.
+    Evaluate Sigma conditions used by the current rules.
 
-    The current rules use:
-        selection:
-            ...
-        condition: selection
-
-    This runner supports that structure.
+    Supported:
+    - selection
+    - selection and not filter_name
+    - selection and not filter_a and not filter_b
     """
-    detection = rule.get(
-        "detection",
-        {},
-    )
+    detection = rule.get("detection", {})
 
-    if not isinstance(
-        detection,
-        dict,
-    ):
-        return False
-
-    selection = detection.get(
-        "selection"
-    )
-
-    if not isinstance(
-        selection,
-        dict,
-    ):
+    if not isinstance(detection, dict):
         return False
 
     condition = str(
-        detection.get(
-            "condition",
-            "selection",
-        )
-    ).strip().lower()
+        detection.get("condition", "selection")
+    ).strip()
 
-    if condition != "selection":
-        logger.warning(
-            "Unsupported Sigma condition: %s",
-            condition,
-        )
+    parts = [
+        part.strip()
+        for part in condition.split(" and ")
+    ]
+
+    if not parts:
         return False
 
-    return event_matches_selection(
-        event,
-        selection,
-    )
+    positive_parts: list[str] = []
+    negative_parts: list[str] = []
 
+    for part in parts:
+        if part.startswith("not "):
+            negative_parts.append(part[4:].strip())
+        else:
+            positive_parts.append(part)
+
+    for selection_name in positive_parts:
+        selection = detection.get(selection_name)
+
+        if not isinstance(selection, dict):
+            return False
+
+        if not event_matches_selection(
+            event,
+            selection,
+        ):
+            return False
+
+    for filter_name in negative_parts:
+        filter_selection = detection.get(filter_name)
+
+        if not isinstance(filter_selection, dict):
+            return False
+
+        if event_matches_selection(
+            event,
+            filter_selection,
+        ):
+            return False
+
+    return True
+    
 
 def load_events(
     fixture_name: str,
