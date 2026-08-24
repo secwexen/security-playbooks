@@ -118,7 +118,7 @@ For full details, refer to the [Quick Start](docs/getting-started/quickstart.md)
 
 ## Documentation
 
-- [Project Index](INDEX.md)
+- [Project Index](docs/INDEX.md)
 - [Quick Start](docs/getting-started/quickstart.md)  
 - [Roadmap](ROADMAP.md)  
 - [Contributing Guidelines](CONTRIBUTING.md)  
