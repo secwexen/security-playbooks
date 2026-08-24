@@ -45,23 +45,51 @@ def parse_datetime(value: Any) -> str:
     """
     Convert a Sigma date value into ISO 8601 date-time.
 
-    Sigma rules may contain YYYY-MM-DD. The normalized schema requires date-time.
+    Supported formats:
+    - YYYY-MM-DD
+    - YYYY/MM/DD
+    - ISO 8601
     """
     if not value:
-        return datetime.now(timezone.utc).isoformat()
+        return datetime.now(
+            timezone.utc
+        ).isoformat()
 
-    value = str(value)
+    value = str(value).strip()
 
-    try:
-        if len(value) == 10:
-            parsed = datetime.strptime(value, "%Y-%m-%d")
-            parsed = parsed.replace(tzinfo=timezone.utc)
+    supported_formats = (
+        "%Y-%m-%d",
+        "%Y/%m/%d",
+    )
+
+    for date_format in supported_formats:
+        try:
+            parsed = datetime.strptime(
+                value,
+                date_format,
+            )
+
+            parsed = parsed.replace(
+                tzinfo=timezone.utc
+            )
+
             return parsed.isoformat()
 
-        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        except ValueError:
+            continue
+
+    try:
+        parsed = datetime.fromisoformat(
+            value.replace(
+                "Z",
+                "+00:00",
+            )
+        )
 
         if parsed.tzinfo is None:
-            parsed = parsed.replace(tzinfo=timezone.utc)
+            parsed = parsed.replace(
+                tzinfo=timezone.utc
+            )
 
         return parsed.isoformat()
 
@@ -70,7 +98,10 @@ def parse_datetime(value: Any) -> str:
             "Invalid date '%s'. Using current UTC time.",
             value,
         )
-        return datetime.now(timezone.utc).isoformat()
+
+        return datetime.now(
+            timezone.utc
+        ).isoformat()
 
 
 def normalize_status(status: Any) -> str:
