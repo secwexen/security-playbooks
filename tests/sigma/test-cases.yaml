@@ -8,3 +8,8 @@ tests:
     rule: suspicious-login.yml
     fixture: suspicious_login_events.json
     expected: match
+
+  - name: lsass_process_access_match
+    rule: lsass-access.yml
+    fixture: lsass_events.json
+    expected: match
