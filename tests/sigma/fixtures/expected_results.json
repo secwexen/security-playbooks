@@ -1,1 +1,14 @@
-
+{
+  "powershell_encoded_command_match": {
+    "expected": "match",
+    "matched_event_indexes": [
+      0
+    ]
+  },
+  "suspicious_login_match": {
+    "expected": "match",
+    "matched_event_indexes": [
+      0
+    ]
+  }
+}
