@@ -1,1 +1,12 @@
-
+[
+  {
+    "EventID": 1,
+    "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "CommandLine": "powershell.exe -enc SQBFAFgA"
+  },
+  {
+    "EventID": 1,
+    "Image": "C:\\Windows\\System32\\cmd.exe",
+    "CommandLine": "cmd.exe /c whoami"
+  }
+]
