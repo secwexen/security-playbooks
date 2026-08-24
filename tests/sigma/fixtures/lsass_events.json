@@ -1,1 +1,17 @@
-
+[
+  {
+    "EventID": 10,
+    "TargetImage": "C:\\Windows\\System32\\lsass.exe",
+    "SourceImage": "C:\\Tools\\mimikatz.exe"
+  },
+  {
+    "EventID": 10,
+    "TargetImage": "C:\\Windows\\System32\\lsass.exe",
+    "SourceImage": "C:\\Windows\\System32\\svchost.exe"
+  },
+  {
+    "EventID": 10,
+    "TargetImage": "C:\\Windows\\System32\\notepad.exe",
+    "SourceImage": "C:\\Tools\\mimikatz.exe"
+  }
+]
