@@ -353,7 +353,6 @@ def run_suricata(
 
         command = [
             suricata,
-            "-q",
             "-r",
             str(pcap_path),
             "-l",
