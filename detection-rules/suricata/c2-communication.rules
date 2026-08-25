@@ -1,1 +1,19 @@
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (
+    msg:"Potential C2 HTTP Beaconing - Suspicious Repeated User-Agent";
+    flow:established,to_server;
+    content:"User-Agent|3A|";
+    http_header;
+    pcre:"/User-Agent:\s*(curl|wget|python-requests|powershell)/Ui";
+    classtype:trojan-activity;
+    sid:1000020;
+    rev:1;
+)
 
+alert dns $HOME_NET any -> any 53 (
+    msg:"Potential DNS C2 - Suspicious TXT Query";
+    dns.query;
+    content:"|00|";
+    classtype:trojan-activity;
+    sid:1000021;
+    rev:1;
+)
