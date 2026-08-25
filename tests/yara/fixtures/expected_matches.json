@@ -1,1 +1,17 @@
-
+{
+  "malware_sample_match": {
+    "matches": [
+      "Example_Malware_Pattern"
+    ]
+  },
+  "powershell_payload_match": {
+    "matches": [
+      "PowerShell_Encoded_Command"
+    ]
+  },
+  "obfuscated_powershell_match": {
+    "matches": [
+      "Obfuscated_PowerShell"
+    ]
+  }
+}
