@@ -151,7 +151,7 @@ def find_suricata() -> str | None:
 
 
 def collect_rule_files() -> list[Path]:
-    """Collect all Suricata rule files."""
+    """Collect all repository Suricata rule files."""
     if not SURICATA_RULES_DIR.exists():
         return []
 
@@ -160,24 +160,49 @@ def collect_rule_files() -> list[Path]:
     )
 
 
-def build_rule_arguments() -> list[str]:
+def build_combined_rules_file(
+    destination: Path,
+) -> Path | None:
     """
-    Build Suricata rule arguments.
+    Combine repository Suricata rules into one file.
 
-    Each .rules file is supplied with -S so the runner
-    can use the repository's local detection rules.
+    Suricata accepts one -S rules file per invocation,
+    so all repository rule files are merged first.
     """
-    arguments: list[str] = []
+    rule_files = collect_rule_files()
 
-    for rule_file in collect_rule_files():
-        arguments.extend(
-            [
-                "-S",
-                str(rule_file),
-            ]
-        )
+    if not rule_files:
+        return None
 
-    return arguments
+    rule_count = 0
+
+    with destination.open(
+        "w",
+        encoding="utf-8",
+    ) as output:
+        for rule_file in rule_files:
+            content = rule_file.read_text(
+                encoding="utf-8"
+            )
+
+            if not content.strip():
+                continue
+
+            output.write(
+                f"# Source: {rule_file.name}\n"
+            )
+
+            output.write(
+                content.rstrip()
+            )
+
+            output.write("\n\n")
+            rule_count += 1
+
+    if rule_count == 0:
+        return None
+
+    return destination
 
 
 def resolve_pcap(
@@ -241,9 +266,7 @@ def normalize_expected_signatures(
             "matches",
             "rules",
         ):
-            nested = value.get(
-                key
-            )
+            nested = value.get(key)
 
             if isinstance(
                 nested,
@@ -266,9 +289,7 @@ def normalize_expected_signatures(
 def collect_alert_signatures(
     output_dir: Path,
 ) -> list[str]:
-    """
-    Read Suricata eve.json alert events and extract signatures.
-    """
+    """Read eve.json and collect alert signatures."""
     eve_path = (
         output_dir
         / "eve.json"
@@ -296,7 +317,9 @@ def collect_alert_signatures(
             except json.JSONDecodeError:
                 continue
 
-            if event.get("event_type") != "alert":
+            if event.get(
+                "event_type"
+            ) != "alert":
                 continue
 
             alert = event.get(
@@ -336,28 +359,51 @@ def run_suricata(
             "suricata executable not found",
         )
 
-    rule_arguments = build_rule_arguments()
-
-    if not rule_arguments:
-        return (
-            [],
-            "no repository Suricata rule files found",
-        )
-
     with tempfile.TemporaryDirectory(
         prefix="security_playbooks_suricata_"
     ) as temporary_directory:
-        output_dir = Path(
+
+        temporary_path = Path(
             temporary_directory
         )
+
+        output_dir = (
+            temporary_path
+            / "output"
+        )
+
+        output_dir.mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+
+        rules_path = (
+            temporary_path
+            / "security_playbooks.rules"
+        )
+
+        combined_rules = (
+            build_combined_rules_file(
+                rules_path
+            )
+        )
+
+        if combined_rules is None:
+            return (
+                [],
+                "no repository Suricata rules found",
+            )
 
         command = [
             suricata,
             "-r",
             str(pcap_path),
+            "-S",
+            str(combined_rules),
+            "-k",
+            "none",
             "-l",
             str(output_dir),
-            *rule_arguments,
         ]
 
         try:
@@ -386,8 +432,10 @@ def run_suricata(
                 stderr,
             )
 
-        signatures = collect_alert_signatures(
-            output_dir
+        signatures = (
+            collect_alert_signatures(
+                output_dir
+            )
         )
 
         return (
@@ -422,13 +470,14 @@ def run_test_case(
         )
         return False
 
-    expected_entry = (
-        expected_alerts.get(name)
+    expected_entry = expected_alerts.get(
+        name
     )
 
     if expected_entry is None:
         logger.error(
-            "No expected alert result found for test: %s",
+            "No expected alert result found "
+            "for test: %s",
             name,
         )
         return False
