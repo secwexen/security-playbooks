@@ -1,1 +1,9 @@
+tests:
+  - name: c2_http_alert
+    pcap: c2_http.pcap
 
+  - name: dns_tunnel_alert
+    pcap: dns_tunnel.pcap
+
+  - name: sample_traffic_validation
+    pcap: sample_traffic.pcap
