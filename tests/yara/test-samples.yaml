@@ -1,1 +1,12 @@
+tests:
+  - name: malware_sample_match
+    rule: malware-sample.yar
+    sample: malicious_sample.txt
 
+  - name: powershell_payload_match
+    rule: yara-powershell-payload.yar
+    sample: malicious_sample.txt
+
+  - name: obfuscated_powershell_match
+    rule: obfuscated-powershell.yar
+    sample: malicious_sample.txt
