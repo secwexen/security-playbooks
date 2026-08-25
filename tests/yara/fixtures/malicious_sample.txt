@@ -1,1 +1,5 @@
+malware_example_training_only
+suspicious_function_call
 
+powershell.exe -enc SQBtAHAAbwByAHQALQBNAG8AZAB1AGwAZQAgAEkAbQBwAG8AcgB0AA==
+powershell -enc SQBFAFgA
