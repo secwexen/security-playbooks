@@ -12,8 +12,9 @@ alert tcp $HOME_NET any -> $EXTERNAL_NET any (
 alert dns $HOME_NET any -> any 53 (
     msg:"Potential DNS C2 - Suspicious TXT Query";
     dns.query;
-    content:"|00|";
+    content:"example.test";
+    nocase;
     classtype:trojan-activity;
     sid:1000021;
-    rev:1;
+    rev:2;
 )
