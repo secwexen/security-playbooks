@@ -1,1 +1,36 @@
+from scapy.all import Ether, IP, TCP, Raw, wrpcap
 
+src = "10.0.0.10"
+dst = "93.184.216.34"
+sport = 49152
+dport = 80
+
+packets = [
+    Ether()/IP(src=src, dst=dst)/TCP(
+        sport=sport, dport=dport,
+        flags="S", seq=1000
+    ),
+    Ether()/IP(src=dst, dst=src)/TCP(
+        sport=dport, dport=sport,
+        flags="SA", seq=2000, ack=1001
+    ),
+    Ether()/IP(src=src, dst=dst)/TCP(
+        sport=sport, dport=dport,
+        flags="A", seq=1001, ack=2001
+    ),
+    Ether()/IP(src=src, dst=dst)/TCP(
+        sport=sport, dport=dport,
+        flags="PA", seq=1001, ack=2001
+    ) / Raw(
+        b"GET /beacon HTTP/1.1\r\n"
+        b"Host: example.test\r\n"
+        b"User-Agent: curl\r\n"
+        b"Connection: close\r\n"
+        b"\r\n"
+    ),
+]
+
+wrpcap(
+    "tests/suricata/fixtures/c2_http.pcap",
+    packets,
+)
