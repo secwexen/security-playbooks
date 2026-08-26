@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import shutil
 import subprocess
 import tempfile
@@ -65,16 +66,7 @@ def load_json(path: Path) -> Any:
 def normalize_test_cases(
     data: Any,
 ) -> list[dict[str, Any]]:
-    """
-    Normalize common Suricata test-case layouts.
-
-    Supported top-level keys:
-    - tests
-    - test_cases
-    - test-cases
-    - cases
-    - pcaps
-    """
+    """Normalize supported Suricata test-case layouts."""
     if isinstance(data, list):
         return [
             item
@@ -106,38 +98,27 @@ def load_test_cases() -> list[dict[str, Any]]:
     """Load Suricata PCAP test definitions."""
     if not TEST_CASES_FILE.exists():
         raise FileNotFoundError(
-            f"Suricata test file not found: "
-            f"{TEST_CASES_FILE}"
+            f"Suricata test file not found: {TEST_CASES_FILE}"
         )
 
-    data = load_yaml(
-        TEST_CASES_FILE
-    )
+    data = load_yaml(TEST_CASES_FILE)
 
-    return normalize_test_cases(
-        data
-    )
+    return normalize_test_cases(data)
 
 
 def load_expected_alerts() -> dict[str, Any]:
     """Load expected Suricata alerts."""
     if not EXPECTED_ALERTS_FILE.exists():
         raise FileNotFoundError(
-            "Expected Suricata alerts file not found: "
+            f"Expected Suricata alerts file not found: "
             f"{EXPECTED_ALERTS_FILE}"
         )
 
-    data = load_json(
-        EXPECTED_ALERTS_FILE
-    )
+    data = load_json(EXPECTED_ALERTS_FILE)
 
-    if not isinstance(
-        data,
-        dict,
-    ):
+    if not isinstance(data, dict):
         raise ValueError(
-            "expected_alerts.json must contain "
-            "a JSON object."
+            "expected_alerts.json must contain a JSON object."
         )
 
     return data
@@ -145,13 +126,11 @@ def load_expected_alerts() -> dict[str, Any]:
 
 def find_suricata() -> str | None:
     """Return the Suricata executable path."""
-    return shutil.which(
-        "suricata"
-    )
+    return shutil.which("suricata")
 
 
 def collect_rule_files() -> list[Path]:
-    """Collect all repository Suricata rule files."""
+    """Collect repository Suricata rule files."""
     if not SURICATA_RULES_DIR.exists():
         return []
 
@@ -160,55 +139,134 @@ def collect_rule_files() -> list[Path]:
     )
 
 
+def normalize_suricata_rule(
+    raw_rule: str,
+) -> str:
+    """
+    Normalize one multiline Suricata rule into one line.
+
+    Source rule files may stay readable/multiline.
+    The generated rules file is normalized for the
+    target Suricata parser.
+    """
+    rule = raw_rule.strip()
+
+    if not rule:
+        return ""
+
+    # Collapse all whitespace while preserving quoted strings.
+    rule = re.sub(
+        r"\s+",
+        " ",
+        rule,
+    ).strip()
+
+    return rule
+
+
+def extract_suricata_rules(
+    content: str,
+) -> list[str]:
+    """
+    Extract complete Suricata signatures from a rule file.
+
+    A signature starts with alert/pass/drop/reject and
+    ends at the matching closing parenthesis.
+    Comments and empty lines are ignored.
+    """
+    rules: list[str] = []
+    current: list[str] = []
+    depth = 0
+
+    for raw_line in content.splitlines():
+        line = raw_line.strip()
+
+        if not line:
+            continue
+
+        if line.startswith("#"):
+            continue
+
+        if not current:
+            if not re.match(
+                r"^(alert|pass|drop|reject)\b",
+                line,
+                flags=re.IGNORECASE,
+            ):
+                continue
+
+        current.append(line)
+
+        depth += line.count("(")
+        depth -= line.count(")")
+
+        if current and depth == 0:
+            normalized = normalize_suricata_rule(
+                " ".join(current)
+            )
+
+            if normalized:
+                rules.append(normalized)
+
+            current = []
+
+    if current:
+        normalized = normalize_suricata_rule(
+            " ".join(current)
+        )
+
+        if normalized:
+            rules.append(normalized)
+
+    return rules
+
+
 def build_combined_rules_file(
     destination: Path,
-) -> Path | None:
+) -> tuple[Path | None, int]:
     """
-    Combine repository Suricata rules into one file.
+    Combine and normalize all repository rules.
 
-    Suricata accepts one -S rules file per invocation,
-    so all repository rule files are merged first.
+    Returns:
+        (generated_rules_path, rule_count)
     """
     rule_files = collect_rule_files()
 
     if not rule_files:
-        return None
+        return None, 0
 
-    rule_count = 0
+    generated_rules: list[str] = []
 
-    with destination.open(
-        "w",
-        encoding="utf-8",
-    ) as output:
-        for rule_file in rule_files:
+    for rule_file in rule_files:
+        try:
             content = rule_file.read_text(
                 encoding="utf-8"
             )
+        except OSError as exc:
+            raise RuntimeError(
+                f"Unable to read rule file "
+                f"{rule_file}: {exc}"
+            ) from exc
 
-            if not content.strip():
-                continue
+        generated_rules.extend(
+            extract_suricata_rules(content)
+        )
 
-            output.write(
-                f"# Source: {rule_file.name}\n"
-            )
+    if not generated_rules:
+        return None, 0
 
-            output.write(
-                content.rstrip()
-            )
+    destination.write_text(
+        "\n".join(generated_rules) + "\n",
+        encoding="utf-8",
+    )
 
-            output.write("\n\n")
-            rule_count += 1
-
-    if rule_count == 0:
-        return None
-
-    return destination
+    return destination, len(generated_rules)
 
 
 def resolve_pcap(
     value: str,
 ) -> Path:
-    """Resolve a PCAP path from a test case."""
+    """Resolve a PCAP path."""
     candidates = (
         FIXTURES_DIR / value,
         SURICATA_TEST_DIR / value,
@@ -227,38 +285,20 @@ def resolve_pcap(
 def normalize_expected_signatures(
     value: Any,
 ) -> list[str]:
-    """
-    Normalize expected alert signatures.
-
-    Supported forms:
-    - ["Signature A"]
-    - {"signatures": ["Signature A"]}
-    - {"expected_alerts": ["Signature A"]}
-    - {"alerts": ["Signature A"]}
-    - string
-    """
+    """Normalize expected alert signatures."""
     if value is None:
         return []
 
-    if isinstance(
-        value,
-        str,
-    ):
+    if isinstance(value, str):
         return [value]
 
-    if isinstance(
-        value,
-        list,
-    ):
+    if isinstance(value, list):
         return [
             str(item)
             for item in value
         ]
 
-    if isinstance(
-        value,
-        dict,
-    ):
+    if isinstance(value, dict):
         for key in (
             "signatures",
             "expected_alerts",
@@ -268,16 +308,10 @@ def normalize_expected_signatures(
         ):
             nested = value.get(key)
 
-            if isinstance(
-                nested,
-                str,
-            ):
+            if isinstance(nested, str):
                 return [nested]
 
-            if isinstance(
-                nested,
-                list,
-            ):
+            if isinstance(nested, list):
                 return [
                     str(item)
                     for item in nested
@@ -289,11 +323,8 @@ def normalize_expected_signatures(
 def collect_alert_signatures(
     output_dir: Path,
 ) -> list[str]:
-    """Read eve.json and collect alert signatures."""
-    eve_path = (
-        output_dir
-        / "eve.json"
-    )
+    """Collect unique alert signatures from eve.json."""
+    eve_path = output_dir / "eve.json"
 
     if not eve_path.exists():
         return []
@@ -311,15 +342,11 @@ def collect_alert_signatures(
                 continue
 
             try:
-                event = json.loads(
-                    line
-                )
+                event = json.loads(line)
             except json.JSONDecodeError:
                 continue
 
-            if event.get(
-                "event_type"
-            ) != "alert":
+            if event.get("event_type") != "alert":
                 continue
 
             alert = event.get(
@@ -327,24 +354,90 @@ def collect_alert_signatures(
                 {},
             )
 
-            if not isinstance(
-                alert,
-                dict,
-            ):
+            if not isinstance(alert, dict):
                 continue
 
-            signature = alert.get(
-                "signature"
-            )
+            signature = alert.get("signature")
 
             if signature:
                 signatures.append(
                     str(signature)
                 )
 
-    return sorted(
-        set(signatures)
-    )
+    return sorted(set(signatures))
+
+
+def collect_engine_stats(
+    output_dir: Path,
+) -> tuple[int | None, int | None]:
+    """
+    Extract rules_loaded and alert count from eve.json.
+    """
+    eve_path = output_dir / "eve.json"
+
+    if not eve_path.exists():
+        return None, None
+
+    rules_loaded: int | None = None
+    alerts: int | None = None
+
+    with eve_path.open(
+        "r",
+        encoding="utf-8",
+    ) as file:
+        for line in file:
+            try:
+                event = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+
+            if event.get("event_type") != "stats":
+                continue
+
+            stats = event.get(
+                "stats",
+                {},
+            )
+
+            if not isinstance(stats, dict):
+                continue
+
+            detect = stats.get(
+                "detect",
+                {},
+            )
+
+            if isinstance(detect, dict):
+                engines = detect.get(
+                    "engines",
+                    [],
+                )
+
+                if isinstance(engines, list):
+                    loaded_values = [
+                        engine.get("rules_loaded")
+                        for engine in engines
+                        if isinstance(engine, dict)
+                        and isinstance(
+                            engine.get("rules_loaded"),
+                            int,
+                        )
+                    ]
+
+                    if loaded_values:
+                        rules_loaded = sum(
+                            loaded_values
+                        )
+
+                alert_value = detect.get("alert")
+
+                if isinstance(
+                    alert_value,
+                    int,
+                ):
+                    alerts = alert_value
+
+    return rules_loaded, alerts
 
 
 def run_suricata(
@@ -359,6 +452,12 @@ def run_suricata(
             "suricata executable not found",
         )
 
+    if not pcap_path.is_file():
+        return (
+            [],
+            f"PCAP is not a file: {pcap_path}",
+        )
+
     with tempfile.TemporaryDirectory(
         prefix="security_playbooks_suricata_"
     ) as temporary_directory:
@@ -368,8 +467,7 @@ def run_suricata(
         )
 
         output_dir = (
-            temporary_path
-            / "output"
+            temporary_path / "output"
         )
 
         output_dir.mkdir(
@@ -382,16 +480,25 @@ def run_suricata(
             / "security_playbooks.rules"
         )
 
-        combined_rules = (
-            build_combined_rules_file(
-                rules_path
+        try:
+            combined_rules, rule_count = (
+                build_combined_rules_file(
+                    rules_path
+                )
             )
-        )
+        except (
+            OSError,
+            RuntimeError,
+        ) as exc:
+            return (
+                [],
+                str(exc),
+            )
 
         if combined_rules is None:
             return (
                 [],
-                "no repository Suricata rules found",
+                "no valid repository Suricata rules found",
             )
 
         command = [
@@ -413,29 +520,68 @@ def run_suricata(
                 text=True,
                 check=False,
             )
-
         except OSError as exc:
             return (
                 [],
                 str(exc),
             )
 
-        if process.returncode != 0:
-            stderr = (
-                process.stderr.strip()
-                or process.stdout.strip()
-                or "Suricata exited with an error."
-            )
+        stderr = process.stderr.strip()
+        stdout = process.stdout.strip()
 
+        # Suricata can emit warnings/errors while still
+        # returning success. Treat rule parser failures as
+        # test-runner failures explicitly.
+        combined_output = (
+            f"{stdout}\n{stderr}"
+        )
+
+        fatal_markers = (
+            "Signature missing required value",
+            "error parsing signature",
+            "no rules were loaded",
+            "unknown file format",
+            "pcap file reader thread failed",
+            "Failed to init pcap file",
+        )
+
+        for marker in fatal_markers:
+            if marker in combined_output:
+                return (
+                    [],
+                    (
+                        f"Suricata validation failed: {marker}"
+                    ),
+                )
+
+        if process.returncode != 0:
             return (
                 [],
-                stderr,
+                (
+                    stderr
+                    or stdout
+                    or "Suricata exited with an error."
+                ),
             )
 
-        signatures = (
-            collect_alert_signatures(
+        rules_loaded, _alerts = (
+            collect_engine_stats(
                 output_dir
             )
+        )
+
+        if rules_loaded is not None and rules_loaded < rule_count:
+            return (
+                [],
+                (
+                    "Suricata loaded fewer rules than "
+                    f"generated: loaded={rules_loaded} "
+                    f"generated={rule_count}"
+                ),
+            )
+
+        signatures = collect_alert_signatures(
+            output_dir
         )
 
         return (
@@ -476,8 +622,7 @@ def run_test_case(
 
     if expected_entry is None:
         logger.error(
-            "No expected alert result found "
-            "for test: %s",
+            "No expected alert result found for test: %s",
             name,
         )
         return False
@@ -514,7 +659,6 @@ def run_test_case(
         pcap_path = resolve_pcap(
             str(pcap_value)
         )
-
     except (
         OSError,
         FileNotFoundError,
@@ -594,7 +738,6 @@ def main() -> int:
     try:
         test_cases = load_test_cases()
         expected_alerts = load_expected_alerts()
-
     except (
         OSError,
         ValueError,
@@ -625,10 +768,7 @@ def main() -> int:
         else:
             failed += 1
 
-    total = (
-        passed
-        + failed
-    )
+    total = passed + failed
 
     logger.info(
         "Suricata tests completed. "
