@@ -1,1 +1,15 @@
-
+{
+  "c2_http_alert": {
+    "signatures": [
+      "POTENTIAL Suspicious HTTP User-Agent - curl"
+    ]
+  },
+  "dns_tunnel_alert": {
+    "signatures": [
+      "Potential DNS C2 - Suspicious TXT Query"
+    ]
+  },
+  "sample_traffic_validation": {
+    "signatures": []
+  }
+}
