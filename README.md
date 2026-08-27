@@ -114,7 +114,7 @@ pip install -r requirements.txt
 pip install -r requirements-dev.txt
 
 # Run the full pytest suite
-python -m pytest -q
+python -m pytest -v
 ```
 
 For full details, refer to the [Quick Start](docs/getting-started/quickstart.md) file.
