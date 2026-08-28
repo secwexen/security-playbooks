@@ -136,7 +136,7 @@ python -m scripts.run_suricata_tests
 
 The Suricata fixtures are real PCAP files generated with Scapy. Scapy is included in `requirements-dev.txt`.
 
-Suricata test fixtures can be regenerated with:
+If the PCAP fixtures need to be regenerated:
 
 ```bash
 python tests/suricata/generate_fixtures.py
