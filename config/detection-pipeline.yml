@@ -140,7 +140,7 @@ paths:
     mappings: "detection-rules/mappings"
     examples: "detection-rules/examples"
 
-  metadata: "metadata"
+  metadata: "detection-rules/metadata"
   schemas: "schemas"
   config: "config"
   tests: "tests"
@@ -148,14 +148,14 @@ paths:
 
   reports:
     root: "reports"
-    validation: "reports/validation"
-    coverage: "reports/coverage"
-    execution: "reports/execution"
+    validation: "reports"
+    coverage: "reports"
+    execution: "reports"
 
   threat_intelligence:
-    root: "threat-intelligence"
-    feeds: "threat-intelligence/feeds"
-    indicators: "threat-intelligence/indicators"
+    root: "iocs"
+    feeds: "iocs/feeds"
+    indicators: "iocs"
 
 processing:
   supported_rule_types:
@@ -202,23 +202,23 @@ normalization:
 validation:
   severity:
     enabled: true
-    allowed_file: "metadata/severity.yaml"
+    allowed_file: "detection-rules/metadata/severity.yaml"
 
   confidence:
     enabled: true
-    allowed_file: "metadata/confidence.yaml"
+    allowed_file: "detection-rules/metadata/confidence.yaml"
 
   status:
     enabled: true
-    allowed_file: "metadata/status.yaml"
+    allowed_file: "detection-rules/metadata/status.yaml"
 
   ownership:
     enabled: true
-    allowed_file: "metadata/ownership.yaml"
+    allowed_file: "detection-rules/metadata/ownership.yaml"
 
   false_positive:
     enabled: true
-    allowed_file: "metadata/false-positive.yaml"
+    allowed_file: "detection-rules/metadata/false-positive.yaml"
 
   schema:
     enabled: true
@@ -372,12 +372,12 @@ outputs:
 
   coverage_report:
     enabled: true
-    path: "reports/coverage_report.json"
+    path: "reports/coverage-report.json"
     format: "json"
 
   execution_trace:
     enabled: true
-    path: "reports/execution_trace.json"
+    path: "reports/execution-trace.json"
     format: "json"
 
   human_report:
