@@ -124,6 +124,9 @@ For full details, refer to the [Quick Start](docs/getting-started/quickstart.md)
 The project includes automated tests for YARA and Suricata detection rules.
 
 ```bash
+# Run Sigma detection tests
+python -m scripts.run_sigma_tests
+
 # Run YARA tests
 python -m scripts.run_yara_tests
 
@@ -131,7 +134,13 @@ python -m scripts.run_yara_tests
 python -m scripts.run_suricata_tests
 ```
 
-The Suricata fixtures are real PCAP files generated with Scapy. Scapy is included in requirements-dev.txt.
+The Suricata fixtures are real PCAP files generated with Scapy. Scapy is included in `requirements-dev.txt`.
+
+Suricata test fixtures can be regenerated with:
+
+```bash
+python tests/suricata/generate_fixtures.py
+```
 
 For complete setup instructions and troubleshooting, see the Quick Start guide.
 
