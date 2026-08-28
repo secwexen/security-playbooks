@@ -1,1 +1,14 @@
+version: "1.0"
 
+levels:
+  - id: "low"
+    description: "Weak or limited evidence supports the IOC."
+
+  - id: "medium"
+    description: "Moderate evidence supports the IOC."
+
+  - id: "high"
+    description: "Strong evidence supports the IOC."
+
+  - id: "confirmed"
+    description: "IOC has been confirmed through reliable evidence or multiple sources."
