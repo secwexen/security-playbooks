@@ -28,6 +28,3 @@ pre-commit==3.7.1
 # Validation
 yamllint==1.35.1
 jsonschema==4.22.0
-
-# GitHub Actions lint
-actionlint==1.7.7
