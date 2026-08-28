@@ -1,4 +1,4 @@
-from scapy.all import Ether, IP, TCP, Raw, wrpcap
+from scapy.all import Ether, IP, TCP, Raw, ICMP, wrpcap
 
 packets = [
     Ether()/IP(src="10.0.0.10", dst="93.184.216.34")/TCP(
