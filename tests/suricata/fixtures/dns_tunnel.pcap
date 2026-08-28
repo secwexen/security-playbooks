@@ -1,1 +1,14 @@
+from scapy.all import Ether, IP, UDP, DNS, DNSQR, wrpcap
 
+packet = (
+    Ether()
+    / IP(src="10.0.0.20", dst="8.8.8.8")
+    / UDP(sport=53000, dport=53)
+    / DNS(
+        rd=1,
+        qd=DNSQR(
+            qname="c2.example.test",
+            qtype="TXT"
+        )
+    )
+)
