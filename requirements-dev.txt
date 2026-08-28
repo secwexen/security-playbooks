@@ -28,8 +28,5 @@ pre-commit==3.7.1
 yamllint==1.35.1
 jsonschema==4.22.0
 
-# Documentation
-markdownlint-cli==0.41.0
-
 # GitHub Actions lint
 actionlint==1.7.7
