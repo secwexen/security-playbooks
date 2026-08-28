@@ -1,1 +1,30 @@
+version: "1.0"
 
+types:
+  - id: "ipv4"
+    description: "IPv4 address"
+    category: "network"
+
+  - id: "ipv6"
+    description: "IPv6 address"
+    category: "network"
+
+  - id: "domain"
+    description: "Fully qualified domain name"
+    category: "network"
+
+  - id: "url"
+    description: "Uniform Resource Locator"
+    category: "network"
+
+  - id: "md5"
+    description: "MD5 file hash"
+    category: "file"
+
+  - id: "sha1"
+    description: "SHA-1 file hash"
+    category: "file"
+
+  - id: "sha256"
+    description: "SHA-256 file hash"
+    category: "file"
