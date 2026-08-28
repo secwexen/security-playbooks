@@ -1,1 +1,17 @@
+version: "1.0"
 
+statuses:
+  - id: "active"
+    description: "IOC is currently considered relevant or malicious."
+
+  - id: "inactive"
+    description: "IOC is no longer actively observed."
+
+  - id: "expired"
+    description: "IOC validity period has expired."
+
+  - id: "false_positive"
+    description: "IOC was determined not to represent a malicious indicator."
+
+  - id: "unknown"
+    description: "IOC lifecycle state is currently unknown."
