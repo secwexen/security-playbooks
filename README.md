@@ -119,6 +119,22 @@ python -m pytest -v
 
 For full details, refer to the [Quick Start](docs/getting-started/quickstart.md) file.
 
+## Run Detection Tests
+
+The project includes automated tests for YARA and Suricata detection rules.
+
+```bash
+# Run YARA tests
+python -m scripts.run_yara_tests
+
+# Run Suricata tests
+python -m scripts.run_suricata_tests
+```
+
+The Suricata fixtures are real PCAP files generated with Scapy. Scapy is included in requirements-dev.txt.
+
+For complete setup instructions and troubleshooting, see the Quick Start guide.
+
 ## Documentation
 
 - [Project Index](docs/INDEX.md)
