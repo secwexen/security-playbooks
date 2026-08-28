@@ -21,7 +21,7 @@ FEEDS_DIR = PROJECT_ROOT / "iocs" / "feeds"
 DOMAINS_FILE = PROJECT_ROOT / "iocs" / "domains.txt"
 IPS_FILE = PROJECT_ROOT / "iocs" / "ips.txt"
 URLS_FILE = PROJECT_ROOT / "iocs" / "urls.txt"
-HASHES_FILE = PROJECT_ROOT / "iocs" / "file_hashes.txt"
+HASHES_FILE = PROJECT_ROOT / "iocs" / "file-hashes.txt"
 
 logger = get_logger(__name__)
 
