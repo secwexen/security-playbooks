@@ -29,3 +29,6 @@ Jinja2==3.1.6
 
 # Logging
 structlog==24.4.0
+
+# Packet capture / Suricata test fixtures
+scapy==2.7.0
