@@ -142,7 +142,7 @@ If the PCAP fixtures need to be regenerated:
 python tests/suricata/generate_fixtures.py
 ```
 
-For complete setup instructions and troubleshooting, see the Quick Start guide.
+For complete setup instructions and troubleshooting, see the [Quick Start](docs/getting-started/quickstart.md) guide.
 
 ## Documentation
 
