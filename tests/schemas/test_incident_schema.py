@@ -30,8 +30,8 @@ def build_valid_incident():
         "id": "incident-001",
         "title": "Suspicious PowerShell Activity",
         "severity": "medium",
-        "status": "open",
-        "created_at": "2026-01-01T00:00:00Z"
+        "status": "new",
+        "created_at": "2026-01-01T00:00:00Z",
     }
 
 
