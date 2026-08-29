@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 
+import pytest
 from jsonschema import Draft202012Validator, ValidationError
 
 
@@ -24,6 +25,15 @@ def load_schema():
     return schema
 
 
+def build_valid_alert():
+    return {
+        "id": "alert-001",
+        "rule_id": "rule-001",
+        "rule_type": "sigma",
+        "severity": "medium"
+    }
+
+
 def test_alert_schema_exists():
     assert SCHEMA_FILE.exists()
 
@@ -37,25 +47,29 @@ def test_alert_schema_is_valid():
 
 def test_minimal_alert_instance_is_valid():
     schema = load_schema()
-    instance = build_minimal_instance(schema)
+    instance = build_valid_alert()
 
     Draft202012Validator(schema).validate(instance)
 
 
+def test_alert_schema_rejects_invalid_rule_type():
+    schema = load_schema()
+    instance = build_valid_alert()
+    instance["rule_type"] = "invalid"
+
+    validator = Draft202012Validator(schema)
+
+    with pytest.raises(ValidationError):
+        validator.validate(instance)
+
+
 def test_alert_schema_rejects_unknown_property():
     schema = load_schema()
-    instance = build_minimal_instance(schema)
+    instance = build_valid_alert()
 
-    if schema.get("additionalProperties") is False:
-        instance["__unexpected_property__"] = True
+    instance["__unexpected_property__"] = True
 
-        validator = Draft202012Validator(schema)
+    validator = Draft202012Validator(schema)
 
-        try:
-            validator.validate(instance)
-        except ValidationError:
-            return
-
-        raise AssertionError(
-            "Schema accepted an unexpected property."
-        )
+    with pytest.raises(ValidationError):
+        validator.validate(instance)
