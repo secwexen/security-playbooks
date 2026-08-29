@@ -29,54 +29,17 @@ def build_valid_playbook():
     return {
         "id": "playbook-001",
         "name": "Security Investigation Playbook",
-        "version": "1.0.0",
-        "status": "draft",
         "category": "custom",
-        "severity": "medium",
-        "description": (
-            "A defensive security investigation playbook."
-        ),
-        "objectives": [
-            "Investigate suspicious security activity."
-        ],
-        "mitre_attack": {
-            "tactics": [
-                "TA0002"
-            ],
-            "techniques": [
-                {
-                    "id": "T1059",
-                    "name": "Command and Scripting Interpreter",
-                    "relationship": "primary"
-                }
-            ]
-        },
-        "prerequisites": [
-            "Access to required security telemetry."
-        ],
-        "workflow": [
+        "status": "draft",
+        "description": "A defensive security investigation playbook.",
+        "steps": [
             {
-                "step": 1,
+                "id": "step-001",
+                "order": 1,
                 "name": "Initial Investigation",
-                "action": (
-                    "Review the alert and associated telemetry."
-                )
-            }
-        ],
-        "validation": {
-            "testable": True,
-            "expected_outcome": (
-                "The investigation produces a documented result."
-            ),
-            "success_criteria": [
-                "Required evidence has been collected."
-            ]
-        },
-        "references": [
-            {
-                "title": "MITRE ATT&CK",
-                "url": "https://attack.mitre.org/",
-                "type": "mitre"
+                "action": "investigate",
+                "description": "Review the alert and associated telemetry.",
+                "expected_result": "Relevant evidence is identified."
             }
         ]
     }
