@@ -28,9 +28,11 @@ def load_schema():
 def build_valid_alert():
     return {
         "id": "alert-001",
+        "timestamp": "2026-01-01T00:00:00Z",
         "rule_id": "rule-001",
         "rule_type": "sigma",
-        "severity": "medium"
+        "severity": "medium",
+        "status": "new"
     }
 
 
