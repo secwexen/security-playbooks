@@ -28,6 +28,7 @@ def load_schema():
 def build_valid_incident():
     return {
         "id": "incident-001",
+        "title": "Suspicious PowerShell Activity",
         "severity": "medium",
         "status": "open",
         "created_at": "2026-01-01T00:00:00Z"
