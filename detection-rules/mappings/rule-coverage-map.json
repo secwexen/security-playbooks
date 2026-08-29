@@ -1,1 +1,21 @@
-
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "generated_from": "detection-rules/registry.yaml",
+  "rules": [
+    {
+      "rule_id": "DET-SIGMA-LSASS-ACCESS",
+      "format": "sigma",
+      "techniques": [
+        {
+          "id": "T1003",
+          "name": "OS Credential Dumping"
+        },
+        {
+          "id": "T1003.001",
+          "name": "LSASS Memory"
+        }
+      ]
+    }
+  ]
+}
