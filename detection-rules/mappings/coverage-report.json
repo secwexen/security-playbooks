@@ -1,1 +1,69 @@
-
+{
+  "schema_version": "1.0",
+  "project": "security-playbooks",
+  "source": "detection-rules/mappings/mitre-mapping.yaml",
+  "summary": {
+    "total_rules": 2,
+    "mapped_rules": 2,
+    "unmapped_rules": 0,
+    "total_techniques": 3,
+    "covered_techniques": 3,
+    "uncovered_techniques": 0,
+    "coverage_percent": 100.0
+  },
+  "by_rule": [
+    {
+      "rule_id": "f1a2b3c4-d5e6-7890-1234-56789abcdef0",
+      "rule_name": "PowerShell Encoded Command Execution",
+      "techniques": [
+        {
+          "id": "T1059.001",
+          "name": "PowerShell",
+          "covered": true
+        },
+        {
+          "id": "T1027",
+          "name": "Obfuscated Files or Information",
+          "covered": true
+        }
+      ]
+    },
+    {
+      "rule_id": "example-sigma-001",
+      "rule_name": "Suspicious Login Attempt",
+      "techniques": [
+        {
+          "id": "T1110",
+          "name": "Brute Force",
+          "covered": true
+        }
+      ]
+    }
+  ],
+  "by_technique": [
+    {
+      "id": "T1027",
+      "name": "Obfuscated Files or Information",
+      "rule_count": 1,
+      "rules": [
+        "f1a2b3c4-d5e6-7890-1234-56789abcdef0"
+      ]
+    },
+    {
+      "id": "T1059.001",
+      "name": "PowerShell",
+      "rule_count": 1,
+      "rules": [
+        "f1a2b3c4-d5e6-7890-1234-56789abcdef0"
+      ]
+    },
+    {
+      "id": "T1110",
+      "name": "Brute Force",
+      "rule_count": 1,
+      "rules": [
+        "example-sigma-001"
+      ]
+    }
+  ]
+}
