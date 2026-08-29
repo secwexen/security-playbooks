@@ -1,1 +1,28 @@
-
+{
+  "version": "1.0.0",
+  "generated_from": [
+    "detection-rules/registry.yaml",
+    "detection-rules/mappings/mitre-mapping.yaml"
+  ],
+  "summary": {
+    "total_rules": 9,
+    "mapped_rules": 9,
+    "mapped_techniques": 9
+  },
+  "techniques": {
+    "T1003": {
+      "name": "OS Credential Dumping",
+      "rule_count": 1,
+      "rules": [
+        "DET-SIGMA-LSASS-ACCESS"
+      ]
+    },
+    "T1003.001": {
+      "name": "LSASS Memory",
+      "rule_count": 1,
+      "rules": [
+        "DET-SIGMA-LSASS-ACCESS"
+      ]
+    }
+  }
+}
