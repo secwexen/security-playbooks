@@ -1,14 +1,28 @@
-rules:
-  - rule_id: f1a2b3c4-d5e6-7890-1234-56789abcdef0
-    rule_name: PowerShell Encoded Command Execution
-    techniques:
-      - T1059
-    source:
-      - https://attack.mitre.org/techniques/T1059/
+version: "1.0.0"
 
-  - rule_id: example-sigma-001
-    rule_name: Suspicious Login Attempt
+metadata:
+  name: "Security Playbooks MITRE ATT&CK Mapping"
+  description: >
+    Mapping between detection rules and MITRE ATT&CK techniques.
+
+rules:
+
+  - rule_id: "f1a2b3c4-d5e6-7890-1234-56789abcdef0"
+    rule_name: "PowerShell Encoded Command Execution"
+
     techniques:
-      - T1110
+      - "T1059.001"
+      - "T1027"
+
     source:
-      - https://attack.mitre.org/techniques/T1110/
+      - "https://attack.mitre.org/techniques/T1059/001/"
+      - "https://attack.mitre.org/techniques/T1027/"
+
+  - rule_id: "example-sigma-001"
+    rule_name: "Suspicious Login Attempt"
+
+    techniques:
+      - "T1110"
+
+    source:
+      - "https://attack.mitre.org/techniques/T1110/"
