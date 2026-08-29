@@ -3,8 +3,6 @@ from pathlib import Path
 
 from jsonschema import Draft202012Validator, ValidationError
 
-from tests.schemas.conftest import build_minimal_instance
-
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
