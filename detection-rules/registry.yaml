@@ -1,1 +1,804 @@
+version: "1.0.0"
+schema_version: "1.0.0"
 
+metadata:
+name: "Security Playbooks Detection Rule Registry"
+description: >
+Central registry of detection rules maintained by Security Playbooks.
+Each entry identifies the rule artifact, detection format, lifecycle state,
+severity, confidence, ownership, MITRE ATT&CK mapping, validation assets,
+and operational metadata.
+repository: "secwexen/security-playbooks"
+license: "MIT"
+default_status: "experimental"
+default_confidence: "medium"
+default_severity: "medium"
+
+# ---------------------------
+# Registry conventions
+# ---------------------------
+
+conventions:
+id_format: "DET-<FORMAT>-<SLUG>"
+supported_formats:
+- sigma
+- yara
+- suricata
+
+status_values:
+- draft
+- experimental
+- active
+- deprecated
+- retired
+
+severity_values:
+- informational
+- low
+- medium
+- high
+- critical
+
+confidence_values:
+- low
+- medium
+- high
+
+validation_status_values:
+- not-tested
+- passing
+- failing
+- needs-review
+
+required_fields:
+- id
+- name
+- format
+- path
+- status
+- severity
+- confidence
+- owner
+- mitre_attack
+
+# ---------------------------
+# Ownership
+# ---------------------------
+
+owners:
+detection-engineering:
+team: "Detection Engineering"
+description: "Primary owner for detection logic, testing, tuning and lifecycle."
+
+threat-hunting:
+team: "Threat Hunting"
+description: "Owner for hunt-driven detections and hypothesis validation."
+
+blue-team:
+team: "Blue Team"
+description: "Operational owner for SOC-focused detections and response workflows."
+
+# ---------------------------
+# Detection rules
+# ---------------------------
+
+rules:
+
+# ===========================
+# Sigma
+# ===========================
+
+* id: "DET-SIGMA-LSASS-ACCESS"
+  name: "LSASS Process Access Detection"
+  format: "sigma"
+  path: "detection-rules/sigma/lsass-access.yml"
+
+  status: "active"
+  severity: "high"
+  confidence: "high"
+
+  owner: "detection-engineering"
+
+  description: >
+  Detects suspicious process access to LSASS that may indicate credential
+  dumping or memory-based credential access.
+
+  tags:
+
+  * credential-access
+  * lsass
+  * windows
+  * credential-dumping
+
+  mitre_attack:
+  tactics:
+  - "TA0006"
+  techniques:
+  - id: "T1003"
+  name: "OS Credential Dumping"
+  relationship: "primary"
+  - id: "T1003.001"
+  name: "LSASS Memory"
+  relationship: "primary"
+
+  data_sources:
+
+  * "Windows Security Event Log"
+  * "Sysmon"
+  * "Process Access Telemetry"
+
+  platforms:
+
+  * windows
+
+  validation:
+  status: "passing"
+  test_cases:
+  - "tests/sigma/fixtures/lsass_events.json"
+  test_definition: "tests/sigma/test-cases.yaml"
+  test_runner: "scripts/run_sigma_tests.py"
+  expected_results: "tests/sigma/fixtures/expected_results.json"
+
+  related_playbooks:
+
+  * "playbooks/credential-access/lsass-dump.md"
+  * "playbooks/credential-access/credential-dumping.md"
+  * "playbooks/triage/suspicious-process-triage.md"
+
+* id: "DET-SIGMA-POWERSHELL-EXEC"
+  name: "Suspicious PowerShell Execution"
+  format: "sigma"
+  path: "detection-rules/sigma/sigma-powershell-exec.yml"
+
+  status: "active"
+  severity: "medium"
+  confidence: "medium"
+
+  owner: "detection-engineering"
+
+  description: >
+  Detects suspicious PowerShell execution patterns associated with command
+  execution, script execution, and potentially malicious PowerShell activity.
+
+  tags:
+
+  * execution
+  * powershell
+  * scripting
+  * windows
+
+  mitre_attack:
+  tactics:
+  - "TA0002"
+  techniques:
+  - id: "T1059"
+  name: "Command and Scripting Interpreter"
+  relationship: "primary"
+  - id: "T1059.001"
+  name: "PowerShell"
+  relationship: "primary"
+
+  data_sources:
+
+  * "Windows Event Log"
+  * "PowerShell Script Block Logging"
+  * "Sysmon"
+
+  platforms:
+
+  * windows
+
+  validation:
+  status: "passing"
+  test_cases:
+  - "tests/sigma/fixtures/powershell_events.json"
+  test_definition: "tests/sigma/test-cases.yaml"
+  test_runner: "scripts/run_sigma_tests.py"
+  expected_results: "tests/sigma/fixtures/expected_results.json"
+
+  related_playbooks:
+
+  * "playbooks/execution/powershell.md"
+  * "playbooks/triage/suspicious-powershell-triage.md"
+  * "playbooks/defense-evasion/obfuscated-powershell.md"
+
+* id: "DET-SIGMA-SUSPICIOUS-LOGIN"
+  name: "Suspicious Login Activity"
+  format: "sigma"
+  path: "detection-rules/sigma/suspicious-login.yml"
+
+  status: "active"
+  severity: "high"
+  confidence: "medium"
+
+  owner: "blue-team"
+
+  description: >
+  Detects suspicious authentication patterns that may indicate account
+  compromise, password spraying, or unauthorized access.
+
+  tags:
+
+  * credential-access
+  * initial-access
+  * authentication
+  * account-compromise
+
+  mitre_attack:
+  tactics:
+  - "TA0001"
+  - "TA0006"
+  techniques:
+  - id: "T1078"
+  name: "Valid Accounts"
+  relationship: "primary"
+  - id: "T1110"
+  name: "Brute Force"
+  relationship: "secondary"
+
+  data_sources:
+
+  * "Windows Authentication Logs"
+  * "Identity Provider Logs"
+  * "VPN Logs"
+
+  platforms:
+
+  * windows
+  * identity
+
+  validation:
+  status: "passing"
+  test_cases:
+  - "tests/sigma/fixtures/suspicious_login_events.json"
+  test_definition: "tests/sigma/test-cases.yaml"
+  test_runner: "scripts/run_sigma_tests.py"
+  expected_results: "tests/sigma/fixtures/expected_results.json"
+
+  related_playbooks:
+
+  * "playbooks/triage/suspicious-login-triage.md"
+  * "playbooks/response/account-compromise-response.md"
+  * "playbooks/initial-access/valid-account-compromise.md"
+  * "playbooks/credential-access/password-spraying.md"
+
+# ===========================
+# YARA
+# ===========================
+
+* id: "DET-YARA-MALWARE-SAMPLE"
+  name: "Malware Sample Detection"
+  format: "yara"
+  path: "detection-rules/yara/malware-sample.yar"
+
+  status: "experimental"
+  severity: "high"
+  confidence: "medium"
+
+  owner: "detection-engineering"
+
+  description: >
+  Identifies files exhibiting characteristics associated with known or
+  suspicious malware samples.
+
+  tags:
+
+  * malware
+  * file-detection
+  * static-analysis
+
+  mitre_attack:
+  tactics:
+  - "TA0002"
+  techniques:
+  - id: "T1204.002"
+  name: "User Execution: Malicious File"
+  relationship: "supporting"
+
+  data_sources:
+
+  * "File System"
+  * "Endpoint File Scanning"
+
+  platforms:
+
+  * windows
+  * linux
+  * macos
+
+  validation:
+  status: "passing"
+  test_cases:
+  - "tests/yara/fixtures/malicious_sample.txt"
+  - "tests/yara/fixtures/benign_sample.txt"
+  test_definition: "tests/yara/test-samples.yaml"
+  test_runner: "scripts/run_yara_tests.py"
+  expected_results: "tests/yara/fixtures/expected_matches.json"
+
+  related_playbooks:
+
+  * "playbooks/triage/malware-detection-triage.md"
+  * "playbooks/response/malware-response.md"
+
+* id: "DET-YARA-OBFUSCATED-POWERSHELL"
+  name: "Obfuscated PowerShell Payload"
+  format: "yara"
+  path: "detection-rules/yara/obfuscated-powershell.yar"
+
+  status: "active"
+  severity: "high"
+  confidence: "medium"
+
+  owner: "detection-engineering"
+
+  description: >
+  Detects characteristics of obfuscated PowerShell content that may be used
+  to evade static inspection and endpoint controls.
+
+  tags:
+
+  * powershell
+  * obfuscation
+  * defense-evasion
+  * execution
+
+  mitre_attack:
+  tactics:
+  - "TA0002"
+  - "TA0042"
+  techniques:
+  - id: "T1059.001"
+  name: "PowerShell"
+  relationship: "primary"
+  - id: "T1027"
+  name: "Obfuscated Files or Information"
+  relationship: "primary"
+
+  data_sources:
+
+  * "File System"
+  * "Endpoint Telemetry"
+  * "Email Attachments"
+
+  platforms:
+
+  * windows
+
+  validation:
+  status: "passing"
+  test_cases:
+  - "tests/yara/fixtures/malicious_sample.txt"
+  - "tests/yara/fixtures/benign_sample.txt"
+  test_definition: "tests/yara/test-samples.yaml"
+  test_runner: "scripts/run_yara_tests.py"
+  expected_results: "tests/yara/fixtures/expected_matches.json"
+
+  related_playbooks:
+
+  * "playbooks/defense-evasion/obfuscated-powershell.md"
+  * "playbooks/execution/powershell.md"
+  * "playbooks/triage/suspicious-powershell-triage.md"
+
+* id: "DET-YARA-POWERSHELL-PAYLOAD"
+  name: "PowerShell Payload Detection"
+  format: "yara"
+  path: "detection-rules/yara/yara-powershell-payload.yar"
+
+  status: "experimental"
+  severity: "high"
+  confidence: "medium"
+
+  owner: "detection-engineering"
+
+  description: >
+  Detects suspicious PowerShell payload characteristics in files or
+  collected artifacts.
+
+  tags:
+
+  * powershell
+  * payload
+  * malware
+  * execution
+
+  mitre_attack:
+  tactics:
+  - "TA0002"
+  techniques:
+  - id: "T1059.001"
+  name: "PowerShell"
+  relationship: "primary"
+
+  data_sources:
+
+  * "File System"
+  * "Endpoint Collection"
+
+  platforms:
+
+  * windows
+
+  validation:
+  status: "passing"
+  test_cases:
+  - "tests/yara/fixtures/malicious_sample.txt"
+  - "tests/yara/fixtures/benign_sample.txt"
+  test_definition: "tests/yara/test-samples.yaml"
+  test_runner: "scripts/run_yara_tests.py"
+  expected_results: "tests/yara/fixtures/expected_matches.json"
+
+  related_playbooks:
+
+  * "playbooks/execution/powershell.md"
+  * "playbooks/triage/suspicious-powershell-triage.md"
+
+# ===========================
+# Suricata
+# ===========================
+
+* id: "DET-SURI-C2-COMMUNICATION"
+  name: "C2 Communication Detection"
+  format: "suricata"
+  path: "detection-rules/suricata/c2-communication.rules"
+
+  status: "active"
+  severity: "high"
+  confidence: "medium"
+
+  owner: "threat-hunting"
+
+  description: >
+  Detects network communication patterns associated with command-and-control
+  activity.
+
+  tags:
+
+  * c2
+  * network
+  * command-and-control
+  * beaconing
+
+  mitre_attack:
+  tactics:
+  - "TA0011"
+  techniques:
+  - id: "T1071"
+  name: "Application Layer Protocol"
+  relationship: "primary"
+  - id: "T1071.001"
+  name: "Web Protocols"
+  relationship: "supporting"
+
+  data_sources:
+
+  * "Network Traffic"
+  * "IDS"
+  * "PCAP"
+
+  platforms:
+
+  * network
+
+  validation:
+  status: "passing"
+  test_cases:
+  - "tests/suricata/fixtures/c2_http.pcap"
+  test_definition: "tests/suricata/test-pcaps.yaml"
+  test_runner: "scripts/run_suricata_tests.py"
+  expected_results: "tests/suricata/fixtures/expected_alerts.json"
+
+  related_playbooks:
+
+  * "playbooks/command-and-control/beaconing.md"
+  * "playbooks/command-and-control/application-layer-protocol.md"
+  * "playbooks/triage/data-exfiltration-triage.md"
+
+* id: "DET-SURI-NETWORK-ALERT"
+  name: "Suspicious Network Traffic"
+  format: "suricata"
+  path: "detection-rules/suricata/network-alert.rules"
+
+  status: "active"
+  severity: "medium"
+  confidence: "medium"
+
+  owner: "threat-hunting"
+
+  description: >
+  Detects suspicious or anomalous network traffic requiring further SOC
+  investigation.
+
+  tags:
+
+  * network
+  * anomaly
+  * traffic-analysis
+
+  mitre_attack:
+  tactics:
+  - "TA0011"
+  techniques:
+  - id: "T1071"
+  name: "Application Layer Protocol"
+  relationship: "supporting"
+
+  data_sources:
+
+  * "Network Traffic"
+  * "IDS"
+  * "PCAP"
+
+  platforms:
+
+  * network
+
+  validation:
+  status: "passing"
+  test_cases:
+  - "tests/suricata/fixtures/sample_traffic.pcap"
+  test_definition: "tests/suricata/test-pcaps.yaml"
+  test_runner: "scripts/run_suricata_tests.py"
+  expected_results: "tests/suricata/fixtures/expected_alerts.json"
+
+  related_playbooks:
+
+  * "playbooks/triage/suspicious-process-triage.md"
+  * "playbooks/command-and-control/application-layer-protocol.md"
+
+* id: "DET-SURI-POWERSHELL-ALERT"
+  name: "PowerShell Network Activity"
+  format: "suricata"
+  path: "detection-rules/suricata/powershell-alert.rules"
+
+  status: "experimental"
+  severity: "high"
+  confidence: "medium"
+
+  owner: "detection-engineering"
+
+  description: >
+  Detects suspicious network traffic associated with PowerShell-related
+  execution or payload retrieval.
+
+  tags:
+
+  * powershell
+  * network
+  * execution
+  * ingress-tool-transfer
+
+  mitre_attack:
+  tactics:
+  - "TA0002"
+  - "TA0011"
+  techniques:
+  - id: "T1059.001"
+  name: "PowerShell"
+  relationship: "primary"
+  - id: "T1105"
+  name: "Ingress Tool Transfer"
+  relationship: "secondary"
+
+  data_sources:
+
+  * "Network Traffic"
+  * "IDS"
+  * "PCAP"
+
+  platforms:
+
+  * windows
+  * network
+
+  validation:
+  status: "passing"
+  test_cases:
+  - "tests/suricata/fixtures/c2_http.pcap"
+  - "tests/suricata/fixtures/sample_traffic.pcap"
+  test_definition: "tests/suricata/test-pcaps.yaml"
+  test_runner: "scripts/run_suricata_tests.py"
+  expected_results: "tests/suricata/fixtures/expected_alerts.json"
+
+  related_playbooks:
+
+  * "playbooks/execution/powershell.md"
+  * "playbooks/command-and-control/ingress-tool-transfer.md"
+  * "playbooks/triage/suspicious-powershell-triage.md"
+
+# ---------------------------
+# Registry indexes
+# ---------------------------
+
+indexes:
+
+by_format:
+sigma:
+- "DET-SIGMA-LSASS-ACCESS"
+- "DET-SIGMA-POWERSHELL-EXEC"
+- "DET-SIGMA-SUSPICIOUS-LOGIN"
+
+
+yara:
+  - "DET-YARA-MALWARE-SAMPLE"
+  - "DET-YARA-OBFUSCATED-POWERSHELL"
+  - "DET-YARA-POWERSHELL-PAYLOAD"
+
+suricata:
+  - "DET-SURI-C2-COMMUNICATION"
+  - "DET-SURI-NETWORK-ALERT"
+  - "DET-SURI-POWERSHELL-ALERT"
+
+
+by_status:
+active:
+- "DET-SIGMA-LSASS-ACCESS"
+- "DET-SIGMA-POWERSHELL-EXEC"
+- "DET-SIGMA-SUSPICIOUS-LOGIN"
+- "DET-YARA-OBFUSCATED-POWERSHELL"
+- "DET-SURI-C2-COMMUNICATION"
+- "DET-SURI-NETWORK-ALERT"
+
+
+experimental:
+  - "DET-YARA-MALWARE-SAMPLE"
+  - "DET-YARA-POWERSHELL-PAYLOAD"
+  - "DET-SURI-POWERSHELL-ALERT"
+
+deprecated: []
+retired: []
+draft: []
+
+
+by_mitre_technique:
+"T1003":
+- "DET-SIGMA-LSASS-ACCESS"
+
+
+"T1003.001":
+  - "DET-SIGMA-LSASS-ACCESS"
+
+"T1059":
+  - "DET-SIGMA-POWERSHELL-EXEC"
+
+"T1059.001":
+  - "DET-SIGMA-POWERSHELL-EXEC"
+  - "DET-YARA-OBFUSCATED-POWERSHELL"
+  - "DET-YARA-POWERSHELL-PAYLOAD"
+  - "DET-SURI-POWERSHELL-ALERT"
+
+"T1027":
+  - "DET-YARA-OBFUSCATED-POWERSHELL"
+
+"T1078":
+  - "DET-SIGMA-SUSPICIOUS-LOGIN"
+
+"T1110":
+  - "DET-SIGMA-SUSPICIOUS-LOGIN"
+
+"T1071":
+  - "DET-SURI-C2-COMMUNICATION"
+  - "DET-SURI-NETWORK-ALERT"
+
+"T1071.001":
+  - "DET-SURI-C2-COMMUNICATION"
+
+"T1105":
+  - "DET-SURI-POWERSHELL-ALERT"
+  
+
+by_playbook:
+"playbooks/credential-access/lsass-dump.md":
+- "DET-SIGMA-LSASS-ACCESS"
+
+
+"playbooks/credential-access/credential-dumping.md":
+  - "DET-SIGMA-LSASS-ACCESS"
+
+"playbooks/execution/powershell.md":
+  - "DET-SIGMA-POWERSHELL-EXEC"
+  - "DET-YARA-OBFUSCATED-POWERSHELL"
+  - "DET-YARA-POWERSHELL-PAYLOAD"
+  - "DET-SURI-POWERSHELL-ALERT"
+
+"playbooks/triage/suspicious-powershell-triage.md":
+  - "DET-SIGMA-POWERSHELL-EXEC"
+  - "DET-YARA-OBFUSCATED-POWERSHELL"
+  - "DET-YARA-POWERSHELL-PAYLOAD"
+  - "DET-SURI-POWERSHELL-ALERT"
+
+"playbooks/triage/suspicious-login-triage.md":
+  - "DET-SIGMA-SUSPICIOUS-LOGIN"
+
+"playbooks/response/account-compromise-response.md":
+  - "DET-SIGMA-SUSPICIOUS-LOGIN"
+
+"playbooks/command-and-control/beaconing.md":
+  - "DET-SURI-C2-COMMUNICATION"
+
+"playbooks/command-and-control/application-layer-protocol.md":
+  - "DET-SURI-C2-COMMUNICATION"
+  - "DET-SURI-NETWORK-ALERT"
+
+"playbooks/command-and-control/ingress-tool-transfer.md":
+  - "DET-SURI-POWERSHELL-ALERT"
+
+"playbooks/triage/malware-detection-triage.md":
+  - "DET-YARA-MALWARE-SAMPLE"
+
+"playbooks/response/malware-response.md":
+  - "DET-YARA-MALWARE-SAMPLE"
+
+
+# ---------------------------
+# Registry validation policy
+# ---------------------------
+
+validation_policy:
+
+rule_path_must_exist: true
+
+id_must_be_unique: true
+
+format_must_match_path: true
+
+required_mitre_mapping: true
+
+require_validation_for_active_rules: true
+
+require_test_case_for_active_rules: true
+
+require_owner: true
+
+require_severity: true
+
+require_confidence: true
+
+require_related_playbook_for_active_rule: true
+
+deprecated_rule_requirements:
+require_replacement_reference: true
+
+retired_rule_requirements:
+require_retirement_reason: true
+
+consistency_checks:
+- "registry ID exists exactly once"
+- "rule path exists"
+- "format matches file extension/location"
+- "status is valid"
+- "severity is valid"
+- "confidence is valid"
+- "owner exists"
+- "MITRE technique IDs are well-formed"
+- "active rules have passing validation"
+- "active rules have test coverage"
+- "indexed rule IDs exist in rules"
+- "indexed playbook references exist"
+- "related playbooks exist"
+- "test assets exist"
+
+# ---------------------------
+# Lifecycle
+# ---------------------------
+
+lifecycle:
+
+draft:
+description: "Rule is under development and is not considered operational."
+required_validation: false
+
+experimental:
+description: "Rule is usable for testing/hunting but requires further tuning."
+required_validation: true
+
+active:
+description: "Rule is approved for operational detection."
+required_validation: true
+
+deprecated:
+description: "Rule should no longer be used for new deployments."
+required_validation: false
+
+retired:
+description: "Rule is no longer maintained or operationally supported."
+required_validation: false
