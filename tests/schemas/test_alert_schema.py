@@ -3,9 +3,16 @@ from pathlib import Path
 
 from jsonschema import Draft202012Validator, ValidationError
 
+from tests.schemas.conftest import build_minimal_instance
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-SCHEMA_FILE = PROJECT_ROOT / "schemas" / "alert_schema.json"
+
+SCHEMA_FILE = (
+    PROJECT_ROOT
+    / "schemas"
+    / "alert_schema.json"
+)
 
 
 def load_schema():
@@ -15,38 +22,8 @@ def load_schema():
         schema = json.load(handle)
 
     Draft202012Validator.check_schema(schema)
+
     return schema
-
-
-def build_minimal_instance(schema):
-    instance = {}
-
-    for field in schema.get("required", []):
-        properties = schema.get("properties", {})
-        definition = properties.get(field, {})
-
-        if definition.get("type") == "string":
-            instance[field] = "test"
-
-        elif definition.get("type") == "integer":
-            instance[field] = 1
-
-        elif definition.get("type") == "number":
-            instance[field] = 1
-
-        elif definition.get("type") == "boolean":
-            instance[field] = True
-
-        elif definition.get("type") == "array":
-            instance[field] = []
-
-        elif definition.get("type") == "object":
-            instance[field] = {}
-
-        else:
-            instance[field] = "test"
-
-    return instance
 
 
 def test_alert_schema_exists():
