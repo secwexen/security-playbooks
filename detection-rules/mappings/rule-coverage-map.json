@@ -1,19 +1,35 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "1.0.0",
-  "generated_from": "detection-rules/registry.yaml",
+  "schema_version": "1.0",
+  "project": "security-playbooks",
+  "source": "detection-rules/mappings/mitre-mapping.yaml",
   "rules": [
     {
-      "rule_id": "DET-SIGMA-LSASS-ACCESS",
-      "format": "sigma",
+      "rule_id": "f1a2b3c4-d5e6-7890-1234-56789abcdef0",
+      "rule_name": "PowerShell Encoded Command Execution",
       "techniques": [
         {
-          "id": "T1003",
-          "name": "OS Credential Dumping"
+          "id": "T1059.001",
+          "name": "PowerShell",
+          "relationship": "primary",
+          "source": "https://attack.mitre.org/techniques/T1059/001/"
         },
         {
-          "id": "T1003.001",
-          "name": "LSASS Memory"
+          "id": "T1027",
+          "name": "Obfuscated Files or Information",
+          "relationship": "secondary",
+          "source": "https://attack.mitre.org/techniques/T1027/"
+        }
+      ]
+    },
+    {
+      "rule_id": "example-sigma-001",
+      "rule_name": "Suspicious Login Attempt",
+      "techniques": [
+        {
+          "id": "T1110",
+          "name": "Brute Force",
+          "relationship": "primary",
+          "source": "https://attack.mitre.org/techniques/T1110/"
         }
       ]
     }
