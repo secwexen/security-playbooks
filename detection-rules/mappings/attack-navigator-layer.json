@@ -1,1 +1,63 @@
-
+{
+  "name": "Security Playbooks Detection Coverage",
+  "versions": {
+    "attack": "unknown",
+    "navigator": "unknown",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "MITRE ATT&CK detection coverage for Security Playbooks.",
+  "filters": {
+    "platforms": []
+  },
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "average",
+    "showID": true,
+    "showName": true,
+    "showAggregateScores": true,
+    "showDescriptions": true
+  },
+  "hideDisabled": false,
+  "selectTechniquesAcrossTactics": true,
+  "selectTechniquesBy": "score",
+  "selectSubtechniquesWithParent": true,
+  "legendItems": [
+    {
+      "label": "Detected",
+      "color": "#2ca02c"
+    }
+  ],
+  "techniques": [
+    {
+      "techniqueID": "T1027",
+      "score": 1,
+      "comment": "Covered by PowerShell Encoded Command Execution.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059.001",
+      "score": 1,
+      "comment": "Covered by PowerShell Encoded Command Execution.",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1110",
+      "score": 1,
+      "comment": "Covered by Suspicious Login Attempt.",
+      "enabled": true
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#d9d9d9",
+      "#9bbb59",
+      "#548235"
+    ],
+    "minValue": 0,
+    "maxValue": 1
+  },
+  "metadata": [],
+  "links": []
+}
