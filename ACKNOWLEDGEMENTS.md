@@ -20,25 +20,6 @@ Special thanks to the security researchers whose valuable feedback, testing, and
 
 We thank all contributors who have helped improve this project through code contributions, issue reporting, suggestions, and feature development.
 
-## Responsible Use
-
-All contributors and users are expected to follow the project's legal, ethical, and responsible-use requirements.
-
-Security research, adversary emulation, attack simulation, and validation activities must be performed only in environments where the user has explicit authorization.
-
-See:
-
-- [DISCLAIMER](DISCLAIMER)
-- [SECURITY](SECURITY)
-- [Code of Conduct](CODE_OF_CONDUCT.md)
-- [Contributing Guidelines](CONTRIBUTING.md)
-
 ## Attribution
 
 If you believe material within this repository requires additional attribution, licensing information, or correction, please open an issue with sufficient information to identify the relevant material and its source.
-
----
-
-Copyright © 2026 secwexen.
-
-Security Playbooks is licensed under the MIT License. See [LICENSE](LICENSE) for the complete license text.
