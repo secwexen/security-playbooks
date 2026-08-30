@@ -4,10 +4,6 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 PLAYBOOKS_DIR = PROJECT_ROOT / "playbooks"
 
-REQUIRED_METADATA_TERMS = [
-    "MITRE ATT&CK",
-]
-
 
 def get_playbook_files():
     return [
@@ -20,6 +16,21 @@ def get_playbook_files():
     ]
 
 
+def get_markdown_body(content: str) -> str:
+    """
+    Remove YAML front matter and return the Markdown body.
+    """
+    content = content.strip()
+
+    if content.startswith("---"):
+        sections = content.split("---", 2)
+
+        if len(sections) == 3:
+            return sections[2].strip()
+
+    return content
+
+
 def test_playbook_files_exist():
     playbook_files = get_playbook_files()
 
@@ -30,9 +41,11 @@ def test_playbooks_contain_title():
     for playbook_file in get_playbook_files():
         content = playbook_file.read_text(
             encoding="utf-8"
-        ).strip()
+        )
 
-        assert content.startswith("#"), (
+        body = get_markdown_body(content)
+
+        assert body.startswith("#"), (
             f"Playbook has no Markdown title: {playbook_file}"
         )
 
@@ -60,7 +73,7 @@ def test_playbooks_do_not_contain_empty_front_matter():
     for playbook_file in get_playbook_files():
         content = playbook_file.read_text(
             encoding="utf-8"
-        )
+        ).strip()
 
         if content.startswith("---"):
             sections = content.split("---", 2)
