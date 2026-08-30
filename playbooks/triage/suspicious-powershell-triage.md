@@ -11,7 +11,6 @@ description: "Investigate suspicious PowerShell execution alerts and determine w
 objective: "Determine the nature, scope, and impact of suspicious PowerShell activity and provide evidence for escalation or closure."
 severity: "high"
 mitre_attack:
-
 - "T1059.001"
 - "T1027"
   triggers:
