@@ -11,27 +11,27 @@ description: "Investigate suspicious PowerShell execution alerts and determine w
 objective: "Determine the nature, scope, and impact of suspicious PowerShell activity and provide evidence for escalation or closure."
 severity: "high"
 mitre_attack:
-- "T1059.001"
-- "T1027"
+  - "T1059.001"
+  - "T1027"
 triggers:
-- "Suspicious PowerShell execution alert"
-- "Encoded PowerShell command detection"
-- "Obfuscated PowerShell payload detection"
-- "Unexpected PowerShell network activity"
+  - "Suspicious PowerShell execution alert"
+  - "Encoded PowerShell command detection"
+  - "Obfuscated PowerShell payload detection"
+  - "Unexpected PowerShell network activity"
 prerequisites:
-- "Access to endpoint process telemetry"
-- "Access to authentication telemetry"
-- "Access to network telemetry"
-- "Access to PowerShell logging when available"
+  - "Access to endpoint process telemetry"
+  - "Access to authentication telemetry"
+  - "Access to network telemetry"
+  - "Access to PowerShell logging when available"
 tags:
-- "powershell"
-- "triage"
-- "execution"
-- "defense-evasion"
-- "windows"
+  - "powershell"
+  - "triage"
+  - "execution"
+  - "defense-evasion"
+  - "windows"
 references:
-- "https://attack.mitre.org/techniques/T1059/001/"
-- "https://attack.mitre.org/techniques/T1027/"
+  - "https://attack.mitre.org/techniques/T1059/001/"
+  - "https://attack.mitre.org/techniques/T1027/"
 validation:
   validated: false
   required: true
