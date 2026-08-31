@@ -90,7 +90,7 @@ See [Integrations](integrations/) for implementation details.
 
 ### Requirements
 
-- Python 3.11
+- Python 3.11+
 - pip for Python dependency installation
 - Make for repository automation and common development tasks
 - Git for repository management
