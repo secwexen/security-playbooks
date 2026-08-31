@@ -84,16 +84,22 @@ See [Integrations](integrations/) for implementation details.
 
 ### Supported Operating Systems
 
-- Linux (primary, production & deployment recommended)  
-- Windows (WSL2)  
-- macOS (native development supported)
+- Linux — Recommended for development, testing, automation, and deployment  
+- Windows — Supported for development and testing with Visual Studio Code and WSL2  
+- macOS — Supported for local development and testing
 
 ### Requirements
 
-- Python 3.11+  
-- Make (for automation)  
-- YAML / JSON configuration support  
-- Sigma, YARA, Suricata rule formats
+- Python 3.11
+- pip for Python dependency installation
+- Make for repository automation and common development tasks
+- Git for repository management
+- PyYAML for YAML configuration and metadata processing
+- JSON support for schemas, datasets, reports, and machine-readable security data
+- Sigma rule support
+- YARA rule support
+- Suricata rule support
+- pytest for automated testing and validation
 
 ## Quick Start
 
