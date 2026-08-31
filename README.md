@@ -1,7 +1,7 @@
 # Security Playbooks
 
 <p align="center">
-<img src="assets/images/security-playbooks-logo.png" width="600" alt="Security Playbooks Logo" loading="lazy" decoding="async">
+<img src="assets/images/security-playbooks-logo.png" width="650" alt="Security Playbooks Logo" loading="lazy" decoding="async">
 </p>
 
 [![CI](https://github.com/secwexen/security-playbooks/actions/workflows/ci.yml/badge.svg)](https://github.com/secwexen/security-playbooks/actions/workflows/ci.yml)
