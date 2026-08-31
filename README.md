@@ -133,6 +133,11 @@ Coverage / Reporting
 - Suricata rule support
 - pytest for automated testing and validation
 
+### Optional Components
+
+- Docker: Used for containerized labs, testing, and integration workflows
+- Scapy: Used for generating and working with Suricata PCAP fixtures
+
 ## Quick Start
 
 ```bash
