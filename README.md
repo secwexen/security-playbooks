@@ -10,11 +10,11 @@
 
 ## About
 
-**Security Playbooks** is a defensive security and blue team repository designed for cybersecurity professionals and SOC analysts.
+Security Playbooks is a defensive cybersecurity and blue team repository designed for cybersecurity professionals, SOC analysts, threat hunters, detection engineers, incident responders, and security practitioners.
 
-It focuses on delivering realistic, MITRE ATT&CK mapping, detection rules, detection validation, threat hunters, incident response playbooks, cybersecurity playbooks, SOC workflows, adversary emulation, threat intelligence, security engineers, detection engineering content, security operations teams, and hands-on labs to help users build practical skills in threat hunting, incident response, and adversary simulation within controlled environments.
+It focuses on delivering realistic, MITRE ATT&CK mapping, detection engineering, detection rules, detection validation, threat hunting, incident response playbooks, security playbooks, SOC workflows, adversary emulation, threat intelligence, IOC enrichment, security validation, automated testing, security automation, security integrations, coverage analysis, and hands-on labs to help users build practical skills in threat hunting, incident response, detection engineering, and adversary simulation within controlled environments.
 
-The project aims to bridge the gap between theoretical knowledge and real-world security operations by providing structured, reproducible, practical cybersecurity workflows, threat intelligence, and security operations (SecOps), detection engineering, incident response, and security validation capabilities.
+The project aims to bridge the gap between the oretical knowledge and real-world security operations by providing structured, reproducible, practical cybersecurity workflows, threat intelligence, detection engineering, incident response, security validation, automated testing, machine-readable security content, and coverage analysis capabilities.
 
 ## Use Cases
 
