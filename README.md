@@ -107,8 +107,6 @@ Validation
         ↓
 Automated Tests
         ↓
-Tuning / Feedback
-        ↓
 Coverage / Reporting
 ```
 
