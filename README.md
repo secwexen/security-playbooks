@@ -65,7 +65,9 @@ Coverage mappings are maintained in:
 
 - [Mitre Mapping](detection-rules/mappings/mitre-mapping.yaml) – MITRE ATT&CK techniques mapping  
 - [Coverage Matrix](detection-rules/mappings/coverage-matrix.md) – Detection coverage matrix  
-- [Coverage Report](reports/coverage-summary.md) – Detection coverage summary and analysis
+- [Coverage Report](reports/coverage-summary.md) – Detection coverage summary and analysis  
+- [Attack Navigator Layer](detection-rules/mappings/attack-navigator-layer.json) — ATT&CK Navigator layer  
+- [Rule Coverage Map](detection-rules/mappings/rule-coverage-map.json) — Rule-to-technique coverage mapping
 
 ## Supported Integrations
 
@@ -214,11 +216,11 @@ See [CONTRIBUTING](CONTRIBUTING.md) for detailed contribution guidelines.
 
 Planned improvements include:
 
-- expanded ATT&CK-mapped playbooks and lab scenarios  
-- enhanced and validated detection rules (Sigma, YARA, and Suricata)  
-- structured SOC workflows and incident response playbooks  
-- standardized, machine-readable playbook formats  
-- alignment with security frameworks (NIST, CIS, ISO)  
+- Expanded ATT&CK-mapped playbooks and lab scenarios  
+- Enhanced and validated detection rules (Sigma, YARA, and Suricata)  
+- Structured SOC workflows and incident response playbooks  
+- Standardized, machine-readable playbook formats  
+- Alignment with security frameworks (NIST, CIS, ISO)  
 
 For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
