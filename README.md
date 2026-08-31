@@ -177,7 +177,7 @@ python -m scripts.run_yara_tests
 python -m scripts.run_suricata_tests
 ```
 
-The Suricata fixtures are real PCAP files generated with Scapy. Scapy is included in `requirements-dev.txt`.
+The Suricata fixtures are real PCAP files generated with Scapy. Scapy is included in [Development Requirements](requirements-dev.txt).
 
 If the PCAP fixtures need to be regenerated:
 
