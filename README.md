@@ -80,6 +80,38 @@ Security Playbooks includes integrations for common security platforms and colla
 
 See [Integrations](integrations/) for implementation details.
 
+## Security Workflow
+
+This workflow shows how security behaviors are mapped, detected, investigated, enriched, validated, tested, and measured across the repository.
+
+```text
+Threat / Attack Behavior
+        ↓
+MITRE ATT&CK
+        ↓
+Detection Rules (Sigma / YARA / Suricata)
+        ↓
+Alert / Event
+        ↓
+Triage
+        ↓
+Investigation
+        ↓
+Threat Hunting
+        ↓
+IOC / Threat Intelligence
+        ↓
+Incident Response
+        ↓
+Validation
+        ↓
+Automated Tests
+        ↓
+Tuning / Feedback
+        ↓
+Coverage / Reporting
+```
+
 ## Installation
 
 ### Supported Operating Systems
