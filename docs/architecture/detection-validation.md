@@ -11,19 +11,3 @@ Each detection follows a structured validation process:
 3. **Detection Execution**  
 4. **Alert Verification**  
 5. **Analysis & Tuning**  
-
-## Example Validation Flow
-
-```text
-[Simulated Attack]
-        ↓
-[Log Generated]
-        ↓
-[Detection Pipeline Execution]
-        ↓
-[Rule Triggered]
-        ↓
-[Test Validation]
-        ↓
-[Metrics Collection]
-```
