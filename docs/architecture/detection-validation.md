@@ -10,4 +10,4 @@ Each detection follows a structured validation process:
 2. **Log Generation**  
 3. **Detection Execution**  
 4. **Alert Verification**  
-5. **Analysis & Tuning**  
+5. **Analysis & Tuning**
