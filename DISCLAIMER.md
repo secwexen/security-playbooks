@@ -45,7 +45,7 @@ This repository and its contents are protected by copyright and applicable intel
 
 ### License Terms
 
-- The specific license under which this repository is distributed is detailed in the LICENSE file
+- The specific license under which this repository is distributed is detailed in the [LICENSE](LICENSE) file
 - Users must comply with all license terms and conditions
 - Redistribution, modification, and commercial use are subject to license restrictions
 - Attribution and license notices must be preserved in any derivative works
