@@ -58,6 +58,12 @@ pip install -r requirements.txt
 pip install -r requirements-dev.txt
 ```
 
+### 5. Tests
+
+```bash
+python -m pytest -v
+```
+
 ## Code & Rule Quality Guidelines
 
 ### General Guidelines
@@ -81,12 +87,69 @@ pip install -r requirements-dev.txt
 
 ## Pull Request Process
 
-1. Ensure your branch is up to date with `main`
-2. Submit a PR with a clear title and description
-3. Link the related issue (required)
-4. The maintainer will review your PR
-5. Requested changes (if any) must be completed
-6. Once approved, your PR will be merged
+### Review Process
+
+1. **PR Submission**
+   - Ensure your branch is up to date with `main`
+   - Submit a PR with a clear title and description
+   - Link the related issue (required)
+
+2. **Automated Checks**
+   - All CI/CD checks must pass before manual review
+
+3. **Code Review**
+   - One or more maintainers will review your PR
+   - Feedback will be provided for any necessary changes
+   - Reviewers may request additional tests or documentation
+
+4. **Changes & Approval**
+   - Requested changes (if any) must be completed
+   - Re-request review after making changes
+   - Once approved by maintainers, PR will be merged
+
+5. **Merge**
+   - PRs are merged using "Squash and merge" strategy
+   - Commit message follows Conventional Commits format
+
+### CI/CD Requirements
+
+All pull requests **must pass the following CI/CD checks** before merging:
+
+#### Tests
+
+```bash
+# All tests must pass
+python -m pytest -v
+```
+
+#### Code Quality
+
+```bash
+# Code formatting check
+black --check .
+
+# Linting checks
+flake8 .
+
+# Import sorting
+isort --check-only .
+
+# Type checking (recommended)
+mypy src/
+```
+
+#### Detection Rule Tests
+
+```bash
+# Sigma rules
+python -m scripts.run_sigma_tests
+
+# YARA rules
+python -m scripts.run_yara_tests
+
+# Suricata rules
+python -m scripts.run_suricata_tests
+```
 
 ## Code of Conduct
 
