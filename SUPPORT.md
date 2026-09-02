@@ -6,7 +6,7 @@ This document explains how to get help, report issues, and request improvements.
 
 ## Where to Get Help
 
-### GitHub Issues (Primary Support Channel)
+### GitHub Issues
 
 Use the **Issues** tab for:
 
