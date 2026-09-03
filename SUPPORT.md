@@ -113,7 +113,7 @@ If you want to contribute:
 Please read:
 
 - [CONTRIBUTING](CONTRIBUTING.md)  
-- [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md)
+- [CODE OF CONDUCT](CODE_OF_CONDUCT.md)
 
 Pull requests are welcome.
 
