@@ -31,3 +31,10 @@ This document outlines ethical guidelines for using the repository and its conte
 
 - Always run scripts and scenarios in a controlled, isolated lab.
 - Avoid actions that could affect real-world networks, users, or data.
+
+### 7. Authorization and Scope
+
+- Perform security testing only on systems, accounts, networks, and data for which you have explicit authorization.
+- Define the scope and rules of engagement before testing.
+- Do not access, modify, disrupt, or extract data outside the authorized scope.
+- Stop testing if activity affects unintended or unauthorized systems.
