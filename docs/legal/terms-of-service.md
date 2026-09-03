@@ -70,3 +70,7 @@ Security Playbooks may contain adversary-emulation scenarios, detection validati
 Such material is intended for controlled and authorized environments, including laboratories, test infrastructure, CTF environments, and explicitly authorized security assessments.
 
 Users must not interpret the inclusion of offensive security techniques as permission to target systems or organizations without authorization.
+
+## 8. Intellectual Property and License
+
+Security Playbooks is licensed under the **MIT License**.
