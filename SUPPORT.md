@@ -49,7 +49,7 @@ All issues are tracked using GitHub's native issue system and organized with lab
 
 - **Labels**: `bug`, `enhancement`, `documentation`, `help-wanted`, `good-first-issue`
 - **Milestones**: Issues are assigned to project milestones for release planning
-- **Projects**: Use the [Project Board](https://github.com/secwexen/security-playbooks/projects) to track progress
+- **Projects**: Use the [Project Board](https://github.com/users/secwexen/projects/21) to track progress
 
 You can view the status of your issue and track its progress through the project board.
 
