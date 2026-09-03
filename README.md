@@ -16,6 +16,10 @@ It focuses on delivering realistic, MITRE ATT&CK mapping, detection engineering,
 
 The project aims to bridge the gap between the oretical knowledge and real-world security operations by providing structured, reproducible, practical cybersecurity workflows, threat intelligence, detection engineering, incident response, security validation, automated testing, machine-readable security content, and coverage analysis capabilities.
 
+## Why Security Playbooks?
+
+Security Playbooks brings detection engineering, threat hunting, incident response, MITRE ATT&CK mapping, security validation, automated testing, and hands-on labs together in a structured repository. It is designed to make defensive security workflows practical, reproducible, and easier to validate in controlled environments.
+
 ## Use Cases
 
 - Alert Investigation & Triage  
@@ -63,7 +67,7 @@ This software is provided “as is” without warranty of any kind, express or i
 
 Coverage mappings are maintained in:
 
-- [Mitre Mapping](detection-rules/mappings/mitre-mapping.yaml) — MITRE ATT&CK techniques mapping  
+- [MITRE Mapping](detection-rules/mappings/mitre-mapping.yaml) — MITRE ATT&CK techniques mapping  
 - [Coverage Matrix](detection-rules/mappings/coverage-matrix.md) — Detection coverage matrix  
 - [Coverage Report](reports/coverage-summary.md) — Detection coverage summary and analysis  
 - [Attack Navigator Layer](detection-rules/mappings/attack-navigator-layer.json) — ATT&CK Navigator layer  
@@ -164,7 +168,7 @@ For full details, refer to the [Quick Start](docs/getting-started/quickstart.md)
 
 ## Run Detection Tests
 
-The project includes automated tests for YARA and Suricata detection rules.
+The project includes automated tests for Sigma, YARA, and Suricata detection rules.
 
 ```bash
 # Run Sigma detection tests
