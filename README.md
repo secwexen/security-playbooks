@@ -63,9 +63,9 @@ This software is provided “as is” without warranty of any kind, express or i
 
 Coverage mappings are maintained in:
 
-- [Mitre Mapping](detection-rules/mappings/mitre-mapping.yaml) – MITRE ATT&CK techniques mapping  
-- [Coverage Matrix](detection-rules/mappings/coverage-matrix.md) – Detection coverage matrix  
-- [Coverage Report](reports/coverage-summary.md) – Detection coverage summary and analysis  
+- [Mitre Mapping](detection-rules/mappings/mitre-mapping.yaml) — MITRE ATT&CK techniques mapping  
+- [Coverage Matrix](detection-rules/mappings/coverage-matrix.md) — Detection coverage matrix  
+- [Coverage Report](reports/coverage-summary.md) — Detection coverage summary and analysis  
 - [Attack Navigator Layer](detection-rules/mappings/attack-navigator-layer.json) — ATT&CK Navigator layer  
 - [Rule Coverage Map](detection-rules/mappings/rule-coverage-map.json) — Rule-to-technique coverage mapping
 
