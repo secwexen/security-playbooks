@@ -1,8 +1,0 @@
-{
-  "name": "Security Playbooks DevContainer",
-  "image": "mcr.microsoft.com/devcontainers/python:3.11",
-  "features": {
-    "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-  }
