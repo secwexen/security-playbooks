@@ -12,7 +12,7 @@ This is the first Pre-release of the Security Playbooks project.
 
 It includes foundational detection content, incident response playbooks, and hands‑on lab scenarios designed to support SOC analysts, blue teamers, and cybersecurity experts.
 
-## Included in This Release  
+## Features
 
 ### Detection Rules
 
@@ -50,7 +50,7 @@ It includes foundational detection content, incident response playbooks, and han
 
 This Pre-release expands the **Security Playbooks** project from a foundational security repository into a broader defensive security project covering detection engineering, threat hunting, security operations, threat intelligence, and validation workflows.
 
-## Included in This Release
+## Features
 
 ### Detection Engineering
 
