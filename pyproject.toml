@@ -10,6 +10,42 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { file = "LICENSE" }
 
+authors = [
+  { name = "secwexen" }
+]
+
+keywords = [
+  "cybersecurity",
+  "mitre",
+  "sigma",
+  "yara",
+  "suricata"
+]
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Information Technology",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Operating System :: OS Independent",
+  "Topic :: Security",
+]
+
+dependencies = [
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "coverage>=7.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/secwexen/security-playbooks"
+Repository = "https://github.com/secwexen/security-playbooks"
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
