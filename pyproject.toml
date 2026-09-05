@@ -71,3 +71,16 @@ exclude_lines = [
 
 [tool.coverage.html]
 directory = "reports/coverage"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "S"]
+ignore = []
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
