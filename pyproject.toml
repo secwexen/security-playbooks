@@ -45,6 +45,7 @@ dev = [
 [project.urls]
 Homepage = "https://github.com/secwexen/security-playbooks"
 Repository = "https://github.com/secwexen/security-playbooks"
+"Bug Tracker" = "https://github.com/secwexen/security-playbooks/issues"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
