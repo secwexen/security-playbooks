@@ -59,9 +59,6 @@ def example_value(schema: dict[str, Any], field_name: str) -> Any:
     schema_type = schema.get("type")
 
     if schema_type == "string":
-        if "format" == schema.get("format"):
-            return "test"
-
         if schema.get("format") == "date-time":
             return "2026-01-01T00:00:00Z"
 
