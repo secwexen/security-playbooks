@@ -237,6 +237,12 @@ Planned improvements include:
 
 For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
+## Community & Support
+
+- **GitHub Issues** — Report bugs or request features
+- **GitHub Discussions** — Ask questions and share ideas
+- **Contributing** — Submit improvements and new playbooks
+
 ## Security
 
 If you discover a security vulnerability, please follow our responsible disclosure process.
