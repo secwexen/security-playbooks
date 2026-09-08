@@ -28,6 +28,7 @@ Security Playbooks brings detection engineering, threat hunting, incident respon
 - Incident Response Simulation  
 - Adversary Emulation (Lab Only)  
 - Training & Skill Development
+- Security Awareness Training
 
 ## Legal & Authorized Use Only
 
@@ -52,16 +53,19 @@ This software is provided “as is” without warranty of any kind, express or i
 - Red Teamers (Lab Use Only)  
 - Detection Engineers  
 - Threat Intelligence Analysts
+- Security Operations Managers
 
 ## Features
 
-- Detection Rules  
-- Attack Scenarios  
-- Hands-on Labs  
-- Log Analysis Examples  
-- Documentation & Tools  
-- Sigma, YARA & Suricata Rules  
-- IOC Enrichment & Threat Feeds
+- Detection Rules
+- Security Playbooks
+- Threat Hunting
+- Incident Response
+- Attack Scenarios
+- Log Analysis
+- IOC Enrichment
+- Automated Testing
+- Coverage Reporting
 
 ## MITRE ATT&CK Coverage
 
@@ -93,23 +97,23 @@ This workflow shows how security behaviors are mapped, detected, investigated, e
 ```text
 Threat / Attack Behavior
         ↓
-MITRE ATT&CK
+MITRE ATT&CK Mapping
         ↓
 Detection Rules (Sigma / YARA / Suricata)
         ↓
-Alert / Event
+Alert / Event Generated
         ↓
-Triage
+Triage & Prioritization
         ↓
-Investigation
+Alert Investigation (Playbooks)
         ↓
-Threat Hunting
+Threat Hunting & Enrichment
         ↓
 IOC / Threat Intelligence
         ↓
 Incident Response
         ↓
-Validation
+Detection Validation
         ↓
 Automated Tests
         ↓
