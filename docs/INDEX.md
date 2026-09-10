@@ -17,8 +17,6 @@ Complete guide to Security Playbooks documentation, resources, and learning mate
 ## Architecture & Design
 
 - [Architecture](architecture/architecture.md) — Project structure and organization
-- [Threat Model](architecture/threat-model.md) — Lab environment and threat assumptions
-- [Detection Validation Framework](architecture/detection-validation.md) — Validation methodology and standards
 
 ## User Guides
 
