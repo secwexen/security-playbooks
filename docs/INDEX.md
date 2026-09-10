@@ -1,4 +1,4 @@
-# Security Playbooks Documentation Index
+# Security Playbooks Documentation INDEX
 
 Complete guide to Security Playbooks documentation, resources, and learning materials.
 
