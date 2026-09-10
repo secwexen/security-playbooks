@@ -1,22 +1,56 @@
 # Threat Model
 
-This playbook assumes a realistic enterprise environment and adversary behavior. It is designed for educational and lab purposes only.
+Security Playbooks assumes a realistic enterprise environment and adversary behavior. This model is designed for educational and lab purposes only.
 
-- **Target Environment:** Windows Active Directory (Enterprise Network)
-- **Log Sources:** 
-  - Windows Event Logs (Security, Sysmon)
-  - Network Traffic (PCAP)
-  - Endpoint Detection & Response (EDR) telemetry
-- **Adversary Profile:** APT-like actor executing common enterprise attacks
-- **Attack Surface:** Endpoints, domain controllers, user workstations
-- **Attack Vectors Covered:** 
-  - Command & scripting interpreter execution (T1059)
-  - Phishing and social engineering (T1566)
-  - Malware execution and lateral movement
-- **Assumptions:**
-  - Logging and monitoring are enabled (Sysmon, Security Logs)
-  - SIEM or log aggregation is available
-  - Scenarios run in isolated lab environments only
-- **Goals:** 
-  - Demonstrate detection engineering and threat hunting workflows
-  - Provide hands-on lab exercises for portfolio and learning purposes
+## Target Environment
+
+- **Platform:** Windows Active Directory (Enterprise Network)
+- **Scope:** User workstations, domain controllers, endpoints
+- **Log Sources:**
+  - Windows Event Logs (Security, Application, System)
+  - Sysmon (Enhanced process and network monitoring)
+  - Network Traffic (PCAP files)
+  - EDR telemetry (Endpoint Detection & Response)
+
+## Adversary Profile
+
+- **Type:** APT-like threat actor
+- **Capability:** Advanced techniques with persistence and lateral movement
+- **Behavior:** Common enterprise attack patterns
+- **Motivation:** Data exfiltration, credential theft, system compromise
+
+## Attack Surface
+
+- **Primary Targets:** User workstations, domain controllers
+- **Secondary Targets:** File servers, network infrastructure
+- **Access Methods:** Phishing, malware, credential compromise
+
+## Attack Vectors Covered
+
+- **Initial Access:** Phishing, watering hole, credential exposure (T1566, T1566.002)
+- **Execution:** Script-based execution, malware deployment (T1059, T1106)
+- **Persistence:** Registry modification, scheduled tasks (T1547, T1053)
+- **Privilege Escalation:** Token impersonation, UAC bypass (T1134, T1088)
+- **Defense Evasion:** Process injection, living-off-the-land (T1055, T1202)
+- **Lateral Movement:** SMB exploitation, credential reuse (T1570, T1550)
+- **Exfiltration:** Data staging, encrypted channels (T1020, T1041)
+
+## Assumptions
+
+- Logging and monitoring are enabled (Sysmon, Security Logs)
+- SIEM or log aggregation system is available
+- Scenarios run in isolated, controlled lab environments only
+- No connection to production networks
+- All testing is authorized and documented
+
+## Lab Goals
+
+- Demonstrate detection engineering workflows
+- Practice threat hunting methodologies
+- Validate SIEM and EDR alerts
+- Improve incident response capabilities
+- Develop security operations skills
+
+## Defensive Assumption
+
+All scenarios assume **defensive security operations**. Offensive techniques are simulated for validation purposes only in authorized lab environments.
