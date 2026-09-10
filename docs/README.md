@@ -27,6 +27,11 @@ Complete guide to Security Playbooks documentation, resources, and learning mate
 
 - [Vision](executive/vision.md) — Project vision, strategic direction, and long-term goals
 
+## Legal
+
+- [Ethics](legal/ethics.md) — Ethical principles and responsible use
+- [Terms of Service](legal/terms-of-service.md) — Terms and conditions of use
+
 ## Contributing
 
 - [Commit Convention](contributing/commit-convention.md) — Commit message conventions and guidelines
