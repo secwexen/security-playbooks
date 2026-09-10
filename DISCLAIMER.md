@@ -60,5 +60,3 @@ This repository and its contents are protected by copyright and applicable intel
 ## 7. Acknowledgement & Acceptance
 
 By accessing, cloning, or using this repository, you acknowledge that you have read, understood, and agreed to all terms listed in this disclaimer. If you do not agree with these terms, you must immediately cease using this repository and delete all copies from your systems.
-
-**Last Updated:** September 1, 2026
