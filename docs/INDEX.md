@@ -23,6 +23,14 @@ Complete guide to Security Playbooks documentation, resources, and learning mate
 - [Usage Guide](guides/usage.md) — How to use Security Playbooks
 - [Development Guide](guides/development.md) — For developers and contributors
 
+## Executive
+
+- [Vision](executive/vision.md) — Project vision, strategic direction, and long-term goals
+
 ## Contributing
 
 - [Commit Convention](contributing/commit-convention.md) — Commit message conventions and guidelines
+
+## References
+
+- [References](reference/references.md) — Additional references and resources
