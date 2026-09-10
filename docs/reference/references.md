@@ -27,7 +27,7 @@ The following resources are recommended for additional learning, research, and r
 - Microsoft Security Blog — https://www.microsoft.com/en-us/security/blog/
 - Splunk Documentation — https://docs.splunk.com/
 
-## Red Team & Adversary Emulation
+## Detection Validation & Adversary Emulation
 
 - Atomic Red Team — https://github.com/redcanaryco/atomic-red-team
 - MITRE Emulation Library — https://github.com/center-for-threat-informed-defense/adversary_emulation_library
