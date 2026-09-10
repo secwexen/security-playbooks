@@ -54,3 +54,13 @@ Security Playbooks supports multiple detection rule formats to accommodate diffe
 - Suricata Rules – Network-based intrusion detection rules for IDS/IPS systems
 
 All rules are mapped to MITRE ATT&CK techniques for standardized threat coverage. Rules are stored in the [Detection Rules](detection-rules/) directory and can be integrated with your existing security infrastructure.
+
+## 6. Is this for offensive security or red teaming?
+
+No. Security Playbooks is **strictly for defensive security, blue team operations, and authorized security testing only**.
+
+While the repository contains attack scenarios and adversary emulation procedures for validation purposes, these are **exclusive for controlled lab environments** and **require explicit authorization** before testing against any systems.
+
+Red teamers should only use this repository in isolated labs for learning and skill development, never against real systems or organizations without written authorization.
+
+See [Ethics & Responsible Use Guidelines](docs/legal/ethics.md) and [Terms of Service](docs/legal/terms-of-service.md) for details.
