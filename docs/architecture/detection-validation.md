@@ -1,13 +1,5 @@
 # Detection Validation Framework
 
+This document outlines the Detection Validation of Security Playbooks.
+
 All detection rules and scenarios in this repository are designed to be **testable, reproducible, and verifiable**.
-
-## Validation Workflow
-
-Each detection follows a structured validation process:
-
-1. **Attack Simulation**  
-2. **Log Generation**  
-3. **Detection Execution**  
-4. **Alert Verification**  
-5. **Analysis & Tuning**
