@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import datetime, timezone
 from typing import Any
 
 
@@ -36,7 +37,6 @@ ENUM_DEFAULTS = {
     "linux": "linux",
     "syslog": "syslog",
     "network": "network",
-    "suricata": "suricata",
     "application": "application",
     "cloud": "cloud",
     "edr": "edr",
@@ -60,10 +60,10 @@ def example_value(schema: dict[str, Any], field_name: str) -> Any:
 
     if schema_type == "string":
         if schema.get("format") == "date-time":
-            return "2026-01-01T00:00:00Z"
+            return datetime.now(timezone.utc).isoformat()
 
         if schema.get("format") == "date":
-            return "2026-01-01"
+            return datetime.now(timezone.utc).date().isoformat()
 
         if schema.get("format") == "uri":
             return "https://example.com"
