@@ -1,6 +1,10 @@
 # Normalize line endings
 * text=auto eol=lf
 
+# Python
+*.py text diff=python
+*.pyi text diff=python
+
 # Treat these as binary
 *.png binary
 *.jpg binary
