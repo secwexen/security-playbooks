@@ -10,6 +10,7 @@ scapy==2.7.0
 black==26.3.1
 flake8==7.0.0
 isort==5.13.2
+pylint==3.3.8
 
 # Type Checking
 mypy==1.10.0
