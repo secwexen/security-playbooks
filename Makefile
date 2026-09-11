@@ -15,10 +15,15 @@ help:
 
 install:
 	pip install -r requirements.txt
+	pip install -r requirements-dev.txt
 
 lint:
 	yamllint playbooks/ detection-rules/
 	flake8 tools/
+	pylint $$(git ls-files '*.py')
+	black --check .
+	isort --check-only .
+	mypy tools/
 
 validate:
 	python tools/validation/suricata_validator.py
@@ -26,14 +31,19 @@ validate:
 	python tools/validation/yara_validator.py
 
 test:
-	pytest tests/ -v --cov=tools/
+	python -m pytest tests/ -v \
+		--cov=. \
+		--cov-report=xml \
+		--cov-report=html \
+		--cov-fail-under=80
 
 security:
 	trivy fs .
 	bandit -r tools/
+	pip-audit
 
 build:
-	docker build -t security-playbooks:latest.
+	docker build -t security-playbooks:latest .
 
 check: lint validate test security
 
