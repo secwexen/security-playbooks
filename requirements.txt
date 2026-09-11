@@ -8,10 +8,6 @@ jsonschema==4.22.0
 # HTTP (IOC/ATT&CK/STIX downloads)
 requests==2.33.0
 
-# CLI
-click==8.1.7
-rich==13.7.1
-
 # Detection rule parsing
 pysigma==0.11.18
 
