@@ -7,7 +7,7 @@ __pycache__/
 # Virtual environments
 venv/
 env/
-.venv
+.venv/
 .env
 
 # Build & Test Artifacts
@@ -18,11 +18,16 @@ dist/
 .mypy_cache/
 .ruff_cache/
 .coverage
+htmlcov/
+coverage.xml
 
 # Git
 .git/
-.git
 .gitignore
+.gitattributes
+
+# GitHub
+.github/
 
 # IDE / Editor / DevContainer
 .vscode/
@@ -32,11 +37,21 @@ dist/
 
 # OS junk
 .DS_Store
+Thumbs.db
 
 # Logs
 *.log
+logs/
 
-# Docker itself
+# Documentation / Development
+docs/
+examples/
+
+# Local configuration
+.env.*
+*.local
+
+# Docker
 Dockerfile
 docker-compose.yml
 .dockerignore
