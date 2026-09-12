@@ -11,8 +11,8 @@ Before running the test suite, install the project and development
 dependencies:
 
 ```bash
-python -m pip install -r requirements.txt
-python -m pip install -r requirements-dev.txt
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
 ```
 
 The project requires Python 3.11.
