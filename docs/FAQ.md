@@ -67,4 +67,4 @@ See [Ethics & Responsible Use Guidelines](docs/legal/ethics.md) and [Terms of Se
 
 ## 7. How can I contribute to Security Playbooks?
 
-Contributions are welcome. See the [Contributing](CONTRIBUTING.md) for contribution and development guidelines.
+Contributions are welcome. See the [Contributing](CONTRIBUTING.md) for contribution.
