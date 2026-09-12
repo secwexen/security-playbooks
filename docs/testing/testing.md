@@ -1,6 +1,4 @@
-# Testing
-
-## Purpose
+# Security Playbooks Testing
 
 This guide describes how to run, validate, and maintain the automated tests for the Security Playbooks project.
 
