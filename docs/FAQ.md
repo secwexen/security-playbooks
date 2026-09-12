@@ -64,3 +64,7 @@ While the repository contains attack scenarios and adversary emulation procedure
 Red teamers should only use this repository in isolated labs for learning and skill development, never against real systems or organizations without written authorization.
 
 See [Ethics & Responsible Use Guidelines](docs/legal/ethics.md) and [Terms of Service](docs/legal/terms-of-service.md) for details.
+
+## 7. How can I contribute to Security Playbooks?
+
+Contributions are welcome. See the [Contributing](CONTRIBUTING.md) for contribution and development guidelines.
