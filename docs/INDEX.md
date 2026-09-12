@@ -23,6 +23,10 @@ Complete guide to Security Playbooks documentation, resources, and learning mate
 - [Usage Guide](guides/usage.md) — How to use Security Playbooks
 - [Development Guide](guides/development.md) — For developers and contributors
 
+## Testing
+
+- [Testing Guide](testing/testing.md) — Run, validate, and troubleshoot project tests
+
 ## Executive
 
 - [Vision](executive/vision.md) — Project vision, strategic direction, and long-term goals
