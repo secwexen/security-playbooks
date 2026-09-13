@@ -198,11 +198,9 @@ For complete setup instructions and troubleshooting, see the [Quick Start](docs/
 ## Documentation
 
 - [Project Index](docs/INDEX.md)
-- [Quick Start](docs/getting-started/quickstart.md)  
-- [Roadmap](ROADMAP.md)  
-- [Contributing Guidelines](CONTRIBUTING.md)  
-- [Changelog](CHANGELOG.md)  
-- [Security Policy](SECURITY.md)
+- [Quick Start](docs/getting-started/quickstart.md)
+- [Playbook Guide](docs/playbook-guide.md)
+- [Testing Guide](docs/testing/testing.md)
 
 ## License
 
