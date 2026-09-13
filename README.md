@@ -201,6 +201,7 @@ For complete setup instructions and troubleshooting, see the [Quick Start](docs/
 - [Quick Start](docs/getting-started/quickstart.md)
 - [Playbook Guide](docs/playbook-guide.md)
 - [Testing Guide](docs/testing/testing.md)
+- [FAQ](docs/FAQ.md)
 
 ## License
 
