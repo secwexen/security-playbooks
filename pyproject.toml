@@ -16,10 +16,20 @@ authors = [
 
 keywords = [
   "cybersecurity",
-  "mitre",
+  "blue-team",
+  "defensive-security",
+  "playbooks",
+  "mitre-attack",
+  "detection-engineering",
+  "security-validation",
+  "detection-rules",
+  "threat-hunting",
+  "incident-response",
   "sigma",
   "yara",
-  "suricata"
+  "suricata",
+  "python",
+  "soc"
 ]
 
 classifiers = [
