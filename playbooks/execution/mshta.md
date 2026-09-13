@@ -378,7 +378,7 @@ For confirmed malicious mshta activity:
 1. Preserve relevant process, command-line, HTA, file, and network evidence.
 2. Identify all affected hosts and accounts.
 3. Follow the organization's endpoint containment procedure.
-4. Search for related URLs, hashes, command lines, scripts, and process relation ships.
+4. Search for related URLs, hashes, command lines, scripts, and process relationships.
 5. Investigate persistence, credential access, and lateral movement.
 6. Follow authorized quarantine or remediation procedures.
 7. Review possible credential exposure.
