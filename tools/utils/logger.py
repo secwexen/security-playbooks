@@ -28,7 +28,7 @@ def get_logger(name: str) -> logging.Logger:
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(formatter)
 
-    file_handler = logging.FileHandler(
+    file_handler = RotatingFileHandler(
         LOG_FILE,
         maxBytes=5 * 1024 * 1024,
         backupCount=3,
