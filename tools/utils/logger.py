@@ -9,21 +9,34 @@ LOG_FILE = LOG_DIR / "security_playbooks.log"
 
 
 SECRET_PATTERNS = [
-    re.compile(r"(?i)(password|passwd|pwd)\s*=\s*[^\s]+"),
-    re.compile(r"(?i)(token|api[_-]?key|secret)\s*=\s*[^\s]+"),
-    re.compile(r"(?i)authorization\s*:\s*bearer\s+[^\s]+"),
+    re.compile(
+        r"(?i)\b(password|passwd|pwd|token|secret|api[_-]?key|access[_-]?token)"
+        r"(\s*[:=]\s*)['\"]?([^\s,'\";]+)['\"]?"
+    ),
+    re.compile(
+        r"(?i)\b(authorization)\s*:\s*bearer\s+[^\s]+"
+    ),
+    re.compile(
+        r"(?i)\b(bearer)\s+[A-Za-z0-9._~+/=-]+"
+    ),
 ]
 
 
 class SecretRedactionFilter(logging.Filter):
-    """Redact common secrets and credentials from log messages."""
+    """Redact common credentials and secrets from log messages."""
 
     def filter(self, record: logging.LogRecord) -> bool:
         message = record.getMessage()
 
         for pattern in SECRET_PATTERNS:
             message = pattern.sub(
-                "[REDACTED]",
+                lambda match: (
+                    f"{match.group(1)}=[REDACTED]"
+                    if match.lastindex and match.group(1).lower()
+                    != "authorization"
+                    and match.group(1).lower() != "bearer"
+                    else "[REDACTED]"
+                ),
                 message,
             )
 
@@ -33,10 +46,7 @@ class SecretRedactionFilter(logging.Filter):
         return True
 
 
-def get_logger(name: str) -> logging.Logger:
-    """
-    Return a configured project-wide logger.
-    """
+def get_logger(name: str, level: int = logging.INFO) -> logging.Logger:
 
     LOG_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -45,7 +55,7 @@ def get_logger(name: str) -> logging.Logger:
     if logger.handlers:
         return logger
 
-    logger.setLevel(logging.INFO)
+    logger.setLevel(level)
     logger.propagate = False
 
     formatter = logging.Formatter(
@@ -55,6 +65,7 @@ def get_logger(name: str) -> logging.Logger:
     redaction_filter = SecretRedactionFilter()
 
     console_handler = logging.StreamHandler()
+    console_handler.setLevel(level)
     console_handler.setFormatter(formatter)
     console_handler.addFilter(redaction_filter)
 
@@ -64,6 +75,7 @@ def get_logger(name: str) -> logging.Logger:
         backupCount=3,
         encoding="utf-8"
     )
+    file_handler.setLevel(level)
     file_handler.setFormatter(formatter)
     file_handler.addFilter(redaction_filter)
 
