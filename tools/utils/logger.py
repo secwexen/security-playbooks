@@ -1,6 +1,6 @@
 from pathlib import Path
 import logging
-
+from logging.handlers import RotatingFileHandler
 
 LOG_DIR = Path("logs")
 LOG_FILE = LOG_DIR / "security_playbooks.log"
@@ -30,6 +30,8 @@ def get_logger(name: str) -> logging.Logger:
 
     file_handler = logging.FileHandler(
         LOG_FILE,
+        maxBytes=5 * 1024 * 1024,
+        backupCount=3,
         encoding="utf-8"
     )
     file_handler.setFormatter(formatter)
