@@ -73,4 +73,4 @@ Users must not interpret the inclusion of offensive security techniques as permi
 
 ## 8. Intellectual Property and License
 
-Security Playbooks is licensed under the **MIT License**.
+Security Playbooks is licensed under the [MIT License](/LICENSE).
