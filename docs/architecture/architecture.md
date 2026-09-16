@@ -338,6 +338,7 @@ security-playbooks
 ├── templates
 │   ├── playbook-template.md
 │   ├── sigma-template.yml
+│   ├── suricata-template.rules
 │   └── yara-template.yar
 ├── tests
 │   ├── conftest.py
