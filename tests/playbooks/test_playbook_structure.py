@@ -3,8 +3,11 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 PLAYBOOKS_DIR = PROJECT_ROOT / "playbooks"
+DOCS_DIR = PROJECT_ROOT / "docs"
+
 
 EXPECTED_DIRECTORIES = [
+    "cloud",
     "collection",
     "command-and-control",
     "credential-access",
@@ -23,13 +26,19 @@ EXPECTED_DIRECTORIES = [
 
 EXPECTED_FILES = [
     "README.md",
-    "playbook-guide.md",
 ]
 
 
 def test_playbooks_directory_exists():
     assert PLAYBOOKS_DIR.exists()
     assert PLAYBOOKS_DIR.is_dir()
+
+
+def test_playbook_guide_exists():
+    guide = DOCS_DIR / "playbook-guide.md"
+
+    assert guide.exists(), f"Missing playbook guide: {guide}"
+    assert guide.is_file(), f"Not a file: {guide}"
 
 
 def test_expected_playbook_directories_exist():
