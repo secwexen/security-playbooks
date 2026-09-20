@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-20T12:58:00Z"
-updated_at: "2026-09-20T12:58:00Z"
+updated_at: "2026-09-20T18:43:00Z"
 description: "Credential access activity may expose passwords, authentication material, tokens, hashes, tickets, or other secrets used to access systems and services."
 objective: "Identify, investigate, and validate suspicious credential-access activity, determine the affected credentials and scope, and support appropriate containment and credential-compromise response actions."
 severity: "critical"
@@ -453,7 +453,6 @@ Do not extract, display, or disclose real credentials during investigation or va
 
 - `detection-rules/sigma/lsass-access.yml`
 - `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/yara/malware-sample.yar`
 
 ## Related Playbooks
 
