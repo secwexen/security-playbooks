@@ -34,9 +34,7 @@ It is designed to help cybersecurity professionals detect threats, investigate a
 
 ## Legal & Authorized Use Only
 
-This Security Playbooks repository is intended strictly for educational, research, and authorized security testing purposes only.
-
-Users are solely responsible for ensuring their activities comply with all applicable laws and regulations.
+This Security Playbooks repository is intended strictly for educational, research, and authorized security testing purposes only. Users are solely responsible for ensuring their activities comply with all applicable laws and regulations.
 
 The maintainers assume no liability for misuse or any damages resulting from the use of this project.
 
