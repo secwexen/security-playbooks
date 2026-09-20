@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-15T14:51:00Z"
-updated_at: "2026-09-15T14:51:00Z"
+updated_at: "2026-09-20T18:52:00Z"
 description: "LSASS credential access involves attempts to access the Local Security Authority Subsystem Service for authentication material."
 objective: "Identify, investigate, and validate suspicious access to LSASS and determine whether credential material may have been targeted or exposed."
 severity: "critical"
@@ -371,7 +371,6 @@ Do not perform credential extraction or attempt to reproduce credential theft on
 
 - `detection-rules/sigma/suspicious-login.yml`
 - `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/yara/malware-sample.yar`
 
 ## Related Playbooks
 
