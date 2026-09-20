@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-20T09:46:00Z"
-updated_at: "2026-09-20T09:46:00Z"
+updated_at: "2026-09-20T18:38:00Z"
 description: "Unauthorized access to Windows Data Protection API (DPAPI) protected data may expose credentials, secrets, or other protected authentication material."
 objective: "Identify, investigate, and validate suspicious access to DPAPI-protected data and determine whether protected credential material may have been exposed."
 severity: "critical"
@@ -407,9 +407,7 @@ Do not extract, display, or disclose real credentials during investigation or va
 
 ## Related Detection Rules
 
-- `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/lsass-access.yml`
-- `detection-rules/yara/malware-sample.yar`
+No dedicated DPAPI detection rule is currently available in the repository.
 
 ## Related Playbooks
 
