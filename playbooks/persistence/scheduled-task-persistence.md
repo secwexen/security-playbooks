@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-13T18:41:00Z"
-updated_at: "2026-09-13T18:41:00Z"
+updated_at: "2026-09-20T19:18:00Z"
 description: "Scheduled tasks can be configured to execute programs or scripts automatically and may be abused to maintain persistence on Windows systems."
 objective: "Identify, investigate, and validate suspicious scheduled task persistence and determine whether the task is legitimate, suspicious, or malicious."
 severity: "high"
@@ -374,9 +374,10 @@ Do not immediately delete the task or referenced payload before required evidenc
 
 ## Related Detection Rules
 
-- `detection-rules/sigma/suspicious-login.yml`
 - `detection-rules/sigma/sigma-powershell-exec.yml`
 - `detection-rules/yara/malware-sample.yar`
+- `detection-rules/yara/obfuscated-powershell.yar`
+- `detection-rules/yara/yara-powershell-payload.yar`
 
 ## Related Playbooks
 
