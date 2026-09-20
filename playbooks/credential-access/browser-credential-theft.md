@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-18T14:47:00Z"
-updated_at: "2026-09-1814:47:00Z"
+updated_at: "2026-09-20T18:42:00Z"
 description: "Browser credential theft involves attempts to access stored authentication material from web browsers and related browser profile data."
 objective: "Identify, investigate, and validate suspicious access to browser credential stores and determine whether authentication material may have been exposed."
 severity: "high"
@@ -406,8 +406,6 @@ Do not extract, display, or disclose real browser credentials during investigati
 ## Related Detection Rules
 
 - `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/lsass-access.yml`
-- `detection-rules/yara/malware-sample.yar`
 
 ## Related Playbooks
 
