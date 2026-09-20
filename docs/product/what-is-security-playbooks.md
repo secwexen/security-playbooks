@@ -108,4 +108,4 @@ Adversary emulation techniques and attack scenarios should only be executed with
 
 **Security Playbooks** is a practical blue team and security operations repository that combines **detection engineering, threat hunting, incident response, threat intelligence, MITRE ATT&CK mapping, security validation, automation, and hands-on labs** into a unified security workflow.
 
-It is designed to help security professionals **detect threats, investigate alerts, validate controls, respond to incidents, identify detection gaps, and continuously improve defensive capabilities**.
+It is designed to help cybersecurity professionals **detect threats, investigate alerts, validate controls, respond to incidents, identify detection gaps, and continuously improve defensive capabilities**.
