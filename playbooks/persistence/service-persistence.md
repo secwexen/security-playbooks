@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-14T16:15:00Z"
-updated_at: "2026-09-14T16:15:00Z"
+updated_at: "2026-09-20T19:19:00Z"
 description: "Windows services can be configured to start automatically and may be abused to establish persistence on Windows systems."
 objective: "Identify, investigate, and validate suspicious Windows service persistence and determine whether the service configuration or associated executable is legitimate, suspicious, or malicious."
 severity: "high"
@@ -389,9 +389,10 @@ Do not immediately delete or modify the suspicious service before required evide
 
 ## Related Detection Rules
 
-- `detection-rules/sigma/suspicious-login.yml`
 - `detection-rules/sigma/sigma-powershell-exec.yml`
 - `detection-rules/yara/malware-sample.yar`
+- `detection-rules/yara/obfuscated-powershell.yar`
+- `detection-rules/yara/yara-powershell-payload.yar`
 
 ## Related Playbooks
 
