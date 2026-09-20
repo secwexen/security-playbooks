@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-09T20:50:00Z"
-updated_at: "2026-09-09T20:50:00Z"
+updated_at: "2026-09-20T20:51:00Z"
 description: "Scripting enables adversaries to execute commands and code through scripting engines and interpreters available on a system."
 objective: "Identify, investigate, and validate suspicious scripting activity and determine whether script execution is associated with unauthorized or malicious behavior."
 severity: "high"
@@ -378,9 +378,11 @@ Do not delete or modify relevant scripts, logs, or other evidence before require
 ## Related Detection Rules
 
 - `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/sigma/suspicious-login.yml`
 - `detection-rules/yara/obfuscated-powershell.yar`
 - `detection-rules/yara/yara-powershell-payload.yar`
+- `detection-rules/yara/malware-sample.yar`
+- `detection-rules/suricata/network-alert.rules`
+- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
