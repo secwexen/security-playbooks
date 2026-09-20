@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-08-31T11:45:00Z"
-updated_at: "2026-08-04T23:43:00Z"
+updated_at: "2026-09-20T19:09:00Z"
 description: "Investigate suspicious authentication activity and determine whether observed login behavior is legitimate, suspicious, or indicative of account compromise."
 objective: "Determine the legitimacy, scope, and potential impact of suspicious login activity and identify whether additional account or incident response actions are required."
 severity: "high"
@@ -402,8 +402,6 @@ Response actions involving account disablement, credential reset, session revoca
 ## Related Detection Rules
 
 - `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/lsass-access.yml`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
 
 ## Related Playbooks
 
