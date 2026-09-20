@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-04T21:10:00Z"
-updated_at: "2026-09-04T23:49:00Z"
+updated_at: "2026-09-20T19:01:00Z"
 description: "Investigate suspected lateral movement activity and determine whether unauthorized access or remote execution occurred between systems."
 objective: "Determine the source, destination, technique, scope, and legitimacy of suspected lateral movement and identify whether containment or incident response is required."
 severity: "high"
@@ -389,8 +389,6 @@ Do not terminate sessions, disable accounts, or isolate systems before required 
 ## Related Detection Rules
 
 - `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/lsass-access.yml`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
 - `detection-rules/suricata/network-alert.rules`
 
 ## Related Playbooks
