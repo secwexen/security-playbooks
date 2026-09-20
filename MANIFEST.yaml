@@ -163,8 +163,8 @@ security:
   policies:
     - SECURITY.md
     - DISCLAIMER.md
-    - ETHICS.md
-    - TERMS_OF_SERVICE.md
+    - docs/legal/ethics.md
+    - docs/legal/terms-of-service.md
     - CODE_OF_CONDUCT.md
 
 development:
