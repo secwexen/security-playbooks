@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-10T17:23:00Z"
-updated_at: "2026-09-10T17:23:00Z"
+updated_at: "2026-09-20T20:53:00Z"
 description: "User Execution involves adversaries relying on users to execute malicious files, links, scripts, or other content to initiate or continue malicious activity."
 objective: "Identify, investigate, and validate suspicious user-driven execution and determine whether user interaction resulted in unauthorized code execution or further compromise."
 severity: "high"
@@ -372,11 +372,12 @@ Do not delete or modify relevant files, logs, or other evidence before required 
 
 ## Related Detection Rules
 
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/sigma/suspicious-login.yml`
 - `detection-rules/yara/malware-sample.yar`
+- `detection-rules/sigma/sigma-powershell-exec.yml`
 - `detection-rules/yara/obfuscated-powershell.yar`
 - `detection-rules/yara/yara-powershell-payload.yar`
+- `detection-rules/suricata/network-alert.rules`
+- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
