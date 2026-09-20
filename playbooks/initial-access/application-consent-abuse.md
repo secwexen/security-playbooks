@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-08T11:11:00Z"
-updated_at: "2026-09-08T11:11:00Z"
+updated_at: "2026-09-20T19:23:00Z"
 description: "Investigate suspicious application consent, OAuth grants, and delegated access that may allow unauthorized access to user or organizational resources."
 objective: "Determine whether an application consent or delegated-access event was legitimate, identify affected accounts and permissions, establish scope, and determine whether containment or incident response is required."
 severity: "high"
@@ -369,7 +369,6 @@ Do not revoke access or delete application registrations before required evidenc
 ## Related Detection Rules
 
 - `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
 
 ## Related Playbooks
 
