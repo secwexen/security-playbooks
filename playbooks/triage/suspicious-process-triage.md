@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-08-30T10:56:00Z"
-updated_at: "2026-08-31T12:02:00Z"
+updated_at: "2026-09-20T19:13:00Z"
 description: "Investigate suspicious process execution and determine whether the observed process activity is benign, suspicious, or malicious."
 objective: "Determine the legitimacy, execution chain, scope, and potential impact of suspicious process activity and provide evidence for escalation or closure."
 severity: "high"
@@ -424,6 +424,7 @@ Do not delete suspicious artifacts before required evidence preservation has bee
 - `detection-rules/yara/yara-powershell-payload.yar`
 - `detection-rules/suricata/network-alert.rules`
 - `detection-rules/suricata/powershell-alert.rules`
+- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
