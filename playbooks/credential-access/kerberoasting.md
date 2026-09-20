@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-16T18:45:00Z"
-updated_at: "2026-09-16T18:45:00Z"
+updated_at: "2026-09-20T18:50:00Z"
 description: "Kerberoasting involves requesting Kerberos service tickets for service accounts and attempting to recover account credentials from the captured ticket material."
 objective: "Identify, investigate, and validate suspicious Kerberoasting activity and determine whether service-account credentials may have been targeted or exposed."
 severity: "high"
@@ -385,8 +385,6 @@ Do not attempt to recover real service-account passwords during routine investig
 ## Related Detection Rules
 
 - `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/yara/malware-sample.yar`
 
 ## Related Playbooks
 
