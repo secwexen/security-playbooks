@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-08T15:49:00Z"
-updated_at: "2026-09-08T15:49:00Z"
+updated_at: "2026-09-20T19:30:00Z"
 description: "Phishing is a social engineering technique used to obtain access, credentials, or user interaction through deceptive messages and content."
 objective: "Identify, analyze, and validate phishing activity and determine whether the technique resulted in credential exposure, malicious execution, or unauthorized access."
 severity: "high"
@@ -373,10 +373,9 @@ Do not delete relevant email, endpoint, or authentication evidence before requir
 ## Related Detection Rules
 
 - `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
 - `detection-rules/yara/malware-sample.yar`
-- `detection-rules/yara/yara-powershell-payload.yar`
 - `detection-rules/suricata/network-alert.rules`
+- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
