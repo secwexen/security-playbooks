@@ -20,6 +20,8 @@ The project aims to bridge the gap between the oretical knowledge and real-world
 
 Security Playbooks brings detection engineering, threat hunting, incident response, MITRE ATT&CK mapping, security validation, automated testing, and hands-on labs together in a structured repository. It is designed to make defensive security workflows practical, reproducible, and easier to validate in controlled environments.
 
+It is designed to help cybersecurity professionals detect threats, investigate alerts, validate controls, respond to incidents, identify detection gaps, and continuously improve defensive capabilities.
+
 ## Use Cases
 
 - Alert Investigation & Triage  
