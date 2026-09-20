@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-09T13:49:00Z"
-updated_at: "2026-09-09T13:49:00Z"
+updated_at: "2026-09-20T19:24:00Z"
 description: "Investigate suspected drive-by compromise activity in which a user is exposed to malicious web content that may lead to unauthorized access or execution."
 objective: "Determine whether malicious web content resulted in exploitation, unwanted downloads, code execution, or other compromise and establish the affected users, systems, and scope."
 severity: "high"
@@ -381,8 +381,7 @@ Do not delete browser history, downloaded artifacts, or relevant logs before req
 ## Related Detection Rules
 
 - `detection-rules/suricata/network-alert.rules`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/sigma/suspicious-login.yml`
+- `detection-rules/suricata/c2-communication.rules`
 - `detection-rules/yara/malware-sample.yar`
 
 ## Related Playbooks
