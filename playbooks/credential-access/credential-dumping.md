@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-14T21:55:00Z"
-updated_at: "2026-09-14T21:55:00Z"
+updated_at: "2026-09-20T18:47:00Z"
 description: "Credential dumping involves attempts to obtain authentication material such as password hashes, cached credentials, or authentication secrets from systems."
 objective: "Identify, investigate, and validate suspicious credential dumping activity and determine whether authentication material may have been exposed."
 severity: "critical"
@@ -388,7 +388,6 @@ Credential resets, session invalidation, or account containment should follow th
 
 - `detection-rules/sigma/suspicious-login.yml`
 - `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/yara/malware-sample.yar`
 
 ## Related Playbooks
 
