@@ -42,9 +42,11 @@ The maintainers assume no liability for misuse or any damages resulting from the
 
 ## Legal Disclaimer
 
-The contents of this repository, including scripts, scenarios, and detection rules, are provided for educational, research purposes only. No responsibility for any damage, misuse, or legal consequences resulting from the use of this material.
+The contents of this repository, including scripts, scenarios, and detection rules, are provided for educational, research purposes only. The maintainers assume no responsibility for any damage, misuse, or legal consequences resulting from the use of this material.
 
 This software is provided “as is” without warranty of any kind, express or implied.
+
+For more information, see the [DISCLAIMER](DISCLAIMER.md) and [Terms of Service](docs/legal/terms-of-service.md).
 
 ## Who Is This For
 
