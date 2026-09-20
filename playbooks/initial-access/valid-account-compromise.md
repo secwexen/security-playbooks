@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-09T17:15:00Z"
-updated_at: "2026-09-09T17:15:00Z"
+updated_at: "2026-09-20T19:31:00Z"
 description: "Investigate suspected unauthorized use of valid credentials to access systems, applications, or cloud resources."
 objective: "Determine whether valid credentials were used without authorization, identify affected accounts and systems, establish scope, and determine whether containment or incident response is required."
 severity: "high"
@@ -375,8 +375,6 @@ Do not disable accounts, terminate sessions, or modify authentication settings b
 ## Related Detection Rules
 
 - `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/lsass-access.yml`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
 
 ## Related Playbooks
 
