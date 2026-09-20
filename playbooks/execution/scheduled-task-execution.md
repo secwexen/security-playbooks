@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-11T11:40:00Z"
-updated_at: "2026-09-11T11:40:00Z"
+updated_at: "2026-09-20T20:49:00Z"
 description: "Scheduled Task/Job Execution enables commands or programs to run automatically at defined times or system events."
 objective: "Identify, investigate, and validate scheduled task or job execution and determine whether the activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -366,8 +366,8 @@ Do not delete or modify the scheduled task, referenced files, or relevant logs b
 ## Related Detection Rules
 
 - `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/sigma/suspicious-login.yml`
 - `detection-rules/yara/obfuscated-powershell.yar`
+- `detection-rules/yara/yara-powershell-payload.yar`
 
 ## Related Playbooks
 
