@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-14T13:59:00Z"
-updated_at: "2026-09-14T13:59:00Z"
+updated_at: "2026-09-20T19:16:00Z"
 description: "Registry Run Keys and related Windows startup mechanisms can be used to launch programs automatically when a user logs on."
 objective: "Identify, investigate, and validate suspicious registry-based persistence and determine whether the configured startup entry is legitimate, suspicious, or malicious."
 severity: "high"
@@ -388,9 +388,10 @@ Do not immediately delete the registry entry or referenced payload before requir
 
 ## Related Detection Rules
 
-- `detection-rules/sigma/suspicious-login.yml`
 - `detection-rules/sigma/sigma-powershell-exec.yml`
 - `detection-rules/yara/malware-sample.yar`
+- `detection-rules/yara/obfuscated-powershell.yar`
+- `detection-rules/yara/yara-powershell-payload.yar`
 
 ## Related Playbooks
 
