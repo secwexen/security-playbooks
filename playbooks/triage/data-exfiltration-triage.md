@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-03T17:10:00Z"
-updated_at: "2026-09-04T23:51:00Z"
+updated_at: "2026-09-20T18:58:00Z"
 description: "Investigate suspected unauthorized data exfiltration and determine whether data was transferred outside the organization's authorized environment."
 objective: "Determine whether data exfiltration occurred, identify the affected data and transfer path, establish scope, and determine whether incident response is required."
 severity: "critical"
@@ -427,10 +427,7 @@ Do not destroy staging files, logs, or other relevant evidence before required e
 ## Related Detection Rules
 
 - `detection-rules/suricata/network-alert.rules`
-- `detection-rules/suricata/dns-exfiltration.rules`
 - `detection-rules/suricata/powershell-alert.rules`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/sigma/suspicious-login.yml`
 
 ## Related Playbooks
 
