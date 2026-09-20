@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-05T16:48:00Z"
-updated_at: "2026-09-05T16:48:00Z"
+updated_at: "2026-09-20T19:08:00Z"
 description: "Investigate suspicious files and determine whether an identified file is legitimate, suspicious, or malicious."
 objective: "Determine the origin, characteristics, execution context, prevalence, and potential impact of a suspicious file and identify whether further investigation or incident response is required."
 severity: "high"
@@ -381,6 +381,8 @@ Do not delete or modify relevant evidence before required evidence preservation 
 - `detection-rules/yara/yara-powershell-payload.yar`
 - `detection-rules/sigma/sigma-powershell-exec.yml`
 - `detection-rules/sigma/lsass-access.yml`
+- `detection-rules/suricata/network-alert.rules`
+- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
