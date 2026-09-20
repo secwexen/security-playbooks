@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-19T17:58:00Z"
-updated_at: "2026-09-20T09:12:00Z"
+updated_at: "2026-09-20T18:39:00Z"
 description: "Unauthorized access to Windows Credential Manager data can expose stored credentials and other authentication material."
 objective: "Identify, investigate, and validate suspicious access to Windows Credential Manager data and determine whether stored credentials may have been exposed."
 severity: "high"
@@ -404,8 +404,6 @@ Do not extract, display, or disclose real credentials during investigation or va
 ## Related Detection Rules
 
 - `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/lsass-access.yml`
-- `detection-rules/yara/malware-sample.yar`
 
 ## Related Playbooks
 
