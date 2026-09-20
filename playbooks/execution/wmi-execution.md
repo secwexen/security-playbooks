@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-13T12:10:00Z"
-updated_at: "2026-09-13T12:10:00Z"
+updated_at: "2026-09-20T20:54:00Z"
 description: "Windows Management Instrumentation (WMI) can be used to manage Windows systems and execute commands or programs locally or remotely."
 objective: "Identify, investigate, and validate suspicious WMI activity and determine whether the activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -368,9 +368,9 @@ Do not terminate, delete, or modify relevant processes, files, WMI configuration
 
 ## Related Detection Rules
 
-- `detection-rules/sigma/suspicious-login.yml`
 - `detection-rules/sigma/sigma-powershell-exec.yml`
 - `detection-rules/yara/malware-sample.yar`
+- `detection-rules/suricata/network-alert.rules`
 
 ## Related Playbooks
 
