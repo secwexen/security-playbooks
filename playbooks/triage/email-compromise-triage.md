@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-05T13:33:00Z"
-updated_at: "2026-09-05T13:33:00Z"
+updated_at: "2026-09-20T19:00:00Z"
 description: "Investigate suspected email account compromise and determine whether unauthorized access, mailbox manipulation, or malicious activity occurred."
 objective: "Determine the legitimacy, scope, and impact of suspected email account compromise and identify whether containment or incident response is required."
 severity: "high"
@@ -377,8 +377,6 @@ Do not delete relevant mailbox or authentication evidence before required eviden
 ## Related Detection Rules
 
 - `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/yara/malware-sample.yar`
 
 ## Related Playbooks
 
