@@ -74,3 +74,9 @@ Users must not interpret the inclusion of offensive security techniques as permi
 ## 8. Intellectual Property and License
 
 Security Playbooks is licensed under the [MIT License](/LICENSE).
+
+## 9. Disclaimer of Warranties
+
+Security Playbooks is provided on an "as is" and "as available" basis, without warranties of any kind, express or implied, to the maximum extent permitted by applicable law.
+
+The Project and its Maintainers do not warrant that the playbooks, detection rules, scripts, configurations, documentation, or other materials are complete, accurate, current, secure, error-free, or suitable for any particular purpose.
