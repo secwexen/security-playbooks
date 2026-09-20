@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-07T09:50:00Z"
-updated_at: "2026-09-07T09:50:00Z"
+updated_at: "2026-09-20T19:28:00Z"
 description: "Investigate and assess malicious or suspicious email attachments that may deliver malware or enable unauthorized access."
 objective: "Determine whether a delivered attachment is malicious, identify recipient and endpoint impact, establish scope, and determine whether incident response is required."
 severity: "high"
@@ -364,12 +364,12 @@ Do not delete relevant email, attachment, endpoint, or network evidence before r
 
 ## Related Detection Rules
 
-- `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
 - `detection-rules/yara/malware-sample.yar`
 - `detection-rules/yara/obfuscated-powershell.yar`
 - `detection-rules/yara/yara-powershell-payload.yar`
+- `detection-rules/sigma/sigma-powershell-exec.yml`
 - `detection-rules/suricata/network-alert.rules`
+- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
