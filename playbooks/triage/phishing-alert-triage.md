@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-02T20:38:00Z"
-updated_at: "2026-09-04T23:45:00Z"
+updated_at: "2026-09-20T19:06:00Z"
 description: "Investigate suspected phishing emails and determine whether the message is benign, malicious, or part of a broader account or security incident."
 objective: "Determine the legitimacy, scope, and impact of a suspected phishing message and identify required containment, investigation, or escalation actions."
 severity: "high"
@@ -379,9 +379,7 @@ Do not delete relevant evidence before required preservation has been completed.
 ## Related Detection Rules
 
 - `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
 - `detection-rules/yara/malware-sample.yar`
-- `detection-rules/yara/yara-powershell-payload.yar`
 - `detection-rules/suricata/network-alert.rules`
 
 ## Related Playbooks
