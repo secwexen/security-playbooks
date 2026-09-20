@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-17T20:17:00Z"
-updated_at: "2026-09-17T20:17:00Z"
+updated_at: "2026-09-20T18:40:00Z"
 description: "AS-REP Roasting targets Active Directory accounts that do not require Kerberos pre-authentication and may expose material that can be subjected to offline credential-recovery attempts."
 objective: "Identify, investigate, and validate suspicious AS-REP activity and determine whether domain accounts may have been targeted or exposed."
 severity: "high"
@@ -385,8 +385,6 @@ Do not attempt to recover real account credentials during routine investigation 
 ## Related Detection Rules
 
 - `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/lsass-access.yml`
-- `detection-rules/yara/malware-sample.yar`
 
 ## Related Playbooks
 
