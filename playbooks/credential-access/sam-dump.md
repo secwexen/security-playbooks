@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-16T16:11:00Z"
-updated_at: "2026-09-16T18:12:00Z"
+updated_at: "2026-09-20T18:56:00Z"
 description: "SAM credential access involves attempts to obtain local account authentication material from the Windows Security Account Manager database."
 objective: "Identify, investigate, and validate suspicious access to the Security Account Manager and determine whether local account credentials may have been exposed."
 severity: "critical"
@@ -391,8 +391,6 @@ Do not extract, disclose, or reproduce real credentials during investigation or 
 ## Related Detection Rules
 
 - `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/yara/malware-sample.yar`
 
 ## Related Playbooks
 
