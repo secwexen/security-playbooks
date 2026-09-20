@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-12T17:43:00Z"
-updated_at: "2026-09-12T17:43:00Z"
+updated_at: "2026-09-20T19:38:00Z"
 description: "Python execution involves using the Python interpreter or Python-based tooling to execute scripts and code on a system."
 objective: "Identify, investigate, and validate suspicious Python execution and determine whether the activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -396,10 +396,9 @@ Do not delete or modify relevant scripts, files, package artifacts, logs, or oth
 
 ## Related Detection Rules
 
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/sigma/suspicious-login.yml`
 - `detection-rules/yara/malware-sample.yar`
-- `detection-rules/yara/obfuscated-powershell.yar`
+- `detection-rules/suricata/network-alert.rules`
+- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
