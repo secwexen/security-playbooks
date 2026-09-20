@@ -13,7 +13,7 @@ pip install -r requirements.txt
 pip install -r requirements-dev.txt
 ```
 
-The project requires Python 3.11.
+The project requires Python 3.11+.
 
 Suricata must be installed separately and available in the system `PATH` for Suricata detection tests.
 
