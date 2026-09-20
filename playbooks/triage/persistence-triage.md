@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-01T14:33:00Z"
-updated_at: "2026-09-04T23:47:00Z"
+updated_at: "2026-09-20T19:05:00Z"
 description: "Investigate suspected persistence mechanisms and determine whether unauthorized persistence is present on an endpoint."
 objective: "Identify, validate, scope, and assess suspected persistence mechanisms and determine whether escalation or containment is required."
 severity: "high"
@@ -412,9 +412,7 @@ Do not remove or modify persistence artifacts before required evidence preservat
 
 ## Related Detection Rules
 
-- `detection-rules/sigma/suspicious-login.yml`
 - `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/sigma/lsass-access.yml`
 - `detection-rules/yara/malware-sample.yar`
 - `detection-rules/yara/obfuscated-powershell.yar`
 - `detection-rules/yara/yara-powershell-payload.yar`
