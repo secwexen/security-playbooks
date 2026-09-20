@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-15T20:06:00Z"
-updated_at: "2026-09-15T20:06:00Z"
+updated_at: "2026-09-20T18:53:00Z"
 description: "NTDS credential access involves attempts to obtain Active Directory account authentication material from the domain controller database."
 objective: "Identify, investigate, and validate suspicious access to the NTDS database and determine whether domain credentials may have been exposed."
 severity: "critical"
@@ -390,8 +390,6 @@ Do not extract or disclose real domain credential material during response or va
 ## Related Detection Rules
 
 - `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/yara/malware-sample.yar`
 
 ## Related Playbooks
 
