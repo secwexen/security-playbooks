@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-19T11:34:00Z"
-updated_at: "2026-09-19T11:34:00Z"
+updated_at: "2026-09-20T18:54:00Z"
 description: "Unauthorized access to password-manager data can expose stored credentials, secrets, and other authentication material."
 objective: "Identify, investigate, and validate suspicious access to password-manager data and determine whether stored credentials may have been exposed."
 severity: "critical"
@@ -406,8 +406,6 @@ Do not extract, display, or disclose real password-manager credentials during in
 ## Related Detection Rules
 
 - `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/lsass-access.yml`
-- `detection-rules/yara/malware-sample.yar`
 
 ## Related Playbooks
 
