@@ -1,16 +1,24 @@
+# Git
+.git/
+.github/
+.gitignore
+.gitattributes
+
 # Python cache
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
+**pycache**/
+*.py[cod]
 
 # Virtual environments
+.venv/
 venv/
 env/
-.venv/
-.env
 
-# Build & Test Artifacts
+# Environment and local configuration
+.env
+.env.*
+*.local
+
+# Build and test artifacts
 build/
 dist/
 *.egg-info/
@@ -18,40 +26,37 @@ dist/
 .mypy_cache/
 .ruff_cache/
 .coverage
-htmlcov/
 coverage.xml
-
-# Git
-.git/
-.gitignore
-.gitattributes
-
-# GitHub
-.github/
-
-# IDE / Editor / DevContainer
-.vscode/
-.idea/
-.devcontainer/
-*.swp
-
-# OS junk
-.DS_Store
-Thumbs.db
+htmlcov/
 
 # Logs
 *.log
 logs/
 
-# Documentation / Development
+# IDE / Editor / Dev Container
+.vscode/
+.idea/
+.devcontainer/
+*.swp
+*.swo
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Documentation and examples
 docs/
 examples/
 
-# Local configuration
-.env.*
-*.local
+# Local secrets and credentials
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+credentials.json
+secrets.json
 
 # Docker
-Dockerfile
 docker-compose.yml
 .dockerignore
