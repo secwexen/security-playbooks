@@ -1,6 +1,6 @@
 # Detection Rules
 
-The [Detection Rules](detection-rules) directory contains detection engineering content used to identify suspicious activity, adversary behaviors, and security threats within controlled environments.
+The Detection Rules directory contains detection engineering content used to identify suspicious activity, adversary behaviors, and security threats within controlled environments.
 
 This module provides detection rules aligned with MITRE ATT&CK techniques and supports multiple detection formats:
 
