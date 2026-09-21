@@ -101,3 +101,19 @@ Tests should pass for changes to playbooks, detection rules, schemas, scripts, a
 Detection rules and playbooks should be validated using approved fixtures, datasets, or controlled laboratory scenarios.
 
 Do not validate security content against unauthorized systems or production environments.
+
+## 8. Makefile
+
+The root `Makefile` provides common development and validation commands.
+
+Run commands from the repository root:
+
+```bash
+make install
+make lint
+make validate
+make test
+make check
+```
+
+Use `make check` to run the complete development pipeline.
