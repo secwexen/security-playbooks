@@ -36,3 +36,10 @@ This document outlines ethical guidelines for using the repository and its conte
 - Define the scope and rules of engagement before testing.
 - Do not access, modify, disrupt, or extract data outside the authorized scope.
 - Stop testing if activity affects unintended or unauthorized systems.
+
+## 8. Sensitive Data and Credential Handling
+
+- Do not use real passwords, API keys, access tokens, private keys, or other secrets in labs, examples, or test datasets.
+- Use synthetic, test, or anonymized data whenever possible.
+- Never publish credentials, personal data, or confidential information in issues, logs, datasets, or contributions.
+- Remove or revoke any sensitive information that is accidentally exposed.
