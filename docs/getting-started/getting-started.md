@@ -131,17 +131,3 @@ detection-rules/
 Review the applicable rule before using or modifying a playbook.
 
 Detection rules should be validated against approved datasets and test scenarios before being deployed into production security monitoring.
-
-## 8. Follow Responsible Use Requirements
-
-Security Playbooks is intended for educational, defensive, research, and authorized security-testing purposes.
-
-Before using any scenario, script, detection rule, or playbook:
-
-- ensure that the target environment is authorized;
-- define the permitted scope;
-- use controlled or approved test systems where appropriate;
-- protect credentials and sensitive information;
-- follow applicable security, privacy, and change-management requirements.
-
-Do not use repository content against systems, accounts, networks, or data without appropriate authorization.
