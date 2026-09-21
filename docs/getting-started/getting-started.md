@@ -83,7 +83,7 @@ pip install -r requirements-dev.txt
 Run the automated tests before making changes:
 
 ```bash
-pytest
+pytest -m pytest -v
 ```
 
 Use the test results to identify validation, metadata, schema, detection-rule, or playbook issues before contributing changes.
