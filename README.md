@@ -156,7 +156,7 @@ git clone https://github.com/secwexen/security-playbooks.git
 cd security-playbooks
 
 # Create virtual environment
-python -m venv venv
+python -m venv .venv
 source venv/bin/activate      # Linux/Mac
 .\.venv\Scripts\Activate.ps1  # Windows
 
