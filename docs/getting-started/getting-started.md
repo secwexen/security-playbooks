@@ -63,7 +63,7 @@ source .venv/bin/activate
 Activate it on Windows:
 
 ```powershell
-.venv\Scripts\Activate.ps1
+.\.venv\Scripts\Activate.ps1
 ```
 
 Install the project dependencies:
