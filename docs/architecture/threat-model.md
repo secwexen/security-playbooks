@@ -27,13 +27,36 @@ Security Playbooks assumes a realistic enterprise environment and adversary beha
 
 ## Attack Vectors Covered
 
-- **Initial Access:** Phishing, watering hole, credential exposure (T1566, T1566.002)
-- **Execution:** Script-based execution, malware deployment (T1059, T1106)
-- **Persistence:** Registry modification, scheduled tasks (T1547, T1053)
-- **Privilege Escalation:** Token impersonation, UAC bypass (T1134, T1088)
-- **Defense Evasion:** Process injection, living-off-the-land (T1055, T1202)
-- **Lateral Movement:** SMB exploitation, credential reuse (T1570, T1550)
-- **Exfiltration:** Data staging, encrypted channels (T1020, T1041)
+- **Initial Access:** Phishing, watering hole, credential compromise  
+  - Phishing: T1566
+  - Watering hole / Drive-by Compromise: T1189
+  - Valid Accounts: T1078
+
+- **Execution:** Script-based execution, native API usage
+  - Command and Scripting Interpreter: T1059
+  - Native API: T1106
+
+- **Persistence:** Registry modification, scheduled tasks
+  - Modify Registry: T1112
+  - Scheduled Task/Job: T1053
+  - Registry Run Keys / Startup Folder: T1547.001 where applicable
+
+- **Privilege Escalation:** Token manipulation, UAC bypass
+  - Access Token Manipulation: T1134
+  - Bypass User Account Control: T1548.002
+
+- **Defense Evasion:** Process injection, indirect command execution
+  - Process Injection: T1055
+  - Indirect Command Execution: T1202
+
+- **Lateral Movement:** Remote services, lateral tool transfer, alternate authentication material
+  - Remote Services: T1021
+  - Lateral Tool Transfer: T1570
+  - Use Alternate Authentication Material: T1550
+
+- **Exfiltration:** Automated exfiltration, exfiltration over C2 channel
+  - Automated Exfiltration: T1020
+  - Exfiltration Over C2 Channel: T1041
 
 ## Assumptions
 
