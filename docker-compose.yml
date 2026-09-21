@@ -1,13 +1,11 @@
 services:
   app:
     build: .
-    ports:
-      - "8000:8000"
     volumes:
-      - .:/app
+      - .:/opt/playbooks
     env_file:
       - .env
-    working_dir: /app
+    working_dir: /opt/playbooks
     environment:
-      - PYTHONUNBUFFERED=1
+      PYTHONUNBUFFERED: "1"
     restart: unless-stopped
