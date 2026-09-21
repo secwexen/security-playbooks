@@ -163,7 +163,7 @@ source venv/bin/activate    # Linux/Mac
 # Install dependencies
 pip install -r requirements.txt
 
-# Install dev dependencies
+# Install development dependencies
 pip install -r requirements-dev.txt
 
 # Run the full pytest suite
