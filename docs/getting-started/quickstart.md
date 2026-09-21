@@ -9,7 +9,7 @@ cd security-playbooks
 
 # Create virtual environment
 python -m venv .venv
-source .venv/bin/activate      # Linux/Mac
+source .venv/bin/activate     # Linux/Mac
 .\.venv\Scripts\Activate.ps1  # Windows
 
 # Install dependencies
