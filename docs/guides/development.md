@@ -104,7 +104,7 @@ Do not validate security content against unauthorized systems or production envi
 
 ## 8. Makefile
 
-The root `Makefile` provides common development and validation commands.
+The root [Makefile](/Makefile) provides common development and validation commands.
 
 Run commands from the repository root:
 
