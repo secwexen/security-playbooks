@@ -14,7 +14,7 @@ Security Playbooks is a defensive cybersecurity and blue team repository designe
 
 It focuses on delivering realistic, MITRE ATT&CK mapping, detection engineering, detection rules, detection validation, threat hunting, incident response playbooks, security playbooks, SOC workflows, adversary emulation, threat intelligence, IOC enrichment, security validation, automated testing, security automation, security integrations, coverage analysis, and hands-on labs to help users build practical skills in threat hunting, incident response, detection engineering, and adversary simulation within controlled environments.
 
-The project aims to bridge the gap between the oretical knowledge and real-world security operations by providing structured, reproducible, practical cybersecurity workflows, threat intelligence, detection engineering, incident response, security validation, automated testing, machine-readable security content, and coverage analysis capabilities.
+The project aims to bridge the gap between theoretical knowledge and real-world security operations by providing structured, reproducible, practical cybersecurity workflows, threat intelligence, detection engineering, incident response, security validation, automated testing, machine-readable security content, and coverage analysis capabilities.
 
 ## Why Security Playbooks?
 
@@ -187,7 +187,7 @@ python -m scripts.run_yara_tests
 python -m scripts.run_suricata_tests
 ```
 
-The Suricata fixtures are real PCAP files generated with Scapy. Scapy is included in [Development Requirements](requirements-dev.txt).
+The Suricata fixtures are real PCAP files generated with Scapy. Scapy is included as a project dependency. [Development Requirements](requirements-dev.txt).
 
 If the PCAP fixtures need to be regenerated:
 
