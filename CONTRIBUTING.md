@@ -46,9 +46,9 @@ git checkout -b feature/your-feature-name
 ### 3. Set up a local development environment
 
 ```bash
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
+python -m venv .venv
+source .venv/bin/activate     # Linux/Mac
+.\.venv\Scripts\Activate.ps1  # Windows
 ```
 
 ### 4. Install dependencies
