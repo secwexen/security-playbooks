@@ -1,7 +1,7 @@
 title: Suspicious Login Attempt
 id: example-sigma-001
 status: experimental
-description: Detects a login event from an unusual source for demonstration purposes.
+description: Detects Windows failed logon events for investigation of suspicious authentication activity.
 
 author: secwexen
 date: 2026/05/06
@@ -19,7 +19,7 @@ detection:
   condition: selection
 
 level: low
+
 tags:
-  - attack.initial-access
+  - attack.credential-access
   - educational.example
-  - brute-force
