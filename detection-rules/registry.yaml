@@ -1,4 +1,4 @@
-version: "1.0.0"
+version: "2.1.0"
 schema_version: "1.0.0"
 
 metadata:
@@ -8,7 +8,7 @@ Central registry of detection rules maintained by Security Playbooks.
 Each entry identifies the rule artifact, detection format, lifecycle state,
 severity, confidence, ownership, MITRE ATT&CK mapping, validation assets,
 and operational metadata.
-repository: "secwexen/security-playbooks"
+repository: "https://github.com/secwexen/security-playbooks"
 license: "MIT"
 default_status: "experimental"
 default_confidence: "medium"
@@ -88,7 +88,7 @@ rules:
 # Sigma
 # ===========================
 
-* id: "DET-SIGMA-LSASS-ACCESS"
+- id: "DET-SIGMA-LSASS-ACCESS"
   name: "LSASS Process Access Detection"
   format: "sigma"
   path: "detection-rules/sigma/lsass-access.yml"
@@ -104,11 +104,10 @@ rules:
   dumping or memory-based credential access.
 
   tags:
-
-  * credential-access
-  * lsass
-  * windows
-  * credential-dumping
+  - credential-access
+  - lsass
+  - windows
+  - credential-dumping
 
   mitre_attack:
   tactics:
@@ -122,14 +121,12 @@ rules:
   relationship: "primary"
 
   data_sources:
-
-  * "Windows Security Event Log"
-  * "Sysmon"
-  * "Process Access Telemetry"
+  - "Windows Security Event Log"
+  - "Sysmon"
+  - "Process Access Telemetry"
 
   platforms:
-
-  * windows
+  - windows
 
   validation:
   status: "passing"
@@ -140,12 +137,11 @@ rules:
   expected_results: "tests/sigma/fixtures/expected_results.json"
 
   related_playbooks:
+  - "playbooks/credential-access/lsass-dump.md"
+  - "playbooks/credential-access/credential-dumping.md"
+  - "playbooks/triage/suspicious-process-triage.md"
 
-  * "playbooks/credential-access/lsass-dump.md"
-  * "playbooks/credential-access/credential-dumping.md"
-  * "playbooks/triage/suspicious-process-triage.md"
-
-* id: "DET-SIGMA-POWERSHELL-EXEC"
+- id: "DET-SIGMA-POWERSHELL-EXEC"
   name: "Suspicious PowerShell Execution"
   format: "sigma"
   path: "detection-rules/sigma/sigma-powershell-exec.yml"
@@ -161,11 +157,10 @@ rules:
   execution, script execution, and potentially malicious PowerShell activity.
 
   tags:
-
-  * execution
-  * powershell
-  * scripting
-  * windows
+  - execution
+  - powershell
+  - scripting
+  - windows
 
   mitre_attack:
   tactics:
@@ -179,14 +174,12 @@ rules:
   relationship: "primary"
 
   data_sources:
-
-  * "Windows Event Log"
-  * "PowerShell Script Block Logging"
-  * "Sysmon"
+  - "Windows Event Log"
+  - "PowerShell Script Block Logging"
+  - "Sysmon"
 
   platforms:
-
-  * windows
+  - windows
 
   validation:
   status: "passing"
@@ -197,12 +190,11 @@ rules:
   expected_results: "tests/sigma/fixtures/expected_results.json"
 
   related_playbooks:
+  - "playbooks/execution/powershell.md"
+  - "playbooks/triage/suspicious-powershell-triage.md"
+  - "playbooks/defense-evasion/obfuscated-powershell.md"
 
-  * "playbooks/execution/powershell.md"
-  * "playbooks/triage/suspicious-powershell-triage.md"
-  * "playbooks/defense-evasion/obfuscated-powershell.md"
-
-* id: "DET-SIGMA-SUSPICIOUS-LOGIN"
+- id: "DET-SIGMA-SUSPICIOUS-LOGIN"
   name: "Suspicious Login Activity"
   format: "sigma"
   path: "detection-rules/sigma/suspicious-login.yml"
@@ -218,11 +210,10 @@ rules:
   compromise, password spraying, or unauthorized access.
 
   tags:
-
-  * credential-access
-  * initial-access
-  * authentication
-  * account-compromise
+  - credential-access
+  - initial-access
+  - authentication
+  - account-compromise
 
   mitre_attack:
   tactics:
@@ -237,15 +228,13 @@ rules:
   relationship: "secondary"
 
   data_sources:
-
-  * "Windows Authentication Logs"
-  * "Identity Provider Logs"
-  * "VPN Logs"
+  - "Windows Authentication Logs"
+  - "Identity Provider Logs"
+  - "VPN Logs"
 
   platforms:
-
-  * windows
-  * identity
+  - windows
+  - identity
 
   validation:
   status: "passing"
@@ -256,17 +245,16 @@ rules:
   expected_results: "tests/sigma/fixtures/expected_results.json"
 
   related_playbooks:
-
-  * "playbooks/triage/suspicious-login-triage.md"
-  * "playbooks/response/account-compromise-response.md"
-  * "playbooks/initial-access/valid-account-compromise.md"
-  * "playbooks/credential-access/password-spraying.md"
+  - "playbooks/triage/suspicious-login-triage.md"
+  - "playbooks/response/account-compromise-response.md"
+  - "playbooks/initial-access/valid-account-compromise.md"
+  - "playbooks/credential-access/password-spraying.md"
 
 # ===========================
 # YARA
 # ===========================
 
-* id: "DET-YARA-MALWARE-SAMPLE"
+- id: "DET-YARA-MALWARE-SAMPLE"
   name: "Malware Sample Detection"
   format: "yara"
   path: "detection-rules/yara/malware-sample.yar"
@@ -282,10 +270,9 @@ rules:
   suspicious malware samples.
 
   tags:
-
-  * malware
-  * file-detection
-  * static-analysis
+  - malware
+  - file-detection
+  - static-analysis
 
   mitre_attack:
   tactics:
@@ -296,15 +283,13 @@ rules:
   relationship: "supporting"
 
   data_sources:
-
-  * "File System"
-  * "Endpoint File Scanning"
+  - "File System"
+  - "Endpoint File Scanning"
 
   platforms:
-
-  * windows
-  * linux
-  * macos
+  - windows
+  - linux
+  - macos
 
   validation:
   status: "passing"
@@ -316,11 +301,10 @@ rules:
   expected_results: "tests/yara/fixtures/expected_matches.json"
 
   related_playbooks:
+  - "playbooks/triage/malware-detection-triage.md"
+  - "playbooks/response/malware-response.md"
 
-  * "playbooks/triage/malware-detection-triage.md"
-  * "playbooks/response/malware-response.md"
-
-* id: "DET-YARA-OBFUSCATED-POWERSHELL"
+- id: "DET-YARA-OBFUSCATED-POWERSHELL"
   name: "Obfuscated PowerShell Payload"
   format: "yara"
   path: "detection-rules/yara/obfuscated-powershell.yar"
@@ -336,11 +320,10 @@ rules:
   to evade static inspection and endpoint controls.
 
   tags:
-
-  * powershell
-  * obfuscation
-  * defense-evasion
-  * execution
+  - powershell
+  - obfuscation
+  - defense-evasion
+  - execution
 
   mitre_attack:
   tactics:
@@ -355,14 +338,12 @@ rules:
   relationship: "primary"
 
   data_sources:
-
-  * "File System"
-  * "Endpoint Telemetry"
-  * "Email Attachments"
+  - "File System"
+  - "Endpoint Telemetry"
+  - "Email Attachments"
 
   platforms:
-
-  * windows
+  - windows
 
   validation:
   status: "passing"
@@ -374,12 +355,11 @@ rules:
   expected_results: "tests/yara/fixtures/expected_matches.json"
 
   related_playbooks:
+  - "playbooks/defense-evasion/obfuscated-powershell.md"
+  - "playbooks/execution/powershell.md"
+  - "playbooks/triage/suspicious-powershell-triage.md"
 
-  * "playbooks/defense-evasion/obfuscated-powershell.md"
-  * "playbooks/execution/powershell.md"
-  * "playbooks/triage/suspicious-powershell-triage.md"
-
-* id: "DET-YARA-POWERSHELL-PAYLOAD"
+- id: "DET-YARA-POWERSHELL-PAYLOAD"
   name: "PowerShell Payload Detection"
   format: "yara"
   path: "detection-rules/yara/yara-powershell-payload.yar"
@@ -395,11 +375,10 @@ rules:
   collected artifacts.
 
   tags:
-
-  * powershell
-  * payload
-  * malware
-  * execution
+  - powershell
+  - payload
+  - malware
+  - execution
 
   mitre_attack:
   tactics:
@@ -410,13 +389,11 @@ rules:
   relationship: "primary"
 
   data_sources:
-
-  * "File System"
-  * "Endpoint Collection"
+  - "File System"
+  - "Endpoint Collection"
 
   platforms:
-
-  * windows
+  - windows
 
   validation:
   status: "passing"
@@ -428,15 +405,14 @@ rules:
   expected_results: "tests/yara/fixtures/expected_matches.json"
 
   related_playbooks:
-
-  * "playbooks/execution/powershell.md"
-  * "playbooks/triage/suspicious-powershell-triage.md"
+  - "playbooks/execution/powershell.md"
+  - "playbooks/triage/suspicious-powershell-triage.md"
 
 # ===========================
 # Suricata
 # ===========================
 
-* id: "DET-SURI-C2-COMMUNICATION"
+- id: "DET-SURI-C2-COMMUNICATION"
   name: "C2 Communication Detection"
   format: "suricata"
   path: "detection-rules/suricata/c2-communication.rules"
@@ -452,11 +428,10 @@ rules:
   activity.
 
   tags:
-
-  * c2
-  * network
-  * command-and-control
-  * beaconing
+  - c2
+  - network
+  - command-and-control
+  - beaconing
 
   mitre_attack:
   tactics:
@@ -470,14 +445,12 @@ rules:
   relationship: "supporting"
 
   data_sources:
-
-  * "Network Traffic"
-  * "IDS"
-  * "PCAP"
+  - "Network Traffic"
+  - "IDS"
+  - "PCAP"
 
   platforms:
-
-  * network
+  - network
 
   validation:
   status: "passing"
@@ -488,12 +461,11 @@ rules:
   expected_results: "tests/suricata/fixtures/expected_alerts.json"
 
   related_playbooks:
+  - "playbooks/command-and-control/beaconing.md"
+  - "playbooks/command-and-control/application-layer-protocol.md"
+  - "playbooks/triage/data-exfiltration-triage.md"
 
-  * "playbooks/command-and-control/beaconing.md"
-  * "playbooks/command-and-control/application-layer-protocol.md"
-  * "playbooks/triage/data-exfiltration-triage.md"
-
-* id: "DET-SURI-NETWORK-ALERT"
+- id: "DET-SURI-NETWORK-ALERT"
   name: "Suspicious Network Traffic"
   format: "suricata"
   path: "detection-rules/suricata/network-alert.rules"
@@ -509,10 +481,9 @@ rules:
   investigation.
 
   tags:
-
-  * network
-  * anomaly
-  * traffic-analysis
+  - network
+  - anomaly
+  - traffic-analysis
 
   mitre_attack:
   tactics:
@@ -523,14 +494,12 @@ rules:
   relationship: "supporting"
 
   data_sources:
-
-  * "Network Traffic"
-  * "IDS"
-  * "PCAP"
+  - "Network Traffic"
+  - "IDS"
+  - "PCAP"
 
   platforms:
-
-  * network
+  - network
 
   validation:
   status: "passing"
@@ -541,11 +510,10 @@ rules:
   expected_results: "tests/suricata/fixtures/expected_alerts.json"
 
   related_playbooks:
+  - "playbooks/triage/suspicious-process-triage.md"
+  - "playbooks/command-and-control/application-layer-protocol.md"
 
-  * "playbooks/triage/suspicious-process-triage.md"
-  * "playbooks/command-and-control/application-layer-protocol.md"
-
-* id: "DET-SURI-POWERSHELL-ALERT"
+- id: "DET-SURI-POWERSHELL-ALERT"
   name: "PowerShell Network Activity"
   format: "suricata"
   path: "detection-rules/suricata/powershell-alert.rules"
@@ -561,11 +529,10 @@ rules:
   execution or payload retrieval.
 
   tags:
-
-  * powershell
-  * network
-  * execution
-  * ingress-tool-transfer
+  - powershell
+  - network
+  - execution
+  - ingress-tool-transfer
 
   mitre_attack:
   tactics:
@@ -580,15 +547,13 @@ rules:
   relationship: "secondary"
 
   data_sources:
-
-  * "Network Traffic"
-  * "IDS"
-  * "PCAP"
+  - "Network Traffic"
+  - "IDS"
+  - "PCAP"
 
   platforms:
-
-  * windows
-  * network
+  - windows
+  - network
 
   validation:
   status: "passing"
@@ -600,10 +565,9 @@ rules:
   expected_results: "tests/suricata/fixtures/expected_alerts.json"
 
   related_playbooks:
-
-  * "playbooks/execution/powershell.md"
-  * "playbooks/command-and-control/ingress-tool-transfer.md"
-  * "playbooks/triage/suspicious-powershell-triage.md"
+  - "playbooks/execution/powershell.md"
+  - "playbooks/command-and-control/ingress-tool-transfer.md"
+  - "playbooks/triage/suspicious-powershell-triage.md"
 
 # ---------------------------
 # Registry indexes
