@@ -6,11 +6,9 @@ author: Secwexen
 date: 2026/09/24
 
 references:
-
 - https://attack.mitre.org/techniques/T1059/001/
 
 tags:
-
 - attack.execution
 - attack.t1059
 - attack.t1059.001
@@ -30,7 +28,6 @@ CommandLine|contains:
 condition: selection
 
 falsepositives:
-
 - Legitimate administrative PowerShell scripts may use encoded commands
 
 level: high
