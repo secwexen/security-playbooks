@@ -4,10 +4,10 @@ schema_version: "1.0.0"
 metadata:
 name: "Security Playbooks Detection Rule Registry"
 description: >
-Central registry of detection rules maintained by Security Playbooks.
-Each entry identifies the rule artifact, detection format, lifecycle state,
-severity, confidence, ownership, MITRE ATT&CK mapping, validation assets,
-and operational metadata.
+  Central registry of detection rules maintained by Security Playbooks.
+  Each entry identifies the rule artifact, detection format, lifecycle state,
+  severity, confidence, ownership, MITRE ATT&CK mapping, validation assets,
+  and operational metadata.
 repository: "https://github.com/secwexen/security-playbooks"
 license: "MIT"
 default_status: "experimental"
@@ -21,9 +21,9 @@ default_severity: "medium"
 conventions:
 id_format: "DET-<FORMAT>-<SLUG>"
 supported_formats:
-- sigma
-- yara
-- suricata
+  - sigma
+  - yara
+  - suricata
 
 status_values:
 - draft
@@ -66,17 +66,17 @@ required_fields:
 # ---------------------------
 
 owners:
-detection-engineering:
-team: "Detection Engineering"
-description: "Primary owner for detection logic, testing, tuning and lifecycle."
+  detection-engineering:
+    team: "Detection Engineering"
+    description: "Primary owner for detection logic, testing, tuning and lifecycle."
 
-threat-hunting:
-team: "Threat Hunting"
-description: "Owner for hunt-driven detections and hypothesis validation."
+  threat-hunting:
+    team: "Threat Hunting"
+    description: "Owner for hunt-driven detections and hypothesis validation."
 
-blue-team:
-team: "Blue Team"
-description: "Operational owner for SOC-focused detections and response workflows."
+  blue-team:
+    team: "Blue Team"
+    description: "Operational owner for SOC-focused detections and response workflows."
 
 # ---------------------------
 # Detection rules
@@ -574,23 +574,21 @@ rules:
 # ---------------------------
 
 indexes:
+  by_format:
+    sigma:
+      - "DET-SIGMA-LSASS-ACCESS"
+      - "DET-SIGMA-POWERSHELL-EXEC"
+      - "DET-SIGMA-SUSPICIOUS-LOGIN"
 
-by_format:
-sigma:
-- "DET-SIGMA-LSASS-ACCESS"
-- "DET-SIGMA-POWERSHELL-EXEC"
-- "DET-SIGMA-SUSPICIOUS-LOGIN"
+    yara:
+      - "DET-YARA-MALWARE-SAMPLE"
+      - "DET-YARA-OBFUSCATED-POWERSHELL"
+      - "DET-YARA-POWERSHELL-PAYLOAD"
 
-
-yara:
-  - "DET-YARA-MALWARE-SAMPLE"
-  - "DET-YARA-OBFUSCATED-POWERSHELL"
-  - "DET-YARA-POWERSHELL-PAYLOAD"
-
-suricata:
-  - "DET-SURI-C2-COMMUNICATION"
-  - "DET-SURI-NETWORK-ALERT"
-  - "DET-SURI-POWERSHELL-ALERT"
+    suricata:
+      - "DET-SURI-C2-COMMUNICATION"
+      - "DET-SURI-NETWORK-ALERT"
+      - "DET-SURI-POWERSHELL-ALERT"
 
 
 by_status:
