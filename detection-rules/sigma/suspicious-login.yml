@@ -4,7 +4,7 @@ status: experimental
 description: Detects Windows failed logon events for investigation of suspicious authentication activity.
 
 author: secwexen
-date: 2026/05/06
+date: 2026/24/09
 
 references:
   - https://attack.mitre.org/techniques/T1110/
