@@ -89,6 +89,8 @@ Visibility into security coverage:
 
 - **Python**: Core automation and tooling
 - **YARA**: Malware detection patterns
+- **Suricata**: Network threat detection and IDS/IPS rules
+- **Sigma**: Portable detection rules for SIEM and security platforms
 - **Other**: Supporting technologies
 
 ## Key Benefits
