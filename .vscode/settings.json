@@ -1,0 +1,25 @@
+{
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  "[python]": {
+    "editor.tabSize": 4
+  },
+
+  "[yaml]": {
+    "editor.tabSize": 2
+  },
+
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.tabSize": 2
+  },
+
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": [
+    "tests"
+  ]
+}
