@@ -3,7 +3,7 @@ id: f1a2b3c4-d5e6-7890-1234-56789abcdef0
 status: experimental
 description: Detects PowerShell execution with encoded (-enc) commands in Windows environments.
 author: Secwexen
-date: 2026/09/24
+date: 2026/25/09
 
 references:
 - https://attack.mitre.org/techniques/T1059/001/
