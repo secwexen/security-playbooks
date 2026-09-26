@@ -3,10 +3,10 @@ id: "suspicious-powershell-triage"
 name: "Suspicious PowerShell Triage"
 category: "triage"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-08-30T16:45:00Z"
-updated_at: "2026-09-20T19:12:00Z"
+updated_at: "2026-09-26T18:32:00Z"
 description: "Investigate suspicious PowerShell execution alerts and determine whether the observed activity is benign, suspicious, or malicious."
 objective: "Determine the nature, scope, and impact of suspicious PowerShell activity and provide evidence for escalation or closure."
 severity: "high"
@@ -32,6 +32,61 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1059/001/"
   - "https://attack.mitre.org/techniques/T1027/"
+steps:
+  - id: "identify-affected-host"
+    order: 1
+    name: "Identify the Affected Host"
+    action: "investigate"
+    description: "Identify the endpoint on which the suspicious PowerShell activity was observed."
+    expected_result: "The affected host, asset type, ownership, and criticality are identified."
+  - id: "identify-user"
+    order: 2
+    name: "Identify the User"
+    action: "investigate"
+    description: "Identify the account associated with the PowerShell process and review relevant authentication context."
+    expected_result: "The associated account, account type, and authentication context are identified."
+  - id: "review-process-execution"
+    order: 3
+    name: "Review Process Execution"
+    action: "analyze"
+    description: "Review the PowerShell process, parent process, child processes, execution path, and process metadata."
+    expected_result: "The PowerShell process execution context and process relationships are characterized."
+  - id: "review-command-line"
+    order: 4
+    name: "Review the Command Line"
+    action: "analyze"
+    description: "Inspect the PowerShell command line for suspicious parameters, encoded commands, download behavior, or control-evasion indicators."
+    expected_result: "The observed PowerShell command line and relevant execution indicators are documented."
+  - id: "check-encoding-obfuscation"
+    order: 5
+    name: "Check for Encoding or Obfuscation"
+    action: "analyze"
+    description: "Determine whether the PowerShell content contains encoding, obfuscation, dynamic command construction, or transformed script content."
+    expected_result: "Encoding or obfuscation indicators are identified and their context is assessed."
+  - id: "review-powershell-logging"
+    order: 6
+    name: "Review PowerShell Logging"
+    action: "analyze"
+    description: "Review available PowerShell and Windows logging sources and correlate them with endpoint activity."
+    expected_result: "Relevant PowerShell logging and correlated endpoint events are identified."
+  - id: "review-network-activity"
+    order: 7
+    name: "Review Network Activity"
+    action: "analyze"
+    description: "Review network connections associated with PowerShell execution and identify anomalous or suspicious destinations."
+    expected_result: "Related network activity and potentially suspicious destinations are identified."
+  - id: "review-file-artifacts"
+    order: 8
+    name: "Review File and Artifact Activity"
+    action: "analyze"
+    description: "Identify files and artifacts created, modified, or accessed around the time of PowerShell execution."
+    expected_result: "Relevant files, artifacts, and hashes are identified where available."
+  - id: "correlate-related-events"
+    order: 9
+    name: "Correlate Related Events"
+    action: "hunt"
+    description: "Correlate related process, authentication, persistence, credential access, lateral movement, and PowerShell activity across the environment."
+    expected_result: "Related activity is identified, correlated, and scoped."
 validation:
   validated: false
   required: true
@@ -79,13 +134,13 @@ The investigation should consider:
 - child processes;
 - command line;
 - script content;
-- loaded modules;
+- loaded modules where available;
 - created or modified files;
 - network connections;
 - related authentication events;
 - related detections on other hosts.
 
-## Triage Procedure
+## Investigation Procedure
 
 ### Step 1 — Identify the Affected Host
 
@@ -308,6 +363,18 @@ Classify as **malicious** when evidence supports unauthorized activity, such as:
 - confirmed malware execution.
 
 Escalate to the appropriate incident response workflow.
+
+### Inconclusive
+
+Use **inconclusive** when the available evidence is insufficient to determine whether the PowerShell activity is legitimate or malicious.
+
+Document:
+
+- evidence collected;
+- evidence that is unavailable;
+- additional telemetry required.
+
+Do not close the investigation as benign when material evidence remains unavailable.
 
 ## Escalation
 
