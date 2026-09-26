@@ -3,10 +3,10 @@ id: "scheduled-task-persistence"
 name: "Scheduled Task Persistence"
 category: "persistence"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-13T18:41:00Z"
-updated_at: "2026-09-20T19:18:00Z"
+updated_at: "2026-09-26T22:09:00Z"
 description: "Scheduled tasks can be configured to execute programs or scripts automatically and may be abused to maintain persistence on Windows systems."
 objective: "Identify, investigate, and validate suspicious scheduled task persistence and determine whether the task is legitimate, suspicious, or malicious."
 severity: "high"
@@ -34,54 +34,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1053/005/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Scheduled Task Persistence Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, account, task name, creation or modification event, and timestamp."
-  expected_result: "The suspicious scheduled task persistence event and affected asset are identified."
-- id: "identify-task"
-  order: 2
-  name: "Identify Scheduled Task"
-  action: "analyze"
-  description: "Identify the task name, task path, trigger, action, run-as account, and privilege configuration."
-  expected_result: "The scheduled task configuration is documented."
-- id: "review-task-lifecycle"
-  order: 3
-  name: "Review Task Lifecycle"
-  action: "analyze"
-  description: "Review task creation, modification, deletion, trigger changes, and related administrative activity."
-  expected_result: "The task lifecycle and relevant changes are established."
-- id: "review-payload"
-  order: 4
-  name: "Review Persistence Payload"
-  action: "analyze"
-  description: "Review the executable, script, command line, file path, hash, and working directory referenced by the task."
-  expected_result: "The task payload and execution context are assessed."
-- id: "review-account-context"
-  order: 5
-  name: "Review Account and Privilege Context"
-  action: "analyze"
-  description: "Determine which account executes the task and whether the configured privilege level is expected."
-  expected_result: "The account and privilege context are documented and assessed."
-- id: "review-execution"
-  order: 6
-  name: "Review Task Execution"
-  action: "analyze"
-  description: "Correlate scheduled task execution with process creation, child processes, file activity, and network activity."
-  expected_result: "Task execution and resulting activity are correlated."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Persistence Scope"
-  action: "hunt"
-  description: "Search for the same task name, executable, script, command line, account, or persistence pattern across the environment."
-  expected_result: "The prevalence and scope of the scheduled task persistence are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the scheduled task persistence and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Scheduled Task Persistence Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, account, task name, creation or modification event, and timestamp."
+    expected_result: "The suspicious scheduled task persistence event and affected asset are identified."
+  - id: "identify-task"
+    order: 2
+    name: "Identify Scheduled Task"
+    action: "analyze"
+    description: "Identify the task name, task path, trigger, action, run-as account, and privilege configuration."
+    expected_result: "The scheduled task configuration is documented."
+  - id: "review-task-lifecycle"
+    order: 3
+    name: "Review Task Lifecycle"
+    action: "analyze"
+    description: "Review task creation, modification, deletion, trigger changes, and related administrative activity."
+    expected_result: "The task lifecycle and relevant changes are established."
+  - id: "review-payload"
+    order: 4
+    name: "Review Persistence Payload"
+    action: "analyze"
+    description: "Review the executable, script, command line, file path, hash, and working directory referenced by the task."
+    expected_result: "The task payload and execution context are assessed."
+  - id: "review-account-context"
+    order: 5
+    name: "Review Account and Privilege Context"
+    action: "analyze"
+    description: "Determine which account executes the task and whether the configured privilege level is expected."
+    expected_result: "The account and privilege context are documented and assessed."
+  - id: "review-execution"
+    order: 6
+    name: "Review Task Execution"
+    action: "analyze"
+    description: "Correlate scheduled task execution with process creation, child processes, file activity, and network activity."
+    expected_result: "Task execution and resulting activity are correlated."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Persistence Scope"
+    action: "hunt"
+    description: "Search for the same task name, executable, script, command line, account, or persistence pattern across the environment."
+    expected_result: "The prevalence and scope of the scheduled task persistence are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the scheduled task persistence and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -147,7 +147,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Scheduled Task Persistence Alert
 
 Determine:
 
@@ -163,7 +163,7 @@ Determine:
 
 Preserve the original alert context before making changes to the task.
 
-### Step 2 — Identify the Scheduled Task
+### Step 2 — Identify Scheduled Task
 
 Collect:
 
@@ -373,11 +373,6 @@ For confirmed malicious scheduled task persistence:
 Do not immediately delete the task or referenced payload before required evidence preservation has been completed.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/yara/malware-sample.yar`
-- `detection-rules/yara/obfuscated-powershell.yar`
-- `detection-rules/yara/yara-powershell-payload.yar`
 
 ## Related Playbooks
 
