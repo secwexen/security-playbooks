@@ -3,10 +3,10 @@ id: "registry-run-keys"
 name: "Registry Run Keys / Startup Folder"
 category: "persistence"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-14T13:59:00Z"
-updated_at: "2026-09-20T19:16:00Z"
+updated_at: "2026-09-26T22:04:00Z"
 description: "Registry Run Keys and related Windows startup mechanisms can be used to launch programs automatically when a user logs on."
 objective: "Identify, investigate, and validate suspicious registry-based persistence and determine whether the configured startup entry is legitimate, suspicious, or malicious."
 severity: "high"
@@ -34,54 +34,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1547/001/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Registry Persistence Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, user, registry path, modified value, and timestamp."
-  expected_result: "The suspicious registry persistence event and affected asset are identified."
-- id: "identify-registry-entry"
-  order: 2
-  name: "Identify Registry Entry"
-  action: "analyze"
-  description: "Determine the registry hive, key, value name, value data, and scope of the startup configuration."
-  expected_result: "The registry persistence entry is documented."
-- id: "review-modification-context"
-  order: 3
-  name: "Review Modification Context"
-  action: "analyze"
-  description: "Determine which process and account modified the registry entry and correlate the change with nearby events."
-  expected_result: "The registry modification context is established."
-- id: "review-payload"
-  order: 4
-  name: "Review Startup Payload"
-  action: "analyze"
-  description: "Review the executable, script, command line, file path, hash, and signature referenced by the registry entry."
-  expected_result: "The startup payload and execution context are assessed."
-- id: "review-execution"
-  order: 5
-  name: "Review Startup Execution"
-  action: "analyze"
-  description: "Correlate the registry entry with subsequent process creation and user logon activity."
-  expected_result: "Startup execution and related process activity are correlated."
-- id: "review-file-and-network-activity"
-  order: 6
-  name: "Review File and Network Activity"
-  action: "analyze"
-  description: "Review files created or accessed and network connections associated with the startup payload."
-  expected_result: "Related file and network activity is identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Persistence Scope"
-  action: "hunt"
-  description: "Search for the same registry path, value, payload, hash, command line, or persistence pattern across the environment."
-  expected_result: "The prevalence and scope of the registry persistence are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the registry persistence activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Registry Persistence Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, user, registry path, modified value, and timestamp."
+    expected_result: "The suspicious registry persistence event and affected asset are identified."
+  - id: "identify-registry-entry"
+    order: 2
+    name: "Identify Registry Entry"
+    action: "analyze"
+    description: "Determine the registry hive, key, value name, value data, and scope of the startup configuration."
+    expected_result: "The registry persistence entry is documented."
+  - id: "review-modification-context"
+    order: 3
+    name: "Review Modification Context"
+    action: "analyze"
+    description: "Determine which process and account modified the registry entry and correlate the change with nearby events."
+    expected_result: "The registry modification context is established."
+  - id: "review-payload"
+    order: 4
+    name: "Review Startup Payload"
+    action: "analyze"
+    description: "Review the executable, script, command line, file path, hash, and signature referenced by the registry entry."
+    expected_result: "The startup payload and execution context are assessed."
+  - id: "review-execution"
+    order: 5
+    name: "Review Startup Execution"
+    action: "analyze"
+    description: "Correlate the registry entry with subsequent process creation and user logon activity."
+    expected_result: "Startup execution and related process activity are correlated."
+  - id: "review-file-and-network-activity"
+    order: 6
+    name: "Review File and Network Activity"
+    action: "analyze"
+    description: "Review files created or accessed and network connections associated with the startup payload."
+    expected_result: "Related file and network activity is identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Persistence Scope"
+    action: "hunt"
+    description: "Search for the same registry path, value, payload, hash, command line, or persistence pattern across the environment."
+    expected_result: "The prevalence and scope of the registry persistence are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the registry persistence activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -98,6 +98,23 @@ This playbook provides a structured workflow for investigating suspicious regist
 Registry Run Keys and related startup mechanisms are legitimate Windows features that can also be abused to automatically launch programs when a user logs on.
 
 The objective is to determine whether the startup configuration is legitimate, suspicious, or malicious and whether it is associated with additional unauthorized activity.
+
+### Common Registry Locations
+
+Common Windows startup locations include user and machine-level Run keys.
+
+Examples include:
+
+```text
+HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce
+HKLM\Software\Microsoft\Windows\CurrentVersion\Run
+HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce
+```
+
+Registry locations may vary by Windows architecture, user context, or environment configuration.
+
+Do not treat the presence of a Run key as malicious by itself. Investigate the configured value and its execution context.
 
 ## MITRE ATT&CK
 
@@ -142,26 +159,9 @@ The investigation should consider:
 - related alerts;
 - additional affected hosts.
 
-## Common Registry Locations
-
-Common Windows startup locations include user and machine-level Run keys.
-
-Examples include:
-
-```text
-HKCU\Software\Microsoft\Windows\CurrentVersion\Run
-HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce
-HKLM\Software\Microsoft\Windows\CurrentVersion\Run
-HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce
-```
-
-Registry locations may vary by Windows architecture, user context, or environment configuration.
-
-Do not treat the presence of a Run key as malicious by itself. Investigate the configured value and its execution context.
-
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Registry Persistence Alert
 
 Determine:
 
@@ -178,7 +178,7 @@ Determine:
 
 Preserve the original alert context before modifying the registry.
 
-### Step 2 — Identify the Registry Entry
+### Step 2 — Identify Registry Entry
 
 Collect:
 
@@ -387,11 +387,6 @@ For confirmed malicious registry persistence:
 Do not immediately delete the registry entry or referenced payload before required evidence preservation has been completed.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/yara/malware-sample.yar`
-- `detection-rules/yara/obfuscated-powershell.yar`
-- `detection-rules/yara/yara-powershell-payload.yar`
 
 ## Related Playbooks
 
