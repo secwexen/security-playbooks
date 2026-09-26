@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-02T20:38:00Z"
-updated_at: "2026-09-26T17:04:00Z"
+updated_at: "2026-09-26T18:36:00Z"
 description: "Investigate suspected phishing emails and determine whether the message is benign, malicious, or part of a broader account or security incident."
 objective: "Determine the legitimacy, scope, and impact of a suspected phishing message and identify required containment, investigation, or escalation actions."
 severity: "high"
@@ -33,54 +33,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1566/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Phishing Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected recipient, message timestamp, and alert context."
-  expected_result: "The suspected phishing message and affected recipient are identified."
-- id: "review-message"
-  order: 2
-  name: "Review Message Metadata"
-  action: "analyze"
-  description: "Review sender, recipient, subject, headers, authentication results, and delivery information."
-  expected_result: "The message origin and delivery context are documented."
-- id: "analyze-content"
-  order: 3
-  name: "Analyze Message Content"
-  action: "analyze"
-  description: "Review message content, social-engineering indicators, links, attachments, and requested actions."
-  expected_result: "Suspicious content and social-engineering indicators are identified or ruled out."
-- id: "analyze-indicators"
-  order: 4
-  name: "Analyze Indicators"
-  action: "analyze"
-  description: "Investigate sender addresses, domains, URLs, attachment hashes, and other indicators."
-  expected_result: "Relevant indicators are classified and documented."
-- id: "review-recipient-activity"
-  order: 5
-  name: "Review Recipient Activity"
-  action: "investigate"
-  description: "Determine whether the recipient opened the message, followed a link, opened an attachment, submitted credentials, or performed another requested action."
-  expected_result: "Recipient interaction with the phishing message is established."
-- id: "correlate-account-endpoint"
-  order: 6
-  name: "Correlate Account and Endpoint Activity"
-  action: "hunt"
-  description: "Review authentication, endpoint, browser, and network activity following interaction with the message."
-  expected_result: "Potential post-delivery compromise activity is identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Campaign Scope"
-  action: "hunt"
-  description: "Search for the same sender, domain, URL, attachment, subject, or message pattern across the environment."
-  expected_result: "The number of affected recipients and related messages is determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the message and document the supporting evidence and required next action."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Phishing Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected recipient, message timestamp, and alert context."
+    expected_result: "The suspected phishing message and affected recipient are identified."
+  - id: "review-message"
+    order: 2
+    name: "Review Message Metadata"
+    action: "analyze"
+    description: "Review sender, recipient, subject, headers, authentication results, and delivery information."
+    expected_result: "The message origin and delivery context are documented."
+  - id: "analyze-content"
+    order: 3
+    name: "Analyze Message Content"
+    action: "analyze"
+    description: "Review message content, social-engineering indicators, links, attachments, and requested actions."
+    expected_result: "Suspicious content and social-engineering indicators are identified or ruled out."
+  - id: "analyze-indicators"
+    order: 4
+    name: "Analyze Indicators"
+    action: "analyze"
+    description: "Investigate sender addresses, domains, URLs, attachment hashes, and other indicators."
+    expected_result: "Relevant indicators are classified and documented."
+  - id: "review-recipient-activity"
+    order: 5
+    name: "Review Recipient Activity"
+    action: "investigate"
+    description: "Determine whether the recipient opened the message, followed a link, opened an attachment, submitted credentials, or performed another requested action."
+    expected_result: "Recipient interaction with the phishing message is established."
+  - id: "correlate-account-endpoint"
+    order: 6
+    name: "Correlate Account and Endpoint Activity"
+    action: "hunt"
+    description: "Review authentication, endpoint, browser, and network activity following interaction with the message."
+    expected_result: "Potential post-delivery compromise activity is identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Campaign Scope"
+    action: "hunt"
+    description: "Search for the same sender, domain, URL, attachment, subject, or message pattern across the environment."
+    expected_result: "The number of affected recipients and related messages is determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the message and document the supporting evidence and required next action."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
