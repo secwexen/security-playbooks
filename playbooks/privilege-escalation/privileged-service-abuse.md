@@ -3,10 +3,10 @@ id: "privileged-service-abuse"
 name: "Privileged Service Abuse"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-22T16:52:00Z"
-updated_at: "2026-09-24T15:21:00Z"
+updated_at: "2026-09-26T21:31:00Z"
 description: "Privileged Service Abuse involves abusing a Windows service or its execution context to obtain elevated privileges or execute unauthorized code."
 objective: "Identify, investigate, and validate suspicious privileged service activity and determine whether the activity resulted in unauthorized privilege escalation or related malicious behavior."
 severity: "high"
@@ -35,54 +35,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1543/003/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Service Abuse Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, service, account, process, timestamp, and alert context."
-  expected_result: "The suspicious service activity and affected asset are identified."
-- id: "identify-service"
-  order: 2
-  name: "Identify Service Configuration"
-  action: "analyze"
-  description: "Review the service name, display name, executable path, startup type, service account, privileges, and configuration history."
-  expected_result: "The service configuration and execution context are documented."
-- id: "review-service-executable"
-  order: 3
-  name: "Review Service Executable"
-  action: "analyze"
-  description: "Review the service executable, command line, arguments, file path, hash, signature, and referenced files."
-  expected_result: "The service executable and associated artifacts are assessed."
-- id: "review-account-context"
-  order: 4
-  name: "Review Account and Privilege Context"
-  action: "analyze"
-  description: "Determine which account runs the service and whether its privileges and security context are expected."
-  expected_result: "The service account and privilege context are documented."
-- id: "review-process-activity"
-  order: 5
-  name: "Review Process Activity"
-  action: "analyze"
-  description: "Correlate service execution with process creation, parent-child relationships, command lines, and related file activity."
-  expected_result: "Service-related process activity is identified and correlated."
-- id: "review-follow-on-activity"
-  order: 6
-  name: "Review Follow-on Activity"
-  action: "analyze"
-  description: "Review authentication, persistence, credential access, lateral movement, and network activity associated with the service."
-  expected_result: "Related post-escalation or compromise activity is identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Service Abuse Scope"
-  action: "hunt"
-  description: "Search for the same service name, executable, hash, configuration pattern, account, or execution behavior across the environment."
-  expected_result: "The prevalence and scope of the service abuse are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the service activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Service Abuse Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, service, account, process, timestamp, and alert context."
+    expected_result: "The suspicious service activity and affected asset are identified."
+  - id: "identify-service"
+    order: 2
+    name: "Identify Service Configuration"
+    action: "analyze"
+    description: "Review the service name, display name, executable path, startup type, service account, privileges, and configuration history."
+    expected_result: "The service configuration and execution context are documented."
+  - id: "review-service-executable"
+    order: 3
+    name: "Review Service Executable"
+    action: "analyze"
+    description: "Review the service executable, command line, arguments, file path, hash, signature, and referenced files."
+    expected_result: "The service executable and associated artifacts are assessed."
+  - id: "review-account-context"
+    order: 4
+    name: "Review Account and Privilege Context"
+    action: "analyze"
+    description: "Determine which account runs the service and whether its privileges and security context are expected."
+    expected_result: "The service account and privilege context are documented."
+  - id: "review-process-activity"
+    order: 5
+    name: "Review Process Activity"
+    action: "analyze"
+    description: "Correlate service execution with process creation, parent-child relationships, command lines, and related file activity."
+    expected_result: "Service-related process activity is identified and correlated."
+  - id: "review-follow-on-activity"
+    order: 6
+    name: "Review Follow-on Activity"
+    action: "analyze"
+    description: "Review authentication, persistence, credential access, lateral movement, and network activity associated with the service."
+    expected_result: "Related post-escalation or compromise activity is identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Service Abuse Scope"
+    action: "hunt"
+    description: "Search for the same service name, executable, hash, configuration pattern, account, or execution behavior across the environment."
+    expected_result: "The prevalence and scope of the service abuse are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the service activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -151,7 +151,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Service Abuse Alert
 
 Determine:
 
@@ -256,7 +256,7 @@ Review related:
 
 Determine whether service abuse was used as part of a broader attack chain.
 
-### Step 7 — Determine Activity Scope
+### Step 7 — Determine Service Abuse Scope
 
 Search the environment for:
 
@@ -393,8 +393,6 @@ For confirmed malicious service abuse:
 Do not delete or modify the service, executable, logs, or other relevant evidence before required evidence preservation and appropriate authorization have been considered.
 
 ## Related Detection Rules
-
-No dedicated windows-service detection rule is currently available in the repository.
 
 ## Related Playbooks
 
