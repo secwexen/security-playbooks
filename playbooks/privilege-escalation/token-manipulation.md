@@ -3,10 +3,10 @@ id: "token-manipulation"
 name: "Token Manipulation"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-21T14:29:00Z"
-updated_at: "2026-09-21T14:29:00Z"
+updated_at: "2026-09-26T21:46:00Z"
 description: "Token Manipulation involves abusing or modifying access tokens to impersonate users, obtain additional privileges, or execute processes under another security context."
 objective: "Identify, investigate, and validate suspicious access-token manipulation and determine whether token activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -34,54 +34,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1134/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Token Manipulation Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, user or account, process, timestamp, and alert context."
-  expected_result: "The suspicious token-manipulation event and affected asset are identified."
-- id: "identify-token-context"
-  order: 2
-  name: "Identify Token Context"
-  action: "analyze"
-  description: "Determine the token owner, security context, token type, integrity level, privileges, and associated process where telemetry is available."
-  expected_result: "The access-token context and associated security identity are documented."
-- id: "review-process-activity"
-  order: 3
-  name: "Review Process Activity"
-  action: "analyze"
-  description: "Review the affected process, parent process, child processes, command line, executable path, and execution timestamps."
-  expected_result: "The process execution chain associated with the token activity is assessed."
-- id: "review-account-context"
-  order: 4
-  name: "Review Account Context"
-  action: "analyze"
-  description: "Review the token-associated account, privileges, group membership, logon session, and expected administrative context."
-  expected_result: "The account and privilege context is documented and assessed."
-- id: "review-security-context"
-  order: 5
-  name: "Review Security Context Changes"
-  action: "analyze"
-  description: "Review changes in user identity, privileges, integrity level, impersonation state, or process security context associated with the activity."
-  expected_result: "Unexpected security-context changes are identified or ruled out."
-- id: "review-related-activity"
-  order: 6
-  name: "Review Related Activity"
-  action: "analyze"
-  description: "Correlate token activity with authentication events, process creation, file activity, network activity, and other privilege-escalation indicators."
-  expected_result: "Related activity and potential post-escalation behavior are identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Token Manipulation Scope"
-  action: "hunt"
-  description: "Search for the same account, process pattern, token-related behavior, privilege change, or security context across the environment."
-  expected_result: "The prevalence and scope of the token-manipulation activity are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the token-manipulation activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Token Manipulation Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, user or account, process, timestamp, and alert context."
+    expected_result: "The suspicious token-manipulation event and affected asset are identified."
+  - id: "identify-token-context"
+    order: 2
+    name: "Identify Token Context"
+    action: "analyze"
+    description: "Determine the token owner, security context, token type, integrity level, privileges, and associated process where telemetry is available."
+    expected_result: "The access-token context and associated security identity are documented."
+  - id: "review-process-activity"
+    order: 3
+    name: "Review Process Activity"
+    action: "analyze"
+    description: "Review the affected process, parent process, child processes, command line, executable path, and execution timestamps."
+    expected_result: "The process execution chain associated with the token activity is assessed."
+  - id: "review-account-context"
+    order: 4
+    name: "Review Account Context"
+    action: "analyze"
+    description: "Review the token-associated account, privileges, group membership, logon session, and expected administrative context."
+    expected_result: "The account and privilege context is documented and assessed."
+  - id: "review-security-context"
+    order: 5
+    name: "Review Security Context Changes"
+    action: "analyze"
+    description: "Review changes in user identity, privileges, integrity level, impersonation state, or process security context associated with the activity."
+    expected_result: "Unexpected security-context changes are identified or ruled out."
+  - id: "review-related-activity"
+    order: 6
+    name: "Review Related Activity"
+    action: "analyze"
+    description: "Correlate token activity with authentication events, process creation, file activity, network activity, and other privilege-escalation indicators."
+    expected_result: "Related activity and potential post-escalation behavior are identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Token Manipulation Scope"
+    action: "hunt"
+    description: "Search for the same account, process pattern, token-related behavior, privilege change, or security context across the environment."
+    expected_result: "The prevalence and scope of the token-manipulation activity are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the token-manipulation activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -145,7 +145,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Token Manipulation Alert
 
 Determine:
 
@@ -240,7 +240,7 @@ Correlate the token activity with:
 
 Determine whether token manipulation was an isolated event or part of a broader compromise.
 
-### Step 7 — Determine Activity Scope
+### Step 7 — Determine Token Manipulation Scope
 
 Search the environment for:
 
@@ -376,8 +376,6 @@ For confirmed malicious token-manipulation activity:
 Do not terminate or modify relevant processes, accounts, tokens, or logs before required evidence preservation and appropriate authorization have been considered.
 
 ## Related Detection Rules
-
-No dedicated token-manipulation detection rule is currently available in the repository.
 
 ## Related Playbooks
 
