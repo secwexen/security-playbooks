@@ -3,10 +3,10 @@ id: "uac-bypass"
 name: "UAC Bypass"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-24T17:58:00Z"
-updated_at: "2026-09-24T17:58:00Z"
+updated_at: "2026-09-26T21:49:00Z"
 description: "UAC Bypass occurs when an attacker attempts to circumvent Windows User Account Control to execute a process with elevated privileges without following the expected elevation workflow."
 objective: "Identify, investigate, and validate suspicious UAC bypass activity and determine whether unauthorized privilege escalation occurred."
 severity: "high"
@@ -34,54 +34,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1548/002/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify UAC Bypass Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, user account, process, timestamp, integrity level, and alert context."
-  expected_result: "The suspicious UAC-related activity and affected asset are identified."
-- id: "identify-user-context"
-  order: 2
-  name: "Identify User and Privilege Context"
-  action: "analyze"
-  description: "Review the initiating account, group membership, privilege state, and expected administrative role associated with the activity."
-  expected_result: "The initiating user's privilege context and expected elevation behavior are documented."
-- id: "review-process-lineage"
-  order: 3
-  name: "Review Process Lineage"
-  action: "analyze"
-  description: "Review the suspicious process, parent process, ancestor processes, command line, execution path, and child processes to identify abnormal elevation behavior."
-  expected_result: "The process execution chain and potential elevation point are identified."
-- id: "review-uac-indicators"
-  order: 4
-  name: "Review UAC Bypass Indicators"
-  action: "analyze"
-  description: "Investigate the use of auto-elevated Windows components, unusual execution paths, abnormal process relationships, and other indicators associated with UAC bypass activity."
-  expected_result: "Relevant UAC bypass indicators are identified or ruled out."
-- id: "review-registry-activity"
-  order: 5
-  name: "Review Registry Activity"
-  action: "analyze"
-  description: "Review Registry creation and modification events that occurred before, during, or after the suspected UAC bypass activity."
-  expected_result: "Relevant Registry modifications are correlated with the suspicious process activity or determined to be unrelated."
-- id: "validate-elevation"
-  order: 6
-  name: "Validate Privilege Elevation"
-  action: "analyze"
-  description: "Determine whether the suspicious process actually executed with elevated privileges by correlating integrity level, token information, account context, and endpoint telemetry."
-  expected_result: "Privilege elevation is confirmed, ruled out, or remains inconclusive."
-- id: "determine-scope"
-  order: 7
-  name: "Determine UAC Bypass Scope"
-  action: "hunt"
-  description: "Search for the same process, account, execution pattern, Registry activity, hash, or related indicators across the affected environment."
-  expected_result: "The prevalence and scope of the suspected UAC bypass activity are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the UAC bypass activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify UAC Bypass Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, user account, process, timestamp, integrity level, and alert context."
+    expected_result: "The suspicious UAC-related activity and affected asset are identified."
+  - id: "identify-user-context"
+    order: 2
+    name: "Identify User and Privilege Context"
+    action: "analyze"
+    description: "Review the initiating account, group membership, privilege state, and expected administrative role associated with the activity."
+    expected_result: "The initiating user's privilege context and expected elevation behavior are documented."
+  - id: "review-process-lineage"
+    order: 3
+    name: "Review Process Lineage"
+    action: "analyze"
+    description: "Review the suspicious process, parent process, ancestor processes, command line, execution path, and child processes to identify abnormal elevation behavior."
+    expected_result: "The process execution chain and potential elevation point are identified."
+  - id: "review-uac-indicators"
+    order: 4
+    name: "Review UAC Bypass Indicators"
+    action: "analyze"
+    description: "Investigate the use of auto-elevated Windows components, unusual execution paths, abnormal process relationships, and other indicators associated with UAC bypass activity."
+    expected_result: "Relevant UAC bypass indicators are identified or ruled out."
+  - id: "review-registry-activity"
+    order: 5
+    name: "Review Registry Activity"
+    action: "analyze"
+    description: "Review Registry creation and modification events that occurred before, during, or after the suspected UAC bypass activity."
+    expected_result: "Relevant Registry modifications are correlated with the suspicious process activity or determined to be unrelated."
+  - id: "validate-elevation"
+    order: 6
+    name: "Validate Privilege Elevation"
+    action: "analyze"
+    description: "Determine whether the suspicious process actually executed with elevated privileges by correlating integrity level, token information, account context, and endpoint telemetry."
+    expected_result: "Privilege elevation is confirmed, ruled out, or remains inconclusive."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine UAC Bypass Scope"
+    action: "hunt"
+    description: "Search for the same process, account, execution pattern, Registry activity, hash, or related indicators across the affected environment."
+    expected_result: "The prevalence and scope of the suspected UAC bypass activity are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the UAC bypass activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -143,7 +143,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify UAC Bypass Alert
 
 Determine:
 
@@ -230,7 +230,7 @@ Determine:
 
 Determine whether elevated execution actually occurred and whether it was expected.
 
-### Step 7 — Determine Activity Scope
+### Step 7 — Determine UAC Bypass Scope
 
 Search the environment for:
 
@@ -366,8 +366,6 @@ For confirmed malicious UAC bypass activity:
 Do not terminate processes, modify Registry entries, or change endpoint configuration before required evidence preservation and appropriate authorization have been considered.
 
 ## Related Detection Rules
-
-No dedicated UAC bypass detection rule is currently available in the repository.
 
 ## Related Playbooks
 
