@@ -3,10 +3,10 @@ id: "persistence-triage"
 name: "Persistence Triage"
 category: "triage"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-01T14:33:00Z"
-updated_at: "2026-09-20T19:05:00Z"
+updated_at: "2026-09-26T18:00:00Z"
 description: "Investigate suspected persistence mechanisms and determine whether unauthorized persistence is present on an endpoint."
 objective: "Identify, validate, scope, and assess suspected persistence mechanisms and determine whether escalation or containment is required."
 severity: "high"
@@ -146,9 +146,9 @@ The investigation should consider:
 - related detections;
 - additional affected hosts.
 
-## Triage Procedure
+## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Persistence Alert
 
 Determine:
 
@@ -162,7 +162,7 @@ Determine:
 
 Record the original alert before making remediation changes.
 
-### Step 2 — Identify the Persistence Mechanism
+### Step 2 — Identify Persistence Mechanism
 
 Determine the mechanism responsible for automatic execution.
 
@@ -176,6 +176,34 @@ Common categories include:
 - other approved persistence mechanisms.
 
 Collect the mechanism name, location, configuration, creation time, and associated executable or script.
+
+For scheduled tasks, review:
+
+- task name;
+- trigger;
+- action;
+- run-as account;
+- task creation time;
+- task modification time;
+- task history where available.
+
+For services, review:
+
+- service name;
+- display name;
+- binary path;
+- service account;
+- startup type;
+- creation or modification time.
+
+For registry or startup mechanisms, review:
+
+- registry path;
+- value name;
+- value data;
+- associated executable;
+- modification time;
+- associated user or installation activity.
 
 ### Step 3 — Review Execution Context
 
@@ -214,37 +242,7 @@ Pay particular attention to artifacts located in:
 - download locations;
 - unusual system locations.
 
-### Step 5 — Review Configuration Context
-
-For scheduled tasks, review:
-
-- task name;
-- trigger;
-- action;
-- run-as account;
-- task creation time;
-- task modification time;
-- task history where available.
-
-For services, review:
-
-- service name;
-- display name;
-- binary path;
-- service account;
-- startup type;
-- creation or modification time.
-
-For registry or startup mechanisms, review:
-
-- registry path;
-- value name;
-- value data;
-- associated executable;
-- modification time;
-- associated user or installation activity.
-
-### Step 6 — Review Related Events
+### Step 5 — Review Related Events
 
 Correlate the persistence event with:
 
@@ -261,7 +259,7 @@ Correlate the persistence event with:
 
 Determine whether the persistence mechanism appeared before or after other suspicious activity.
 
-### Step 7 — Determine Environmental Scope
+### Step 6 — Determine Scope
 
 Search across the environment for:
 
@@ -281,7 +279,7 @@ Determine:
 - most recent observed time;
 - whether the mechanism remains active.
 
-### Step 8 — Assess Persistence
+### Step 7 — Assess Persistence
 
 Determine whether the mechanism is:
 
@@ -301,7 +299,7 @@ Consider:
 
 A persistence mechanism should not be classified as malicious solely because it uses a scheduled task, service, registry entry, or startup mechanism.
 
-### Step 9 — Determine Investigation Outcome
+### Step 8 — Determine Investigation Outcome
 
 Classify the finding as:
 
@@ -411,11 +409,6 @@ For confirmed malicious persistence:
 Do not remove or modify persistence artifacts before required evidence preservation has been completed.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/yara/malware-sample.yar`
-- `detection-rules/yara/obfuscated-powershell.yar`
-- `detection-rules/yara/yara-powershell-payload.yar`
 
 ## Related Playbooks
 
