@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-09-20T18:33:00Z"
-updated_at: "2026-09-20T18:33:00Z"
+updated_at: "2026-09-26T21:41:00Z"
 description: "Weak permissions on Windows service files or registry configuration may allow unauthorized modification of service execution behavior and privilege escalation."
 objective: "Identify, investigate, and validate suspicious abuse of weak Windows service permissions and determine whether the activity enabled unauthorized privilege escalation."
 severity: "high"
@@ -39,54 +39,54 @@ references:
   - "https://attack.mitre.org/techniques/T1574/010/"
   - "https://attack.mitre.org/techniques/T1574/011/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Service Permission Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, user, service, modified resource, and relevant timestamps."
-  expected_result: "The suspicious service permission activity and affected asset are identified."
-- id: "identify-target-service"
-  order: 2
-  name: "Identify Target Service"
-  action: "analyze"
-  description: "Determine which Windows service, executable, directory, or registry configuration was affected and document its normal security context."
-  expected_result: "The affected service and targeted resource are documented."
-- id: "review-permissions"
-  order: 3
-  name: "Review Service Permissions"
-  action: "analyze"
-  description: "Review file system ACLs, service configuration permissions, registry permissions, ownership, and the account that performed the modification."
-  expected_result: "The relevant permission weakness and modifying account are assessed."
-- id: "review-process-context"
-  order: 4
-  name: "Review Process Context"
-  action: "analyze"
-  description: "Review the modifying process, executable path, hash, signer, parent process, command line, account context, and execution timeline."
-  expected_result: "The process responsible for the service modification is identified and assessed."
-- id: "review-follow-on-execution"
-  order: 5
-  name: "Review Follow-on Execution"
-  action: "analyze"
-  description: "Determine whether the modified service or service executable was subsequently started and whether execution occurred under an elevated context."
-  expected_result: "Potential privilege escalation through service execution is identified or ruled out."
-- id: "assess-privilege-impact"
-  order: 6
-  name: "Assess Privilege Impact"
-  action: "analyze"
-  description: "Determine the privileges obtained by the resulting process and assess whether the activity provided unauthorized access to SYSTEM or another privileged context."
-  expected_result: "The privilege impact of the service modification is documented."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Service Abuse Scope"
-  action: "hunt"
-  description: "Search for the same service, process, hash, account, permission change, or related service modification across the environment."
-  expected_result: "The prevalence and scope of the service permission abuse are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the service permission activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Service Permission Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, user, service, modified resource, and relevant timestamps."
+    expected_result: "The suspicious service permission activity and affected asset are identified."
+  - id: "identify-target-service"
+    order: 2
+    name: "Identify Target Service"
+    action: "analyze"
+    description: "Determine which Windows service, executable, directory, or registry configuration was affected and document its normal security context."
+    expected_result: "The affected service and targeted resource are documented."
+  - id: "review-permissions"
+    order: 3
+    name: "Review Service Permissions"
+    action: "analyze"
+    description: "Review file system ACLs, service configuration permissions, registry permissions, ownership, and the account that performed the modification."
+    expected_result: "The relevant permission weakness and modifying account are assessed."
+  - id: "review-process-context"
+    order: 4
+    name: "Review Process Context"
+    action: "analyze"
+    description: "Review the modifying process, executable path, hash, signer, parent process, command line, account context, and execution timeline."
+    expected_result: "The process responsible for the service modification is identified and assessed."
+  - id: "review-follow-on-execution"
+    order: 5
+    name: "Review Follow-on Execution"
+    action: "analyze"
+    description: "Determine whether the modified service or service executable was subsequently started and whether execution occurred under an elevated context."
+    expected_result: "Potential privilege escalation through service execution is identified or ruled out."
+  - id: "assess-privilege-impact"
+    order: 6
+    name: "Assess Privilege Impact"
+    action: "analyze"
+    description: "Determine the privileges obtained by the resulting process and assess whether the activity provided unauthorized access to SYSTEM or another privileged context."
+    expected_result: "The privilege impact of the service modification is documented."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Service Abuse Scope"
+    action: "hunt"
+    description: "Search for the same service, process, hash, account, permission change, or related service modification across the environment."
+    expected_result: "The prevalence and scope of the service permission abuse are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the service permission activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -103,6 +103,25 @@ This playbook provides a structured workflow for investigating suspicious abuse 
 Weak permissions on service executables, directories, or service-related Registry configuration can allow an unprivileged user to modify resources used by a higher-privileged service. If the modified resource is subsequently executed by the service, the resulting process may run with elevated privileges. MITRE ATT&CK tracks these behaviors under Services File Permissions Weakness and Services Registry Permissions Weakness.
 
 The objective is to determine whether the service permission activity is legitimate, suspicious, or malicious and whether it resulted in unauthorized privilege escalation.
+
+### Service Permission Context
+
+Windows services may execute under privileged service accounts such as **LocalSystem**, depending on their configuration.
+
+Weak file, directory, or Registry permissions can allow an account that should not manage a service to modify resources used by that service.
+
+Legitimate service modifications may be generated by:
+
+- approved software installation;
+- authorized administrators;
+- endpoint management software;
+- approved patching and maintenance;
+- legitimate software updates;
+- authorized security tooling.
+
+The presence of a service modification alone is not evidence of malicious activity.
+
+The investigation should focus on the **permission context, modifying account, affected resource, service execution, resulting process, timing, and authorization**.
 
 ## MITRE ATT&CK
 
@@ -156,28 +175,9 @@ The investigation should consider:
 - related alerts;
 - other affected hosts.
 
-## Service Permission Context
-
-Windows services may execute under privileged service accounts such as **LocalSystem**, depending on their configuration.
-
-Weak file, directory, or Registry permissions can allow an account that should not manage a service to modify resources used by that service.
-
-Legitimate service modifications may be generated by:
-
-- approved software installation;
-- authorized administrators;
-- endpoint management software;
-- approved patching and maintenance;
-- legitimate software updates;
-- authorized security tooling.
-
-The presence of a service modification alone is not evidence of malicious activity.
-
-The investigation should focus on the **permission context, modifying account, affected resource, service execution, resulting process, timing, and authorization**.
-
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Service Permission Alert
 
 Determine:
 
@@ -420,8 +420,6 @@ For confirmed malicious service permission abuse:
 Do not modify or delete relevant evidence before required evidence preservation has been completed.
 
 ## Related Detection Rules
-
-No dedicated service-permission detection rule is currently available in the repository.
 
 ## Related Playbooks
 
