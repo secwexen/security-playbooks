@@ -3,10 +3,10 @@ id: "data-exfiltration-triage"
 name: "Data Exfiltration Triage"
 category: "triage"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-03T17:10:00Z"
-updated_at: "2026-09-20T18:58:00Z"
+updated_at: "2026-09-26T17:15:00Z"
 description: "Investigate suspected unauthorized data exfiltration and determine whether data was transferred outside the organization's authorized environment."
 objective: "Determine whether data exfiltration occurred, identify the affected data and transfer path, establish scope, and determine whether incident response is required."
 severity: "critical"
@@ -144,9 +144,9 @@ The investigation should consider:
 - related detections;
 - additional affected hosts or accounts.
 
-## Triage Procedure
+## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Exfiltration Alert
 
 Determine:
 
@@ -201,7 +201,7 @@ Review:
 - session duration;
 - connection pattern.
 
-Determine whether the volume and timing are consistent with legitimate business activity.
+Determine whether the volume, timing, and transfer pattern are consistent with established baseline activity or approved business processes.
 
 Pay attention to:
 
@@ -257,24 +257,7 @@ Determine whether the destination is:
 
 Consider whether the destination is commonly used for legitimate business transfers or whether it presents an unusual data-transfer path.
 
-### Step 6 — Review Staging and Preparation Activity
-
-Search for evidence that data was prepared before transfer.
-
-Review:
-
-- archive creation;
-- compression;
-- temporary staging directories;
-- file collection;
-- file copies;
-- renaming;
-- encryption;
-- creation of large temporary files.
-
-Correlate staging activity with subsequent outbound connections.
-
-### Step 7 — Correlate Related Activity
+### Step 6 — Correlate Related Activity
 
 Search for:
 
@@ -290,9 +273,22 @@ Search for:
 - persistence;
 - credential access.
 
+Also review evidence that data was prepared before transfer, including:
+
+- archive creation;
+- compression;
+- temporary staging directories;
+- file collection;
+- file copies;
+- renaming;
+- encryption;
+- creation of large temporary files.
+
+Correlate staging activity with subsequent outbound connections.
+
 Determine whether the suspected exfiltration is part of a larger attack chain.
 
-### Step 8 — Determine Environmental Scope
+### Step 7 — Determine Exfiltration Scope
 
 Search across the environment for:
 
@@ -313,7 +309,7 @@ Determine:
 - latest observed activity;
 - whether the transfer is still active.
 
-### Step 9 — Determine Investigation Outcome
+### Step 8 — Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -426,8 +422,7 @@ Do not destroy staging files, logs, or other relevant evidence before required e
 
 ## Related Detection Rules
 
-- `detection-rules/suricata/network-alert.rules`
-- `detection-rules/suricata/powershell-alert.rules`
+- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
