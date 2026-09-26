@@ -3,10 +3,10 @@ id: "unquoted-service-path"
 name: "Unquoted Service Path"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-23T15:39:00Z"
-updated_at: "2026-09-23T15:39:00Z"
+updated_at: "2026-09-26T21:54:00Z"
 description: "Unquoted Service Path abuse occurs when a Windows service executable path containing spaces is not enclosed in quotation marks and can be intercepted by an unintended executable."
 objective: "Identify, investigate, and validate suspicious unquoted service paths and determine whether path interception could result in unauthorized execution, privilege escalation, persistence, or related malicious activity."
 severity: "high"
@@ -35,54 +35,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1574/009/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Unquoted Service Path Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, service, executable path, account, timestamp, and alert context."
-  expected_result: "The suspicious service path condition and affected asset are identified."
-- id: "identify-service-path"
-  order: 2
-  name: "Identify Service Path"
-  action: "analyze"
-  description: "Review the service name, executable path, startup configuration, service account, and whether the path contains spaces without quotation marks."
-  expected_result: "The service configuration and potential path-interception condition are documented."
-- id: "review-path-resolution"
-  order: 3
-  name: "Review Path Resolution"
-  action: "analyze"
-  description: "Determine the executable resolution order for the service path and identify directories where an unintended executable could be resolved."
-  expected_result: "Potential interception points in the service path are identified."
-- id: "review-file-activity"
-  order: 4
-  name: "Review File and Directory Activity"
-  action: "analyze"
-  description: "Review executable creation, modification, and placement in directories that could affect resolution of the unquoted service path."
-  expected_result: "Suspicious file or directory activity associated with the service path is identified or ruled out."
-- id: "review-process-activity"
-  order: 5
-  name: "Review Process Activity"
-  action: "analyze"
-  description: "Correlate service startup with process creation, executable path, parent-child relationships, account context, and execution timestamps."
-  expected_result: "Service-related process activity is documented and correlated."
-- id: "review-privilege-context"
-  order: 6
-  name: "Review Privilege Context"
-  action: "analyze"
-  description: "Determine the security context under which the service executes and assess whether intercepted execution could provide elevated privileges."
-  expected_result: "The privilege impact of the service execution context is established."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Unquoted Path Scope"
-  action: "hunt"
-  description: "Search for the same service path pattern, service configuration, executable, file hash, or suspicious parent-directory artifact across the environment."
-  expected_result: "The prevalence and scope of potentially vulnerable service paths are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the unquoted service path activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Unquoted Service Path Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, service, executable path, account, timestamp, and alert context."
+    expected_result: "The suspicious service path condition and affected asset are identified."
+  - id: "identify-service-path"
+    order: 2
+    name: "Identify Service Path"
+    action: "analyze"
+    description: "Review the service name, executable path, startup configuration, service account, and whether the path contains spaces without quotation marks."
+    expected_result: "The service configuration and potential path-interception condition are documented."
+  - id: "review-path-resolution"
+    order: 3
+    name: "Review Path Resolution"
+    action: "analyze"
+    description: "Determine the executable resolution order for the service path and identify directories where an unintended executable could be resolved."
+    expected_result: "Potential interception points in the service path are identified."
+  - id: "review-file-activity"
+    order: 4
+    name: "Review File and Directory Activity"
+    action: "analyze"
+    description: "Review executable creation, modification, and placement in directories that could affect resolution of the unquoted service path."
+    expected_result: "Suspicious file or directory activity associated with the service path is identified or ruled out."
+  - id: "review-process-activity"
+    order: 5
+    name: "Review Process Activity"
+    action: "analyze"
+    description: "Correlate service startup with process creation, executable path, parent-child relationships, account context, and execution timestamps."
+    expected_result: "Service-related process activity is documented and correlated."
+  - id: "review-privilege-context"
+    order: 6
+    name: "Review Privilege Context"
+    action: "analyze"
+    description: "Determine the security context under which the service executes and assess whether intercepted execution could provide elevated privileges."
+    expected_result: "The privilege impact of the service execution context is established."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Unquoted Path Scope"
+    action: "hunt"
+    description: "Search for the same service path pattern, service configuration, executable, file hash, or suspicious parent-directory artifact across the environment."
+    expected_result: "The prevalence and scope of potentially vulnerable service paths are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the unquoted service path activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -147,7 +147,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Unquoted Service Path Alert
 
 Determine:
 
@@ -163,7 +163,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Identify the Service Path
+### Step 2 — Identify Service Path
 
 Collect:
 
@@ -249,7 +249,7 @@ Determine:
 
 Assess whether an intercepted executable would execute with a more privileged context than the user who could place or modify the executable.
 
-### Step 7 — Determine Activity Scope
+### Step 7 — Determine Unquoted Path Scope
 
 Search across the environment for:
 
@@ -380,8 +380,6 @@ For confirmed malicious unquoted service path abuse:
 Do not modify service paths, delete suspicious executables, or alter relevant evidence before required preservation and authorization have been considered.
 
 ## Related Detection Rules
-
-No dedicated unquoted-service-path detection rule is currently available in the repository.
 
 ## Related Playbooks
 
