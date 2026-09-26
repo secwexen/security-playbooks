@@ -3,10 +3,10 @@ id: "service-persistence"
 name: "Windows Service Persistence"
 category: "persistence"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-14T16:15:00Z"
-updated_at: "2026-09-20T19:19:00Z"
+updated_at: "2026-09-26T22:13:00Z"
 description: "Windows services can be configured to start automatically and may be abused to establish persistence on Windows systems."
 objective: "Identify, investigate, and validate suspicious Windows service persistence and determine whether the service configuration or associated executable is legitimate, suspicious, or malicious."
 severity: "high"
@@ -34,54 +34,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1543/003/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Service Persistence Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, service name, account, creation or modification event, and timestamp."
-  expected_result: "The suspicious service persistence event and affected asset are identified."
-- id: "identify-service"
-  order: 2
-  name: "Identify Windows Service"
-  action: "analyze"
-  description: "Determine the service name, display name, service type, startup mode, executable path, service account, and configuration."
-  expected_result: "The service configuration is documented."
-- id: "review-service-lifecycle"
-  order: 3
-  name: "Review Service Lifecycle"
-  action: "analyze"
-  description: "Review service creation, modification, startup, stop, and deletion events and correlate them with administrative activity."
-  expected_result: "The service lifecycle and relevant changes are established."
-- id: "review-payload"
-  order: 4
-  name: "Review Service Payload"
-  action: "analyze"
-  description: "Review the executable path, command line, arguments, file hash, signature, and associated files referenced by the service."
-  expected_result: "The service payload and execution context are assessed."
-- id: "review-account-context"
-  order: 5
-  name: "Review Service Account"
-  action: "analyze"
-  description: "Determine which account runs the service and whether the configured identity and privileges are expected."
-  expected_result: "The service account and privilege context are documented."
-- id: "review-execution"
-  order: 6
-  name: "Review Service Execution"
-  action: "analyze"
-  description: "Correlate service startup with process creation, parent-child relationships, file activity, and network activity."
-  expected_result: "Service execution and resulting activity are correlated."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Persistence Scope"
-  action: "hunt"
-  description: "Search for the same service name, executable, hash, command line, account, or persistence pattern across the environment."
-  expected_result: "The prevalence and scope of the service persistence are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the service persistence activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Service Persistence Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, service name, account, creation or modification event, and timestamp."
+    expected_result: "The suspicious service persistence event and affected asset are identified."
+  - id: "identify-service"
+    order: 2
+    name: "Identify Windows Service"
+    action: "analyze"
+    description: "Determine the service name, display name, service type, startup mode, executable path, service account, and configuration."
+    expected_result: "The service configuration is documented."
+  - id: "review-service-lifecycle"
+    order: 3
+    name: "Review Service Lifecycle"
+    action: "analyze"
+    description: "Review service creation, modification, startup, stop, and deletion events and correlate them with administrative activity."
+    expected_result: "The service lifecycle and relevant changes are established."
+  - id: "review-payload"
+    order: 4
+    name: "Review Service Payload"
+    action: "analyze"
+    description: "Review the executable path, command line, arguments, file hash, signature, and associated files referenced by the service."
+    expected_result: "The service payload and execution context are assessed."
+  - id: "review-account-context"
+    order: 5
+    name: "Review Service Account"
+    action: "analyze"
+    description: "Determine which account runs the service and whether the configured identity and privileges are expected."
+    expected_result: "The service account and privilege context are documented."
+  - id: "review-execution"
+    order: 6
+    name: "Review Service Execution"
+    action: "analyze"
+    description: "Correlate service startup with process creation, parent-child relationships, file activity, and network activity."
+    expected_result: "Service execution and resulting activity are correlated."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Persistence Scope"
+    action: "hunt"
+    description: "Search for the same service name, executable, hash, command line, account, or persistence pattern across the environment."
+    expected_result: "The prevalence and scope of the service persistence are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the service persistence activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -147,7 +147,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Service Persistence Alert
 
 Determine:
 
@@ -162,7 +162,7 @@ Determine:
 
 Preserve the original alert context before modifying or removing the service.
 
-### Step 2 — Identify the Windows Service
+### Step 2 — Identify Windows Service
 
 Collect:
 
@@ -388,11 +388,6 @@ For confirmed malicious service persistence:
 Do not immediately delete or modify the suspicious service before required evidence preservation has been completed.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/yara/malware-sample.yar`
-- `detection-rules/yara/obfuscated-powershell.yar`
-- `detection-rules/yara/yara-powershell-payload.yar`
 
 ## Related Playbooks
 
