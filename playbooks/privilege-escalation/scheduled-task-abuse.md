@@ -3,10 +3,10 @@ id: "scheduled-task-abuse"
 name: "Scheduled Task Abuse"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-22T15:14:00Z"
-updated_at: "2026-09-22T15:14:00Z"
+updated_at: "2026-09-26T21:34:00Z"
 description: "Scheduled Task Abuse involves using Windows scheduled tasks to execute programs under an elevated or otherwise unauthorized security context."
 objective: "Identify, investigate, and validate suspicious scheduled task abuse and determine whether scheduled execution resulted in unauthorized privilege escalation or related malicious activity."
 severity: "high"
@@ -36,54 +36,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1053/005/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Scheduled Task Abuse Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, task, account, execution context, timestamp, and alert details."
-  expected_result: "The suspicious scheduled task activity and affected asset are identified."
-- id: "identify-task-context"
-  order: 2
-  name: "Identify Task Context"
-  action: "analyze"
-  description: "Review the task name, path, trigger, action, run-as account, privilege level, creation time, and modification history."
-  expected_result: "The scheduled task configuration and security context are documented."
-- id: "review-action"
-  order: 3
-  name: "Review Scheduled Action"
-  action: "analyze"
-  description: "Review the executable, script, command line, arguments, working directory, and referenced files."
-  expected_result: "The scheduled action and execution parameters are assessed."
-- id: "review-account-privileges"
-  order: 4
-  name: "Review Account and Privileges"
-  action: "analyze"
-  description: "Determine which account executes the task and whether the assigned privileges and security context are expected."
-  expected_result: "The account, privilege level, and expected security context are established."
-- id: "review-process-activity"
-  order: 5
-  name: "Review Process Activity"
-  action: "analyze"
-  description: "Correlate task execution with process creation, parent-child relationships, command lines, and related file activity."
-  expected_result: "The process activity associated with the scheduled task is documented."
-- id: "review-follow-on-activity"
-  order: 6
-  name: "Review Follow-on Activity"
-  action: "analyze"
-  description: "Review authentication, persistence, credential access, lateral movement, and network activity associated with the scheduled task."
-  expected_result: "Related post-execution or privilege-escalation activity is identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Scheduled Task Abuse Scope"
-  action: "hunt"
-  description: "Search for the same task, action, executable, account, privilege context, or execution pattern across the environment."
-  expected_result: "The prevalence and scope of the scheduled task abuse are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the scheduled task activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Scheduled Task Abuse Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, task, account, execution context, timestamp, and alert details."
+    expected_result: "The suspicious scheduled task activity and affected asset are identified."
+  - id: "identify-task-context"
+    order: 2
+    name: "Identify Task Context"
+    action: "analyze"
+    description: "Review the task name, path, trigger, action, run-as account, privilege level, creation time, and modification history."
+    expected_result: "The scheduled task configuration and security context are documented."
+  - id: "review-action"
+    order: 3
+    name: "Review Scheduled Action"
+    action: "analyze"
+    description: "Review the executable, script, command line, arguments, working directory, and referenced files."
+    expected_result: "The scheduled action and execution parameters are assessed."
+  - id: "review-account-privileges"
+    order: 4
+    name: "Review Account and Privileges"
+    action: "analyze"
+    description: "Determine which account executes the task and whether the assigned privileges and security context are expected."
+    expected_result: "The account, privilege level, and expected security context are established."
+  - id: "review-process-activity"
+    order: 5
+    name: "Review Process Activity"
+    action: "analyze"
+    description: "Correlate task execution with process creation, parent-child relationships, command lines, and related file activity."
+    expected_result: "The process activity associated with the scheduled task is documented."
+  - id: "review-follow-on-activity"
+    order: 6
+    name: "Review Follow-on Activity"
+    action: "analyze"
+    description: "Review authentication, persistence, credential access, lateral movement, and network activity associated with the scheduled task."
+    expected_result: "Related post-execution or privilege-escalation activity is identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Scheduled Task Abuse Scope"
+    action: "hunt"
+    description: "Search for the same task, action, executable, account, privilege context, or execution pattern across the environment."
+    expected_result: "The prevalence and scope of the scheduled task abuse are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the scheduled task activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -152,7 +152,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Scheduled Task Abuse Alert
 
 Determine:
 
@@ -252,7 +252,7 @@ Review activity associated with the task, including:
 
 Determine whether the scheduled task was used as part of a broader compromise.
 
-### Step 7 — Determine Activity Scope
+### Step 7 — Determine Scheduled Task Abuse Scope
 
 Search the environment for:
 
@@ -388,8 +388,6 @@ For confirmed malicious scheduled task abuse:
 Do not delete or modify the scheduled task, referenced files, or relevant logs before required evidence preservation and appropriate authorization have been considered.
 
 ## Related Detection Rules
-
-No dedicated scheduled-task detection rule is currently available in the repository.
 
 ## Related Playbooks
 
