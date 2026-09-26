@@ -3,10 +3,10 @@ id: "phishing-alert-triage"
 name: "Phishing Alert Triage"
 category: "triage"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-02T20:38:00Z"
-updated_at: "2026-09-20T19:06:00Z"
+updated_at: "2026-09-26T17:04:00Z"
 description: "Investigate suspected phishing emails and determine whether the message is benign, malicious, or part of a broader account or security incident."
 objective: "Determine the legitimacy, scope, and impact of a suspected phishing message and identify required containment, investigation, or escalation actions."
 severity: "high"
@@ -144,9 +144,9 @@ The investigation should consider:
 - related messages;
 - additional affected recipients.
 
-## Triage Procedure
+## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Phishing Alert
 
 Determine:
 
@@ -193,7 +193,7 @@ Review:
 
 A suspicious characteristic alone should not establish malicious intent. Correlate content with technical indicators and recipient activity.
 
-### Step 4 — Analyze URLs and Attachments
+### Step 4 — Analyze Indicators
 
 For URLs, collect:
 
@@ -292,7 +292,7 @@ Document the evidence supporting the classification.
 | URLs               | Links and destination domains                        |
 | Attachments        | Names, types, and hashes                             |
 | Recipient Activity | User interaction with the message                    |
-| Authentication     | Related account activity                             |
+| Account            | Related account activity                             |
 | Endpoint           | Related process and file activity                    |
 | Network            | Related network connections                          |
 | Campaign           | Related messages and affected recipients             |
