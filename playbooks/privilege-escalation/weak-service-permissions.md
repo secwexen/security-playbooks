@@ -3,10 +3,10 @@ id: "weak-service-permissions"
 name: "Weak Service Permissions"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-24T15:19:00Z"
-updated_at: "2026-09-24T15:19:00Z"
+updated_at: "2026-09-26T21:59:00Z"
 description: "Weak Service Permissions occur when a Windows service executable or its containing directory can be modified by an unauthorized user, allowing replacement or modification of the service binary."
 objective: "Identify, investigate, and validate suspicious service file or directory permissions and determine whether weak permissions enabled unauthorized execution, privilege escalation, persistence, or related malicious activity."
 severity: "high"
@@ -35,54 +35,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1574/010/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Weak Service Permission Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, service, executable, account, permissions, timestamp, and alert context."
-  expected_result: "The suspicious service permission condition and affected asset are identified."
-- id: "identify-service"
-  order: 2
-  name: "Identify Service Configuration"
-  action: "analyze"
-  description: "Review the service name, executable path, service account, startup configuration, and expected ownership."
-  expected_result: "The affected service and its execution context are documented."
-- id: "review-permissions"
-  order: 3
-  name: "Review File and Directory Permissions"
-  action: "analyze"
-  description: "Review permissions and ownership on the service executable and its parent directories to determine whether unauthorized users can modify or replace the executable."
-  expected_result: "Potential unauthorized write or modification rights are identified or ruled out."
-- id: "review-file-activity"
-  order: 4
-  name: "Review File Activity"
-  action: "analyze"
-  description: "Review creation, modification, replacement, ownership, hashes, signatures, and timestamps for the service executable and related files."
-  expected_result: "Suspicious service-file activity is identified or ruled out."
-- id: "review-process-activity"
-  order: 5
-  name: "Review Process Activity"
-  action: "analyze"
-  description: "Correlate service execution with process creation, executable paths, parent-child relationships, command lines, and execution timestamps."
-  expected_result: "Service-related process activity is documented and correlated."
-- id: "review-privilege-context"
-  order: 6
-  name: "Review Privilege Context"
-  action: "analyze"
-  description: "Determine the security context under which the service executes and assess the privilege impact of unauthorized service binary modification."
-  expected_result: "The potential privilege-escalation impact is established."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Weak Permission Scope"
-  action: "hunt"
-  description: "Search for the same service executable, permission pattern, file hash, directory configuration, or affected account across the environment."
-  expected_result: "The prevalence and scope of the weak service permission condition are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the service permission activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Weak Service Permission Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, service, executable, account, permissions, timestamp, and alert context."
+    expected_result: "The suspicious service permission condition and affected asset are identified."
+  - id: "identify-service"
+    order: 2
+    name: "Identify Service Configuration"
+    action: "analyze"
+    description: "Review the service name, executable path, service account, startup configuration, and expected ownership."
+    expected_result: "The affected service and its execution context are documented."
+  - id: "review-permissions"
+    order: 3
+    name: "Review File and Directory Permissions"
+    action: "analyze"
+    description: "Review permissions and ownership on the service executable and its parent directories to determine whether unauthorized users can modify or replace the executable."
+    expected_result: "Potential unauthorized write or modification rights are identified or ruled out."
+  - id: "review-file-activity"
+    order: 4
+    name: "Review File Activity"
+    action: "analyze"
+    description: "Review creation, modification, replacement, ownership, hashes, signatures, and timestamps for the service executable and related files."
+    expected_result: "Suspicious service-file activity is identified or ruled out."
+  - id: "review-process-activity"
+    order: 5
+    name: "Review Process Activity"
+    action: "analyze"
+    description: "Correlate service execution with process creation, executable paths, parent-child relationships, command lines, and execution timestamps."
+    expected_result: "Service-related process activity is documented and correlated."
+  - id: "review-privilege-context"
+    order: 6
+    name: "Review Privilege Context"
+    action: "analyze"
+    description: "Determine the security context under which the service executes and assess the privilege impact of unauthorized service binary modification."
+    expected_result: "The potential privilege-escalation impact is established."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Weak Permission Scope"
+    action: "hunt"
+    description: "Search for the same service executable, permission pattern, file hash, directory configuration, or affected account across the environment."
+    expected_result: "The prevalence and scope of the weak service permission condition are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the service permission activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -147,7 +147,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Weak Service Permission Alert
 
 Determine:
 
@@ -246,7 +246,7 @@ Determine:
 
 Assess whether unauthorized modification of the service executable could result in execution under a more privileged context.
 
-### Step 7 — Determine Activity Scope
+### Step 7 — Determine Weak Permission Scope
 
 Search the environment for:
 
@@ -382,8 +382,6 @@ For confirmed malicious weak service permission abuse:
 Do not modify service files, permissions, or configuration before required evidence preservation and appropriate authorization have been considered.
 
 ## Related Detection Rules
-
-No dedicated weak-service detection rule is currently available in the repository.
 
 ## Related Playbooks
 
