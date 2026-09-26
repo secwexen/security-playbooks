@@ -3,10 +3,10 @@ id: "suspicious-process-triage"
 name: "Suspicious Process Triage"
 category: "triage"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-08-30T10:56:00Z"
-updated_at: "2026-09-20T19:13:00Z"
+updated_at: "2026-09-26T18:48:00Z"
 description: "Investigate suspicious process execution and determine whether the observed process activity is benign, suspicious, or malicious."
 objective: "Determine the legitimacy, execution chain, scope, and potential impact of suspicious process activity and provide evidence for escalation or closure."
 severity: "high"
@@ -144,9 +144,9 @@ The investigation should consider:
 - persistence mechanisms;
 - related processes on other hosts.
 
-## Triage Procedure
+## Investigation Procedure
 
-### Step 1 — Identify the Affected Host
+### Step 1 — Identify Affected Host
 
 Collect:
 
@@ -165,7 +165,7 @@ Determine whether the endpoint is:
 - a domain controller; or
 - another security-sensitive system.
 
-### Step 2 — Identify the Associated User
+### Step 2 — Identify Associated User
 
 Determine which account initiated or was associated with the process.
 
@@ -186,7 +186,7 @@ Determine whether the account is:
 - a service account; or
 - unexpected for the affected host.
 
-### Step 3 — Review the Process Tree
+### Step 3 — Review Process Tree
 
 Review:
 
@@ -195,7 +195,16 @@ Review:
 - grandparent process where available;
 - child processes;
 - process creation order;
-- process creation timestamps.
+- process creation timestamps;
+- process ID;
+- parent process ID;
+- process start time;
+- integrity level;
+- session ID;
+- account context;
+- executable path;
+- command line;
+- loaded modules where available.
 
 Pay particular attention to unexpected relationships such as:
 
@@ -225,7 +234,7 @@ Inspect the command line for:
 
 Capture the complete command line when available.
 
-### Step 5 — Review Executable and File Context
+### Step 5 — Review File Context
 
 Collect:
 
@@ -249,23 +258,7 @@ Pay particular attention to executables located in:
 
 Compare the observed executable with known-good software and approved administrative tooling.
 
-### Step 6 — Review Process Metadata
-
-Collect:
-
-- process ID;
-- parent process ID;
-- process start time;
-- integrity level;
-- session ID;
-- account context;
-- executable path;
-- command line;
-- loaded modules where available.
-
-Investigate unexpected privilege or integrity changes.
-
-### Step 7 — Review Network Activity
+### Step 6 — Review Network Activity
 
 Determine whether the process generated network activity.
 
@@ -288,7 +281,7 @@ Prioritize investigation when the process communicates with:
 - unusual ports or protocols;
 - destinations unrelated to the expected application function.
 
-### Step 8 — Correlate Related Events
+### Step 7 — Correlate Related Events
 
 Search for related activity involving:
 
@@ -311,6 +304,19 @@ Search across the environment for:
 - the same parent-child relationship;
 - the same destination;
 - the same user activity.
+
+### Step 8 — Determine Investigation Outcome
+
+Classify the process activity as:
+
+- **Benign**
+- **Suspicious**
+- **Malicious**
+- **Inconclusive**
+
+Document the evidence supporting the classification.
+
+Ensure that the final classification is supported by the available process, user, file, network, and correlated event evidence.
 
 ## Evidence to Collect
 
@@ -416,15 +422,8 @@ Do not delete suspicious artifacts before required evidence preservation has bee
 
 ## Related Detection Rules
 
-- `detection-rules/sigma/sigma-powershell-exec.yml`
 - `detection-rules/sigma/lsass-access.yml`
-- `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/yara/malware-sample.yar`
-- `detection-rules/yara/obfuscated-powershell.yar`
-- `detection-rules/yara/yara-powershell-payload.yar`
 - `detection-rules/suricata/network-alert.rules`
-- `detection-rules/suricata/powershell-alert.rules`
-- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
