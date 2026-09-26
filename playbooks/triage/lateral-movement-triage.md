@@ -3,10 +3,10 @@ id: "lateral-movement-triage"
 name: "Lateral Movement Triage"
 category: "triage"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-04T21:10:00Z"
-updated_at: "2026-09-20T19:01:00Z"
+updated_at: "2026-09-26T17:29:00Z"
 description: "Investigate suspected lateral movement activity and determine whether unauthorized access or remote execution occurred between systems."
 objective: "Determine the source, destination, technique, scope, and legitimacy of suspected lateral movement and identify whether containment or incident response is required."
 severity: "high"
@@ -145,9 +145,9 @@ The investigation should consider:
 - persistence;
 - additional affected hosts.
 
-## Triage Procedure
+## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Lateral Movement Alert
 
 Determine:
 
@@ -257,7 +257,7 @@ Search for related:
 
 Determine whether the lateral movement occurred before or after another suspicious event.
 
-### Step 7 — Determine Environmental Scope
+### Step 7 — Determine Movement Scope
 
 Search across the environment for:
 
@@ -387,9 +387,6 @@ For confirmed malicious lateral movement:
 Do not terminate sessions, disable accounts, or isolate systems before required evidence preservation and appropriate authorization have been considered.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/suricata/network-alert.rules`
 
 ## Related Playbooks
 
