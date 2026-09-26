@@ -3,10 +3,10 @@ id: "suspicious-login-triage"
 name: "Suspicious Login Triage"
 category: "triage"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-08-31T11:45:00Z"
-updated_at: "2026-09-20T19:09:00Z"
+updated_at: "2026-09-26T18:16:00Z"
 description: "Investigate suspicious authentication activity and determine whether observed login behavior is legitimate, suspicious, or indicative of account compromise."
 objective: "Determine the legitimacy, scope, and potential impact of suspicious login activity and identify whether additional account or incident response actions are required."
 severity: "high"
@@ -140,9 +140,9 @@ The investigation should consider:
 - network activity;
 - related detections.
 
-## Triage Procedure
+## Investigation Procedure
 
-### Step 1 — Identify the Account
+### Step 1 — Identify Account
 
 Determine which account is associated with the authentication event.
 
@@ -165,7 +165,7 @@ Determine whether the account is:
 - a shared account; or
 - an account not normally expected to access the target resource.
 
-### Step 2 — Review the Authentication Event
+### Step 2 — Review Authentication Event
 
 Review the authentication details:
 
@@ -210,7 +210,7 @@ Pay particular attention to:
 - source systems not normally associated with the account;
 - authentication from infrastructure unrelated to the user's normal activity.
 
-### Step 4 — Review Authentication History
+### Step 4 — Review Account History
 
 Compare the observed activity with normal account behavior.
 
@@ -226,25 +226,14 @@ Review:
 
 A deviation from the normal baseline should increase investigation priority, but should not by itself establish account compromise.
 
-### Step 5 — Review Failed Authentication Activity
+### Step 5 — Review Related Events
 
-Investigate surrounding failed authentication attempts.
+Search for related authentication, identity, endpoint, and network activity.
 
-Determine:
+Review:
 
-- number of failures;
-- time period;
-- source distribution;
-- targeted accounts;
-- targeted services;
-- whether a successful authentication followed the failures.
-
-A large volume of failures across multiple accounts may indicate password spraying or brute-force activity and should be correlated with the relevant detection and hunting workflows.
-
-### Step 6 — Review MFA and Identity Events
-
-When available, review:
-
+- failed authentication attempts;
+- successful authentication attempts;
 - MFA prompts;
 - MFA approvals;
 - MFA failures;
@@ -253,16 +242,7 @@ When available, review:
 - password changes;
 - recovery-method changes;
 - account lockouts;
-- identity-provider events.
-
-Investigate unexpected authentication-factor changes or unexpected MFA approvals in conjunction with the login event.
-
-### Step 7 — Correlate Endpoint and Network Activity
-
-Search for endpoint and network activity associated with the account or source.
-
-Review:
-
+- identity-provider events;
 - process creation;
 - remote sessions;
 - network connections;
@@ -272,9 +252,20 @@ Review:
 - lateral movement;
 - other security alerts.
 
-Determine whether suspicious authentication was followed by additional activity on the same host or account.
+Determine:
 
-### Step 8 — Assess Account Compromise
+- number of failed authentication attempts;
+- time period;
+- source distribution;
+- targeted accounts;
+- targeted services;
+- whether a successful authentication followed suspicious failures;
+- whether unexpected MFA or identity changes occurred;
+- whether suspicious authentication was followed by additional endpoint or network activity.
+
+A large volume of authentication failures across multiple accounts may indicate password spraying or brute-force activity and should be correlated with the relevant detection and hunting workflows.
+
+### Step 6 — Assess Account Compromise
 
 Assess whether the evidence is consistent with credential misuse.
 
@@ -292,13 +283,13 @@ Increase concern when multiple indicators are present, such as:
 
 Do not classify an event as compromised solely because a login originated from an unusual location.
 
-### Step 9 — Determine Investigation Outcome
+### Step 7 — Determine Investigation Outcome
 
 Classify the activity as:
 
 - **Benign**
 - **Suspicious**
-- **Malicious / Compromised**
+- **Malicious**
 - **Inconclusive**
 
 Document the evidence supporting the classification.
@@ -350,9 +341,9 @@ Classify the activity as **suspicious** when:
 
 Continue investigation and correlate additional evidence.
 
-### Malicious / Compromised
+### Malicious
 
-Classify the activity as **malicious or compromised** when evidence supports unauthorized account use, such as:
+Classify the activity as **malicious** when sufficient evidence supports unauthorized account use, such as:
 
 - confirmed credential misuse;
 - unauthorized privileged access;
