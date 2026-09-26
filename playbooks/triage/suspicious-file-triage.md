@@ -3,10 +3,10 @@ id: "suspicious-file-triage"
 name: "Suspicious File Triage"
 category: "triage"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-05T16:48:00Z"
-updated_at: "2026-09-20T19:08:00Z"
+updated_at: "2026-09-26T18:03:00Z"
 description: "Investigate suspicious files and determine whether an identified file is legitimate, suspicious, or malicious."
 objective: "Determine the origin, characteristics, execution context, prevalence, and potential impact of a suspicious file and identify whether further investigation or incident response is required."
 severity: "high"
@@ -149,9 +149,9 @@ The investigation should consider:
 - file prevalence;
 - additional affected hosts.
 
-## Triage Procedure
+## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify File Alert
 
 Determine:
 
@@ -375,14 +375,6 @@ For confirmed malicious files:
 Do not delete or modify relevant evidence before required evidence preservation has been completed.
 
 ## Related Detection Rules
-
-- `detection-rules/yara/malware-sample.yar`
-- `detection-rules/yara/obfuscated-powershell.yar`
-- `detection-rules/yara/yara-powershell-payload.yar`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/sigma/lsass-access.yml`
-- `detection-rules/suricata/network-alert.rules`
-- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
