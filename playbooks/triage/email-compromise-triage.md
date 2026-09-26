@@ -3,10 +3,10 @@ id: "email-compromise-triage"
 name: "Email Compromise Triage"
 category: "triage"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-05T13:33:00Z"
-updated_at: "2026-09-20T19:00:00Z"
+updated_at: "2026-09-26T17:24:00Z"
 description: "Investigate suspected email account compromise and determine whether unauthorized access, mailbox manipulation, or malicious activity occurred."
 objective: "Determine the legitimacy, scope, and impact of suspected email account compromise and identify whether containment or incident response is required."
 severity: "high"
@@ -145,9 +145,9 @@ The investigation should consider:
 - related accounts;
 - related alerts.
 
-## Triage Procedure
+## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Compromise Alert
 
 Determine:
 
@@ -200,7 +200,7 @@ Review:
 
 Investigate unexpected rules or forwarding destinations, especially when they redirect messages outside the organization's expected environment.
 
-### Step 4 — Review Account and Authentication Changes
+### Step 4 — Review Account Changes
 
 Review:
 
@@ -215,7 +215,7 @@ Review:
 
 Determine whether these changes were expected and authorized.
 
-### Step 5 — Review Outbound Email Activity
+### Step 5 — Review Endpoint Activity
 
 Review recently sent messages for:
 
@@ -230,7 +230,7 @@ Review recently sent messages for:
 
 Determine whether the account may have been used to conduct phishing, business email compromise, or other malicious activity.
 
-### Step 6 — Review Endpoint and Browser Activity
+### Step 6 — Review Outbound Email Activity
 
 When relevant, investigate:
 
@@ -322,9 +322,9 @@ Classify the activity as **suspicious** when:
 
 Continue investigation and correlate additional evidence.
 
-### Compromised
+### Malicious
 
-Classify the account as **compromised** when sufficient evidence indicates:
+Classify the activity as **malicious** when sufficient evidence indicates:
 
 - unauthorized account access;
 - confirmed credential misuse;
@@ -376,7 +376,7 @@ Do not delete relevant mailbox or authentication evidence before required eviden
 
 ## Related Detection Rules
 
-- `detection-rules/sigma/suspicious-login.yml`
+No dedicated Email Compromise Triage detection rule is currently available in the repository.
 
 ## Related Playbooks
 
