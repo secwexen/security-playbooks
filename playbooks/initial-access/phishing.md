@@ -3,10 +3,10 @@ id: "phishing"
 name: "Phishing"
 category: "initial-access"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-08T15:49:00Z"
-updated_at: "2026-09-20T19:30:00Z"
+updated_at: "2026-09-27T10:58:00Z"
 description: "Phishing is a social engineering technique used to obtain access, credentials, or user interaction through deceptive messages and content."
 objective: "Identify, analyze, and validate phishing activity and determine whether the technique resulted in credential exposure, malicious execution, or unauthorized access."
 severity: "high"
@@ -356,7 +356,7 @@ Escalate the investigation when:
 
 ## Response Guidance
 
-For confirmed malicious phishing:
+For confirmed malicious phishing activity:
 
 1. Preserve the original message and investigation evidence.
 2. Identify all affected recipients.
