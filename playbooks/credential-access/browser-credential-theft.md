@@ -3,10 +3,10 @@ id: "browser-credential-theft"
 name: "Browser Credential Theft"
 category: "credential-access"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-18T14:47:00Z"
-updated_at: "2026-09-20T18:42:00Z"
+updated_at: "2026-09-27T11:50:00Z"
 description: "Browser credential theft involves attempts to access stored authentication material from web browsers and related browser profile data."
 objective: "Identify, investigate, and validate suspicious access to browser credential stores and determine whether authentication material may have been exposed."
 severity: "high"
@@ -36,54 +36,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1555/003/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Browser Credential Access Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, account, accessing process, browser profile, and relevant timestamps."
-  expected_result: "The suspicious browser credential-access event and affected asset are identified."
-- id: "identify-browser-data"
-  order: 2
-  name: "Identify Browser Data Target"
-  action: "analyze"
-  description: "Determine which browser, profile, credential-related data store, or browser artifact was accessed."
-  expected_result: "The browser and targeted data source are documented."
-- id: "review-process-context"
-  order: 3
-  name: "Review Process Context"
-  action: "analyze"
-  description: "Review the accessing process, executable path, hash, parent process, command line, account context, and execution time."
-  expected_result: "The accessing process and execution context are assessed."
-- id: "review-file-activity"
-  order: 4
-  name: "Review File Activity"
-  action: "analyze"
-  description: "Review file access, creation, copying, staging, archiving, or deletion associated with the browser profile."
-  expected_result: "Relevant browser-profile file activity is identified or ruled out."
-- id: "review-follow-on-activity"
-  order: 5
-  name: "Review Follow-on Activity"
-  action: "analyze"
-  description: "Correlate browser credential access with authentication events, suspicious network activity, persistence, privilege escalation, and lateral movement."
-  expected_result: "Potential credential misuse and follow-on activity are identified or ruled out."
-- id: "assess-account-impact"
-  order: 6
-  name: "Assess Potential Credential Exposure"
-  action: "analyze"
-  description: "Identify accounts or web services potentially associated with exposed browser credentials and assess their privilege and business impact."
-  expected_result: "Potentially affected accounts and services are documented."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Browser Credential Access Scope"
-  action: "hunt"
-  description: "Search for the same accessing process, file hash, browser profile access pattern, account, or host activity across the environment."
-  expected_result: "The prevalence and scope of the browser credential-access activity are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the browser credential-access activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Browser Credential Access Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, account, accessing process, browser profile, and relevant timestamps."
+    expected_result: "The suspicious browser credential-access event and affected asset are identified."
+  - id: "identify-browser-data"
+    order: 2
+    name: "Identify Browser Data Target"
+    action: "analyze"
+    description: "Determine which browser, profile, credential-related data store, or browser artifact was accessed."
+    expected_result: "The browser and targeted data source are documented."
+  - id: "review-process-context"
+    order: 3
+    name: "Review Process Context"
+    action: "analyze"
+    description: "Review the accessing process, executable path, hash, parent process, command line, account context, and execution time."
+    expected_result: "The accessing process and execution context are assessed."
+  - id: "review-file-activity"
+    order: 4
+    name: "Review File Activity"
+    action: "analyze"
+    description: "Review file access, creation, copying, staging, archiving, or deletion associated with the browser profile."
+    expected_result: "Relevant browser-profile file activity is identified or ruled out."
+  - id: "review-follow-on-activity"
+    order: 5
+    name: "Review Follow-on Activity"
+    action: "analyze"
+    description: "Correlate browser credential access with authentication events, suspicious network activity, persistence, privilege escalation, and lateral movement."
+    expected_result: "Potential credential misuse and follow-on activity are identified or ruled out."
+  - id: "assess-account-impact"
+    order: 6
+    name: "Assess Potential Credential Exposure"
+    action: "analyze"
+    description: "Identify accounts or web services potentially associated with exposed browser credentials and assess their privilege and business impact."
+    expected_result: "Potentially affected accounts and services are documented."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Browser Credential Access Scope"
+    action: "hunt"
+    description: "Search for the same accessing process, file hash, browser profile access pattern, account, or host activity across the environment."
+    expected_result: "The prevalence and scope of the browser credential-access activity are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the browser credential-access activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -100,6 +100,23 @@ This playbook provides a structured workflow for investigating suspicious access
 Modern browsers may store authentication-related data within user profiles. Unauthorized access to browser credential stores can expose credentials or other authentication material and may lead to account compromise.
 
 The objective is to determine whether the observed browser-data access is legitimate, suspicious, or malicious and whether credential exposure may have occurred.
+
+### Browser Credential Context
+
+Browser profiles can contain authentication-related data used by websites and applications.
+
+Depending on the browser and platform, relevant artifacts may include:
+
+- credential stores;
+- profile databases;
+- cookies;
+- saved login metadata;
+- browser configuration files;
+- session-related data.
+
+Not every access to a browser profile is malicious. Browsers, extensions, backup tools, endpoint-management software, and approved security tools may legitimately access profile data.
+
+The investigation should therefore focus on the **accessing process, user context, targeted artifacts, timing, and surrounding activity**.
 
 ## MITRE ATT&CK
 
@@ -145,26 +162,9 @@ The investigation should consider:
 - related alerts;
 - other affected hosts and accounts.
 
-## Browser Credential Context
-
-Browser profiles can contain authentication-related data used by websites and applications.
-
-Depending on the browser and platform, relevant artifacts may include:
-
-- credential stores;
-- profile databases;
-- cookies;
-- saved login metadata;
-- browser configuration files;
-- session-related data.
-
-Not every access to a browser profile is malicious. Browsers, extensions, backup tools, endpoint-management software, and approved security tools may legitimately access profile data.
-
-The investigation should therefore focus on the **accessing process, user context, targeted artifacts, timing, and surrounding activity**.
-
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Browser Credential Access Alert
 
 Determine:
 
@@ -404,8 +404,6 @@ Credential resets, session invalidation, and account containment must follow app
 Do not extract, display, or disclose real browser credentials during investigation or validation.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/suspicious-login.yml`
 
 ## Related Playbooks
 
