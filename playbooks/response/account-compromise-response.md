@@ -3,10 +3,10 @@ id: "account-compromise-response"
 name: "Account Compromise Response"
 category: "response"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-25T18:50:00Z"
-updated_at: "2026-09-25T18:50:00Z"
+updated_at: "2026-09-27T12:55:00Z"
 description: "Account compromise occurs when an unauthorized party gains access to a legitimate user account or abuses compromised credentials to access organizational resources."
 objective: "Identify, investigate, contain, and remediate confirmed or suspected account compromise and determine whether compromised credentials were used to access additional systems or services."
 severity: "high"
@@ -40,54 +40,54 @@ references:
   - "https://attack.mitre.org/techniques/T1078/"
   - "https://attack.mitre.org/techniques/T1110/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Account Compromise Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected account, host or service, authentication method, timestamp, source, and initial alert context."
-  expected_result: "The suspected account compromise event and affected identity are identified."
-- id: "validate-account-activity"
-  order: 2
-  name: "Validate Account Activity"
-  action: "analyze"
-  description: "Determine whether the observed authentication and account activity is consistent with the user's expected behavior, access pattern, location, device, and operational role."
-  expected_result: "The legitimacy of the observed account activity is assessed."
-- id: "review-authentication-events"
-  order: 3
-  name: "Review Authentication Events"
-  action: "analyze"
-  description: "Review successful and failed authentication events, logon types, source addresses, devices, timestamps, authentication methods, and related identity-provider activity."
-  expected_result: "A complete authentication timeline is established."
-- id: "review-post-authentication-activity"
-  order: 4
-  name: "Review Post-Authentication Activity"
-  action: "analyze"
-  description: "Correlate the account with endpoint, network, application, and administrative activity following successful authentication."
-  expected_result: "Potential actions performed using the affected account are identified."
-- id: "determine-scope"
-  order: 5
-  name: "Determine Compromise Scope"
-  action: "hunt"
-  description: "Search for additional hosts, applications, services, sessions, source addresses, authentication methods, and accounts associated with the compromised credentials."
-  expected_result: "The scope and potential lateral impact of the account compromise are determined."
-- id: "contain-account"
-  order: 6
-  name: "Contain Account Access"
-  action: "contain"
-  description: "Apply approved account-containment controls such as credential reset, session revocation, token invalidation, access restriction, or temporary account suspension based on the organization's incident-response procedures."
-  expected_result: "Unauthorized access is contained and active sessions or authentication paths are addressed."
-- id: "eradicate-and-recover"
-  order: 7
-  name: "Eradicate and Recover"
-  action: "respond"
-  description: "Remove unauthorized access mechanisms, restore the account to a trusted state, verify authentication controls, and address the underlying source of credential exposure or compromise."
-  expected_result: "The affected account is restored to an authorized and controlled state."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Response Outcome"
-  action: "document"
-  description: "Classify the incident, document evidence and response actions, identify affected resources, and record remaining risks or follow-up requirements."
-  expected_result: "The account compromise receives a documented response outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Account Compromise Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected account, host or service, authentication method, timestamp, source, and initial alert context."
+    expected_result: "The suspected account compromise event and affected identity are identified."
+  - id: "validate-account-activity"
+    order: 2
+    name: "Validate Account Activity"
+    action: "analyze"
+    description: "Determine whether the observed authentication and account activity is consistent with the user's expected behavior, access pattern, location, device, and operational role."
+    expected_result: "The legitimacy of the observed account activity is assessed."
+  - id: "review-authentication-events"
+    order: 3
+    name: "Review Authentication Events"
+    action: "analyze"
+    description: "Review successful and failed authentication events, logon types, source addresses, devices, timestamps, authentication methods, and related identity-provider activity."
+    expected_result: "A complete authentication timeline is established."
+  - id: "review-post-authentication-activity"
+    order: 4
+    name: "Review Post-Authentication Activity"
+    action: "analyze"
+    description: "Correlate the account with endpoint, network, application, and administrative activity following successful authentication."
+    expected_result: "Potential actions performed using the affected account are identified."
+  - id: "determine-scope"
+    order: 5
+    name: "Determine Compromise Scope"
+    action: "hunt"
+    description: "Search for additional hosts, applications, services, sessions, source addresses, authentication methods, and accounts associated with the compromised credentials."
+    expected_result: "The scope and potential lateral impact of the account compromise are determined."
+  - id: "contain-account"
+    order: 6
+    name: "Contain Account Access"
+    action: "contain"
+    description: "Apply approved account-containment controls such as credential reset, session revocation, token invalidation, access restriction, or temporary account suspension based on the organization's incident-response procedures."
+    expected_result: "Unauthorized access is contained and active sessions or authentication paths are addressed."
+  - id: "eradicate-and-recover"
+    order: 7
+    name: "Eradicate and Recover"
+    action: "respond"
+    description: "Remove unauthorized access mechanisms, restore the account to a trusted state, verify authentication controls, and address the underlying source of credential exposure or compromise."
+    expected_result: "The affected account is restored to an authorized and controlled state."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Response Outcome"
+    action: "document"
+    description: "Classify the incident, document evidence and response actions, identify affected resources, and record remaining risks or follow-up requirements."
+    expected_result: "The account compromise receives a documented response outcome."
 validation:
   validated: false
   required: true
@@ -154,7 +154,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Account Compromise Alert
 
 Determine:
 
