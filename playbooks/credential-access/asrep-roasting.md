@@ -3,10 +3,10 @@ id: "asrep-roasting"
 name: "AS-REP Roasting"
 category: "credential-access"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-17T20:17:00Z"
-updated_at: "2026-09-20T18:40:00Z"
+updated_at: "2026-09-27T11:46:00Z"
 description: "AS-REP Roasting targets Active Directory accounts that do not require Kerberos pre-authentication and may expose material that can be subjected to offline credential-recovery attempts."
 objective: "Identify, investigate, and validate suspicious AS-REP activity and determine whether domain accounts may have been targeted or exposed."
 severity: "high"
@@ -35,54 +35,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1558/004/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify AS-REP Roasting Alert"
-  action: "investigate"
-  description: "Identify the detection source, source host, initiating account, targeted account, domain controller, and relevant timestamps."
-  expected_result: "The suspicious AS-REP activity and affected entities are identified."
-- id: "identify-target-accounts"
-  order: 2
-  name: "Identify Target Accounts"
-  action: "analyze"
-  description: "Determine which accounts were targeted and whether Kerberos pre-authentication is disabled for those accounts."
-  expected_result: "Targeted accounts and their authentication configuration are documented."
-- id: "review-source-context"
-  order: 3
-  name: "Review Source Context"
-  action: "analyze"
-  description: "Review the source host, initiating account, process activity, network context, and whether the activity is expected."
-  expected_result: "The source system and initiating identity are assessed."
-- id: "review-authentication-pattern"
-  order: 4
-  name: "Review Authentication Pattern"
-  action: "analyze"
-  description: "Review request frequency, targeted account count, timestamps, source distribution, and related Kerberos authentication events."
-  expected_result: "The authentication pattern is characterized and compared with expected behavior."
-- id: "review-account-risk"
-  order: 5
-  name: "Review Account Risk"
-  action: "analyze"
-  description: "Review account privileges, group memberships, service usage, ownership, password-management practices, and business importance."
-  expected_result: "Potentially high-impact accounts are identified."
-- id: "review-follow-on-activity"
-  order: 6
-  name: "Review Follow-on Activity"
-  action: "analyze"
-  description: "Correlate the activity with successful authentication, lateral movement, privilege escalation, persistence, and suspicious endpoint or network behavior."
-  expected_result: "Potential credential misuse and follow-on activity are identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine AS-REP Activity Scope"
-  action: "hunt"
-  description: "Search for similar AS-REP activity, source hosts, initiating accounts, targeted accounts, and related authentication events across the environment."
-  expected_result: "The prevalence and scope of the activity are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify AS-REP Roasting Alert"
+    action: "investigate"
+    description: "Identify the detection source, source host, initiating account, targeted account, domain controller, and relevant timestamps."
+    expected_result: "The suspicious AS-REP activity and affected entities are identified."
+  - id: "identify-target-accounts"
+    order: 2
+    name: "Identify Target Accounts"
+    action: "analyze"
+    description: "Determine which accounts were targeted and whether Kerberos pre-authentication is disabled for those accounts."
+    expected_result: "Targeted accounts and their authentication configuration are documented."
+  - id: "review-source-context"
+    order: 3
+    name: "Review Source Context"
+    action: "analyze"
+    description: "Review the source host, initiating account, process activity, network context, and whether the activity is expected."
+    expected_result: "The source system and initiating identity are assessed."
+  - id: "review-authentication-pattern"
+    order: 4
+    name: "Review Authentication Pattern"
+    action: "analyze"
+    description: "Review request frequency, targeted account count, timestamps, source distribution, and related Kerberos authentication events."
+    expected_result: "The authentication pattern is characterized and compared with expected behavior."
+  - id: "review-account-risk"
+    order: 5
+    name: "Review Account Risk"
+    action: "analyze"
+    description: "Review account privileges, group memberships, service usage, ownership, password-management practices, and business importance."
+    expected_result: "Potentially high-impact accounts are identified."
+  - id: "review-follow-on-activity"
+    order: 6
+    name: "Review Follow-on Activity"
+    action: "analyze"
+    description: "Correlate the activity with successful authentication, lateral movement, privilege escalation, persistence, and suspicious endpoint or network behavior."
+    expected_result: "Potential credential misuse and follow-on activity are identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine AS-REP Activity Scope"
+    action: "hunt"
+    description: "Search for similar AS-REP activity, source hosts, initiating accounts, targeted accounts, and related authentication events across the environment."
+    expected_result: "The prevalence and scope of the activity are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -99,6 +99,14 @@ This playbook provides a structured workflow for investigating suspicious Kerber
 AS-REP Roasting targets accounts that do not require Kerberos pre-authentication. Authentication material returned by the domain controller may then be targeted for offline credential-recovery attempts.
 
 The objective is to determine whether the observed activity is legitimate, suspicious, or malicious and whether domain accounts may have been targeted or exposed.
+
+### Kerberos Context
+
+Kerberos authentication in Active Directory commonly uses pre-authentication as part of the authentication process.
+
+Accounts configured without the expected pre-authentication requirement can become targets for AS-REP Roasting.
+
+The presence of such an account or an AS-REQ event is **not by itself evidence of malicious activity**. Application behavior, administrative activity, account configuration, and authentication context must be considered.
 
 ## MITRE ATT&CK
 
@@ -145,17 +153,9 @@ The investigation should consider:
 - related alerts;
 - additional affected accounts and hosts.
 
-## Kerberos Context
-
-Kerberos authentication in Active Directory commonly uses pre-authentication as part of the authentication process.
-
-Accounts configured without the expected pre-authentication requirement can become targets for AS-REP Roasting.
-
-The presence of such an account or an AS-REQ event is **not by itself evidence of malicious activity**. Application behavior, administrative activity, account configuration, and authentication context must be considered.
-
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify AS-REP Roasting Alert
 
 Determine:
 
@@ -383,8 +383,6 @@ Credential resets, account containment, session invalidation, and configuration 
 Do not attempt to recover real account credentials during routine investigation or validation.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/suspicious-login.yml`
 
 ## Related Playbooks
 
