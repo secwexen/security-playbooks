@@ -41,7 +41,7 @@ jobs:
       - name: Lint (pylint)
         shell: bash
         run: |
-          files="$(git ls-files '*.py' \
+          pylint --fail-on=E $(git ls-files '*.py')
 
           if [ -n "$files" ]; then
             pylint $files --fail-on=E
