@@ -3,10 +3,10 @@ id: "dpapi-credential-access"
 name: "DPAPI Credential Access"
 category: "credential-access"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-20T09:46:00Z"
-updated_at: "2026-09-20T18:38:00Z"
+updated_at: "2026-09-27T12:24:00Z"
 description: "Unauthorized access to Windows Data Protection API (DPAPI) protected data may expose credentials, secrets, or other protected authentication material."
 objective: "Identify, investigate, and validate suspicious access to DPAPI-protected data and determine whether protected credential material may have been exposed."
 severity: "critical"
@@ -38,54 +38,54 @@ references:
   - "https://attack.mitre.org/techniques/T1555/"
   - "https://attack.mitre.org/detectionstrategies/DET0430/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify DPAPI Access Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, user, accessing process, targeted resource, and relevant timestamps."
-  expected_result: "The suspicious DPAPI-related access event and affected asset are identified."
-- id: "identify-target-data"
-  order: 2
-  name: "Identify Target DPAPI Data"
-  action: "analyze"
-  description: "Determine which DPAPI-protected resource, user context, master key material, credential artifact, or related protected data was accessed."
-  expected_result: "The targeted DPAPI-protected resource is documented."
-- id: "review-process-context"
-  order: 3
-  name: "Review Process Context"
-  action: "analyze"
-  description: "Review the accessing process, executable path, hash, signer, parent process, command line, account context, and execution timeline."
-  expected_result: "The accessing process and execution context are assessed."
-- id: "review-dpapi-activity"
-  order: 4
-  name: "Review DPAPI Activity"
-  action: "analyze"
-  description: "Review file, process, security, and endpoint telemetry associated with DPAPI-related access, enumeration, copying, staging, or decryption activity."
-  expected_result: "Relevant DPAPI access activity is identified or ruled out."
-- id: "assess-credential-exposure"
-  order: 5
-  name: "Assess Potential Credential Exposure"
-  action: "analyze"
-  description: "Identify accounts, applications, services, or authentication material potentially represented by the affected DPAPI-protected data and assess their privilege and business impact."
-  expected_result: "Potentially affected accounts, applications, and services are documented."
-- id: "review-follow-on-activity"
-  order: 6
-  name: "Review Follow-on Activity"
-  action: "analyze"
-  description: "Correlate DPAPI-related access with authentication, persistence, privilege escalation, lateral movement, and suspicious network activity."
-  expected_result: "Potential credential misuse and related activity are identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine DPAPI Access Scope"
-  action: "hunt"
-  description: "Search for the same accessing process, file hash, account, command line, access pattern, or related DPAPI activity across the environment."
-  expected_result: "The prevalence and scope of the DPAPI-related access are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the DPAPI access activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify DPAPI Access Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, user, accessing process, targeted resource, and relevant timestamps."
+    expected_result: "The suspicious DPAPI-related access event and affected asset are identified."
+  - id: "identify-target-data"
+    order: 2
+    name: "Identify Target DPAPI Data"
+    action: "analyze"
+    description: "Determine which DPAPI-protected resource, user context, master key material, credential artifact, or related protected data was accessed."
+    expected_result: "The targeted DPAPI-protected resource is documented."
+  - id: "review-process-context"
+    order: 3
+    name: "Review Process Context"
+    action: "analyze"
+    description: "Review the accessing process, executable path, hash, signer, parent process, command line, account context, and execution timeline."
+    expected_result: "The accessing process and execution context are assessed."
+  - id: "review-dpapi-activity"
+    order: 4
+    name: "Review DPAPI Activity"
+    action: "analyze"
+    description: "Review file, process, security, and endpoint telemetry associated with DPAPI-related access, enumeration, copying, staging, or decryption activity."
+    expected_result: "Relevant DPAPI access activity is identified or ruled out."
+  - id: "assess-credential-exposure"
+    order: 5
+    name: "Assess Potential Credential Exposure"
+    action: "analyze"
+    description: "Identify accounts, applications, services, or authentication material potentially represented by the affected DPAPI-protected data and assess their privilege and business impact."
+    expected_result: "Potentially affected accounts, applications, and services are documented."
+  - id: "review-follow-on-activity"
+    order: 6
+    name: "Review Follow-on Activity"
+    action: "analyze"
+    description: "Correlate DPAPI-related access with authentication, persistence, privilege escalation, lateral movement, and suspicious network activity."
+    expected_result: "Potential credential misuse and related activity are identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine DPAPI Access Scope"
+    action: "hunt"
+    description: "Search for the same accessing process, file hash, account, command line, access pattern, or related DPAPI activity across the environment."
+    expected_result: "The prevalence and scope of the DPAPI-related access are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the DPAPI access activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -102,6 +102,23 @@ This playbook provides a structured workflow for investigating suspicious access
 DPAPI is used by Windows and applications to protect sensitive data. Unauthorized access to DPAPI-related material may expose credentials, secrets, or other protected authentication information.
 
 The objective is to determine whether the observed DPAPI access is legitimate, suspicious, or malicious and whether protected credential material may have been exposed.
+
+### DPAPI Context
+
+DPAPI is used by Windows and applications to protect sensitive information associated with user or system security contexts.
+
+Legitimate DPAPI-related activity may be generated by:
+
+- Windows system components;
+- approved applications;
+- authentication or credential-management functions;
+- endpoint management software;
+- approved security tooling;
+- authorized administrative workflows.
+
+The presence of DPAPI-protected data or normal DPAPI activity is not itself evidence of malicious activity.
+
+The investigation should focus on the **accessing process, account context, targeted resource, timing, and surrounding behavior**.
 
 ## MITRE ATT&CK
 
@@ -149,26 +166,9 @@ The investigation should consider:
 - related alerts;
 - other affected hosts and accounts.
 
-## DPAPI Context
-
-DPAPI is used by Windows and applications to protect sensitive information associated with user or system security contexts.
-
-Legitimate DPAPI-related activity may be generated by:
-
-- Windows system components;
-- approved applications;
-- authentication or credential-management functions;
-- endpoint management software;
-- approved security tooling;
-- authorized administrative workflows.
-
-The presence of DPAPI-protected data or normal DPAPI activity is not itself evidence of malicious activity.
-
-The investigation should focus on the **accessing process, account context, targeted resource, timing, and surrounding behavior**.
-
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify DPAPI Access Alert
 
 Determine:
 
