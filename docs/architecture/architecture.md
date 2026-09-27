@@ -251,12 +251,17 @@ security-playbooks
 │   │   ├── user-execution.md
 │   │   └── wmi-execution.md
 │   ├── exfiltration
+│   │   ├── automated-exfiltration.md
 │   │   ├── cloud-exfiltration.md
 │   │   ├── data-exfiltration.md
-│   │   └── dns-exfiltration.md
+│   │   ├── dns-exfiltration.md
+│   │   └── exfiltration-over-c2-channel.md
 │   ├── impact
 │   │   ├── data-destruction.md
-│   │   └── ransomware.md
+│   │   ├── disk-wipe.md
+│   │   ├── inhibit-system-recovery.md
+│   │   ├── ransomware.md
+│   │   └── service-stop.md
 │   ├── initial-access
 │   │   ├── application-consent-abuse.md
 │   │   ├── drive-by-download.md
@@ -275,7 +280,8 @@ security-playbooks
 │   │   ├── registry-run-keys.md
 │   │   ├── scheduled-task-persistence.md
 │   │   ├── service-persistence.md
-│   │   └── startup-folder.md
+│   │   ├── startup-folder.md
+│   │   └── wmi-event-subscription.md
 │   ├── privilege-escalation
 │   │   ├── privileged-service-abuse.md
 │   │   ├── scheduled-task-abuse.md
