@@ -3,10 +3,10 @@ id: "mshta"
 name: "Mshta"
 category: "execution"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-13T14:58:00Z"
-updated_at: "2026-09-20T19:35:00Z"
+updated_at: "2026-09-27T11:21:00Z"
 description: "Mshta.exe is a Windows utility that can execute HTML Applications (HTA) and may be abused to execute scripts or other malicious content."
 objective: "Identify, investigate, and validate suspicious mshta.exe execution and determine whether the activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -34,54 +34,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1218/005/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Mshta Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, user, timestamp, mshta.exe process, and alert context."
-  expected_result: "The suspicious mshta.exe event and affected asset are identified."
-- id: "review-command-line"
-  order: 2
-  name: "Review Mshta Command Line"
-  action: "analyze"
-  description: "Review the complete mshta.exe command line, referenced HTA or script content, arguments, and execution options."
-  expected_result: "The command line and referenced content are documented."
-- id: "review-parent-process"
-  order: 3
-  name: "Review Parent Process"
-  action: "analyze"
-  description: "Determine which process launched mshta.exe and assess whether the parent-child relationship is expected."
-  expected_result: "The parent process and execution chain are assessed."
-- id: "review-content"
-  order: 4
-  name: "Review HTA or Script Content"
-  action: "analyze"
-  description: "Review available HTA, script, URL, file metadata, hashes, and indicators of obfuscation or malicious behavior."
-  expected_result: "The referenced content and relevant indicators are identified."
-- id: "review-child-processes"
-  order: 5
-  name: "Review Child Processes"
-  action: "analyze"
-  description: "Review child processes launched by mshta.exe and correlate them with the execution timeline."
-  expected_result: "Mshta child-process activity is documented and correlated."
-- id: "review-network-activity"
-  order: 6
-  name: "Review Network Activity"
-  action: "analyze"
-  description: "Review DNS requests, network connections, remote resources, and external destinations associated with mshta.exe."
-  expected_result: "Related network activity is identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Mshta Activity Scope"
-  action: "hunt"
-  description: "Search for the same command line, URL, file hash, HTA content, parent-child relationship, or execution pattern across the environment."
-  expected_result: "The prevalence and scope of the mshta.exe activity are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the mshta.exe activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Mshta Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, user, timestamp, mshta.exe process, and alert context."
+    expected_result: "The suspicious mshta.exe event and affected asset are identified."
+  - id: "review-command-line"
+    order: 2
+    name: "Review Mshta Command Line"
+    action: "analyze"
+    description: "Review the complete mshta.exe command line, referenced HTA or script content, arguments, and execution options."
+    expected_result: "The command line and referenced content are documented."
+  - id: "review-parent-process"
+    order: 3
+    name: "Review Parent Process"
+    action: "analyze"
+    description: "Determine which process launched mshta.exe and assess whether the parent-child relationship is expected."
+    expected_result: "The parent process and execution chain are assessed."
+  - id: "review-content"
+    order: 4
+    name: "Review HTA or Script Content"
+    action: "analyze"
+    description: "Review available HTA, script, URL, file metadata, hashes, and indicators of obfuscation or malicious behavior."
+    expected_result: "The referenced content and relevant indicators are identified."
+  - id: "review-child-processes"
+    order: 5
+    name: "Review Child Processes"
+    action: "analyze"
+    description: "Review child processes launched by mshta.exe and correlate them with the execution timeline."
+    expected_result: "Mshta child-process activity is documented and correlated."
+  - id: "review-network-activity"
+    order: 6
+    name: "Review Network Activity"
+    action: "analyze"
+    description: "Review DNS requests, network connections, remote resources, and external destinations associated with mshta.exe."
+    expected_result: "Related network activity is identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Mshta Activity Scope"
+    action: "hunt"
+    description: "Search for the same command line, URL, file hash, HTA content, parent-child relationship, or execution pattern across the environment."
+    expected_result: "The prevalence and scope of the mshta.exe activity are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the mshta.exe activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -144,7 +144,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Mshta Alert
 
 Determine:
 
@@ -255,7 +255,7 @@ Collect:
 
 Investigate unexpected communication with suspicious or unapproved infrastructure.
 
-### Step 7 — Determine Activity Scope
+### Step 7 — Determine Mshta Activity Scope
 
 Search the environment for:
 
@@ -388,10 +388,6 @@ For confirmed malicious mshta activity:
 Do not delete or modify relevant HTA files, scripts, logs, or other evidence before required evidence preservation has been completed.
 
 ## Related Detection Rules
-
-- `detection-rules/yara/malware-sample.yar`
-- `detection-rules/suricata/network-alert.rules`
-- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
