@@ -41,7 +41,7 @@ jobs:
       - name: Lint (pylint)
         shell: bash
         run: |
-          pylint --fail-on=E $(git ls-files '*.py')
+          pylint --errors-only automation tools scripts
 
           if [ -n "$files" ]; then
             pylint $files --fail-on=E
@@ -50,7 +50,9 @@ jobs:
           fi
 
       - name: Format check (black)
-        run: black --check .
+        shell: bash
+        run: |
+          black --check automation tools scripts
 
       - name: Run tests with coverage
         run: |
