@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-12T11:08:00Z"
-updated_at: "2026-09-27T11:11:00Z"
+updated_at: "2026-09-27T11:18:00Z"
 description: "Command Shell execution involves using command-line interpreters to execute commands and programs on a system."
 objective: "Identify, investigate, and validate suspicious command shell activity and determine whether command execution is legitimate, suspicious, or malicious."
 severity: "high"
@@ -140,7 +140,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Command Shell Alert
 
 Determine:
 
@@ -249,7 +249,7 @@ Collect:
 
 Investigate communication with unexpected or suspicious infrastructure.
 
-### Step 7 — Determine Activity Scope
+### Step 7 — Determine Command Shell Activity Scope
 
 Search the environment for:
 
@@ -337,7 +337,7 @@ Classify the activity as **malicious** when sufficient evidence indicates:
 - confirmed payload retrieval;
 - command-and-control communication;
 - credential access;
-- persistence
+- persistence;
 - downloaded payload execution;
 - lateral movement;
 - defense evasion activity;
@@ -384,10 +384,6 @@ For confirmed malicious command shell activity:
 Do not delete or modify relevant scripts, files, logs, or other evidence before required evidence preservation has been completed.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/yara/obfuscated-powershell.yar`
-- `detection-rules/yara/yara-powershell-payload.yar`
 
 ## Related Playbooks
 
