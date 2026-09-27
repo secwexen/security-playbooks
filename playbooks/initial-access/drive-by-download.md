@@ -3,10 +3,10 @@ id: "drive-by-download"
 name: "Drive-by Compromise"
 category: "initial-access"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-09T13:49:00Z"
-updated_at: "2026-09-20T19:24:00Z"
+updated_at: "2026-09-27T10:28:00Z"
 description: "Investigate suspected drive-by compromise activity in which a user is exposed to malicious web content that may lead to unauthorized access or execution."
 objective: "Determine whether malicious web content resulted in exploitation, unwanted downloads, code execution, or other compromise and establish the affected users, systems, and scope."
 severity: "high"
@@ -34,54 +34,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1189/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Drive-by Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected user or host, timestamp, and suspicious website or web activity."
-  expected_result: "The suspected drive-by event and affected asset are identified."
-- id: "identify-web-resource"
-  order: 2
-  name: "Identify Web Resource"
-  action: "analyze"
-  description: "Identify the URL, domain, IP address, page, redirect chain, and related web resources."
-  expected_result: "The relevant web resource and infrastructure are documented."
-- id: "review-browser-activity"
-  order: 3
-  name: "Review Browser Activity"
-  action: "analyze"
-  description: "Review browser history, navigation events, downloads, redirects, and associated browser processes."
-  expected_result: "The user's interaction with the suspicious web resource is established."
-- id: "review-downloads"
-  order: 4
-  name: "Review Download Activity"
-  action: "analyze"
-  description: "Determine whether files or other content were downloaded and collect relevant file metadata."
-  expected_result: "Potentially downloaded artifacts are identified and documented."
-- id: "review-endpoint-activity"
-  order: 5
-  name: "Review Endpoint Activity"
-  action: "analyze"
-  description: "Review process creation, child processes, file creation, command lines, and endpoint detections following the browsing event."
-  expected_result: "Potential endpoint compromise activity is identified or ruled out."
-- id: "review-network-activity"
-  order: 6
-  name: "Review Network Activity"
-  action: "analyze"
-  description: "Review DNS queries, outbound connections, redirects, and communication with suspicious infrastructure."
-  expected_result: "Relevant network activity and destinations are documented."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Scope"
-  action: "hunt"
-  description: "Search for the same domain, URL, IP address, downloaded artifact, or browsing pattern across the environment."
-  expected_result: "Affected users, hosts, and related activity are identified."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Drive-by Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected user or host, timestamp, and suspicious website or web activity."
+    expected_result: "The suspected drive-by event and affected asset are identified."
+  - id: "identify-web-resource"
+    order: 2
+    name: "Identify Web Resource"
+    action: "analyze"
+    description: "Identify the URL, domain, IP address, page, redirect chain, and related web resources."
+    expected_result: "The relevant web resource and infrastructure are documented."
+  - id: "review-browser-activity"
+    order: 3
+    name: "Review Browser Activity"
+    action: "analyze"
+    description: "Review browser history, navigation events, downloads, redirects, and associated browser processes."
+    expected_result: "The user's interaction with the suspicious web resource is established."
+  - id: "review-downloads"
+    order: 4
+    name: "Review Download Activity"
+    action: "analyze"
+    description: "Determine whether files or other content were downloaded and collect relevant file metadata."
+    expected_result: "Potentially downloaded artifacts are identified and documented."
+  - id: "review-endpoint-activity"
+    order: 5
+    name: "Review Endpoint Activity"
+    action: "analyze"
+    description: "Review process creation, child processes, file creation, command lines, and endpoint detections following the browsing event."
+    expected_result: "Potential endpoint compromise activity is identified or ruled out."
+  - id: "review-network-activity"
+    order: 6
+    name: "Review Network Activity"
+    action: "analyze"
+    description: "Review DNS queries, outbound connections, redirects, and communication with suspicious infrastructure."
+    expected_result: "Relevant network activity and destinations are documented."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Scope"
+    action: "hunt"
+    description: "Search for the same domain, URL, IP address, downloaded artifact, or browsing pattern across the environment."
+    expected_result: "Affected users, hosts, and related activity are identified."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -238,7 +238,7 @@ Review:
 
 Determine whether the browser or a spawned process established additional network connections.
 
-### Step 7 — Determine Environmental Scope
+### Step 7 — Determine Scope
 
 Search across the environment for:
 
@@ -308,7 +308,8 @@ Classify the activity as **suspicious** when:
 
 - the domain or URL is unusual;
 - redirects are unexpected;
-- suspicious content is present;
+- suspicious web content is identified;
+- exploitation is suspected but successful compromise is not established;
 - unexpected downloads occur;
 - endpoint telemetry is abnormal;
 - additional investigation is required.
@@ -379,10 +380,6 @@ For confirmed compromise:
 Do not delete browser history, downloaded artifacts, or relevant logs before required evidence preservation has been completed.
 
 ## Related Detection Rules
-
-- `detection-rules/suricata/network-alert.rules`
-- `detection-rules/suricata/c2-communication.rules`
-- `detection-rules/yara/malware-sample.yar`
 
 ## Related Playbooks
 
