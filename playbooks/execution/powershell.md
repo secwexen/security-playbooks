@@ -3,10 +3,10 @@ id: "powershell"
 name: "PowerShell"
 category: "execution"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-11T16:03:00Z"
-updated_at: "2026-09-20T19:36:00Z"
+updated_at: "2026-09-27T11:24:00Z"
 description: "PowerShell is a command and scripting interpreter commonly used for Windows administration and automation and may also be abused to execute malicious commands and scripts."
 objective: "Identify, investigate, and validate suspicious PowerShell activity and determine whether execution is legitimate, suspicious, or malicious."
 severity: "high"
@@ -34,54 +34,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1059/001/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify PowerShell Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, user, timestamp, PowerShell process, and alert context."
-  expected_result: "The suspicious PowerShell event and affected asset are identified."
-- id: "review-command-line"
-  order: 2
-  name: "Review PowerShell Command Line"
-  action: "analyze"
-  description: "Review the complete PowerShell command line, parameters, encoded content, execution options, and script path."
-  expected_result: "The PowerShell command line and execution parameters are documented."
-- id: "review-parent-process"
-  order: 3
-  name: "Review Parent Process"
-  action: "analyze"
-  description: "Determine which process launched PowerShell and assess whether the parent-child relationship is expected."
-  expected_result: "The PowerShell parent process and execution chain are assessed."
-- id: "review-script-content"
-  order: 4
-  name: "Review Script Content"
-  action: "analyze"
-  description: "Review available script content, file metadata, hashes, signatures, and indicators of obfuscation or malicious behavior."
-  expected_result: "Relevant PowerShell script characteristics are identified."
-- id: "review-child-processes"
-  order: 5
-  name: "Review Child Processes"
-  action: "analyze"
-  description: "Review child processes launched by PowerShell and correlate them with the execution timeline."
-  expected_result: "PowerShell child-process activity is documented and correlated."
-- id: "review-network-activity"
-  order: 6
-  name: "Review Network Activity"
-  action: "analyze"
-  description: "Review DNS requests, network connections, downloads, and external destinations associated with PowerShell."
-  expected_result: "Related network activity is identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine PowerShell Activity Scope"
-  action: "hunt"
-  description: "Search for the same command line, script hash, script path, encoded pattern, or parent-child process relationship across the environment."
-  expected_result: "The prevalence and scope of the PowerShell activity are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the PowerShell activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify PowerShell Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, user, timestamp, PowerShell process, and alert context."
+    expected_result: "The suspicious PowerShell event and affected asset are identified."
+  - id: "review-command-line"
+    order: 2
+    name: "Review PowerShell Command Line"
+    action: "analyze"
+    description: "Review the complete PowerShell command line, parameters, encoded content, execution options, and script path."
+    expected_result: "The PowerShell command line and execution parameters are documented."
+  - id: "review-parent-process"
+    order: 3
+    name: "Review Parent Process"
+    action: "analyze"
+    description: "Determine which process launched PowerShell and assess whether the parent-child relationship is expected."
+    expected_result: "The PowerShell parent process and execution chain are assessed."
+  - id: "review-script-content"
+    order: 4
+    name: "Review Script Content"
+    action: "analyze"
+    description: "Review available script content, file metadata, hashes, signatures, and indicators of obfuscation or malicious behavior."
+    expected_result: "Relevant PowerShell script characteristics are identified."
+  - id: "review-child-processes"
+    order: 5
+    name: "Review Child Processes"
+    action: "analyze"
+    description: "Review child processes launched by PowerShell and correlate them with the execution timeline."
+    expected_result: "PowerShell child-process activity is documented and correlated."
+  - id: "review-network-activity"
+    order: 6
+    name: "Review Network Activity"
+    action: "analyze"
+    description: "Review DNS requests, network connections, downloads, and external destinations associated with PowerShell."
+    expected_result: "Related network activity is identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine PowerShell Activity Scope"
+    action: "hunt"
+    description: "Search for the same command line, script hash, script path, encoded pattern, or parent-child process relationship across the environment."
+    expected_result: "The prevalence and scope of the PowerShell activity are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the PowerShell activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -143,7 +143,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify PowerShell Alert
 
 Determine:
 
@@ -248,7 +248,7 @@ Collect:
 
 Investigate unexpected communication with suspicious or unapproved infrastructure.
 
-### Step 7 — Determine Activity Scope
+### Step 7 — Determine PowerShell Activity Scope
 
 Search the environment for:
 
