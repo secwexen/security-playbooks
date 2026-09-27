@@ -3,10 +3,10 @@ id: "password-spraying"
 name: "Password Spraying"
 category: "credential-access"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-17T15:17:00Z"
-updated_at: "2026-09-20T18:55:00Z"
+updated_at: "2026-09-27T12:44:00Z"
 description: "Password spraying is an authentication attack pattern in which a limited number of common or compromised passwords are attempted against multiple accounts."
 objective: "Identify, investigate, and validate suspicious password-spraying activity and determine whether accounts may have been targeted or compromised."
 severity: "high"
@@ -35,54 +35,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1110/003/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Password Spraying Alert"
-  action: "investigate"
-  description: "Identify the detection source, source addresses, targeted accounts, authentication provider, timestamps, and alert context."
-  expected_result: "The suspicious authentication pattern and affected entities are identified."
-- id: "identify-authentication-pattern"
-  order: 2
-  name: "Identify Authentication Pattern"
-  action: "analyze"
-  description: "Determine the number of targeted accounts, failure volume, time window, source distribution, and authentication services involved."
-  expected_result: "The authentication pattern is documented and assessed."
-- id: "review-source-context"
-  order: 3
-  name: "Review Source Context"
-  action: "analyze"
-  description: "Review source IP addresses, hosts, geographic or network context, user agents where available, and known organizational infrastructure."
-  expected_result: "The origin and context of the authentication attempts are assessed."
-- id: "review-target-accounts"
-  order: 4
-  name: "Review Target Accounts"
-  action: "analyze"
-  description: "Identify targeted accounts, privileges, account type, ownership, normal usage patterns, and business importance."
-  expected_result: "Potentially targeted accounts and their risk are documented."
-- id: "review-successful-authentication"
-  order: 5
-  name: "Review Successful Authentication"
-  action: "analyze"
-  description: "Identify successful authentications occurring during or immediately after the suspicious failure pattern and correlate them with source, account, and destination context."
-  expected_result: "Potentially compromised authentications are identified or ruled out."
-- id: "review-follow-on-activity"
-  order: 6
-  name: "Review Follow-on Activity"
-  action: "analyze"
-  description: "Correlate authentication activity with privilege escalation, lateral movement, persistence, endpoint activity, and suspicious network behavior."
-  expected_result: "Post-authentication activity and possible account misuse are identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Password Spraying Scope"
-  action: "hunt"
-  description: "Search for related authentication failures, source addresses, targeted accounts, successful logons, and repeated patterns across the environment."
-  expected_result: "The prevalence and scope of the password-spraying activity are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the authentication activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Password Spraying Alert"
+    action: "investigate"
+    description: "Identify the detection source, source addresses, targeted accounts, authentication provider, timestamps, and alert context."
+    expected_result: "The suspicious authentication pattern and affected entities are identified."
+  - id: "identify-authentication-pattern"
+    order: 2
+    name: "Identify Authentication Pattern"
+    action: "analyze"
+    description: "Determine the number of targeted accounts, failure volume, time window, source distribution, and authentication services involved."
+    expected_result: "The authentication pattern is documented and assessed."
+  - id: "review-source-context"
+    order: 3
+    name: "Review Source Context"
+    action: "analyze"
+    description: "Review source IP addresses, hosts, geographic or network context, user agents where available, and known organizational infrastructure."
+    expected_result: "The origin and context of the authentication attempts are assessed."
+  - id: "review-target-accounts"
+    order: 4
+    name: "Review Target Accounts"
+    action: "analyze"
+    description: "Identify targeted accounts, privileges, account type, ownership, normal usage patterns, and business importance."
+    expected_result: "Potentially targeted accounts and their risk are documented."
+  - id: "review-successful-authentication"
+    order: 5
+    name: "Review Successful Authentication"
+    action: "analyze"
+    description: "Identify successful authentications occurring during or immediately after the suspicious failure pattern and correlate them with source, account, and destination context."
+    expected_result: "Potentially compromised authentications are identified or ruled out."
+  - id: "review-follow-on-activity"
+    order: 6
+    name: "Review Follow-on Activity"
+    action: "analyze"
+    description: "Correlate authentication activity with privilege escalation, lateral movement, persistence, endpoint activity, and suspicious network behavior."
+    expected_result: "Post-authentication activity and possible account misuse are identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Password Spraying Scope"
+    action: "hunt"
+    description: "Search for related authentication failures, source addresses, targeted accounts, successful logons, and repeated patterns across the environment."
+    expected_result: "The prevalence and scope of the password-spraying activity are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the authentication activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -99,6 +99,23 @@ This playbook provides a structured workflow for investigating suspected passwor
 Password spraying is an authentication attack pattern in which a limited number of passwords are attempted against multiple accounts. Unlike attacks focused on repeatedly guessing a single account's password, password spraying typically distributes authentication attempts across multiple accounts to avoid account-specific lockout thresholds.
 
 The objective is to determine whether the observed authentication activity is legitimate, suspicious, or malicious and whether any accounts may have been targeted or compromised.
+
+### Authentication Context
+
+Password-spraying indicators can appear across multiple authentication services and identity platforms.
+
+Relevant telemetry may include:
+
+- Active Directory authentication;
+- Windows logon events;
+- VPN authentication;
+- remote-access services;
+- cloud identity-provider sign-ins;
+- web application authentication;
+- email or collaboration platform authentication;
+- other centralized identity services.
+
+Authentication failures should always be evaluated in context. Legitimate systems, applications, synchronization services, misconfigured clients, and network infrastructure can also generate repeated failed authentications.
 
 ## MITRE ATT&CK
 
@@ -146,26 +163,9 @@ The investigation should consider:
 - related alerts;
 - other affected accounts and hosts.
 
-## Authentication Context
-
-Password-spraying indicators can appear across multiple authentication services and identity platforms.
-
-Relevant telemetry may include:
-
-- Active Directory authentication;
-- Windows logon events;
-- VPN authentication;
-- remote-access services;
-- cloud identity-provider sign-ins;
-- web application authentication;
-- email or collaboration platform authentication;
-- other centralized identity services.
-
-Authentication failures should always be evaluated in context. Legitimate systems, applications, synchronization services, misconfigured clients, and network infrastructure can also generate repeated failed authentications.
-
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Password Spraying Alert
 
 Determine:
 
@@ -415,8 +415,6 @@ Account disablement, credential resets, session invalidation, and other identity
 Do not test passwords against real user accounts as part of routine investigation or validation.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/suspicious-login.yml`
 
 ## Related Playbooks
 
