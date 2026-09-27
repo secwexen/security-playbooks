@@ -3,10 +3,10 @@ id: "user-execution"
 name: "User Execution"
 category: "execution"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-10T17:23:00Z"
-updated_at: "2026-09-20T20:53:00Z"
+updated_at: "2026-09-27T11:37:00Z"
 description: "User Execution involves adversaries relying on users to execute malicious files, links, scripts, or other content to initiate or continue malicious activity."
 objective: "Identify, investigate, and validate suspicious user-driven execution and determine whether user interaction resulted in unauthorized code execution or further compromise."
 severity: "high"
@@ -34,54 +34,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1204/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify User Execution Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected user, host, timestamp, and user action associated with the event."
-  expected_result: "The suspicious user-execution event and affected asset are identified."
-- id: "identify-user-action"
-  order: 2
-  name: "Identify User Action"
-  action: "analyze"
-  description: "Determine whether the user opened a file, clicked a link, executed a program, or enabled active content."
-  expected_result: "The user action that initiated execution is established."
-- id: "review-source-content"
-  order: 3
-  name: "Review Source Content"
-  action: "analyze"
-  description: "Review the file, message, link, document, or other content that prompted the user action."
-  expected_result: "The source content and relevant indicators are documented."
-- id: "review-process-activity"
-  order: 4
-  name: "Review Process Activity"
-  action: "analyze"
-  description: "Review process creation, parent-child relationships, command lines, and execution timestamps following the user action."
-  expected_result: "The resulting process activity is documented and correlated."
-- id: "review-file-network-activity"
-  order: 5
-  name: "Review File and Network Activity"
-  action: "analyze"
-  description: "Review file creation, downloads, DNS activity, and network connections associated with the execution."
-  expected_result: "Related file and network activity is identified or ruled out."
-- id: "review-follow-on-activity"
-  order: 6
-  name: "Review Follow-on Activity"
-  action: "analyze"
-  description: "Review persistence, credential access, privilege escalation, lateral movement, and other post-execution activity."
-  expected_result: "Potential follow-on compromise activity is identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Execution Scope"
-  action: "hunt"
-  description: "Search for the same file, link, hash, sender, command line, or execution pattern across the environment."
-  expected_result: "Affected users, hosts, and related execution events are identified."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the user-execution activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify User Execution Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected user, host, timestamp, and user action associated with the event."
+    expected_result: "The suspicious user-execution event and affected asset are identified."
+  - id: "identify-user-action"
+    order: 2
+    name: "Identify User Action"
+    action: "analyze"
+    description: "Determine whether the user opened a file, clicked a link, executed a program, or enabled active content."
+    expected_result: "The user action that initiated execution is established."
+  - id: "review-source-content"
+    order: 3
+    name: "Review Source Content"
+    action: "analyze"
+    description: "Review the file, message, link, document, or other content that prompted the user action."
+    expected_result: "The source content and relevant indicators are documented."
+  - id: "review-process-activity"
+    order: 4
+    name: "Review Process Activity"
+    action: "analyze"
+    description: "Review process creation, parent-child relationships, command lines, and execution timestamps following the user action."
+    expected_result: "The resulting process activity is documented and correlated."
+  - id: "review-file-network-activity"
+    order: 5
+    name: "Review File and Network Activity"
+    action: "analyze"
+    description: "Review file creation, downloads, DNS activity, and network connections associated with the execution."
+    expected_result: "Related file and network activity is identified or ruled out."
+  - id: "review-follow-on-activity"
+    order: 6
+    name: "Review Follow-on Activity"
+    action: "analyze"
+    description: "Review persistence, credential access, privilege escalation, lateral movement, and other post-execution activity."
+    expected_result: "Potential follow-on compromise activity is identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Execution Scope"
+    action: "hunt"
+    description: "Search for the same file, link, hash, sender, command line, or execution pattern across the environment."
+    expected_result: "Affected users, hosts, and related execution events are identified."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the user-execution activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -144,7 +144,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify User Execution Alert
 
 Determine:
 
@@ -371,13 +371,6 @@ For confirmed malicious user execution:
 Do not delete or modify relevant files, logs, or other evidence before required evidence preservation has been completed.
 
 ## Related Detection Rules
-
-- `detection-rules/yara/malware-sample.yar`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/yara/obfuscated-powershell.yar`
-- `detection-rules/yara/yara-powershell-payload.yar`
-- `detection-rules/suricata/network-alert.rules`
-- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
