@@ -3,10 +3,10 @@ id: "kerberoasting"
 name: "Kerberoasting"
 category: "credential-access"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-16T18:45:00Z"
-updated_at: "2026-09-20T18:50:00Z"
+updated_at: "2026-09-27T12:27:00Z"
 description: "Kerberoasting involves requesting Kerberos service tickets for service accounts and attempting to recover account credentials from the captured ticket material."
 objective: "Identify, investigate, and validate suspicious Kerberoasting activity and determine whether service-account credentials may have been targeted or exposed."
 severity: "high"
@@ -36,54 +36,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1558/003/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Kerberoasting Alert"
-  action: "investigate"
-  description: "Identify the detection source, initiating account, source host, service account, ticket activity, and timestamps."
-  expected_result: "The suspicious Kerberos service-ticket activity and affected entities are identified."
-- id: "identify-service-ticket"
-  order: 2
-  name: "Identify Service Ticket Activity"
-  action: "analyze"
-  description: "Determine which service accounts and service principal names were targeted and characterize the associated ticket requests."
-  expected_result: "The targeted service accounts and ticket request context are documented."
-- id: "review-source-context"
-  order: 3
-  name: "Review Source Context"
-  action: "analyze"
-  description: "Review the source host, initiating account, process activity, authentication context, and whether the activity matches expected administrative behavior."
-  expected_result: "The source system and initiating account context are assessed."
-- id: "review-account-context"
-  order: 4
-  name: "Review Service Account Context"
-  action: "analyze"
-  description: "Review the targeted service accounts, service principal names, privilege level, ownership, usage, and expected authentication patterns."
-  expected_result: "The targeted service-account context and potential impact are documented."
-- id: "review-authentication-activity"
-  order: 5
-  name: "Review Authentication Activity"
-  action: "analyze"
-  description: "Correlate service-ticket requests with logon events, authentication anomalies, privilege changes, and subsequent account activity."
-  expected_result: "Related authentication activity is correlated and assessed."
-- id: "review-follow-on-activity"
-  order: 6
-  name: "Review Follow-on Activity"
-  action: "analyze"
-  description: "Investigate subsequent lateral movement, privileged access, persistence, suspicious network activity, or use of affected service accounts."
-  expected_result: "Potential credential misuse and follow-on activity are identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Kerberoasting Scope"
-  action: "hunt"
-  description: "Search for similar ticket-request patterns, source hosts, initiating accounts, targeted service accounts, and related authentication activity across the environment."
-  expected_result: "The prevalence and scope of the Kerberoasting activity are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Kerberoasting Alert"
+    action: "investigate"
+    description: "Identify the detection source, initiating account, source host, service account, ticket activity, and timestamps."
+    expected_result: "The suspicious Kerberos service-ticket activity and affected entities are identified."
+  - id: "identify-service-ticket"
+    order: 2
+    name: "Identify Service Ticket Activity"
+    action: "analyze"
+    description: "Determine which service accounts and service principal names were targeted and characterize the associated ticket requests."
+    expected_result: "The targeted service accounts and ticket request context are documented."
+  - id: "review-source-context"
+    order: 3
+    name: "Review Source Context"
+    action: "analyze"
+    description: "Review the source host, initiating account, process activity, authentication context, and whether the activity matches expected administrative behavior."
+    expected_result: "The source system and initiating account context are assessed."
+  - id: "review-account-context"
+    order: 4
+    name: "Review Service Account Context"
+    action: "analyze"
+    description: "Review the targeted service accounts, service principal names, privilege level, ownership, usage, and expected authentication patterns."
+    expected_result: "The targeted service-account context and potential impact are documented."
+  - id: "review-authentication-activity"
+    order: 5
+    name: "Review Authentication Activity"
+    action: "analyze"
+    description: "Correlate service-ticket requests with logon events, authentication anomalies, privilege changes, and subsequent account activity."
+    expected_result: "Related authentication activity is correlated and assessed."
+  - id: "review-follow-on-activity"
+    order: 6
+    name: "Review Follow-on Activity"
+    action: "analyze"
+    description: "Investigate subsequent lateral movement, privileged access, persistence, suspicious network activity, or use of affected service accounts."
+    expected_result: "Potential credential misuse and follow-on activity are identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Kerberoasting Scope"
+    action: "hunt"
+    description: "Search for similar ticket-request patterns, source hosts, initiating accounts, targeted service accounts, and related authentication activity across the environment."
+    expected_result: "The prevalence and scope of the Kerberoasting activity are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -100,6 +100,16 @@ This playbook provides a structured workflow for investigating suspicious Kerber
 Kerberoasting targets service accounts by requesting Kerberos service tickets for service principal names (SPNs). The resulting ticket material may then be subjected to offline credential-recovery attempts.
 
 The objective is to determine whether the observed ticket activity is legitimate, suspicious, or malicious and whether service-account credentials may have been targeted or exposed.
+
+### Kerberos Context
+
+Kerberos is a primary authentication protocol used by Windows Active Directory environments.
+
+Service accounts may have associated service principal names that allow clients to request service tickets for services operating under those accounts.
+
+Not every service-ticket request is suspicious. Applications, users, administrators, and automated services may legitimately request multiple tickets during normal operations.
+
+The investigation should therefore focus on the request pattern, initiating identity, targeted service accounts, and surrounding telemetry.
 
 ## MITRE ATT&CK
 
@@ -146,19 +156,9 @@ The investigation should consider:
 - related alerts;
 - additional affected accounts and hosts.
 
-## Kerberos Context
-
-Kerberos is a primary authentication protocol used by Windows Active Directory environments.
-
-Service accounts may have associated service principal names that allow clients to request service tickets for services operating under those accounts.
-
-Not every service-ticket request is suspicious. Applications, users, administrators, and automated services may legitimately request multiple tickets during normal operations.
-
-The investigation should therefore focus on the request pattern, initiating identity, targeted service accounts, and surrounding telemetry.
-
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Kerberoasting Alert
 
 Determine:
 
@@ -383,8 +383,6 @@ Credential resets, session invalidation, and service-account containment should 
 Do not attempt to recover real service-account passwords during routine investigation or validation.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/suspicious-login.yml`
 
 ## Related Playbooks
 
