@@ -3,10 +3,10 @@ id: "lsass-dump"
 name: "LSASS Credential Access"
 category: "credential-access"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-15T14:51:00Z"
-updated_at: "2026-09-20T18:52:00Z"
+updated_at: "2026-09-27T12:30:00Z"
 description: "LSASS credential access involves attempts to access the Local Security Authority Subsystem Service for authentication material."
 objective: "Identify, investigate, and validate suspicious access to LSASS and determine whether credential material may have been targeted or exposed."
 severity: "critical"
@@ -35,54 +35,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1003/001/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify LSASS Access Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, account, initiating process, target process, and timestamp."
-  expected_result: "The suspicious LSASS access event and affected asset are identified."
-- id: "identify-accessing-process"
-  order: 2
-  name: "Identify Accessing Process"
-  action: "analyze"
-  description: "Determine which process accessed lsass.exe and review its executable path, hash, signer, parent process, and account context."
-  expected_result: "The initiating process and execution context are documented."
-- id: "review-access-context"
-  order: 3
-  name: "Review Process Access Context"
-  action: "analyze"
-  description: "Review available process-access telemetry, access characteristics, integrity level, privileges, and surrounding execution events."
-  expected_result: "The LSASS access context is assessed."
-- id: "review-process-tree"
-  order: 4
-  name: "Review Process Tree"
-  action: "analyze"
-  description: "Correlate the accessing process with its parent and child processes and determine whether the process chain is expected."
-  expected_result: "The process execution chain is documented and correlated."
-- id: "review-file-and-network-activity"
-  order: 5
-  name: "Review File and Network Activity"
-  action: "analyze"
-  description: "Review file activity, downloads, DNS requests, and network connections associated with the accessing process."
-  expected_result: "Related file and network activity is identified or ruled out."
-- id: "assess-account-exposure"
-  order: 6
-  name: "Assess Potential Credential Exposure"
-  action: "analyze"
-  description: "Identify accounts that may have been exposed and correlate subsequent authentication activity."
-  expected_result: "Potentially affected accounts and related activity are documented."
-- id: "determine-scope"
-  order: 7
-  name: "Determine LSASS Access Scope"
-  action: "hunt"
-  description: "Search for the same process, hash, command line, account, host, or LSASS access pattern across the environment."
-  expected_result: "The prevalence and scope of the LSASS access activity are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the LSASS access activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify LSASS Access Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, account, initiating process, target process, and timestamp."
+    expected_result: "The suspicious LSASS access event and affected asset are identified."
+  - id: "identify-accessing-process"
+    order: 2
+    name: "Identify Accessing Process"
+    action: "analyze"
+    description: "Determine which process accessed lsass.exe and review its executable path, hash, signer, parent process, and account context."
+    expected_result: "The initiating process and execution context are documented."
+  - id: "review-access-context"
+    order: 3
+    name: "Review Process Access Context"
+    action: "analyze"
+    description: "Review available process-access telemetry, access characteristics, integrity level, privileges, and surrounding execution events."
+    expected_result: "The LSASS access context is assessed."
+  - id: "review-process-tree"
+    order: 4
+    name: "Review Process Tree"
+    action: "analyze"
+    description: "Correlate the accessing process with its parent and child processes and determine whether the process chain is expected."
+    expected_result: "The process execution chain is documented and correlated."
+  - id: "review-file-and-network-activity"
+    order: 5
+    name: "Review File and Network Activity"
+    action: "analyze"
+    description: "Review file activity, downloads, DNS requests, and network connections associated with the accessing process."
+    expected_result: "Related file and network activity is identified or ruled out."
+  - id: "assess-account-exposure"
+    order: 6
+    name: "Assess Potential Credential Exposure"
+    action: "analyze"
+    description: "Identify accounts that may have been exposed and correlate subsequent authentication activity."
+    expected_result: "Potentially affected accounts and related activity are documented."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine LSASS Access Scope"
+    action: "hunt"
+    description: "Search for the same process, hash, command line, account, host, or LSASS access pattern across the environment."
+    expected_result: "The prevalence and scope of the LSASS access activity are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the LSASS access activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -146,7 +146,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify LSASS Access Alert
 
 Determine:
 
@@ -369,8 +369,7 @@ Do not perform credential extraction or attempt to reproduce credential theft on
 
 ## Related Detection Rules
 
-- `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
+- `detection-rules/sigma/lsass-access.yml`
 
 ## Related Playbooks
 
