@@ -3,10 +3,10 @@ id: "ntds-dump"
 name: "NTDS Credential Access"
 category: "credential-access"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-15T20:06:00Z"
-updated_at: "2026-09-20T18:53:00Z"
+updated_at: "2026-09-27T12:33:00Z"
 description: "NTDS credential access involves attempts to obtain Active Directory account authentication material from the domain controller database."
 objective: "Identify, investigate, and validate suspicious access to the NTDS database and determine whether domain credentials may have been exposed."
 severity: "critical"
@@ -35,54 +35,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1003/003/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify NTDS Access Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected domain controller, account, initiating process, timestamp, and alert context."
-  expected_result: "The suspicious NTDS access event and affected domain controller are identified."
-- id: "identify-access-target"
-  order: 2
-  name: "Identify NTDS Access Target"
-  action: "analyze"
-  description: "Determine which NTDS-related database, copy, shadow-copy artifact, or associated resource was accessed."
-  expected_result: "The credential access target and context are documented."
-- id: "review-process-context"
-  order: 3
-  name: "Review Process Context"
-  action: "analyze"
-  description: "Review the initiating process, parent process, command line, account context, privileges, and execution timeline."
-  expected_result: "The process execution context is assessed."
-- id: "review-file-activity"
-  order: 4
-  name: "Review File Activity"
-  action: "analyze"
-  description: "Review creation, access, copying, or modification of NTDS-related files and supporting artifacts."
-  expected_result: "Relevant file activity and artifacts are documented."
-- id: "review-domain-activity"
-  order: 5
-  name: "Review Domain Activity"
-  action: "analyze"
-  description: "Correlate NTDS access with directory-service events, authentication activity, privileged operations, and changes involving domain accounts."
-  expected_result: "Related domain activity and account context are correlated."
-- id: "assess-account-impact"
-  order: 6
-  name: "Assess Potential Domain Credential Exposure"
-  action: "analyze"
-  description: "Identify domain accounts that may have been exposed and assess privilege, scope, and business impact."
-  expected_result: "Potentially affected accounts and their risk are documented."
-- id: "determine-scope"
-  order: 7
-  name: "Determine NTDS Access Scope"
-  action: "hunt"
-  description: "Search for related processes, accounts, domain controllers, file artifacts, hashes, and credential access indicators across the environment."
-  expected_result: "The prevalence and scope of the NTDS access activity are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the NTDS access activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify NTDS Access Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected domain controller, account, initiating process, timestamp, and alert context."
+    expected_result: "The suspicious NTDS access event and affected domain controller are identified."
+  - id: "identify-access-target"
+    order: 2
+    name: "Identify NTDS Access Target"
+    action: "analyze"
+    description: "Determine which NTDS-related database, copy, shadow-copy artifact, or associated resource was accessed."
+    expected_result: "The credential access target and context are documented."
+  - id: "review-process-context"
+    order: 3
+    name: "Review Process Context"
+    action: "analyze"
+    description: "Review the initiating process, parent process, command line, account context, privileges, and execution timeline."
+    expected_result: "The process execution context is assessed."
+  - id: "review-file-activity"
+    order: 4
+    name: "Review File Activity"
+    action: "analyze"
+    description: "Review creation, access, copying, or modification of NTDS-related files and supporting artifacts."
+    expected_result: "Relevant file activity and artifacts are documented."
+  - id: "review-domain-activity"
+    order: 5
+    name: "Review Domain Activity"
+    action: "analyze"
+    description: "Correlate NTDS access with directory-service events, authentication activity, privileged operations, and changes involving domain accounts."
+    expected_result: "Related domain activity and account context are correlated."
+  - id: "assess-account-impact"
+    order: 6
+    name: "Assess Potential Domain Credential Exposure"
+    action: "analyze"
+    description: "Identify domain accounts that may have been exposed and assess privilege, scope, and business impact."
+    expected_result: "Potentially affected accounts and their risk are documented."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine NTDS Access Scope"
+    action: "hunt"
+    description: "Search for related processes, accounts, domain controllers, file artifacts, hashes, and credential access indicators across the environment."
+    expected_result: "The prevalence and scope of the NTDS access activity are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the NTDS access activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -99,6 +99,14 @@ This playbook provides a structured workflow for investigating suspicious access
 The NTDS database is a core Active Directory data store. Unauthorized access to NTDS-related data can expose authentication material for domain accounts and may enable subsequent account compromise, privilege escalation, or lateral movement.
 
 The objective is to determine whether the activity is legitimate, suspicious, or malicious and whether domain credentials may have been exposed.
+
+### NTDS Context
+
+The NTDS database is associated with Active Directory domain controllers and contains sensitive directory information.
+
+Investigations should focus on the **observed access behavior and supporting telemetry** rather than attempting to reproduce credential extraction.
+
+Do not copy, extract, disclose, or process real domain credential material as part of routine investigation or validation.
 
 ## MITRE ATT&CK
 
@@ -144,17 +152,9 @@ The investigation should consider:
 - related alerts;
 - other affected domain controllers.
 
-## NTDS Context
-
-The NTDS database is associated with Active Directory domain controllers and contains sensitive directory information.
-
-Investigations should focus on the **observed access behavior and supporting telemetry** rather than attempting to reproduce credential extraction.
-
-Do not copy, extract, disclose, or process real domain credential material as part of routine investigation or validation.
-
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify NTDS Access Alert
 
 Determine:
 
@@ -388,8 +388,6 @@ Credential resets, session invalidation, privileged-account containment, and oth
 Do not extract or disclose real domain credential material during response or validation.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/suspicious-login.yml`
 
 ## Related Playbooks
 
