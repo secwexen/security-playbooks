@@ -3,10 +3,10 @@ id: "scripting"
 name: "Scripting"
 category: "execution"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-09T20:50:00Z"
-updated_at: "2026-09-20T20:51:00Z"
+updated_at: "2026-09-27T11:34:00Z"
 description: "Scripting enables adversaries to execute commands and code through scripting engines and interpreters available on a system."
 objective: "Identify, investigate, and validate suspicious scripting activity and determine whether script execution is associated with unauthorized or malicious behavior."
 severity: "high"
@@ -33,54 +33,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1059/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Script Execution Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, user, script interpreter, timestamp, and alert context."
-  expected_result: "The suspicious script execution event and affected asset are identified."
-- id: "identify-interpreter"
-  order: 2
-  name: "Identify Script Interpreter"
-  action: "analyze"
-  description: "Determine which scripting engine or interpreter executed the script."
-  expected_result: "The scripting interpreter and execution context are identified."
-- id: "review-command-line"
-  order: 3
-  name: "Review Command Line"
-  action: "analyze"
-  description: "Review the complete command line, parameters, encoded content, and execution options."
-  expected_result: "The script execution command line is documented and assessed."
-- id: "review-script"
-  order: 4
-  name: "Review Script Context"
-  action: "analyze"
-  description: "Review the script path, filename, source, content indicators, and related files where available."
-  expected_result: "The script origin and relevant characteristics are identified."
-- id: "review-process-tree"
-  order: 5
-  name: "Review Process Tree"
-  action: "analyze"
-  description: "Review the parent process, scripting interpreter, child processes, and related execution chain."
-  expected_result: "The complete execution chain is documented."
-- id: "review-network-activity"
-  order: 6
-  name: "Review Network Activity"
-  action: "analyze"
-  description: "Review network connections, DNS activity, and external destinations associated with the script or spawned processes."
-  expected_result: "Relevant network activity is identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Script Activity Scope"
-  action: "hunt"
-  description: "Search for the same command line, script hash, script path, interpreter pattern, or related activity across the environment."
-  expected_result: "The prevalence and scope of the scripting activity are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the scripting activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Script Execution Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, user, script interpreter, timestamp, and alert context."
+    expected_result: "The suspicious script execution event and affected asset are identified."
+  - id: "identify-interpreter"
+    order: 2
+    name: "Identify Script Interpreter"
+    action: "analyze"
+    description: "Determine which scripting engine or interpreter executed the script."
+    expected_result: "The scripting interpreter and execution context are identified."
+  - id: "review-command-line"
+    order: 3
+    name: "Review Command Line"
+    action: "analyze"
+    description: "Review the complete command line, parameters, encoded content, and execution options."
+    expected_result: "The script execution command line is documented and assessed."
+  - id: "review-script"
+    order: 4
+    name: "Review Script Context"
+    action: "analyze"
+    description: "Review the script path, filename, source, content indicators, and related files where available."
+    expected_result: "The script origin and relevant characteristics are identified."
+  - id: "review-process-tree"
+    order: 5
+    name: "Review Process Tree"
+    action: "analyze"
+    description: "Review the parent process, scripting interpreter, child processes, and related execution chain."
+    expected_result: "The complete execution chain is documented."
+  - id: "review-network-activity"
+    order: 6
+    name: "Review Network Activity"
+    action: "analyze"
+    description: "Review network connections, DNS activity, and external destinations associated with the script or spawned processes."
+    expected_result: "Relevant network activity is identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Script Activity Scope"
+    action: "hunt"
+    description: "Search for the same command line, script hash, script path, interpreter pattern, or related activity across the environment."
+    expected_result: "The prevalence and scope of the scripting activity are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the scripting activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -140,7 +140,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Script Execution Alert
 
 Determine:
 
@@ -155,7 +155,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Identify the Script Interpreter
+### Step 2 — Identify Script Interpreter
 
 Determine which interpreter or scripting engine was used.
 
@@ -247,7 +247,7 @@ Collect:
 
 Investigate communication with unexpected or suspicious infrastructure.
 
-### Step 7 — Determine Activity Scope
+### Step 7 — Determine Script Activity Scope
 
 Search the environment for:
 
@@ -376,13 +376,6 @@ For confirmed malicious scripting activity:
 Do not delete or modify relevant scripts, logs, or other evidence before required evidence preservation has been completed.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/yara/obfuscated-powershell.yar`
-- `detection-rules/yara/yara-powershell-payload.yar`
-- `detection-rules/yara/malware-sample.yar`
-- `detection-rules/suricata/network-alert.rules`
-- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
