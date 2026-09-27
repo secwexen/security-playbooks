@@ -3,15 +3,15 @@ id: "application-consent-abuse"
 name: "Application Consent Abuse"
 category: "initial-access"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-08T11:11:00Z"
-updated_at: "2026-09-20T19:23:00Z"
+updated_at: "2026-09-27T09:09:00Z"
 description: "Investigate suspicious application consent, OAuth grants, and delegated access that may allow unauthorized access to user or organizational resources."
 objective: "Determine whether an application consent or delegated-access event was legitimate, identify affected accounts and permissions, establish scope, and determine whether containment or incident response is required."
 severity: "high"
 mitre_attack:
-  - "T1098"
+  - "T1671"
 triggers:
   - "Unexpected application consent"
   - "Suspicious OAuth application grant"
@@ -32,56 +32,56 @@ tags:
   - "cloud"
   - "account-compromise"
 references:
-  - "https://attack.mitre.org/techniques/T1098/"
+  - "https://attack.mitre.org/techniques/T1671/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Consent Alert"
-  action: "investigate"
-  description: "Identify the alert source, affected account, application, timestamp, and consent event."
-  expected_result: "The application consent event and affected account are clearly identified."
-- id: "identify-application"
-  order: 2
-  name: "Identify Application"
-  action: "analyze"
-  description: "Identify the application, publisher, application identifier, tenant context, and ownership information."
-  expected_result: "The application and its ownership context are documented."
-- id: "review-permissions"
-  order: 3
-  name: "Review Granted Permissions"
-  action: "analyze"
-  description: "Review the permissions and scopes granted to the application and determine whether they are appropriate."
-  expected_result: "Granted permissions and associated risk are documented."
-- id: "review-consent-context"
-  order: 4
-  name: "Review Consent Context"
-  action: "investigate"
-  description: "Review who granted consent, when consent occurred, source information, and associated authentication activity."
-  expected_result: "The consent context and initiating identity are understood."
-- id: "review-application-activity"
-  order: 5
-  name: "Review Application Activity"
-  action: "analyze"
-  description: "Review resource access performed by the application after consent, including mail, files, directory, or other cloud resources."
-  expected_result: "Potential post-consent resource access is identified or ruled out."
-- id: "correlate-account-activity"
-  order: 6
-  name: "Correlate Account Activity"
-  action: "hunt"
-  description: "Correlate consent activity with sign-ins, MFA events, password changes, mailbox activity, and other suspicious account behavior."
-  expected_result: "Related account compromise indicators are identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Scope"
-  action: "hunt"
-  description: "Search for the same application, permissions, consent pattern, or application identifier across other accounts and tenants."
-  expected_result: "The number of affected accounts and related consent events is determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the consent event and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Consent Alert"
+    action: "investigate"
+    description: "Identify the alert source, affected account, application, timestamp, and consent event."
+    expected_result: "The application consent event and affected account are clearly identified."
+  - id: "identify-application"
+    order: 2
+    name: "Identify Application"
+    action: "analyze"
+    description: "Identify the application, publisher, application identifier, tenant context, and ownership information."
+    expected_result: "The application and its ownership context are documented."
+  - id: "review-permissions"
+    order: 3
+    name: "Review Granted Permissions"
+    action: "analyze"
+    description: "Review the permissions and scopes granted to the application and determine whether they are appropriate."
+    expected_result: "Granted permissions and associated risk are documented."
+  - id: "review-consent-context"
+    order: 4
+    name: "Review Consent Context"
+    action: "investigate"
+    description: "Review who granted consent, when consent occurred, source information, and associated authentication activity."
+    expected_result: "The consent context and initiating identity are understood."
+  - id: "review-application-activity"
+    order: 5
+    name: "Review Application Activity"
+    action: "analyze"
+    description: "Review resource access performed by the application after consent, including mail, files, directory, or other cloud resources."
+    expected_result: "Potential post-consent resource access is identified or ruled out."
+  - id: "correlate-account-activity"
+    order: 6
+    name: "Correlate Account Activity"
+    action: "hunt"
+    description: "Correlate consent activity with sign-ins, MFA events, password changes, mailbox activity, and other suspicious account behavior."
+    expected_result: "Related account compromise indicators are identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Scope"
+    action: "hunt"
+    description: "Search for the same application, permissions, consent pattern, or application identifier across other accounts and tenants."
+    expected_result: "The number of affected accounts and related consent events is determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the consent event and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -99,9 +99,9 @@ The objective is to determine whether an application was legitimately granted ac
 
 ## MITRE ATT&CK
 
-| Technique | Name                 | Relevance                                                                                                              |
-| --------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| T1098     | Account Manipulation | Relevant when an adversary modifies account access or grants additional permissions through account-related mechanisms |
+| Technique | Name                          | Relevance                                                                                                              |
+| --------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| T1671     | Cloud Application Integration | Relevant when OAuth application integration or consent is used to establish or maintain unauthorized access            |
 
 Additional ATT&CK techniques should only be mapped when supported by the observed application-consent behavior.
 
@@ -140,9 +140,9 @@ The investigation should consider:
 - related accounts;
 - related alerts.
 
-## Triage Procedure
+## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Consent Alert
 
 Determine:
 
@@ -367,8 +367,6 @@ For confirmed malicious application consent:
 Do not revoke access or delete application registrations before required evidence preservation and appropriate authorization have been considered.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/suspicious-login.yml`
 
 ## Related Playbooks
 
