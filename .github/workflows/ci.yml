@@ -19,15 +19,15 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python-version }}
 
       - name: Cache pip
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('requirements*.txt') }}
@@ -39,7 +39,13 @@ jobs:
           pip install -r requirements-dev.txt
 
       - name: Lint (pylint)
-        run: pylint $(git ls-files '*.py')
+        run: |
+          files=$(git ls-files '*.py')
+          if [ -n "$files" ]; then
+            pylint $files
+          else
+            echo "No Python files found; skipping pylint."
+          fi
 
       - name: Format check (black)
         run: black --check .
