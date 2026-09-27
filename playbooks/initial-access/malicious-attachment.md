@@ -3,10 +3,10 @@ id: "malicious-attachment"
 name: "Malicious Attachment"
 category: "initial-access"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-07T09:50:00Z"
-updated_at: "2026-09-20T19:28:00Z"
+updated_at: "2026-09-27T10:53:00Z"
 description: "Investigate and assess malicious or suspicious email attachments that may deliver malware or enable unauthorized access."
 objective: "Determine whether a delivered attachment is malicious, identify recipient and endpoint impact, establish scope, and determine whether incident response is required."
 severity: "high"
@@ -33,54 +33,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1566/001/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Attachment Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected recipient, message timestamp, and attachment involved."
-  expected_result: "The suspicious attachment and affected recipient are identified."
-- id: "collect-attachment-metadata"
-  order: 2
-  name: "Collect Attachment Metadata"
-  action: "analyze"
-  description: "Collect the attachment filename, type, size, hash, and delivery information."
-  expected_result: "The attachment metadata is documented."
-- id: "review-message-context"
-  order: 3
-  name: "Review Message Context"
-  action: "analyze"
-  description: "Review sender, recipient, subject, headers, authentication results, and message content."
-  expected_result: "The email delivery context and sender legitimacy are assessed."
-- id: "analyze-attachment"
-  order: 4
-  name: "Analyze Attachment"
-  action: "analyze"
-  description: "Assess the attachment for suspicious content, embedded objects, macros, scripts, links, or other malicious indicators."
-  expected_result: "Relevant attachment characteristics and indicators are identified."
-- id: "review-recipient-activity"
-  order: 5
-  name: "Review Recipient Activity"
-  action: "investigate"
-  description: "Determine whether the recipient opened, downloaded, extracted, or executed the attachment."
-  expected_result: "Recipient interaction with the attachment is established."
-- id: "review-endpoint-activity"
-  order: 6
-  name: "Review Endpoint Activity"
-  action: "analyze"
-  description: "Review process creation, file activity, command lines, network connections, and endpoint detections following attachment interaction."
-  expected_result: "Potential endpoint impact is identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Campaign Scope"
-  action: "hunt"
-  description: "Search for the same attachment hash, filename, sender, subject, or message pattern across the environment."
-  expected_result: "Affected recipients, hosts, and related messages are identified."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the attachment and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Attachment Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected recipient, message timestamp, and attachment involved."
+    expected_result: "The suspicious attachment and affected recipient are identified."
+  - id: "collect-attachment-metadata"
+    order: 2
+    name: "Collect Attachment Metadata"
+    action: "analyze"
+    description: "Collect the attachment filename, type, size, hash, and delivery information."
+    expected_result: "The attachment metadata is documented."
+  - id: "review-message-context"
+    order: 3
+    name: "Review Message Context"
+    action: "analyze"
+    description: "Review sender, recipient, subject, headers, authentication results, and message content."
+    expected_result: "The email delivery context and sender legitimacy are assessed."
+  - id: "analyze-attachment"
+    order: 4
+    name: "Analyze Attachment"
+    action: "analyze"
+    description: "Assess the attachment for suspicious content, embedded objects, macros, scripts, links, or other malicious indicators."
+    expected_result: "Relevant attachment characteristics and indicators are identified."
+  - id: "review-recipient-activity"
+    order: 5
+    name: "Review Recipient Activity"
+    action: "investigate"
+    description: "Determine whether the recipient opened, downloaded, extracted, or executed the attachment."
+    expected_result: "Recipient interaction with the attachment is established."
+  - id: "review-endpoint-activity"
+    order: 6
+    name: "Review Endpoint Activity"
+    action: "analyze"
+    description: "Review process creation, file activity, command lines, network connections, and endpoint detections following attachment interaction."
+    expected_result: "Potential endpoint impact is identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Campaign Scope"
+    action: "hunt"
+    description: "Search for the same attachment hash, filename, sender, subject, or message pattern across the environment."
+    expected_result: "Affected recipients, hosts, and related messages are identified."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the attachment and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -139,9 +139,9 @@ The investigation should consider:
 - related recipients;
 - related hosts.
 
-## Triage Procedure
+## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Attachment Alert
 
 Determine:
 
@@ -363,13 +363,6 @@ For confirmed malicious attachments:
 Do not delete relevant email, attachment, endpoint, or network evidence before required evidence preservation has been completed.
 
 ## Related Detection Rules
-
-- `detection-rules/yara/malware-sample.yar`
-- `detection-rules/yara/obfuscated-powershell.yar`
-- `detection-rules/yara/yara-powershell-payload.yar`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/suricata/network-alert.rules`
-- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
