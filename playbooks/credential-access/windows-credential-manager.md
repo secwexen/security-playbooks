@@ -3,10 +3,10 @@ id: "windows-credential-manager"
 name: "Windows Credential Manager"
 category: "credential-access"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-19T17:58:00Z"
-updated_at: "2026-09-20T18:39:00Z"
+updated_at: "2026-09-27T12:52:00Z"
 description: "Unauthorized access to Windows Credential Manager data can expose stored credentials and other authentication material."
 objective: "Identify, investigate, and validate suspicious access to Windows Credential Manager data and determine whether stored credentials may have been exposed."
 severity: "high"
@@ -37,54 +37,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1555/004/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Credential Manager Access Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, user, accessing process, targeted resource, and relevant timestamps."
-  expected_result: "The suspicious Windows Credential Manager access event and affected asset are identified."
-- id: "identify-target-store"
-  order: 2
-  name: "Identify Target Credential Store"
-  action: "analyze"
-  description: "Determine which Windows Credential Manager resource, credential store, user profile, or related artifact was accessed."
-  expected_result: "The targeted credential resource is documented."
-- id: "review-process-context"
-  order: 3
-  name: "Review Process Context"
-  action: "analyze"
-  description: "Review the accessing process, executable path, hash, signer, parent process, command line, account context, and execution timeline."
-  expected_result: "The accessing process and execution context are assessed."
-- id: "review-store-activity"
-  order: 4
-  name: "Review Credential Store Activity"
-  action: "analyze"
-  description: "Review file, process, application, and endpoint telemetry associated with Credential Manager access, enumeration, copying, or staging."
-  expected_result: "Relevant credential-store activity is identified or ruled out."
-- id: "assess-credential-exposure"
-  order: 5
-  name: "Assess Potential Credential Exposure"
-  action: "analyze"
-  description: "Identify accounts and services potentially represented in the affected credential store and assess their privilege and business impact."
-  expected_result: "Potentially affected accounts and services are documented."
-- id: "review-follow-on-activity"
-  order: 6
-  name: "Review Follow-on Activity"
-  action: "analyze"
-  description: "Correlate Credential Manager access with authentication, persistence, privilege escalation, lateral movement, and suspicious network activity."
-  expected_result: "Potential credential misuse and related activity are identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Credential Manager Access Scope"
-  action: "hunt"
-  description: "Search for the same accessing process, file hash, account, credential store, access pattern, or related activity across the environment."
-  expected_result: "The prevalence and scope of the Credential Manager access are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the Credential Manager access activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Credential Manager Access Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, user, accessing process, targeted resource, and relevant timestamps."
+    expected_result: "The suspicious Windows Credential Manager access event and affected asset are identified."
+  - id: "identify-target-store"
+    order: 2
+    name: "Identify Target Credential Store"
+    action: "analyze"
+    description: "Determine which Windows Credential Manager resource, credential store, user profile, or related artifact was accessed."
+    expected_result: "The targeted credential resource is documented."
+  - id: "review-process-context"
+    order: 3
+    name: "Review Process Context"
+    action: "analyze"
+    description: "Review the accessing process, executable path, hash, signer, parent process, command line, account context, and execution timeline."
+    expected_result: "The accessing process and execution context are assessed."
+  - id: "review-store-activity"
+    order: 4
+    name: "Review Credential Store Activity"
+    action: "analyze"
+    description: "Review file, process, application, and endpoint telemetry associated with Credential Manager access, enumeration, copying, or staging."
+    expected_result: "Relevant credential-store activity is identified or ruled out."
+  - id: "assess-credential-exposure"
+    order: 5
+    name: "Assess Potential Credential Exposure"
+    action: "analyze"
+    description: "Identify accounts and services potentially represented in the affected credential store and assess their privilege and business impact."
+    expected_result: "Potentially affected accounts and services are documented."
+  - id: "review-follow-on-activity"
+    order: 6
+    name: "Review Follow-on Activity"
+    action: "analyze"
+    description: "Correlate Credential Manager access with authentication, persistence, privilege escalation, lateral movement, and suspicious network activity."
+    expected_result: "Potential credential misuse and related activity are identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Credential Manager Access Scope"
+    action: "hunt"
+    description: "Search for the same accessing process, file hash, account, credential store, access pattern, or related activity across the environment."
+    expected_result: "The prevalence and scope of the Credential Manager access are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the Credential Manager access activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -101,6 +101,23 @@ This playbook provides a structured workflow for investigating suspicious access
 Windows Credential Manager is used to store credentials and authentication information for applications, services, network resources, and other supported Windows functionality. Unauthorized access to this data may expose authentication material and contribute to account compromise.
 
 The objective is to determine whether the observed Credential Manager access is legitimate, suspicious, or malicious and whether stored credentials may have been exposed.
+
+### Windows Credential Manager Context
+
+Windows Credential Manager can contain authentication information used by supported applications, network resources, and other Windows components.
+
+Legitimate access may be generated by:
+
+- Windows system components;
+- approved applications;
+- authorized administrative workflows;
+- endpoint management software;
+- approved security tooling;
+- authorized troubleshooting or maintenance activity.
+
+The presence of Credential Manager data on a Windows system is not itself evidence of malicious activity.
+
+The investigation should focus on the **accessing process, account context, targeted resource, timing, and surrounding behavior**.
 
 ## MITRE ATT&CK
 
@@ -147,26 +164,9 @@ The investigation should consider:
 - related alerts;
 - other affected hosts and accounts.
 
-## Windows Credential Manager Context
-
-Windows Credential Manager can contain authentication information used by supported applications, network resources, and other Windows components.
-
-Legitimate access may be generated by:
-
-- Windows system components;
-- approved applications;
-- authorized administrative workflows;
-- endpoint management software;
-- approved security tooling;
-- authorized troubleshooting or maintenance activity.
-
-The presence of Credential Manager data on a Windows system is not itself evidence of malicious activity.
-
-The investigation should focus on the **accessing process, account context, targeted resource, timing, and surrounding behavior**.
-
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Credential Manager Access Alert
 
 Determine:
 
@@ -402,8 +402,6 @@ Credential resets, session invalidation, account containment, and credential rem
 Do not extract, display, or disclose real credentials during investigation or validation.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/suspicious-login.yml`
 
 ## Related Playbooks
 
