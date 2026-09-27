@@ -3,10 +3,10 @@ id: "scheduled-task-execution"
 name: "Scheduled Task/Job Execution"
 category: "execution"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-11T11:40:00Z"
-updated_at: "2026-09-20T20:49:00Z"
+updated_at: "2026-09-27T11:31:00Z"
 description: "Scheduled Task/Job Execution enables commands or programs to run automatically at defined times or system events."
 objective: "Identify, investigate, and validate scheduled task or job execution and determine whether the activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -34,54 +34,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1053/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Scheduled Execution Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, task or job, account, and execution timestamp."
-  expected_result: "The scheduled execution event and affected asset are identified."
-- id: "identify-task"
-  order: 2
-  name: "Identify Task or Job"
-  action: "analyze"
-  description: "Identify the task or job name, scheduler, trigger, action, account, and execution configuration."
-  expected_result: "The scheduled task or job configuration is documented."
-- id: "review-action"
-  order: 3
-  name: "Review Scheduled Action"
-  action: "analyze"
-  description: "Review the executable, script, command line, arguments, and working directory associated with the scheduled action."
-  expected_result: "The scheduled action and its execution context are assessed."
-- id: "review-task-context"
-  order: 4
-  name: "Review Task Context"
-  action: "analyze"
-  description: "Review task creation, modification, trigger conditions, run-as account, and privilege context."
-  expected_result: "The task's lifecycle and execution context are documented."
-- id: "review-process-activity"
-  order: 5
-  name: "Review Process Activity"
-  action: "analyze"
-  description: "Review process creation, parent-child relationships, command lines, and files created by the scheduled task."
-  expected_result: "Associated process activity is identified and correlated."
-- id: "review-network-activity"
-  order: 6
-  name: "Review Network Activity"
-  action: "analyze"
-  description: "Review network connections, DNS activity, and external destinations associated with the scheduled task or spawned processes."
-  expected_result: "Related network activity is identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Scheduled Execution Scope"
-  action: "hunt"
-  description: "Search for the same task name, command line, executable, script, or scheduling pattern across the environment."
-  expected_result: "The prevalence and scope of the scheduled execution are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the scheduled execution activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Scheduled Execution Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, task or job, account, and execution timestamp."
+    expected_result: "The scheduled execution event and affected asset are identified."
+  - id: "identify-task"
+    order: 2
+    name: "Identify Task or Job"
+    action: "analyze"
+    description: "Identify the task or job name, scheduler, trigger, action, account, and execution configuration."
+    expected_result: "The scheduled task or job configuration is documented."
+  - id: "review-action"
+    order: 3
+    name: "Review Scheduled Action"
+    action: "analyze"
+    description: "Review the executable, script, command line, arguments, and working directory associated with the scheduled action."
+    expected_result: "The scheduled action and its execution context are assessed."
+  - id: "review-task-context"
+    order: 4
+    name: "Review Task Context"
+    action: "analyze"
+    description: "Review task creation, modification, trigger conditions, run-as account, and privilege context."
+    expected_result: "The task's lifecycle and execution context are documented."
+  - id: "review-process-activity"
+    order: 5
+    name: "Review Process Activity"
+    action: "analyze"
+    description: "Review process creation, parent-child relationships, command lines, and files created by the scheduled task."
+    expected_result: "Associated process activity is identified and correlated."
+  - id: "review-network-activity"
+    order: 6
+    name: "Review Network Activity"
+    action: "analyze"
+    description: "Review network connections, DNS activity, and external destinations associated with the scheduled task or spawned processes."
+    expected_result: "Related network activity is identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Scheduled Execution Scope"
+    action: "hunt"
+    description: "Search for the same task name, command line, executable, script, or scheduling pattern across the environment."
+    expected_result: "The prevalence and scope of the scheduled execution are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the scheduled execution activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -146,7 +146,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Scheduled Execution Alert
 
 Determine:
 
@@ -160,7 +160,7 @@ Determine:
 
 Preserve the original alert context before making configuration or remediation changes.
 
-### Step 2 — Identify the Task or Job
+### Step 2 — Identify Task or Job
 
 Collect:
 
@@ -364,10 +364,6 @@ For confirmed malicious scheduled execution:
 Do not delete or modify the scheduled task, referenced files, or relevant logs before required evidence preservation has been completed.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/yara/obfuscated-powershell.yar`
-- `detection-rules/yara/yara-powershell-payload.yar`
 
 ## Related Playbooks
 
