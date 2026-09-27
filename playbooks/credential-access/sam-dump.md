@@ -3,10 +3,10 @@ id: "sam-dump"
 name: "SAM Credential Access"
 category: "credential-access"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-16T16:11:00Z"
-updated_at: "2026-09-20T18:56:00Z"
+updated_at: "2026-09-27T12:48:00Z"
 description: "SAM credential access involves attempts to obtain local account authentication material from the Windows Security Account Manager database."
 objective: "Identify, investigate, and validate suspicious access to the Security Account Manager and determine whether local account credentials may have been exposed."
 severity: "critical"
@@ -36,54 +36,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1003/002/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify SAM Access Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, account, initiating process, timestamp, and alert context."
-  expected_result: "The suspicious SAM access event and affected asset are identified."
-- id: "identify-access-target"
-  order: 2
-  name: "Identify SAM Access Target"
-  action: "analyze"
-  description: "Determine which SAM-related registry data, file, or supporting resource was accessed."
-  expected_result: "The SAM access target and context are documented."
-- id: "review-process-context"
-  order: 3
-  name: "Review Process Context"
-  action: "analyze"
-  description: "Review the initiating process, parent process, command line, account context, integrity level, privileges, and execution timeline."
-  expected_result: "The process execution context is assessed."
-- id: "review-registry-activity"
-  order: 4
-  name: "Review Registry Activity"
-  action: "analyze"
-  description: "Review available registry access events and correlate SAM-related activity with the initiating process and account."
-  expected_result: "Relevant SAM-related registry activity is documented."
-- id: "assess-account-impact"
-  order: 5
-  name: "Assess Potential Account Exposure"
-  action: "analyze"
-  description: "Identify local accounts that may have been exposed and determine their privilege, usage, and potential security impact."
-  expected_result: "Potentially affected local accounts and their risk are documented."
-- id: "review-follow-on-activity"
-  order: 6
-  name: "Review Follow-on Activity"
-  action: "analyze"
-  description: "Correlate SAM access with authentication events, privilege escalation, lateral movement, persistence, and suspicious network activity."
-  expected_result: "Post-access activity and possible credential misuse are identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine SAM Access Scope"
-  action: "hunt"
-  description: "Search for related processes, accounts, hosts, hashes, command lines, and SAM access indicators across the environment."
-  expected_result: "The prevalence and scope of the SAM access activity are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the SAM access activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify SAM Access Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, account, initiating process, timestamp, and alert context."
+    expected_result: "The suspicious SAM access event and affected asset are identified."
+  - id: "identify-access-target"
+    order: 2
+    name: "Identify SAM Access Target"
+    action: "analyze"
+    description: "Determine which SAM-related registry data, file, or supporting resource was accessed."
+    expected_result: "The SAM access target and context are documented."
+  - id: "review-process-context"
+    order: 3
+    name: "Review Process Context"
+    action: "analyze"
+    description: "Review the initiating process, parent process, command line, account context, integrity level, privileges, and execution timeline."
+    expected_result: "The process execution context is assessed."
+  - id: "review-registry-activity"
+    order: 4
+    name: "Review Registry Activity"
+    action: "analyze"
+    description: "Review available registry access events and correlate SAM-related activity with the initiating process and account."
+    expected_result: "Relevant SAM-related registry activity is documented."
+  - id: "assess-account-impact"
+    order: 5
+    name: "Assess Potential Account Exposure"
+    action: "analyze"
+    description: "Identify local accounts that may have been exposed and determine their privilege, usage, and potential security impact."
+    expected_result: "Potentially affected local accounts and their risk are documented."
+  - id: "review-follow-on-activity"
+    order: 6
+    name: "Review Follow-on Activity"
+    action: "analyze"
+    description: "Correlate SAM access with authentication events, privilege escalation, lateral movement, persistence, and suspicious network activity."
+    expected_result: "Post-access activity and possible credential misuse are identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine SAM Access Scope"
+    action: "hunt"
+    description: "Search for related processes, accounts, hosts, hashes, command lines, and SAM access indicators across the environment."
+    expected_result: "The prevalence and scope of the SAM access activity are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the SAM access activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -100,6 +100,20 @@ This playbook provides a structured workflow for investigating suspicious access
 SAM is a Windows security component associated with local user account information. Unauthorized access to SAM-related data can expose authentication material and may contribute to subsequent account compromise, privilege escalation, or lateral movement.
 
 The objective is to determine whether the observed activity is legitimate, suspicious, or malicious and whether local account credentials may have been targeted or exposed.
+
+### SAM Context
+
+SAM-related information is associated with local Windows account authentication.
+
+Commonly referenced registry locations include:
+
+```text
+HKLM\SAM
+```
+
+Access to this area should be investigated in context. Administrative, security, backup, or operating-system activity may legitimately interact with protected system resources.
+
+Do not treat the presence of SAM access alone as conclusive evidence of malicious activity.
 
 ## MITRE ATT&CK
 
@@ -147,23 +161,9 @@ The investigation should consider:
 - related detections;
 - other affected hosts.
 
-## SAM Context
-
-SAM-related information is associated with local Windows account authentication.
-
-Commonly referenced registry locations include:
-
-```text
-HKLM\SAM
-```
-
-Access to this area should be investigated in context. Administrative, security, backup, or operating-system activity may legitimately interact with protected system resources.
-
-Do not treat the presence of SAM access alone as conclusive evidence of malicious activity.
-
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify SAM Access Alert
 
 Determine:
 
@@ -389,8 +389,6 @@ Credential resets, session invalidation, and account containment should follow a
 Do not extract, disclose, or reproduce real credentials during investigation or validation.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/suspicious-login.yml`
 
 ## Related Playbooks
 
