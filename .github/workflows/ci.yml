@@ -50,9 +50,7 @@ jobs:
           fi
 
       - name: Format check (black)
-        shell: bash
-        run: |
-          black --check automation tools scripts
+        run: black --check --target-version py311 automation tools scripts
 
       - name: Run tests with coverage
         run: |
