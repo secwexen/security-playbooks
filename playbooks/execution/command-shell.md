@@ -3,10 +3,10 @@ id: "command-shell"
 name: "Command Shell"
 category: "execution"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-12T11:08:00Z"
-updated_at: "2026-09-20T19:33:00Z"
+updated_at: "2026-09-27T11:11:00Z"
 description: "Command Shell execution involves using command-line interpreters to execute commands and programs on a system."
 objective: "Identify, investigate, and validate suspicious command shell activity and determine whether command execution is legitimate, suspicious, or malicious."
 severity: "high"
@@ -34,54 +34,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1059/003/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Command Shell Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, user, timestamp, command shell process, and alert context."
-  expected_result: "The suspicious command shell event and affected asset are identified."
-- id: "review-command-line"
-  order: 2
-  name: "Review Command Line"
-  action: "analyze"
-  description: "Review the complete command line, arguments, execution options, and referenced files."
-  expected_result: "The command line and execution parameters are documented."
-- id: "review-parent-process"
-  order: 3
-  name: "Review Parent Process"
-  action: "analyze"
-  description: "Determine which process launched the command shell and assess whether the parent-child relationship is expected."
-  expected_result: "The parent process and command shell execution chain are assessed."
-- id: "review-child-processes"
-  order: 4
-  name: "Review Child Processes"
-  action: "analyze"
-  description: "Review child processes launched by the command shell and correlate them with the execution timeline."
-  expected_result: "Command shell child-process activity is documented and correlated."
-- id: "review-file-activity"
-  order: 5
-  name: "Review File Activity"
-  action: "analyze"
-  description: "Review files created, modified, downloaded, or executed by the command shell or its child processes."
-  expected_result: "Related file activity is identified or ruled out."
-- id: "review-network-activity"
-  order: 6
-  name: "Review Network Activity"
-  action: "analyze"
-  description: "Review DNS requests, network connections, and external destinations associated with the command shell or spawned processes."
-  expected_result: "Related network activity is identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Command Shell Activity Scope"
-  action: "hunt"
-  description: "Search for the same command line, process relationship, script, executable, or network destination across the environment."
-  expected_result: "The prevalence and scope of the command shell activity are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the command shell activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Command Shell Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, user, timestamp, command shell process, and alert context."
+    expected_result: "The suspicious command shell event and affected asset are identified."
+  - id: "review-command-line"
+    order: 2
+    name: "Review Command Line"
+    action: "analyze"
+    description: "Review the complete command line, arguments, execution options, and referenced files."
+    expected_result: "The command line and execution parameters are documented."
+  - id: "review-parent-process"
+    order: 3
+    name: "Review Parent Process"
+    action: "analyze"
+    description: "Determine which process launched the command shell and assess whether the parent-child relationship is expected."
+    expected_result: "The parent process and command shell execution chain are assessed."
+  - id: "review-child-processes"
+    order: 4
+    name: "Review Child Processes"
+    action: "analyze"
+    description: "Review child processes launched by the command shell and correlate them with the execution timeline."
+    expected_result: "Command shell child-process activity is documented and correlated."
+  - id: "review-file-activity"
+    order: 5
+    name: "Review File Activity"
+    action: "analyze"
+    description: "Review files created, modified, downloaded, or executed by the command shell or its child processes."
+    expected_result: "Related file activity is identified or ruled out."
+  - id: "review-network-activity"
+    order: 6
+    name: "Review Network Activity"
+    action: "analyze"
+    description: "Review DNS requests, network connections, and external destinations associated with the command shell or spawned processes."
+    expected_result: "Related network activity is identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Command Shell Activity Scope"
+    action: "hunt"
+    description: "Search for the same command line, process relationship, script, executable, or network destination across the environment."
+    expected_result: "The prevalence and scope of the command shell activity are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the command shell activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -337,7 +337,10 @@ Classify the activity as **malicious** when sufficient evidence indicates:
 - confirmed payload retrieval;
 - command-and-control communication;
 - credential access;
-- persistence;
+- persistence
+- downloaded payload execution;
+- lateral movement;
+- defense evasion activity;
 - other confirmed malicious behavior.
 
 Escalate to the appropriate incident-response workflow.
