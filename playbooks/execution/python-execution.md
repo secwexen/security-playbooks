@@ -3,10 +3,10 @@ id: "python-execution"
 name: "Python Execution"
 category: "execution"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-12T17:43:00Z"
-updated_at: "2026-09-20T19:38:00Z"
+updated_at: "2026-09-27T11:28:00Z"
 description: "Python execution involves using the Python interpreter or Python-based tooling to execute scripts and code on a system."
 objective: "Identify, investigate, and validate suspicious Python execution and determine whether the activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -34,54 +34,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1059/006/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Python Execution Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, user, timestamp, Python process, and alert context."
-  expected_result: "The suspicious Python execution event and affected asset are identified."
-- id: "review-command-line"
-  order: 2
-  name: "Review Python Command Line"
-  action: "analyze"
-  description: "Review the complete Python command line, interpreter options, script path, module execution, and arguments."
-  expected_result: "The Python command line and execution parameters are documented."
-- id: "review-script"
-  order: 3
-  name: "Review Python Script Context"
-  action: "analyze"
-  description: "Review the script path, filename, hash, source, metadata, and available script content."
-  expected_result: "The Python script context and relevant indicators are identified."
-- id: "review-parent-process"
-  order: 4
-  name: "Review Parent Process"
-  action: "analyze"
-  description: "Determine which process launched Python and assess whether the parent-child relationship is expected."
-  expected_result: "The Python parent process and execution chain are assessed."
-- id: "review-child-processes"
-  order: 5
-  name: "Review Child Processes"
-  action: "analyze"
-  description: "Review child processes launched by Python and correlate them with the execution timeline."
-  expected_result: "Python child-process activity is documented and correlated."
-- id: "review-network-activity"
-  order: 6
-  name: "Review Network Activity"
-  action: "analyze"
-  description: "Review DNS requests, network connections, downloaded content, and external destinations associated with Python."
-  expected_result: "Related network activity is identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Python Activity Scope"
-  action: "hunt"
-  description: "Search for the same script hash, script path, command line, interpreter pattern, or process relationship across the environment."
-  expected_result: "The prevalence and scope of the Python activity are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the Python execution activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Python Execution Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, user, timestamp, Python process, and alert context."
+    expected_result: "The suspicious Python execution event and affected asset are identified."
+  - id: "review-command-line"
+    order: 2
+    name: "Review Python Command Line"
+    action: "analyze"
+    description: "Review the complete Python command line, interpreter options, script path, module execution, and arguments."
+    expected_result: "The Python command line and execution parameters are documented."
+  - id: "review-script"
+    order: 3
+    name: "Review Python Script Context"
+    action: "analyze"
+    description: "Review the script path, filename, hash, source, metadata, and available script content."
+    expected_result: "The Python script context and relevant indicators are identified."
+  - id: "review-parent-process"
+    order: 4
+    name: "Review Parent Process"
+    action: "analyze"
+    description: "Determine which process launched Python and assess whether the parent-child relationship is expected."
+    expected_result: "The Python parent process and execution chain are assessed."
+  - id: "review-child-processes"
+    order: 5
+    name: "Review Child Processes"
+    action: "analyze"
+    description: "Review child processes launched by Python and correlate them with the execution timeline."
+    expected_result: "Python child-process activity is documented and correlated."
+  - id: "review-network-activity"
+    order: 6
+    name: "Review Network Activity"
+    action: "analyze"
+    description: "Review DNS requests, network connections, downloaded content, and external destinations associated with Python."
+    expected_result: "Related network activity is identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Python Activity Scope"
+    action: "hunt"
+    description: "Search for the same script hash, script path, command line, interpreter pattern, or process relationship across the environment."
+    expected_result: "The prevalence and scope of the Python activity are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the Python execution activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -146,7 +146,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Python Execution Alert
 
 Determine:
 
@@ -259,7 +259,7 @@ Investigate communication with unexpected or suspicious infrastructure.
 
 Review package-management activity such as unexpected downloads or package installation when relevant to the event.
 
-### Step 7 — Determine Activity Scope
+### Step 7 — Determine Python Activity Scope
 
 Search the environment for:
 
@@ -395,10 +395,6 @@ For confirmed malicious Python activity:
 Do not delete or modify relevant scripts, files, package artifacts, logs, or other evidence before required evidence preservation has been completed.
 
 ## Related Detection Rules
-
-- `detection-rules/yara/malware-sample.yar`
-- `detection-rules/suricata/network-alert.rules`
-- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
