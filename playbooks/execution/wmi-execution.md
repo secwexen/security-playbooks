@@ -3,10 +3,10 @@ id: "wmi-execution"
 name: "Windows Management Instrumentation"
 category: "execution"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-13T12:10:00Z"
-updated_at: "2026-09-20T20:54:00Z"
+updated_at: "2026-09-27T11:41:00Z"
 description: "Windows Management Instrumentation (WMI) can be used to manage Windows systems and execute commands or programs locally or remotely."
 objective: "Identify, investigate, and validate suspicious WMI activity and determine whether the activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -35,54 +35,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1047/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify WMI Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, account, WMI activity, timestamp, and alert context."
-  expected_result: "The suspicious WMI event and affected asset are identified."
-- id: "identify-wmi-activity"
-  order: 2
-  name: "Identify WMI Activity"
-  action: "analyze"
-  description: "Determine whether WMI was used for local management, process creation, query execution, or remote activity."
-  expected_result: "The WMI operation and execution context are identified."
-- id: "review-command-line"
-  order: 3
-  name: "Review Command Line"
-  action: "analyze"
-  description: "Review available command-line data, referenced executables, scripts, parameters, and WMI-related tooling."
-  expected_result: "The command line and relevant execution parameters are documented."
-- id: "review-source-host"
-  order: 4
-  name: "Review Source and Target Hosts"
-  action: "analyze"
-  description: "Identify the initiating host, target host, user or service account, and authentication context."
-  expected_result: "The WMI source, target, and account context are documented."
-- id: "review-process-activity"
-  order: 5
-  name: "Review Process Activity"
-  action: "analyze"
-  description: "Review processes created through WMI and correlate their parent-child relationships, paths, command lines, and timestamps."
-  expected_result: "WMI-related process activity is documented and correlated."
-- id: "review-network-activity"
-  order: 6
-  name: "Review Network Activity"
-  action: "analyze"
-  description: "Review network connections and authentication activity associated with the WMI operation."
-  expected_result: "Related network and authentication activity is identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine WMI Activity Scope"
-  action: "hunt"
-  description: "Search for the same source host, target host, account, command line, process, or WMI execution pattern across the environment."
-  expected_result: "The prevalence and scope of the WMI activity are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the WMI activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify WMI Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, account, WMI activity, timestamp, and alert context."
+    expected_result: "The suspicious WMI event and affected asset are identified."
+  - id: "identify-wmi-activity"
+    order: 2
+    name: "Identify WMI Activity"
+    action: "analyze"
+    description: "Determine whether WMI was used for local management, process creation, query execution, or remote activity."
+    expected_result: "The WMI operation and execution context are identified."
+  - id: "review-command-line"
+    order: 3
+    name: "Review Command Line"
+    action: "analyze"
+    description: "Review available command-line data, referenced executables, scripts, parameters, and WMI-related tooling."
+    expected_result: "The command line and relevant execution parameters are documented."
+  - id: "review-source-host"
+    order: 4
+    name: "Review Source and Target Hosts"
+    action: "analyze"
+    description: "Identify the initiating host, target host, user or service account, and authentication context."
+    expected_result: "The WMI source, target, and account context are documented."
+  - id: "review-process-activity"
+    order: 5
+    name: "Review Process Activity"
+    action: "analyze"
+    description: "Review processes created through WMI and correlate their parent-child relationships, paths, command lines, and timestamps."
+    expected_result: "WMI-related process activity is documented and correlated."
+  - id: "review-network-activity"
+    order: 6
+    name: "Review Network Activity"
+    action: "analyze"
+    description: "Review network connections and authentication activity associated with the WMI operation."
+    expected_result: "Related network and authentication activity is identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine WMI Activity Scope"
+    action: "hunt"
+    description: "Search for the same source host, target host, account, command line, process, or WMI execution pattern across the environment."
+    expected_result: "The prevalence and scope of the WMI activity are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the WMI activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -145,7 +145,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify WMI Alert
 
 Determine:
 
@@ -221,7 +221,7 @@ Determine whether WMI activity resulted in unexpected process execution.
 
 Correlate the WMI event with the resulting process activity rather than evaluating WMI use in isolation.
 
-### Step 6 — Review Network and Authentication Activity
+### Step 6 — Review Network Activity
 
 Review:
 
@@ -233,7 +233,7 @@ Review:
 
 Investigate unexpected remote connections and authentication associated with the WMI operation.
 
-### Step 7 — Determine Activity Scope
+### Step 7 — Determine WMI Activity Scope
 
 Search the environment for:
 
@@ -367,10 +367,6 @@ For confirmed malicious WMI activity:
 Do not terminate, delete, or modify relevant processes, files, WMI configuration, or logs before required evidence preservation has been completed.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/yara/malware-sample.yar`
-- `detection-rules/suricata/network-alert.rules`
 
 ## Related Playbooks
 
