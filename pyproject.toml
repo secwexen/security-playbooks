@@ -112,6 +112,10 @@ exclude_lines = [
 [tool.coverage.html]
 directory = "reports/coverage"
 
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
 [tool.ruff]
 line-length = 120
 target-version = "py311"
