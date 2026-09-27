@@ -3,10 +3,10 @@ id: "credentials-from-password-stores"
 name: "Credentials from Password Stores"
 category: "credential-access"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-18T19:05:00Z"
-updated_at: "2026-09-20T18:49:00Z"
+updated_at: "2026-09-27T12:20:00Z"
 description: "Unauthorized access to password stores can expose saved credentials, authentication secrets, and other sensitive account information."
 objective: "Identify, investigate, and validate suspicious access to password stores and determine whether stored authentication material may have been exposed."
 severity: "high"
@@ -34,54 +34,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1555/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Password Store Access Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, user, accessing process, targeted application or store, and relevant timestamps."
-  expected_result: "The suspicious password-store access event and affected asset are identified."
-- id: "identify-password-store"
-  order: 2
-  name: "Identify Password Store"
-  action: "analyze"
-  description: "Determine which password manager, operating-system credential store, application store, or protected credential repository was accessed."
-  expected_result: "The targeted password store and application context are documented."
-- id: "review-process-context"
-  order: 3
-  name: "Review Process Context"
-  action: "analyze"
-  description: "Review the accessing process, executable path, hash, signer, parent process, command line, account context, and execution timeline."
-  expected_result: "The accessing process and execution context are assessed."
-- id: "review-file-activity"
-  order: 4
-  name: "Review Store Access Activity"
-  action: "analyze"
-  description: "Review file, database, registry, or application telemetry associated with access to the password store."
-  expected_result: "Relevant password-store access activity is identified or ruled out."
-- id: "assess-credential-exposure"
-  order: 5
-  name: "Assess Potential Credential Exposure"
-  action: "analyze"
-  description: "Identify accounts or services potentially associated with the accessed store and assess their privilege and business impact."
-  expected_result: "Potentially affected accounts and services are documented."
-- id: "review-follow-on-activity"
-  order: 6
-  name: "Review Follow-on Activity"
-  action: "analyze"
-  description: "Correlate password-store access with authentication, privilege escalation, persistence, lateral movement, and suspicious network activity."
-  expected_result: "Potential credential misuse and follow-on activity are identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Password Store Access Scope"
-  action: "hunt"
-  description: "Search for the same process, file hash, account, store, access pattern, or related activity across the environment."
-  expected_result: "The prevalence and scope of the password-store access are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the password-store access activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Password Store Access Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, user, accessing process, targeted application or store, and relevant timestamps."
+    expected_result: "The suspicious password-store access event and affected asset are identified."
+  - id: "identify-password-store"
+    order: 2
+    name: "Identify Password Store"
+    action: "analyze"
+    description: "Determine which password manager, operating-system credential store, application store, or protected credential repository was accessed."
+    expected_result: "The targeted password store and application context are documented."
+  - id: "review-process-context"
+    order: 3
+    name: "Review Process Context"
+    action: "analyze"
+    description: "Review the accessing process, executable path, hash, signer, parent process, command line, account context, and execution timeline."
+    expected_result: "The accessing process and execution context are assessed."
+  - id: "review-file-activity"
+    order: 4
+    name: "Review Store Access Activity"
+    action: "analyze"
+    description: "Review file, database, registry, or application telemetry associated with access to the password store."
+    expected_result: "Relevant password-store access activity is identified or ruled out."
+  - id: "assess-credential-exposure"
+    order: 5
+    name: "Assess Potential Credential Exposure"
+    action: "analyze"
+    description: "Identify accounts or services potentially associated with the accessed store and assess their privilege and business impact."
+    expected_result: "Potentially affected accounts and services are documented."
+  - id: "review-follow-on-activity"
+    order: 6
+    name: "Review Follow-on Activity"
+    action: "analyze"
+    description: "Correlate password-store access with authentication, privilege escalation, persistence, lateral movement, and suspicious network activity."
+    expected_result: "Potential credential misuse and follow-on activity are identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Password Store Access Scope"
+    action: "hunt"
+    description: "Search for the same process, file hash, account, store, access pattern, or related activity across the environment."
+    expected_result: "The prevalence and scope of the password-store access are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the password-store access activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -98,6 +98,20 @@ This playbook provides a structured workflow for investigating suspicious access
 Password stores may be implemented by operating systems, password managers, browsers, enterprise applications, or other software. Unauthorized access to these stores can expose credentials and other authentication information.
 
 The objective is to determine whether the observed access is legitimate, suspicious, or malicious and whether stored credentials may have been exposed.
+
+### Password Store Context
+
+Password stores can include:
+
+- operating-system credential stores;
+- password-manager databases;
+- application-specific credential stores;
+- browser-related credential repositories;
+- enterprise authentication applications.
+
+Access by the owning application or approved administrative/security software may be legitimate.
+
+The investigation should therefore evaluate the **accessing process, account context, targeted store, timing, and surrounding behavior**.
 
 ## MITRE ATT&CK
 
@@ -142,23 +156,9 @@ The investigation should consider:
 - related alerts;
 - other affected hosts and accounts.
 
-## Password Store Context
-
-Password stores can include:
-
-- operating-system credential stores;
-- password-manager databases;
-- application-specific credential stores;
-- browser-related credential repositories;
-- enterprise authentication applications.
-
-Access by the owning application or approved administrative/security software may be legitimate.
-
-The investigation should therefore evaluate the **accessing process, account context, targeted store, timing, and surrounding behavior**.
-
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Password Store Access Alert
 
 Determine:
 
@@ -390,8 +390,6 @@ Credential resets, session invalidation, and account containment must follow app
 Do not extract, display, or disclose real credentials during investigation or validation.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/suspicious-login.yml`
 
 ## Related Playbooks
 
