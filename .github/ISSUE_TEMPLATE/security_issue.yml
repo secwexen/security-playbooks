@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-           **Security Vulnerability Disclosure**
+        **Security Vulnerability Disclosure**
         
         Please use this form to responsibly report a security issue in Security Playbooks.
         Do NOT publicly disclose sensitive details.  
