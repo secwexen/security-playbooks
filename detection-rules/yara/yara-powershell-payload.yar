@@ -1,9 +1,3 @@
-// File: detection-rules/yara/yara_powershell_payload.yar
-// Purpose: Detect PowerShell encoded (-enc) commands in scripts or memory
-// Author: Secwexen
-// Date: 2026-03-17
-// References: https://attack.mitre.org/techniques/T1059/
-
 rule PowerShell_Encoded_Command
 {
     meta:
