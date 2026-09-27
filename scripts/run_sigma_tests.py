@@ -71,6 +71,7 @@ def load_yaml(path: Path) -> Any:
         return yaml.safe_load(file)
 
 
+# pylint: disable=too-many-branches
 def event_matches_selection(
     event: dict[str, Any],
     selection: dict[str, Any],
