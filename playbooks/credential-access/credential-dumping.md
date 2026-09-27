@@ -3,10 +3,10 @@ id: "credential-dumping"
 name: "Credential Dumping"
 category: "credential-access"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-14T21:55:00Z"
-updated_at: "2026-09-20T18:47:00Z"
+updated_at: "2026-09-27T12:14:00Z"
 description: "Credential dumping involves attempts to obtain authentication material such as password hashes, cached credentials, or authentication secrets from systems."
 objective: "Identify, investigate, and validate suspicious credential dumping activity and determine whether authentication material may have been exposed."
 severity: "critical"
@@ -35,54 +35,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1003/"
 steps:
-- id: "identify-alert"
-  order: 1
-  name: "Identify Credential Access Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, account, process, timestamp, and alert context."
-  expected_result: "The suspicious credential access event and affected asset are identified."
-- id: "identify-access-target"
-  order: 2
-  name: "Identify Credential Access Target"
-  action: "analyze"
-  description: "Determine which authentication process, credential store, registry location, file, or other source was accessed."
-  expected_result: "The credential access target and context are documented."
-- id: "review-process-context"
-  order: 3
-  name: "Review Process Context"
-  action: "analyze"
-  description: "Review the process, parent process, command line, user context, integrity level, and available execution telemetry."
-  expected_result: "The process execution chain and access context are assessed."
-- id: "review-access-method"
-  order: 4
-  name: "Review Access Method"
-  action: "analyze"
-  description: "Determine how the credential material was accessed and whether the observed behavior matches an approved administrative or security workflow."
-  expected_result: "The access method is understood without executing or reproducing credential extraction."
-- id: "review-account-impact"
-  order: 5
-  name: "Assess Potential Account Exposure"
-  action: "analyze"
-  description: "Identify accounts that may have been exposed and determine their privilege, authentication scope, and business impact."
-  expected_result: "Potentially affected accounts and their risk are documented."
-- id: "review-follow-on-activity"
-  order: 6
-  name: "Review Follow-on Activity"
-  action: "analyze"
-  description: "Correlate credential access with authentication events, lateral movement, persistence, privilege escalation, and suspicious network activity."
-  expected_result: "Post-access activity and possible credential misuse are identified or ruled out."
-- id: "determine-scope"
-  order: 7
-  name: "Determine Credential Access Scope"
-  action: "hunt"
-  description: "Search for related processes, accounts, hosts, hashes, command lines, and credential access indicators across the environment."
-  expected_result: "The prevalence and scope of the credential access activity are determined."
-- id: "determine-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the credential access activity and document the evidence supporting the final assessment."
-  expected_result: "The alert receives a documented investigation outcome."
+  - id: "identify-alert"
+    order: 1
+    name: "Identify Credential Access Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, account, process, timestamp, and alert context."
+    expected_result: "The suspicious credential access event and affected asset are identified."
+  - id: "identify-access-target"
+    order: 2
+    name: "Identify Credential Access Target"
+    action: "analyze"
+    description: "Determine which authentication process, credential store, registry location, file, or other source was accessed."
+    expected_result: "The credential access target and context are documented."
+  - id: "review-process-context"
+    order: 3
+    name: "Review Process Context"
+    action: "analyze"
+    description: "Review the process, parent process, command line, user context, integrity level, and available execution telemetry."
+    expected_result: "The process execution chain and access context are assessed."
+  - id: "review-access-method"
+    order: 4
+    name: "Review Access Method"
+    action: "analyze"
+    description: "Determine how the credential material was accessed and whether the observed behavior matches an approved administrative or security workflow."
+    expected_result: "The access method is understood without executing or reproducing credential extraction."
+  - id: "review-account-impact"
+    order: 5
+    name: "Assess Potential Account Exposure"
+    action: "analyze"
+    description: "Identify accounts that may have been exposed and determine their privilege, authentication scope, and business impact."
+    expected_result: "Potentially affected accounts and their risk are documented."
+  - id: "review-follow-on-activity"
+    order: 6
+    name: "Review Follow-on Activity"
+    action: "analyze"
+    description: "Correlate credential access with authentication events, lateral movement, persistence, privilege escalation, and suspicious network activity."
+    expected_result: "Post-access activity and possible credential misuse are identified or ruled out."
+  - id: "determine-scope"
+    order: 7
+    name: "Determine Credential Access Scope"
+    action: "hunt"
+    description: "Search for related processes, accounts, hosts, hashes, command lines, and credential access indicators across the environment."
+    expected_result: "The prevalence and scope of the credential access activity are determined."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the credential access activity and document the evidence supporting the final assessment."
+    expected_result: "The alert receives a documented investigation outcome."
 validation:
   validated: false
   required: true
@@ -99,6 +99,20 @@ This playbook provides a structured workflow for investigating suspected credent
 Credential dumping refers to attempts to obtain authentication material from a system, including password hashes, cached credentials, authentication secrets, or other credential artifacts.
 
 Credential access can have significant impact because exposed credentials may enable account compromise, privilege escalation, lateral movement, or persistence.
+
+### Credential Sources
+
+Potential credential sources may include:
+
+- protected authentication processes;
+- local account databases;
+- registry-backed credential stores;
+- cached authentication material;
+- browser or application credential stores;
+- password-management software;
+- memory-resident authentication material.
+
+The exact source should be determined from telemetry and evidence rather than assumed from the alert category.
 
 ## MITRE ATT&CK
 
@@ -146,23 +160,9 @@ The investigation should consider:
 - related alerts;
 - other affected hosts and accounts.
 
-## Credential Sources
-
-Potential credential sources may include:
-
-- protected authentication processes;
-- local account databases;
-- registry-backed credential stores;
-- cached authentication material;
-- browser or application credential stores;
-- password-management software;
-- memory-resident authentication material.
-
-The exact source should be determined from telemetry and evidence rather than assumed from the alert category.
-
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 — Identify Credential Access Alert
 
 Determine:
 
@@ -385,9 +385,6 @@ For confirmed malicious credential dumping:
 Credential resets, session invalidation, or account containment should follow the organization's approved incident-response procedures.
 
 ## Related Detection Rules
-
-- `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/sigma/sigma-powershell-exec.yml`
 
 ## Related Playbooks
 
