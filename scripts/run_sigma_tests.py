@@ -71,17 +71,17 @@ def _matches_expected_values(
     actual: Any,
     expected: Any,
     operator: str | None,
+    match_all: bool = False,
 ) -> bool:
-    """Return whether an event value matches any expected value."""
+    """Return whether an event value matches the expected Sigma values."""
     values = expected if isinstance(expected, list) else [expected]
-    return any(
-        _matches_value(
-            actual,
-            value,
-            operator,
-        )
+
+    matches = (
+        _matches_value(actual, value, operator)
         for value in values
     )
+
+    return all(matches) if match_all else any(matches)
 
 
 def event_matches_selection(
@@ -91,17 +91,18 @@ def event_matches_selection(
     """
     Evaluate a basic Sigma selection against one event.
 
-    Supported operators:
+    Supported modifiers:
     - exact field matching
     - |contains
+    - |contains|all
     - |startswith
     - |endswith
 
-    This runner intentionally implements only the operators
-    needed by the current project rules.
+    The runner intentionally implements only the Sigma modifiers
+    required by the current project rules.
     """
     for field, expected in selection.items():
-        actual_field, operator = _parse_field_operator(field)
+        actual_field, operator, match_all = _parse_field_operator(field)
 
         if actual_field not in event:
             return False
@@ -110,6 +111,7 @@ def event_matches_selection(
             event[actual_field],
             expected,
             operator,
+            match_all,
         ):
             return False
 
@@ -118,12 +120,17 @@ def event_matches_selection(
 
 def _parse_field_operator(
     field: str,
-) -> tuple[str, str | None]:
-    """Split a Sigma field name from its supported operator."""
-    if "|" not in field:
-        return field, None
+) -> tuple[str, str | None, bool]:
+    """Split a Sigma field name into field, operator, and |all modifier."""
+    parts = field.split("|")
+    actual_field = parts[0]
 
-    return tuple(field.split("|", 1))  # type: ignore[return-value]
+    if len(parts) == 1:
+        return actual_field, None, False
+
+    operator = parts[1]
+    match_all = "all" in parts[2:]
+    return actual_field, operator, match_all
 
 
 def evaluate_detection(
