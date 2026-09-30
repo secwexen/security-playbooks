@@ -3,7 +3,7 @@ id: f1a2b3c4-d5e6-7890-1234-56789abcdef0
 status: experimental
 description: Detects PowerShell execution with encoded commands parameters in Windows environments.
 author: Secwexen
-date: 2026-09-29
+date: 2026-09-30
 
 references:
   - https://attack.mitre.org/techniques/T1059/001/
@@ -25,15 +25,15 @@ detection:
       - '\powershell.exe'
       - '\pwsh.exe'
 
-selection_commandline:
-  CommandLine|contains:
-    - '-EncodedCommand'
-    - '-Encodedcommand'
-    - '-encodedcommand'
-    - '-enc'
-    - '-ec'
+  selection_commandline:
+    CommandLine|contains:
+      - '-EncodedCommand'
+      - '-Encodedcommand'
+      - '-encodedcommand'
+      - '-enc'
+      - '-ec'
 
-condition: selection_image and selection_commandline
+  condition: selection_image and selection_commandline
 
 falsepositives:
   - Legitimate administrative PowerShell scripts may use encoded commands
