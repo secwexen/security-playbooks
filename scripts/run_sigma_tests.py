@@ -322,7 +322,7 @@ def load_and_validate_rule(
 def _get_expected_case(
     test_case: dict[str, Any],
     expected_results: dict[str, Any],
-) -> tuple[str, str, str, list[Any]] | None:
+) -> tuple[tuple[str, str, str, list[Any]], str] | None:
     """Extract and validate test-case metadata."""
     name = str(test_case.get("name", "unnamed"))
     rule_file = str(test_case.get("rule", ""))
@@ -363,11 +363,14 @@ def _get_expected_case(
         expected_indexes = []
 
     return (
-        name,
-        rule_file,
-        fixture_file,
-        expected_indexes,
-    ), expected_result  # type: ignore[return-value]
+        (
+            name,
+            rule_file,
+            fixture_file,
+            expected_indexes,
+        ),
+        expected_result,
+    )
 
 
 def _execute_test(
