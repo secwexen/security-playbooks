@@ -3,23 +3,69 @@
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
   "editor.trimTrailingWhitespace": true,
+
   "files.insertFinalNewline": true,
+  "files.eol": "\n",
 
   "[python]": {
-    "editor.tabSize": 4
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
   },
 
   "[yaml]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+
+  "[json]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
   },
 
   "[markdown]": {
     "editor.wordWrap": "on",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+
+  "[kql]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+
+  "[powershell]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
   },
 
   "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
   "python.testing.pytestArgs": [
     "tests"
-  ]
+  ],
+
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.indexing": true,
+
+  "python.terminal.activateEnvironment": true,
+
+  "files.exclude": {
+    "**/.git": true,
+    "**/.venv": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/.mypy_cache": true
+  },
+
+  "search.exclude": {
+    "**/.git": true,
+    "**/.venv": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/.mypy_cache": true
+  }
 }
