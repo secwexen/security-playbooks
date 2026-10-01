@@ -16,17 +16,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libpcap-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN useradd -m -r socadmin
+RUN useradd -m -r socadmin && mkdir -p /opt/playbooks && chown -R socadmin:socadmin /opt/playbooks
 
-COPY --chown=socadmin:socadmin requirements.txt requirements-dev.txt ./
+COPY requirements.txt ./ 
 
-RUN python -m pip install --no-cache-dir \
-    -r requirements.txt && \
-    python -m pip install --no-cache-dir \
-    -r requirements-dev.txt
+RUN python -m pip install --no-cache-dir -r requirements.txt
 
 COPY --chown=socadmin:socadmin . .
 
 USER socadmin
+WORKDIR /opt/playbooks
 
 CMD ["tail", "-f", "/dev/null"]
