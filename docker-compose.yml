@@ -1,6 +1,9 @@
 services:
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: security-playbooks
     volumes:
       - .:/opt/playbooks
     env_file:
@@ -8,5 +11,8 @@ services:
     working_dir: /opt/playbooks
     environment:
       PYTHONUNBUFFERED: "1"
+      PYTHONPATH: "/opt/playbooks"
+    stdin_open: true
+    tty: true
     command: bash
     restart: unless-stopped
