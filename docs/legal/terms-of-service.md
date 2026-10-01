@@ -1,6 +1,6 @@
 # Terms of Service
 
-By using Security Playbooks, you agree to use this repository only for educational, defensive, research, and authorized security testing purposes and comply with all applicable laws and responsibilities.
+By accessing, downloading, copying, modifying, distributing, or using Security Playbooks, you agree to these Terms of Service and all applicable laws, regulations, contracts, and organizational policies. If you do not agree, do not use the Project.
 
 ## 1. Acceptance of Terms
 
@@ -73,10 +73,16 @@ Users must not interpret the inclusion of offensive security techniques as permi
 
 ## 8. Intellectual Property and License
 
-Security Playbooks is licensed under the [MIT License](/LICENSE).
+Security Playbooks is licensed under the [MIT License](/LICENSE), unless a file states otherwise. Users must comply with the applicable license when copying, modifying, distributing, or redistributing Project content.
 
 ## 9. Disclaimer of Warranties
 
 Security Playbooks is provided on an "as is" and "as available" basis, without warranties of any kind, express or implied, to the maximum extent permitted by applicable law.
 
-The Project and its Maintainers do not warrant that the playbooks, detection rules, scripts, configurations, documentation, or other materials are complete, accurate, current, secure, error-free, or suitable for any particular purpose.
+The Project and its Maintainers do not warrant that the playbooks, detection rules, scripts, configurations, documentation, datasets, or other materials are complete, accurate, current, secure, available, error-free, or suitable for a particular environment.
+
+## 10. Limitation of Liability and User Risk
+
+To the maximum extent permitted by applicable law, the Maintainers and contributors are not liable for damages, data loss, service interruption, security incidents, legal consequences, or other loss arising from access to, use of, or misuse of the Project.
+
+All use of the Project and its contents is at the User's sole risk. The Project does not authorize unauthorized access, testing, disruption, data collection, or compromise of any system, account, network, or environment.
