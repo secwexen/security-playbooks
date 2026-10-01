@@ -22,6 +22,16 @@ Describe the tests performed and their results.
 
 Describe any security implications or security-related changes.
 
+## Playbook Validation
+
+- [ ] This change includes a playbook, schema change, or documentation update
+- [ ] `python scripts/validate_playbooks.py` was run
+- [ ] YAML front matter is valid
+- [ ] MITRE ATT&CK mapping reviewed
+- [ ] Related detection rules are linked
+- [ ] Decision criteria and escalation steps are included
+- [ ] Safety / authorized use section is included
+
 ## Checklist
 
 - [ ] Code follows project style guidelines
