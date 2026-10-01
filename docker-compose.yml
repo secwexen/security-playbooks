@@ -8,4 +8,5 @@ services:
     working_dir: /opt/playbooks
     environment:
       PYTHONUNBUFFERED: "1"
+    command: bash
     restart: unless-stopped
