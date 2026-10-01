@@ -52,6 +52,10 @@ jobs:
       - name: Format check (black)
         run: black --check --target-version py311 automation tools scripts
 
+      - name: Validate playbooks
+        run: |
+          python scripts/validate_playbooks.py
+
       - name: Run tests with coverage
         run: |
           pytest --cov=. \
