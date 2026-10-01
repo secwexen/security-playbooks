@@ -13,20 +13,11 @@ from tools.parsers.sigma_parser import (
 )
 from tools.utils.logger import get_logger
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-DETECTION_SCHEMA = (
-    PROJECT_ROOT
-    / "schemas"
-    / "detection_rule.schema.json"
-)
+DETECTION_SCHEMA = PROJECT_ROOT / "schemas" / "detection_rule.schema.json"
 
-SIGMA_RULES_DIR = (
-    PROJECT_ROOT
-    / "detection-rules"
-    / "sigma"
-)
+SIGMA_RULES_DIR = PROJECT_ROOT / "detection-rules" / "sigma"
 
 logger = get_logger(__name__)
 
@@ -115,9 +106,7 @@ def validate_all_sigma_rules() -> tuple[int, int]:
         return 0, 0
 
     try:
-        schema = load_schema(
-            DETECTION_SCHEMA
-        )
+        schema = load_schema(DETECTION_SCHEMA)
     except (
         OSError,
         ValueError,
@@ -129,9 +118,7 @@ def validate_all_sigma_rules() -> tuple[int, int]:
         )
         return 0, 0
 
-    rule_files = sorted(
-        SIGMA_RULES_DIR.glob("*.yml")
-    )
+    rule_files = sorted(SIGMA_RULES_DIR.glob("*.yml"))
 
     if not rule_files:
         logger.warning(
@@ -157,42 +144,28 @@ def validate_all_sigma_rules() -> tuple[int, int]:
 
 def main() -> int:
     """Run validation for all Sigma rules."""
-    logger.info(
-        "Starting validation of all detection rules."
-    )
+    logger.info("Starting validation of all detection rules.")
 
-    valid_count, invalid_count = (
-        validate_all_sigma_rules()
-    )
+    valid_count, invalid_count = validate_all_sigma_rules()
 
-    total = (
-        valid_count
-        + invalid_count
-    )
+    total = valid_count + invalid_count
 
     logger.info(
-        "Rule validation completed. "
-        "Valid=%d Invalid=%d Total=%d",
+        "Rule validation completed. " "Valid=%d Invalid=%d Total=%d",
         valid_count,
         invalid_count,
         total,
     )
 
     if invalid_count > 0:
-        logger.error(
-            "Rule validation: FAIL"
-        )
+        logger.error("Rule validation: FAIL")
         return 1
 
     if total == 0:
-        logger.warning(
-            "No detection rules were validated."
-        )
+        logger.warning("No detection rules were validated.")
         return 1
 
-    logger.info(
-        "Rule validation: PASS"
-    )
+    logger.info("Rule validation: PASS")
     return 0
 
 

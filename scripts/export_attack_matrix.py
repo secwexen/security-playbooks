@@ -15,12 +15,7 @@ except ImportError:
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-MAPPING_FILE = (
-    PROJECT_ROOT
-    / "detection-rules"
-    / "mappings"
-    / "mitre-mapping.yaml"
-)
+MAPPING_FILE = PROJECT_ROOT / "detection-rules" / "mappings" / "mitre-mapping.yaml"
 
 OUTPUT_FILE = PROJECT_ROOT / "reports" / "attack-matrix.json"
 
@@ -39,14 +34,11 @@ def load_mapping() -> dict[str, Any]:
     """Load the MITRE mapping YAML file."""
     if yaml is None:
         raise RuntimeError(
-            "PyYAML is not installed. "
-            "Install it with: pip install PyYAML"
+            "PyYAML is not installed. " "Install it with: pip install PyYAML"
         )
 
     if not MAPPING_FILE.exists():
-        raise FileNotFoundError(
-            f"MITRE mapping file not found: {MAPPING_FILE}"
-        )
+        raise FileNotFoundError(f"MITRE mapping file not found: {MAPPING_FILE}")
 
     with MAPPING_FILE.open("r", encoding="utf-8") as handle:
         data = yaml.safe_load(handle)
@@ -99,16 +91,8 @@ def validate_rules(data: dict[str, Any]) -> list[dict[str, Any]]:
             {
                 "rule_id": str(rule_id),
                 "rule_name": str(rule_name or ""),
-                "techniques": [
-                    str(technique)
-                    for technique in techniques
-                    if technique
-                ],
-                "source": [
-                    str(source)
-                    for source in sources
-                    if source
-                ],
+                "techniques": [str(technique) for technique in techniques if technique],
+                "source": [str(source) for source in sources if source],
             }
         )
 
@@ -169,24 +153,13 @@ def build_summary(
     """Build coverage statistics."""
     total = len(matrix)
 
-    covered = sum(
-        1
-        for technique in matrix
-        if technique["covered"]
-    )
+    covered = sum(1 for technique in matrix if technique["covered"])
 
     uncovered = total - covered
 
-    coverage_percent = (
-        round((covered / total) * 100, 2)
-        if total
-        else 0.0
-    )
+    coverage_percent = round((covered / total) * 100, 2) if total else 0.0
 
-    total_rules = sum(
-        technique["rule_count"]
-        for technique in matrix
-    )
+    total_rules = sum(technique["rule_count"] for technique in matrix)
 
     return {
         "total_techniques": total,
@@ -210,9 +183,7 @@ def write_report(
     report = {
         "schema_version": "1.0",
         "project": "security-playbooks",
-        "source": str(
-            MAPPING_FILE.relative_to(PROJECT_ROOT)
-        ),
+        "source": str(MAPPING_FILE.relative_to(PROJECT_ROOT)),
         "summary": summary,
         "techniques": matrix,
     }
@@ -239,9 +210,7 @@ def main() -> int:
     """Run the export."""
     configure_logging()
 
-    LOGGER.info(
-        "Starting ATT&CK attack matrix export."
-    )
+    LOGGER.info("Starting ATT&CK attack matrix export.")
 
     try:
         data = load_mapping()
@@ -261,8 +230,7 @@ def main() -> int:
         return 1
 
     LOGGER.info(
-        "Export complete: %d techniques, "
-        "%d covered, %d uncovered.",
+        "Export complete: %d techniques, " "%d covered, %d uncovered.",
         summary["total_techniques"],
         summary["covered_techniques"],
         summary["uncovered_techniques"],

@@ -11,7 +11,6 @@ from urllib.parse import urlparse
 
 from tools.utils.logger import get_logger
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 IOC_STORE_FILE = PROJECT_ROOT / "iocs" / "iocs.json"
@@ -180,9 +179,8 @@ def create_normalized_ioc(
     if not normalized_value:
         raise ValueError("IOC value cannot be empty.")
 
-    ioc_type = (
-        normalize_declared_type(declared_type)
-        or detect_ioc_type(normalized_value)
+    ioc_type = normalize_declared_type(declared_type) or detect_ioc_type(
+        normalized_value
     )
 
     now = utc_now()
@@ -241,10 +239,7 @@ def _extract_from_record(
     if value is None:
         return None
 
-    declared_type = (
-        record.get("type")
-        or record.get("ioc_type")
-    )
+    declared_type = record.get("type") or record.get("ioc_type")
 
     confidence = record.get(
         "confidence",
@@ -256,28 +251,18 @@ def _extract_from_record(
     except (TypeError, ValueError):
         confidence = 50
 
-    malicious = bool(
-        record.get("malicious", False)
-    )
+    malicious = bool(record.get("malicious", False))
 
-    status = str(
-        record.get("status", "active")
-    )
+    status = str(record.get("status", "active"))
 
     tags = record.get("tags", [])
 
     if not isinstance(tags, list):
         tags = [str(tags)]
 
-    record_feed = (
-        record.get("feed")
-        or feed_name
-    )
+    record_feed = record.get("feed") or feed_name
 
-    record_source = str(
-        record.get("source")
-        or source
-    )
+    record_source = str(record.get("source") or source)
 
     source_type = "feed" if feed_name else "internal"
 
@@ -288,20 +273,9 @@ def _extract_from_record(
         confidence=confidence,
         status=status,
         malicious=malicious,
-        feed=(
-            str(record_feed)
-            if record_feed
-            else None
-        ),
-        tags=[
-            str(tag)
-            for tag in tags
-        ],
-        declared_type=(
-            str(declared_type)
-            if declared_type is not None
-            else None
-        ),
+        feed=(str(record_feed) if record_feed else None),
+        tags=[str(tag) for tag in tags],
+        declared_type=(str(declared_type) if declared_type is not None else None),
     )
 
 
@@ -427,9 +401,7 @@ def load_feed_sources() -> list[dict[str, Any]]:
 
     results: list[dict[str, Any]] = []
 
-    for path in sorted(
-        FEEDS_DIR.glob("*.json")
-    ):
+    for path in sorted(FEEDS_DIR.glob("*.json")):
         try:
             data = load_json_file(path)
 
@@ -465,9 +437,7 @@ def merge_iocs(
     ] = {}
 
     for record in records:
-        ioc_type = str(
-            record.get("type", "other")
-        )
+        ioc_type = str(record.get("type", "other"))
 
         normalized_value = normalize_value(
             str(
@@ -500,22 +470,13 @@ def merge_iocs(
         if record.get("malicious") is True:
             existing["malicious"] = True
 
-        existing_tags = set(
-            existing.get("tags", [])
-        )
+        existing_tags = set(existing.get("tags", []))
 
-        existing_tags.update(
-            record.get("tags", [])
-        )
+        existing_tags.update(record.get("tags", []))
 
-        existing["tags"] = sorted(
-            existing_tags
-        )
+        existing["tags"] = sorted(existing_tags)
 
-        if (
-            record.get("status")
-            and record["status"] != "unknown"
-        ):
+        if record.get("status") and record["status"] != "unknown":
             existing["status"] = record["status"]
 
         if record.get("feed"):
@@ -552,9 +513,7 @@ def save_iocs(
 def main() -> None:
     """Build the normalized IOC store."""
 
-    logger.info(
-        "Starting IOC enrichment."
-    )
+    logger.info("Starting IOC enrichment.")
 
     records: list[dict[str, Any]] = []
 
@@ -567,9 +526,7 @@ def main() -> None:
     records.extend(feed_records)
 
     if not records:
-        logger.warning(
-            "No IOC source values found."
-        )
+        logger.warning("No IOC source values found.")
         return
 
     normalized = merge_iocs(records)
@@ -577,8 +534,7 @@ def main() -> None:
     save_iocs(normalized)
 
     logger.info(
-        "IOC enrichment completed. "
-        "Text=%d JSON=%d Feeds=%d Stored=%d",
+        "IOC enrichment completed. " "Text=%d JSON=%d Feeds=%d Stored=%d",
         len(text_records),
         len(json_records),
         len(feed_records),

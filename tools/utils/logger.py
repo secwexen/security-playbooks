@@ -3,7 +3,6 @@ import logging
 import re
 from logging.handlers import RotatingFileHandler
 
-
 LOG_DIR = Path("logs")
 LOG_FILE = LOG_DIR / "security_playbooks.log"
 
@@ -13,12 +12,8 @@ SECRET_PATTERNS = [
         r"(?i)\b(password|passwd|pwd|token|secret|api[_-]?key|access[_-]?token)"
         r"(\s*[:=]\s*)['\"]?([^\s,'\";]+)['\"]?"
     ),
-    re.compile(
-        r"(?i)\b(authorization)\s*:\s*bearer\s+[^\s]+"
-    ),
-    re.compile(
-        r"(?i)\b(bearer)\s+[A-Za-z0-9._~+/=-]+"
-    ),
+    re.compile(r"(?i)\b(authorization)\s*:\s*bearer\s+[^\s]+"),
+    re.compile(r"(?i)\b(bearer)\s+[A-Za-z0-9._~+/=-]+"),
 ]
 
 
@@ -32,8 +27,8 @@ class SecretRedactionFilter(logging.Filter):
             message = pattern.sub(
                 lambda match: (
                     f"{match.group(1)}=[REDACTED]"
-                    if match.lastindex and match.group(1).lower()
-                    != "authorization"
+                    if match.lastindex
+                    and match.group(1).lower() != "authorization"
                     and match.group(1).lower() != "bearer"
                     else "[REDACTED]"
                 ),
@@ -70,10 +65,7 @@ def get_logger(name: str, level: int = logging.INFO) -> logging.Logger:
     console_handler.addFilter(redaction_filter)
 
     file_handler = RotatingFileHandler(
-        LOG_FILE,
-        maxBytes=5 * 1024 * 1024,
-        backupCount=3,
-        encoding="utf-8"
+        LOG_FILE, maxBytes=5 * 1024 * 1024, backupCount=3, encoding="utf-8"
     )
     file_handler.setLevel(level)
     file_handler.setFormatter(formatter)

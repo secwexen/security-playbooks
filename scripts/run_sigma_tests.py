@@ -14,7 +14,6 @@ from tools.parsers.sigma_parser import (
 )
 from tools.utils.logger import get_logger
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 SIGMA_RULES_DIR = PROJECT_ROOT / "detection-rules" / "sigma"
@@ -76,10 +75,7 @@ def _matches_expected_values(
     """Return whether an event value matches the expected Sigma values."""
     values = expected if isinstance(expected, list) else [expected]
 
-    matches = (
-        _matches_value(actual, value, operator)
-        for value in values
-    )
+    matches = (_matches_value(actual, value, operator) for value in values)
 
     return all(matches) if match_all else any(matches)
 
@@ -150,9 +146,7 @@ def evaluate_detection(
     if not isinstance(detection, dict):
         return False
 
-    condition = str(
-        detection.get("condition", "selection")
-    ).strip()
+    condition = str(detection.get("condition", "selection")).strip()
 
     positive_parts, negative_parts = _split_conditions(condition)
 
@@ -239,41 +233,27 @@ def load_events(
     data = load_json(path)
 
     if not isinstance(data, list):
-        raise ValueError(
-            f"Fixture must contain a JSON array: {path}"
-        )
+        raise ValueError(f"Fixture must contain a JSON array: {path}")
 
-    return [
-        event
-        for event in data
-        if isinstance(event, dict)
-    ]
+    return [event for event in data if isinstance(event, dict)]
 
 
 def load_test_cases() -> list[dict[str, Any]]:
     """Load Sigma test cases from YAML."""
     if not TEST_CASES_FILE.exists():
-        raise FileNotFoundError(
-            f"Test case file not found: {TEST_CASES_FILE}"
-        )
+        raise FileNotFoundError(f"Test case file not found: {TEST_CASES_FILE}")
 
     data = load_yaml(TEST_CASES_FILE)
 
     if not isinstance(data, dict):
-        raise ValueError(
-            "test-cases.yaml must contain a YAML object."
-        )
+        raise ValueError("test-cases.yaml must contain a YAML object.")
 
     tests = data.get("tests", [])
 
     if not isinstance(tests, list):
         raise ValueError("'tests' must be a YAML list.")
 
-    return [
-        test
-        for test in tests
-        if isinstance(test, dict)
-    ]
+    return [test for test in tests if isinstance(test, dict)]
 
 
 def load_expected_results() -> dict[str, Any]:
@@ -286,9 +266,7 @@ def load_expected_results() -> dict[str, Any]:
     data = load_json(EXPECTED_RESULTS_FILE)
 
     if not isinstance(data, dict):
-        raise ValueError(
-            "expected_results.json must contain an object."
-        )
+        raise ValueError("expected_results.json must contain an object.")
 
     return data
 
@@ -300,9 +278,7 @@ def load_and_validate_rule(
     rule_path = SIGMA_RULES_DIR / rule_file
 
     if not rule_path.exists():
-        raise FileNotFoundError(
-            f"Sigma rule not found: {rule_path}"
-        )
+        raise FileNotFoundError(f"Sigma rule not found: {rule_path}")
 
     sigma_rule = load_sigma_rule(rule_path)
     normalized = normalize_sigma_rule(
@@ -312,9 +288,7 @@ def load_and_validate_rule(
     schema = load_schema(DETECTION_SCHEMA)
 
     if not validate_rule(normalized, schema):
-        raise ValueError(
-            f"Schema validation failed: {rule_file}"
-        )
+        raise ValueError(f"Schema validation failed: {rule_file}")
 
     return sigma_rule
 
@@ -327,9 +301,7 @@ def _get_expected_case(
     name = str(test_case.get("name", "unnamed"))
     rule_file = str(test_case.get("rule", ""))
     fixture_file = str(test_case.get("fixture", ""))
-    default_expected = str(
-        test_case.get("expected", "")
-    ).lower()
+    default_expected = str(test_case.get("expected", "")).lower()
 
     if not rule_file or not fixture_file:
         logger.error(
@@ -417,15 +389,8 @@ def run_test_case(
         events,
     )
 
-    actual_result = (
-        "match"
-        if matched_indexes
-        else "no_match"
-    )
-    passed = (
-        actual_result == expected_result
-        and matched_indexes == expected_indexes
-    )
+    actual_result = "match" if matched_indexes else "no_match"
+    passed = actual_result == expected_result and matched_indexes == expected_indexes
 
     _log_test_result(
         name,
@@ -458,8 +423,7 @@ def _log_test_result(
         return
 
     logger.error(
-        "Sigma test FAIL: %s | "
-        "expected=%s/%s actual=%s/%s",
+        "Sigma test FAIL: %s | " "expected=%s/%s actual=%s/%s",
         name,
         expected_result,
         expected_indexes,
@@ -468,10 +432,13 @@ def _log_test_result(
     )
 
 
-def _load_test_configuration() -> tuple[
-    list[dict[str, Any]],
-    dict[str, Any],
-] | None:
+def _load_test_configuration() -> (
+    tuple[
+        list[dict[str, Any]],
+        dict[str, Any],
+    ]
+    | None
+):
     """Load the configured Sigma test cases and expectations."""
     try:
         test_cases = load_test_cases()

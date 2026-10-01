@@ -12,35 +12,17 @@ import yaml
 
 from tools.utils.logger import get_logger
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-SURICATA_RULES_DIR = (
-    PROJECT_ROOT
-    / "detection-rules"
-    / "suricata"
-)
+SURICATA_RULES_DIR = PROJECT_ROOT / "detection-rules" / "suricata"
 
-SURICATA_TEST_DIR = (
-    PROJECT_ROOT
-    / "tests"
-    / "suricata"
-)
+SURICATA_TEST_DIR = PROJECT_ROOT / "tests" / "suricata"
 
-FIXTURES_DIR = (
-    SURICATA_TEST_DIR
-    / "fixtures"
-)
+FIXTURES_DIR = SURICATA_TEST_DIR / "fixtures"
 
-TEST_CASES_FILE = (
-    SURICATA_TEST_DIR
-    / "test-pcaps.yaml"
-)
+TEST_CASES_FILE = SURICATA_TEST_DIR / "test-pcaps.yaml"
 
-EXPECTED_ALERTS_FILE = (
-    FIXTURES_DIR
-    / "expected_alerts.json"
-)
+EXPECTED_ALERTS_FILE = FIXTURES_DIR / "expected_alerts.json"
 
 logger = get_logger(__name__)
 
@@ -68,11 +50,7 @@ def normalize_test_cases(
 ) -> list[dict[str, Any]]:
     """Normalize supported Suricata test-case layouts."""
     if isinstance(data, list):
-        return [
-            item
-            for item in data
-            if isinstance(item, dict)
-        ]
+        return [item for item in data if isinstance(item, dict)]
 
     if isinstance(data, dict):
         for key in (
@@ -85,11 +63,7 @@ def normalize_test_cases(
             value = data.get(key)
 
             if isinstance(value, list):
-                return [
-                    item
-                    for item in value
-                    if isinstance(item, dict)
-                ]
+                return [item for item in value if isinstance(item, dict)]
 
     return []
 
@@ -97,9 +71,7 @@ def normalize_test_cases(
 def load_test_cases() -> list[dict[str, Any]]:
     """Load Suricata PCAP test definitions."""
     if not TEST_CASES_FILE.exists():
-        raise FileNotFoundError(
-            f"Suricata test file not found: {TEST_CASES_FILE}"
-        )
+        raise FileNotFoundError(f"Suricata test file not found: {TEST_CASES_FILE}")
 
     data = load_yaml(TEST_CASES_FILE)
 
@@ -110,16 +82,13 @@ def load_expected_alerts() -> dict[str, Any]:
     """Load expected Suricata alerts."""
     if not EXPECTED_ALERTS_FILE.exists():
         raise FileNotFoundError(
-            f"Expected Suricata alerts file not found: "
-            f"{EXPECTED_ALERTS_FILE}"
+            f"Expected Suricata alerts file not found: " f"{EXPECTED_ALERTS_FILE}"
         )
 
     data = load_json(EXPECTED_ALERTS_FILE)
 
     if not isinstance(data, dict):
-        raise ValueError(
-            "expected_alerts.json must contain a JSON object."
-        )
+        raise ValueError("expected_alerts.json must contain a JSON object.")
 
     return data
 
@@ -134,9 +103,7 @@ def collect_rule_files() -> list[Path]:
     if not SURICATA_RULES_DIR.exists():
         return []
 
-    return sorted(
-        SURICATA_RULES_DIR.glob("*.rules")
-    )
+    return sorted(SURICATA_RULES_DIR.glob("*.rules"))
 
 
 def normalize_suricata_rule(
@@ -201,9 +168,7 @@ def extract_suricata_rules(
         depth -= line.count(")")
 
         if current and depth == 0:
-            normalized = normalize_suricata_rule(
-                " ".join(current)
-            )
+            normalized = normalize_suricata_rule(" ".join(current))
 
             if normalized:
                 rules.append(normalized)
@@ -211,9 +176,7 @@ def extract_suricata_rules(
             current = []
 
     if current:
-        normalized = normalize_suricata_rule(
-            " ".join(current)
-        )
+        normalized = normalize_suricata_rule(" ".join(current))
 
         if normalized:
             rules.append(normalized)
@@ -239,18 +202,13 @@ def build_combined_rules_file(
 
     for rule_file in rule_files:
         try:
-            content = rule_file.read_text(
-                encoding="utf-8"
-            )
+            content = rule_file.read_text(encoding="utf-8")
         except OSError as exc:
             raise RuntimeError(
-                f"Unable to read rule file "
-                f"{rule_file}: {exc}"
+                f"Unable to read rule file " f"{rule_file}: {exc}"
             ) from exc
 
-        generated_rules.extend(
-            extract_suricata_rules(content)
-        )
+        generated_rules.extend(extract_suricata_rules(content))
 
     if not generated_rules:
         return None, 0
@@ -277,9 +235,7 @@ def resolve_pcap(
         if candidate.exists():
             return candidate
 
-    raise FileNotFoundError(
-        f"PCAP not found: {value}"
-    )
+    raise FileNotFoundError(f"PCAP not found: {value}")
 
 
 def normalize_expected_signatures(
@@ -293,10 +249,7 @@ def normalize_expected_signatures(
         return [value]
 
     if isinstance(value, list):
-        return [
-            str(item)
-            for item in value
-        ]
+        return [str(item) for item in value]
 
     if isinstance(value, dict):
         for key in (
@@ -312,10 +265,7 @@ def normalize_expected_signatures(
                 return [nested]
 
             if isinstance(nested, list):
-                return [
-                    str(item)
-                    for item in nested
-                ]
+                return [str(item) for item in nested]
 
     return []
 
@@ -360,9 +310,7 @@ def collect_alert_signatures(
             signature = alert.get("signature")
 
             if signature:
-                signatures.append(
-                    str(signature)
-                )
+                signatures.append(str(signature))
 
     return sorted(set(signatures))
 
@@ -425,9 +373,7 @@ def collect_engine_stats(
                     ]
 
                     if loaded_values:
-                        rules_loaded = sum(
-                            loaded_values
-                        )
+                        rules_loaded = sum(loaded_values)
 
                 alert_value = detect.get("alert")
 
@@ -462,30 +408,19 @@ def run_suricata(
         prefix="security_playbooks_suricata_"
     ) as temporary_directory:
 
-        temporary_path = Path(
-            temporary_directory
-        )
+        temporary_path = Path(temporary_directory)
 
-        output_dir = (
-            temporary_path / "output"
-        )
+        output_dir = temporary_path / "output"
 
         output_dir.mkdir(
             parents=True,
             exist_ok=True,
         )
 
-        rules_path = (
-            temporary_path
-            / "security_playbooks.rules"
-        )
+        rules_path = temporary_path / "security_playbooks.rules"
 
         try:
-            combined_rules, rule_count = (
-                build_combined_rules_file(
-                    rules_path
-                )
-            )
+            combined_rules, rule_count = build_combined_rules_file(rules_path)
         except (
             OSError,
             RuntimeError,
@@ -532,9 +467,7 @@ def run_suricata(
         # Suricata can emit warnings/errors while still
         # returning success. Treat rule parser failures as
         # test-runner failures explicitly.
-        combined_output = (
-            f"{stdout}\n{stderr}"
-        )
+        combined_output = f"{stdout}\n{stderr}"
 
         fatal_markers = (
             "Signature missing required value",
@@ -549,26 +482,16 @@ def run_suricata(
             if marker in combined_output:
                 return (
                     [],
-                    (
-                        f"Suricata validation failed: {marker}"
-                    ),
+                    (f"Suricata validation failed: {marker}"),
                 )
 
         if process.returncode != 0:
             return (
                 [],
-                (
-                    stderr
-                    or stdout
-                    or "Suricata exited with an error."
-                ),
+                (stderr or stdout or "Suricata exited with an error."),
             )
 
-        rules_loaded, _alerts = (
-            collect_engine_stats(
-                output_dir
-            )
-        )
+        rules_loaded, _alerts = collect_engine_stats(output_dir)
 
         if rules_loaded is not None and rules_loaded < rule_count:
             return (
@@ -580,9 +503,7 @@ def run_suricata(
                 ),
             )
 
-        signatures = collect_alert_signatures(
-            output_dir
-        )
+        signatures = collect_alert_signatures(output_dir)
 
         return (
             signatures,
@@ -616,9 +537,7 @@ def run_test_case(
         )
         return False
 
-    expected_entry = expected_alerts.get(
-        name
-    )
+    expected_entry = expected_alerts.get(name)
 
     if expected_entry is None:
         logger.error(
@@ -631,34 +550,26 @@ def run_test_case(
         expected_entry,
         dict,
     ):
-        raw_expected = (
+        raw_expected = expected_entry.get(
+            "signatures",
             expected_entry.get(
-                "signatures",
+                "expected_alerts",
                 expected_entry.get(
-                    "expected_alerts",
+                    "alerts",
                     expected_entry.get(
-                        "alerts",
-                        expected_entry.get(
-                            "matches",
-                            [],
-                        ),
+                        "matches",
+                        [],
                     ),
                 ),
-            )
+            ),
         )
     else:
         raw_expected = expected_entry
 
-    expected_signatures = (
-        normalize_expected_signatures(
-            raw_expected
-        )
-    )
+    expected_signatures = normalize_expected_signatures(raw_expected)
 
     try:
-        pcap_path = resolve_pcap(
-            str(pcap_value)
-        )
+        pcap_path = resolve_pcap(str(pcap_value))
     except (
         OSError,
         FileNotFoundError,
@@ -670,9 +581,7 @@ def run_test_case(
         )
         return False
 
-    actual_signatures, error = run_suricata(
-        pcap_path
-    )
+    actual_signatures, error = run_suricata(pcap_path)
 
     if error:
         logger.error(
@@ -682,31 +591,22 @@ def run_test_case(
         )
         return False
 
-    expected_normalized = sorted(
-        set(expected_signatures)
-    )
+    expected_normalized = sorted(set(expected_signatures))
 
-    actual_normalized = sorted(
-        set(actual_signatures)
-    )
+    actual_normalized = sorted(set(actual_signatures))
 
-    passed = (
-        expected_normalized
-        == actual_normalized
-    )
+    passed = expected_normalized == actual_normalized
 
     if passed:
         logger.info(
-            "Suricata test PASS: %s | "
-            "expected=%s matched=%s",
+            "Suricata test PASS: %s | " "expected=%s matched=%s",
             name,
             expected_normalized,
             actual_normalized,
         )
     else:
         logger.error(
-            "Suricata test FAIL: %s | "
-            "expected=%s matched=%s",
+            "Suricata test FAIL: %s | " "expected=%s matched=%s",
             name,
             expected_normalized,
             actual_normalized,
@@ -717,15 +617,10 @@ def run_test_case(
 
 def main() -> int:
     """Run all configured Suricata tests."""
-    logger.info(
-        "Starting Suricata test runner."
-    )
+    logger.info("Starting Suricata test runner.")
 
     if not find_suricata():
-        logger.error(
-            "Suricata is not installed or not "
-            "available in PATH."
-        )
+        logger.error("Suricata is not installed or not " "available in PATH.")
         return 1
 
     if not SURICATA_RULES_DIR.exists():
@@ -751,9 +646,7 @@ def main() -> int:
         return 1
 
     if not test_cases:
-        logger.error(
-            "No Suricata test cases found."
-        )
+        logger.error("No Suricata test cases found.")
         return 1
 
     passed = 0
@@ -771,22 +664,17 @@ def main() -> int:
     total = passed + failed
 
     logger.info(
-        "Suricata tests completed. "
-        "PASS=%d FAIL=%d TOTAL=%d",
+        "Suricata tests completed. " "PASS=%d FAIL=%d TOTAL=%d",
         passed,
         failed,
         total,
     )
 
     if failed:
-        logger.error(
-            "Suricata test runner: FAIL"
-        )
+        logger.error("Suricata test runner: FAIL")
         return 1
 
-    logger.info(
-        "Suricata test runner: PASS"
-    )
+    logger.info("Suricata test runner: PASS")
 
     return 0
 

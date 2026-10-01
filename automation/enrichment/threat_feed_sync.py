@@ -12,7 +12,6 @@ from automation.enrichment.ioc_enrichment import (
 )
 from tools.utils.logger import get_logger
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 FEEDS_DIR = PROJECT_ROOT / "iocs" / "feeds"
@@ -37,9 +36,7 @@ def load_feed_files() -> list[dict[str, Any]]:
         )
         return records
 
-    feed_files = sorted(
-        FEEDS_DIR.glob("*.json")
-    )
+    feed_files = sorted(FEEDS_DIR.glob("*.json"))
 
     if not feed_files:
         logger.warning(
@@ -50,9 +47,7 @@ def load_feed_files() -> list[dict[str, Any]]:
 
     for feed_file in feed_files:
         try:
-            raw = feed_file.read_text(
-                encoding="utf-8"
-            ).strip()
+            raw = feed_file.read_text(encoding="utf-8").strip()
 
             if not raw:
                 logger.warning(
@@ -100,9 +95,7 @@ def load_existing_threat_feed() -> list[dict[str, Any]]:
         return []
 
     try:
-        raw = THREAT_FEED_FILE.read_text(
-            encoding="utf-8"
-        ).strip()
+        raw = THREAT_FEED_FILE.read_text(encoding="utf-8").strip()
 
         if not raw:
             return []
@@ -127,11 +120,7 @@ def load_existing_threat_feed() -> list[dict[str, Any]]:
         )
         return []
 
-    return [
-        item
-        for item in data
-        if isinstance(item, dict)
-    ]
+    return [item for item in data if isinstance(item, dict)]
 
 
 def save_threat_feed(
@@ -158,23 +147,17 @@ def save_threat_feed(
 
 def sync_threat_feeds() -> list[dict[str, Any]]:
     """Synchronize local feed files into threat_feed.json."""
-    logger.info(
-        "Starting threat feed synchronization."
-    )
+    logger.info("Starting threat feed synchronization.")
 
     incoming = load_feed_files()
 
     if not incoming:
-        logger.warning(
-            "No IOC records found in local feeds."
-        )
+        logger.warning("No IOC records found in local feeds.")
         return load_existing_threat_feed()
 
     existing = load_existing_threat_feed()
 
-    merged = merge_iocs(
-        existing + incoming
-    )
+    merged = merge_iocs(existing + incoming)
 
     timestamp = utc_now()
 
@@ -187,8 +170,7 @@ def sync_threat_feeds() -> list[dict[str, Any]]:
     save_threat_feed(merged)
 
     logger.info(
-        "Threat feed synchronization completed. "
-        "Incoming=%d Stored=%d",
+        "Threat feed synchronization completed. " "Incoming=%d Stored=%d",
         len(incoming),
         len(merged),
     )

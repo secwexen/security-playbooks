@@ -10,7 +10,6 @@ from jsonschema import ValidationError, validate
 
 from tools.utils.logger import get_logger
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 RULES_DIR = PROJECT_ROOT / "detection-rules" / "sigma"
@@ -51,9 +50,7 @@ def parse_datetime(value: Any) -> str:
     - ISO 8601
     """
     if not value:
-        return datetime.now(
-            timezone.utc
-        ).isoformat()
+        return datetime.now(timezone.utc).isoformat()
 
     value = str(value).strip()
 
@@ -69,9 +66,7 @@ def parse_datetime(value: Any) -> str:
                 date_format,
             )
 
-            parsed = parsed.replace(
-                tzinfo=timezone.utc
-            )
+            parsed = parsed.replace(tzinfo=timezone.utc)
 
             return parsed.isoformat()
 
@@ -87,9 +82,7 @@ def parse_datetime(value: Any) -> str:
         )
 
         if parsed.tzinfo is None:
-            parsed = parsed.replace(
-                tzinfo=timezone.utc
-            )
+            parsed = parsed.replace(tzinfo=timezone.utc)
 
         return parsed.isoformat()
 
@@ -99,9 +92,7 @@ def parse_datetime(value: Any) -> str:
             value,
         )
 
-        return datetime.now(
-            timezone.utc
-        ).isoformat()
+        return datetime.now(timezone.utc).isoformat()
 
 
 def normalize_status(status: Any) -> str:
@@ -198,25 +189,15 @@ def normalize_sigma_rule(
 
     now = datetime.now(timezone.utc).isoformat()
 
-    rule_id = str(
-        sigma_rule.get("id")
-        or source_path.stem
-    )
+    rule_id = str(sigma_rule.get("id") or source_path.stem)
 
-    name = str(
-        sigma_rule.get("title")
-        or source_path.stem
-    )
+    name = str(sigma_rule.get("title") or source_path.stem)
 
     description = str(
-        sigma_rule.get("description")
-        or f"Normalized Sigma detection rule: {name}"
+        sigma_rule.get("description") or f"Normalized Sigma detection rule: {name}"
     )
 
-    author = str(
-        sigma_rule.get("author")
-        or "Secwexen"
-    )
+    author = str(sigma_rule.get("author") or "Secwexen")
 
     tags = sigma_rule.get("tags") or []
 
@@ -225,9 +206,7 @@ def normalize_sigma_rule(
 
     tags = [str(tag) for tag in tags]
 
-    created_at = parse_datetime(
-        sigma_rule.get("date")
-    )
+    created_at = parse_datetime(sigma_rule.get("date"))
 
     updated_at = parse_datetime(
         sigma_rule.get("modified")
@@ -240,23 +219,16 @@ def normalize_sigma_rule(
         "name": name,
         "type": "sigma",
         "version": "1.0.0",
-        "status": normalize_status(
-            sigma_rule.get("status")
-        ),
-        "severity": normalize_severity(
-            sigma_rule.get("level")
-        ),
+        "status": normalize_status(sigma_rule.get("status")),
+        "severity": normalize_severity(sigma_rule.get("level")),
         "description": description,
         "author": author,
         "tags": sorted(set(tags)),
         "mitre_attack": extract_mitre_attack(tags),
-        "log_sources": normalize_logsource(
-            sigma_rule.get("logsource")
-        ),
+        "log_sources": normalize_logsource(sigma_rule.get("logsource")),
         "detection_logic": sigma_rule.get("detection") or {},
         "false_positives": [
-            str(value)
-            for value in (sigma_rule.get("falsepositives") or [])
+            str(value) for value in (sigma_rule.get("falsepositives") or [])
         ],
         "created_at": created_at,
         "updated_at": updated_at,
@@ -265,9 +237,7 @@ def normalize_sigma_rule(
     references = sigma_rule.get("references")
 
     if isinstance(references, list):
-        normalized_rule["references"] = [
-            str(value) for value in references
-        ]
+        normalized_rule["references"] = [str(value) for value in references]
 
     if normalized_rule["mitre_attack"]:
         normalized_rule["references_attack"] = [
@@ -368,9 +338,7 @@ def main() -> None:
 
         return
 
-    rule_files = sorted(
-        RULES_DIR.glob("*.yml")
-    )
+    rule_files = sorted(RULES_DIR.glob("*.yml"))
 
     if not rule_files:
         logger.warning(
@@ -420,6 +388,7 @@ def main() -> None:
     print(f"Valid   : {valid_rules}")
     print(f"Invalid : {invalid_rules}")
     print(f"Total   : {len(rule_files)}")
+
 
 if __name__ == "__main__":
     main()

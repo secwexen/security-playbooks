@@ -13,24 +13,17 @@ from tools.parsers.sigma_parser import (
 )
 from tools.utils.logger import get_logger
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 SCHEMAS_DIR = PROJECT_ROOT / "schemas"
 
-DETECTION_RULE_SCHEMA = (
-    SCHEMAS_DIR / "detection_rule.schema.json"
-)
+DETECTION_RULE_SCHEMA = SCHEMAS_DIR / "detection_rule.schema.json"
 
 IOC_SCHEMA = SCHEMAS_DIR / "ioc.schema.json"
 
-SIGMA_RULES_DIR = (
-    PROJECT_ROOT / "detection-rules" / "sigma"
-)
+SIGMA_RULES_DIR = PROJECT_ROOT / "detection-rules" / "sigma"
 
-IOC_STORE = (
-    PROJECT_ROOT / "iocs" / "iocs.json"
-)
+IOC_STORE = PROJECT_ROOT / "iocs" / "iocs.json"
 
 logger = get_logger(__name__)
 
@@ -77,9 +70,7 @@ def validate_sigma_rules(
         )
         return valid, invalid
 
-    rule_files = sorted(
-        SIGMA_RULES_DIR.glob("*.yml")
-    )
+    rule_files = sorted(SIGMA_RULES_DIR.glob("*.yml"))
 
     if not rule_files:
         logger.warning(
@@ -90,9 +81,7 @@ def validate_sigma_rules(
 
     for rule_file in rule_files:
         try:
-            sigma_rule = load_sigma_rule(
-                rule_file
-            )
+            sigma_rule = load_sigma_rule(rule_file)
 
             normalized_rule = normalize_sigma_rule(
                 sigma_rule,
@@ -139,9 +128,7 @@ def load_iocs() -> list[dict[str, Any]]:
         return []
 
     try:
-        raw = IOC_STORE.read_text(
-            encoding="utf-8"
-        ).strip()
+        raw = IOC_STORE.read_text(encoding="utf-8").strip()
 
         if not raw:
             return []
@@ -166,11 +153,7 @@ def load_iocs() -> list[dict[str, Any]]:
         )
         return []
 
-    return [
-        item
-        for item in data
-        if isinstance(item, dict)
-    ]
+    return [item for item in data if isinstance(item, dict)]
 
 
 def validate_iocs(
@@ -183,10 +166,7 @@ def validate_iocs(
     iocs = load_iocs()
 
     if not iocs:
-        logger.info(
-            "No normalized IOC records found. "
-            "IOC validation skipped."
-        )
+        logger.info("No normalized IOC records found. " "IOC validation skipped.")
         return valid, invalid
 
     for index, ioc in enumerate(iocs):
@@ -216,9 +196,7 @@ def validate_iocs(
 
 def validate_pipeline() -> bool:
     """Run the detection and IOC validation pipeline."""
-    logger.info(
-        "Starting pipeline validation."
-    )
+    logger.info("Starting pipeline validation.")
 
     if not DETECTION_RULE_SCHEMA.exists():
         logger.error(
@@ -235,13 +213,9 @@ def validate_pipeline() -> bool:
         return False
 
     try:
-        detection_rule_schema = load_schema(
-            DETECTION_RULE_SCHEMA
-        )
+        detection_rule_schema = load_schema(DETECTION_RULE_SCHEMA)
 
-        ioc_schema = load_schema(
-            IOC_SCHEMA
-        )
+        ioc_schema = load_schema(IOC_SCHEMA)
 
     except (
         OSError,
@@ -254,29 +228,16 @@ def validate_pipeline() -> bool:
         )
         return False
 
-    sigma_valid, sigma_invalid = (
-        validate_sigma_rules(
-            detection_rule_schema
-        )
-    )
+    sigma_valid, sigma_invalid = validate_sigma_rules(detection_rule_schema)
 
-    ioc_valid, ioc_invalid = validate_iocs(
-        ioc_schema
-    )
+    ioc_valid, ioc_invalid = validate_iocs(ioc_schema)
 
-    total_valid = (
-        sigma_valid
-        + ioc_valid
-    )
+    total_valid = sigma_valid + ioc_valid
 
-    total_invalid = (
-        sigma_invalid
-        + ioc_invalid
-    )
+    total_invalid = sigma_invalid + ioc_invalid
 
     logger.info(
-        "Pipeline validation completed. "
-        "Valid=%d Invalid=%d",
+        "Pipeline validation completed. " "Valid=%d Invalid=%d",
         total_valid,
         total_invalid,
     )
@@ -289,14 +250,10 @@ def main() -> None:
     success = validate_pipeline()
 
     if success:
-        logger.info(
-            "Pipeline validation: PASS"
-        )
+        logger.info("Pipeline validation: PASS")
         return
 
-    logger.error(
-        "Pipeline validation: FAIL"
-    )
+    logger.error("Pipeline validation: FAIL")
 
 
 if __name__ == "__main__":

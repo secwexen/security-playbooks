@@ -15,46 +15,21 @@ from tools.parsers.sigma_parser import (
 )
 from tools.utils.logger import get_logger
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-SIGMA_RULES_DIR = (
-    PROJECT_ROOT
-    / "detection-rules"
-    / "sigma"
-)
+SIGMA_RULES_DIR = PROJECT_ROOT / "detection-rules" / "sigma"
 
-DETECTION_SCHEMA = (
-    PROJECT_ROOT
-    / "schemas"
-    / "detection_rule.schema.json"
-)
+DETECTION_SCHEMA = PROJECT_ROOT / "schemas" / "detection_rule.schema.json"
 
-MAPPINGS_DIR = (
-    PROJECT_ROOT
-    / "detection-rules"
-    / "mappings"
-)
+MAPPINGS_DIR = PROJECT_ROOT / "detection-rules" / "mappings"
 
-MITRE_MAPPING = (
-    MAPPINGS_DIR
-    / "mitre-mapping.yaml"
-)
+MITRE_MAPPING = MAPPINGS_DIR / "mitre-mapping.yaml"
 
-COVERAGE_REPORT = (
-    MAPPINGS_DIR
-    / "coverage_report.json"
-)
+COVERAGE_REPORT = MAPPINGS_DIR / "coverage_report.json"
 
-ATTACK_COVERAGE = (
-    MAPPINGS_DIR
-    / "attack-coverage.json"
-)
+ATTACK_COVERAGE = MAPPINGS_DIR / "attack-coverage.json"
 
-RULE_COVERAGE_MAP = (
-    MAPPINGS_DIR
-    / "rule_coverage_map.json"
-)
+RULE_COVERAGE_MAP = MAPPINGS_DIR / "rule_coverage_map.json"
 
 logger = get_logger(__name__)
 
@@ -119,9 +94,7 @@ def load_mitre_mapping() -> dict[str, list[str]]:
         data = yaml.safe_load(file)
 
     if not isinstance(data, dict):
-        raise ValueError(
-            "MITRE mapping must be a YAML object."
-        )
+        raise ValueError("MITRE mapping must be a YAML object.")
 
     rules = data.get(
         "rules",
@@ -129,9 +102,7 @@ def load_mitre_mapping() -> dict[str, list[str]]:
     )
 
     if not isinstance(rules, list):
-        raise ValueError(
-            "MITRE mapping 'rules' must be a list."
-        )
+        raise ValueError("MITRE mapping 'rules' must be a list.")
 
     mapping: dict[str, list[str]] = {}
 
@@ -142,9 +113,7 @@ def load_mitre_mapping() -> dict[str, list[str]]:
         ):
             continue
 
-        rule_id = str(
-            entry.get("rule_id", "")
-        ).strip()
+        rule_id = str(entry.get("rule_id", "")).strip()
 
         if not rule_id:
             continue
@@ -162,17 +131,13 @@ def load_mitre_mapping() -> dict[str, list[str]]:
 
         normalized_techniques = sorted(
             {
-                str(technique)
-                .strip()
-                .upper()
+                str(technique).strip().upper()
                 for technique in techniques
                 if str(technique).strip()
             }
         )
 
-        mapping[rule_id] = (
-            normalized_techniques
-        )
+        mapping[rule_id] = normalized_techniques
 
     return mapping
 
@@ -193,19 +158,13 @@ def collect_sigma_rules() -> list[dict[str, Any]]:
         )
         return []
 
-    schema = load_schema(
-        DETECTION_SCHEMA
-    )
+    schema = load_schema(DETECTION_SCHEMA)
 
     rules: list[dict[str, Any]] = []
 
-    for rule_file in sorted(
-        SIGMA_RULES_DIR.glob("*.yml")
-    ):
+    for rule_file in sorted(SIGMA_RULES_DIR.glob("*.yml")):
         try:
-            sigma_rule = load_sigma_rule(
-                rule_file
-            )
+            sigma_rule = load_sigma_rule(rule_file)
 
             normalized = normalize_sigma_rule(
                 sigma_rule,
@@ -236,9 +195,7 @@ def collect_sigma_rules() -> list[dict[str, Any]]:
             )
             continue
 
-        rules.append(
-            normalized
-        )
+        rules.append(normalized)
 
     return rules
 
@@ -251,9 +208,7 @@ def build_rule_coverage_map(
     mapping: dict[str, list[str]] = {}
 
     for rule in rules:
-        rule_id = str(
-            rule.get("id", "")
-        ).strip()
+        rule_id = str(rule.get("id", "")).strip()
 
         if not rule_id:
             continue
@@ -273,11 +228,7 @@ def build_rule_coverage_map(
             continue
 
         for technique in techniques:
-            normalized = (
-                str(technique)
-                .strip()
-                .upper()
-            )
+            normalized = str(technique).strip().upper()
 
             if not normalized:
                 continue
@@ -287,21 +238,13 @@ def build_rule_coverage_map(
                 [],
             )
 
-            if rule_id not in mapping[
-                normalized
-            ]:
-                mapping[
-                    normalized
-                ].append(rule_id)
+            if rule_id not in mapping[normalized]:
+                mapping[normalized].append(rule_id)
 
     for technique in mapping:
         mapping[technique].sort()
 
-    return dict(
-        sorted(
-            mapping.items()
-        )
-    )
+    return dict(sorted(mapping.items()))
 
 
 def build_coverage_report(
@@ -317,43 +260,26 @@ def build_coverage_report(
     technique_counter = Counter()
 
     for technique, rule_ids in rule_map.items():
-        technique_counter[
-            technique
-        ] = len(rule_ids)
+        technique_counter[technique] = len(rule_ids)
 
     mapped_rule_ids = {
-        rule_id
-        for rule_ids in rule_map.values()
-        for rule_id in rule_ids
+        rule_id for rule_ids in rule_map.values() for rule_id in rule_ids
     }
 
-    covered_techniques = sorted(
-        rule_map.keys()
-    )
+    covered_techniques = sorted(rule_map.keys())
 
     report = {
         "total_rules": len(rules),
-        "total_mapped_rules": len(
-            mapped_rule_ids
-        ),
+        "total_mapped_rules": len(mapped_rule_ids),
         "total_unmapped_rules": max(
             0,
-            len(rules)
-            - len(mapped_rule_ids),
+            len(rules) - len(mapped_rule_ids),
         ),
-        "total_techniques_covered": len(
-            covered_techniques
-        ),
+        "total_techniques_covered": len(covered_techniques),
         "techniques": {
             technique: {
-                "detection_count": (
-                    technique_counter[
-                        technique
-                    ]
-                ),
-                "rules": rule_map[
-                    technique
-                ],
+                "detection_count": (technique_counter[technique]),
+                "rules": rule_map[technique],
             }
             for technique in covered_techniques
         },
@@ -378,27 +304,16 @@ def generate_reports(
     )
 
     attack_coverage = {
-        "covered_techniques": sorted(
-            rule_map.keys()
-        ),
-        "total_techniques": len(
-            rule_map
-        ),
+        "covered_techniques": sorted(rule_map.keys()),
+        "total_techniques": len(rule_map),
     }
 
     rule_coverage = {
         rule_id: {
-            "techniques": sorted(
-                techniques
-            ),
-            "technique_count": len(
-                techniques
-            ),
+            "techniques": sorted(techniques),
+            "technique_count": len(techniques),
         }
-        for rule_id, techniques
-        in _build_rule_to_techniques(
-            rule_map
-        ).items()
+        for rule_id, techniques in _build_rule_to_techniques(rule_map).items()
     }
 
     save_json(
@@ -417,13 +332,10 @@ def generate_reports(
     )
 
     logger.info(
-        "Coverage reports generated. "
-        "Rules=%d Mapped=%d Techniques=%d",
+        "Coverage reports generated. " "Rules=%d Mapped=%d Techniques=%d",
         report["total_rules"],
         report["total_mapped_rules"],
-        report[
-            "total_techniques_covered"
-        ],
+        report["total_techniques_covered"],
     )
 
 
@@ -439,34 +351,20 @@ def _build_rule_to_techniques(
                 rule_id,
                 [],
             )
-            result[
-                rule_id
-            ].append(technique)
+            result[rule_id].append(technique)
 
     for rule_id in result:
-        result[rule_id] = sorted(
-            set(
-                result[rule_id]
-            )
-        )
+        result[rule_id] = sorted(set(result[rule_id]))
 
-    return dict(
-        sorted(
-            result.items()
-        )
-    )
+    return dict(sorted(result.items()))
 
 
 def main() -> None:
     """Generate MITRE ATT&CK coverage reports."""
-    logger.info(
-        "Starting coverage report generation."
-    )
+    logger.info("Starting coverage report generation.")
 
     try:
-        mitre_mapping = (
-            load_mitre_mapping()
-        )
+        mitre_mapping = load_mitre_mapping()
 
         rules = collect_sigma_rules()
 
@@ -482,16 +380,12 @@ def main() -> None:
         return
 
     if not rules:
-        logger.warning(
-            "No valid Sigma rules available "
-            "for coverage analysis."
-        )
+        logger.warning("No valid Sigma rules available " "for coverage analysis.")
         return
 
     if not mitre_mapping:
         logger.warning(
-            "MITRE mapping is empty. "
-            "Coverage will contain zero mapped techniques."
+            "MITRE mapping is empty. " "Coverage will contain zero mapped techniques."
         )
 
     generate_reports(
@@ -499,9 +393,7 @@ def main() -> None:
         mitre_mapping,
     )
 
-    logger.info(
-        "Coverage report generation completed."
-    )
+    logger.info("Coverage report generation completed.")
 
 
 if __name__ == "__main__":
