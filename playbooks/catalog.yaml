@@ -1,1 +1,134 @@
+catalog_version: "1.0"
+repository: "https://github.com/secwexen/security-playbooks"
 
+playbooks:
+  - {id: "application-access-token-abuse", category: "cloud", path: "cloud/application-access-token-abuse.md"}
+  - {id: "cloud-account-compromise", category: "cloud", path: "cloud/cloud-account-compromise.md"}
+  - {id: "cloud-account-discovery", category: "cloud", path: "cloud/cloud-account-discovery.md"}
+  - {id: "cloud-credential-access", category: "cloud", path: "cloud/cloud-credential-access.md"}
+  - {id: "cloud-infrastructure-discovery", category: "cloud", path: "cloud/cloud-infrastructure-discovery.md"}
+  - {id: "cloud-secrets-access", category: "cloud", path: "cloud/cloud-secrets-access.md"}
+  - {id: "cloud-service-dashboard", category: "cloud", path: "cloud/cloud-service-dashboard.md"}
+  - {id: "cloud-service-discovery", category: "cloud", path: "cloud/cloud-service-discovery.md"}
+  - {id: "cloud-storage-object-discovery", category: "cloud", path: "cloud/cloud-storage-object-discovery.md"}
+
+  - {id: "archive-collected-data", category: "collection", path: "collection/archive-collected-data.md"}
+  - {id: "browser-data", category: "collection", path: "collection/browser-data.md"}
+  - {id: "clipboard-theft", category: "collection", path: "collection/clipboard-theft.md"}
+  - {id: "keylogging", category: "collection", path: "collection/keylogging.md"}
+  - {id: "screen-capture", category: "collection", path: "collection/screen-capture.md"}
+
+  - {id: "application-layer-protocol", category: "command-and-control", path: "command-and-control/application-layer-protocol.md"}
+  - {id: "beaconing", category: "command-and-control", path: "command-and-control/beaconing.md"}
+  - {id: "dns-c2", category: "command-and-control", path: "command-and-control/dns-c2.md"}
+  - {id: "encrypted-channel", category: "command-and-control", path: "command-and-control/encrypted-channel.md"}
+  - {id: "fallback-channel", category: "command-and-control", path: "command-and-control/fallback-channel.md"}
+  - {id: "ingress-tool-transfer", category: "command-and-control", path: "command-and-control/ingress-tool-transfer.md"}
+  - {id: "proxy-tunneling", category: "command-and-control", path: "command-and-control/proxy-tunneling.md"}
+  - {id: "web-c2", category: "command-and-control", path: "command-and-control/web-c2.md"}
+
+  - {id: "asrep-roasting", category: "credential-access", path: "credential-access/asrep-roasting.md"}
+  - {id: "browser-credential-theft", category: "credential-access", path: "credential-access/browser-credential-theft.md"}
+  - {id: "credential-access", category: "credential-access", path: "credential-access/credential-access.md"}
+  - {id: "credential-dumping", category: "credential-access", path: "credential-access/credential-dumping.md"}
+  - {id: "credentials-from-password-stores", category: "credential-access", path: "credential-access/credentials-from-password-stores.md"}
+  - {id: "dpapi-credential-access", category: "credential-access", path: "credential-access/dpapi-credential-access.md"}
+  - {id: "kerberoasting", category: "credential-access", path: "credential-access/kerberoasting.md"}
+  - {id: "lsass-dump", category: "credential-access", path: "credential-access/lsass-dump.md"}
+  - {id: "ntds-dump", category: "credential-access", path: "credential-access/ntds-dump.md"}
+  - {id: "password-manager-credential-theft", category: "credential-access", path: "credential-access/password-manager-credential-theft.md"}
+  - {id: "password-spraying", category: "credential-access", path: "credential-access/password-spraying.md"}
+  - {id: "sam-dump", category: "credential-access", path: "credential-access/sam-dump.md"}
+  - {id: "windows-credential-manager", category: "credential-access", path: "credential-access/windows-credential-manager.md"}
+
+  - {id: "amsi-bypass", category: "defense-evasion", path: "defense-evasion/amsi-bypass.md"}
+  - {id: "credential-security-tool-disabling", category: "defense-evasion", path: "defense-evasion/credential-security-tool-disabling.md"}
+  - {id: "disable-defender", category: "defense-evasion", path: "defense-evasion/disable-defender.md"}
+  - {id: "event-log-clearing", category: "defense-evasion", path: "defense-evasion/event-log-clearing.md"}
+  - {id: "lolbins", category: "defense-evasion", path: "defense-evasion/lolbins.md"}
+  - {id: "masquerading", category: "defense-evasion", path: "defense-evasion/masquerading.md"}
+  - {id: "obfuscated-powershell", category: "defense-evasion", path: "defense-evasion/obfuscated-powershell.md"}
+  - {id: "process-injection", category: "defense-evasion", path: "defense-evasion/process-injection.md"}
+  - {id: "timestomp", category: "defense-evasion", path: "defense-evasion/timestomp.md"}
+
+  - {id: "account-discovery", category: "discovery", path: "discovery/account-discovery.md"}
+  - {id: "domain-trust-discovery", category: "discovery", path: "discovery/domain-trust-discovery.md"}
+  - {id: "file-and-directory-discovery", category: "discovery", path: "discovery/file-and-directory-discovery.md"}
+  - {id: "group-discovery", category: "discovery", path: "discovery/group-discovery.md"}
+  - {id: "network-discovery", category: "discovery", path: "discovery/network-discovery.md"}
+  - {id: "permission-discovery", category: "discovery", path: "discovery/permission-discovery.md"}
+  - {id: "process-discovery", category: "discovery", path: "discovery/process-discovery.md"}
+  - {id: "security-tool-discovery", category: "discovery", path: "discovery/security-tool-discovery.md"}
+  - {id: "service-discovery", category: "discovery", path: "discovery/service-discovery.md"}
+  - {id: "software-discovery", category: "discovery", path: "discovery/software-discovery.md"}
+  - {id: "system-info-discovery", category: "discovery", path: "discovery/system-info-discovery.md"}
+
+  - {id: "command-shell", category: "execution", path: "execution/command-shell.md"}
+  - {id: "mshta", category: "execution", path: "execution/mshta.md"}
+  - {id: "powershell", category: "execution", path: "execution/powershell.md"}
+  - {id: "python-execution", category: "execution", path: "execution/python-execution.md"}
+  - {id: "scheduled-task-execution", category: "execution", path: "execution/scheduled-task-execution.md"}
+  - {id: "scripting", category: "execution", path: "execution/scripting.md"}
+  - {id: "user-execution", category: "execution", path: "execution/user-execution.md"}
+  - {id: "wmi-execution", category: "execution", path: "execution/wmi-execution.md"}
+
+  - {id: "automated-exfiltration", category: "exfiltration", path: "exfiltration/automated-exfiltration.md"}
+  - {id: "cloud-exfiltration", category: "exfiltration", path: "exfiltration/cloud-exfiltration.md"}
+  - {id: "data-exfiltration", category: "exfiltration", path: "exfiltration/data-exfiltration.md"}
+  - {id: "dns-exfiltration", category: "exfiltration", path: "exfiltration/dns-exfiltration.md"}
+  - {id: "exfiltration-over-c2-channel", category: "exfiltration", path: "exfiltration/exfiltration-over-c2-channel.md"}
+
+  - {id: "data-destruction", category: "impact", path: "impact/data-destruction.md"}
+  - {id: "disk-wipe", category: "impact", path: "impact/disk-wipe.md"}
+  - {id: "inhibit-system-recovery", category: "impact", path: "impact/inhibit-system-recovery.md"}
+  - {id: "ransomware", category: "impact", path: "impact/ransomware.md"}
+  - {id: "service-stop", category: "impact", path: "impact/service-stop.md"}
+
+  - {id: "application-consent-abuse", category: "initial-access", path: "initial-access/application-consent-abuse.md"}
+  - {id: "drive-by-download", category: "initial-access", path: "initial-access/drive-by-download.md"}
+  - {id: "exploit-public-facing-application", category: "initial-access", path: "initial-access/exploit-public-facing-application.md"}
+  - {id: "malicious-attachment", category: "initial-access", path: "initial-access/malicious-attachment.md"}
+  - {id: "phishing", category: "initial-access", path: "initial-access/phishing.md"}
+  - {id: "valid-account-compromise", category: "initial-access", path: "initial-access/valid-account-compromise.md"}
+
+  - {id: "pass-the-hash", category: "lateral-movement", path: "lateral-movement/pass-the-hash.md"}
+  - {id: "pass-the-ticket", category: "lateral-movement", path: "lateral-movement/pass-the-ticket.md"}
+  - {id: "rdp-lateral-movement", category: "lateral-movement", path: "lateral-movement/rdp-lateral-movement.md"}
+  - {id: "smb-lateral-movement", category: "lateral-movement", path: "lateral-movement/smb-lateral-movement.md"}
+  - {id: "winrm-lateral-movement", category: "lateral-movement", path: "lateral-movement/winrm-lateral-movement.md"}
+  - {id: "wmi-lateral-movement", category: "lateral-movement", path: "lateral-movement/wmi-lateral-movement.md"}
+
+  - {id: "registry-run-keys", category: "persistence", path: "persistence/registry-run-keys.md"}
+  - {id: "scheduled-task-persistence", category: "persistence", path: "persistence/scheduled-task-persistence.md"}
+  - {id: "service-persistence", category: "persistence", path: "persistence/service-persistence.md"}
+  - {id: "startup-folder", category: "persistence", path: "persistence/startup-folder.md"}
+  - {id: "wmi-event-subscription", category: "persistence", path: "persistence/wmi-event-subscription.md"}
+
+  - {id: "privileged-service-abuse", category: "privilege-escalation", path: "privilege-escalation/privileged-service-abuse.md"}
+  - {id: "scheduled-task-abuse", category: "privilege-escalation", path: "privilege-escalation/scheduled-task-abuse.md"}
+  - {id: "service-permission-abuse", category: "privilege-escalation", path: "privilege-escalation/service-permission-abuse.md"}
+  - {id: "token-manipulation", category: "privilege-escalation", path: "privilege-escalation/token-manipulation.md"}
+  - {id: "uac-bypass", category: "privilege-escalation", path: "privilege-escalation/uac-bypass.md"}
+  - {id: "unquoted-service-path", category: "privilege-escalation", path: "privilege-escalation/unquoted-service-path.md"}
+  - {id: "weak-service-permissions", category: "privilege-escalation", path: "privilege-escalation/weak-service-permissions.md"}
+
+  - {id: "account-compromise-response", category: "response", path: "response/account-compromise-response.md"}
+  - {id: "credential-compromise-response", category: "response", path: "response/credential-compromise-response.md"}
+  - {id: "data-exfiltration-response", category: "response", path: "response/data-exfiltration-response.md"}
+  - {id: "isolate-host-response", category: "response", path: "response/isolate-host-response.md"}
+  - {id: "lateral-movement-response", category: "response", path: "response/lateral-movement-response.md"}
+  - {id: "malware-response", category: "response", path: "response/malware-response.md"}
+  - {id: "persistence-removal-response", category: "response", path: "response/persistence-removal-response.md"}
+  - {id: "phishing-response", category: "response", path: "response/phishing-response.md"}
+  - {id: "ransomware-response", category: "response", path: "response/ransomware-response.md"}
+
+  - {id: "data-exfiltration-triage", category: "triage", path: "triage/data-exfiltration-triage.md"}
+  - {id: "email-compromise-triage", category: "triage", path: "triage/email-compromise-triage.md"}
+  - {id: "lateral-movement-triage", category: "triage", path: "triage/lateral-movement-triage.md"}
+  - {id: "malware-detection-triage", category: "triage", path: "triage/malware-detection-triage.md"}
+  - {id: "persistence-triage", category: "triage", path: "triage/persistence-triage.md"}
+  - {id: "phishing-alert-triage", category: "triage", path: "triage/phishing-alert-triage.md"}
+  - {id: "suspicious-file-triage", category: "triage", path: "triage/suspicious-file-triage.md"}
+  - {id: "suspicious-login-triage", category: "triage", path: "triage/suspicious-login-triage.md"}
+  - {id: "suspicious-powershell-triage", category: "triage", path: "triage/suspicious-powershell-triage.md"}
+  - {id: "suspicious-process-triage", category: "triage", path: "triage/suspicious-process-triage.md"}
