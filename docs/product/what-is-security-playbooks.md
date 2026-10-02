@@ -36,9 +36,9 @@ Detection Rules (Sigma / YARA / Suricata)
         ↓
 Alert / Event Generated
         ↓
-Triage & Prioritization
+Triage & Prioritization (Playbooks)
         ↓
-Alert Investigation (Playbooks)
+Alert Investigation
         ↓
 Threat Hunting & Enrichment
         ↓
@@ -46,11 +46,11 @@ IOC / Threat Intelligence
         ↓
 Incident Response
         ↓
-Detection Validation
+Detection Validation (Labs & Tests)
         ↓
-Automated Tests
+Automated Tests & Coverage Metrics
         ↓
-Coverage / Reporting
+Coverage / Reporting / Improvement
 ```
 
 This approach allows security teams to move beyond isolated security rules and documentation toward a repeatable and measurable security operations process.
