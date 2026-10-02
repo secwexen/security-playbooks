@@ -4,6 +4,8 @@
 <img src="assets/images/security-playbooks-logo.png" width="700" alt="Security Playbooks Logo" loading="lazy" decoding="async">
 </p>
 
+⭐ Like this project? Please consider starring the repository to show your support!
+
 [![CI](https://github.com/secwexen/security-playbooks/actions/workflows/ci.yml/badge.svg)](https://github.com/secwexen/security-playbooks/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/secwexen/security-playbooks?include_prereleases)](https://github.com/secwexen/security-playbooks/releases)
 [![License](https://img.shields.io/github/license/secwexen/security-playbooks)](https://github.com/secwexen/security-playbooks/blob/main/LICENSE)
@@ -152,6 +154,8 @@ Coverage / Reporting / Improvement
 
 ## Quick Start
 
+### 1. Clone & Setup
+
 ```bash
 # Clone repository
 git clone https://github.com/secwexen/security-playbooks.git
@@ -167,14 +171,9 @@ pip install -r requirements.txt
 
 # Install development dependencies
 pip install -r requirements-dev.txt
-
-# Run the full pytest suite
-python -m pytest -v
 ```
 
-For full details, refer to the [Quick Start](docs/getting-started/quickstart.md) file.
-
-## Run Detection Tests
+### 2. Run Detection Tests
 
 The project includes automated tests for Sigma, YARA, and Suricata detection rules.
 
@@ -187,6 +186,9 @@ python -m scripts.run_yara_tests
 
 # Run Suricata tests
 python -m scripts.run_suricata_tests
+
+# Run the full pytest suite
+python -m pytest -v
 ```
 
 The Suricata fixtures are real PCAP files generated with Scapy. Scapy is included as a project dependency. [Development Requirements](requirements-dev.txt).
