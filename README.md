@@ -31,6 +31,8 @@ It is designed to help cybersecurity professionals detect threats, investigate a
 - Adversary Emulation (Lab Only)  
 - Training & Skill Development
 - Security Awareness Training
+- Detection Gap Analysis
+- MITRE ATT&CK Alignment
 
 ## Legal & Authorized Use Only
 
@@ -42,7 +44,7 @@ The maintainers assume no liability for misuse or any damages resulting from the
 
 The contents of this repository, including scripts, scenarios, and detection rules, are provided for educational, research purposes only. The maintainers assume no responsibility for any damage, misuse, or legal consequences resulting from the use of this material.
 
-This software is provided “as is” without warranty of any kind, express or implied.
+This software is provided "as is" without warranty of any kind, express or implied.
 
 For more information, see the [DISCLAIMER](DISCLAIMER.md) and [Terms of Service](docs/legal/terms-of-service.md).
 
@@ -59,15 +61,15 @@ For more information, see the [DISCLAIMER](DISCLAIMER.md) and [Terms of Service]
 
 ## Features
 
-- Detection Rules
-- Security Playbooks
-- Threat Hunting
-- Incident Response
-- Attack Scenarios
-- Log Analysis
-- IOC Enrichment
-- Automated Testing
-- Coverage Reporting
+- **Detection Rules** — Sigma, YARA, Suricata (tested & validated)
+- **Security Playbooks** — IR & threat hunting workflows
+- **MITRE ATT&CK Mapping** — Full technique coverage
+- **Automated Testing** — pytest suite with fixtures
+- **Coverage Reporting** — ATT&CK Navigator integration
+- **Hands-on Labs** — Adversary emulation scenarios
+- **Platform Integrations** — Splunk, Elastic, Sentinel, CrowdStrike
+- **Comprehensive Docs** — Guides, templates, best practices
+- **SOC Automation** — Python scripts for rule validation & enrichment
 
 ## MITRE ATT&CK Coverage
 
@@ -105,9 +107,9 @@ Detection Rules (Sigma / YARA / Suricata)
         ↓
 Alert / Event Generated
         ↓
-Triage & Prioritization
+Triage & Prioritization (Playbooks)
         ↓
-Alert Investigation (Playbooks)
+Alert Investigation
         ↓
 Threat Hunting & Enrichment
         ↓
@@ -115,20 +117,20 @@ IOC / Threat Intelligence
         ↓
 Incident Response
         ↓
-Detection Validation
+Detection Validation (Labs & Tests)
         ↓
-Automated Tests
+Automated Tests & Coverage Metrics
         ↓
-Coverage / Reporting
+Coverage / Reporting / Improvement
 ```
 
 ## Installation
 
 ### Supported Operating Systems
 
-- Linux — Recommended for development, testing, automation, and deployment  
-- Windows — Supported for development and testing with Visual Studio Code and WSL2  
-- macOS — Supported for local development and testing
+- **Linux** — Recommended for development, testing, automation, and deployment  
+- **Windows** — Supported for development and testing with Visual Studio Code and WSL2  
+- **macOS** — Supported for local development and testing
 
 ### Requirements
 
