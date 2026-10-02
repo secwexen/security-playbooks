@@ -204,9 +204,8 @@ For complete setup instructions and troubleshooting, see the [Quick Start](docs/
 ## Documentation
 
 - [Installation Guide](docs/getting-started/installation.md)  
-- [Project Index](docs/INDEX.md)
 - [Security Playbooks](playbooks/)  
-- [Playbook Guide](docs/playbook-guide.md)
+- [Playbook Guide](docs/playbooks/playbook-guide.md)
 - [Testing Guide](docs/testing/testing.md)
 - [FAQ](docs/FAQ.md)
 
