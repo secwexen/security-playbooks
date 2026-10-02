@@ -2,13 +2,13 @@
 
 This file will help you install Security Playbooks in your local development environment.
 
-### Supported Operating Systems
+## Supported Operating Systems
 
 - **Linux** — Recommended for development, testing, automation, and deployment  
 - **Windows** — Supported for development and testing with Visual Studio Code and WSL2  
 - **macOS** — Supported for local development and testing
 
-### Requirements
+## Requirements
 
 - Python 3.11+
 - pip for Python dependency installation
@@ -21,7 +21,7 @@ This file will help you install Security Playbooks in your local development env
 - Suricata rule support
 - pytest for automated testing and validation
 
-### Optional Components
+## Optional Components
 
 - Docker: Used for containerized labs, testing, and integration workflows
 - Scapy: Used for generating and working with Suricata PCAP fixtures
