@@ -1,0 +1,10 @@
+name: Security Scan
+
+jobs:
+  security:
+    steps:
+      - name: Run Bandit (static code security analysis)
+        run: bandit -r . -ll
+      
+      - name: Run Safety (dependency vulnerability scan)
+        run: safety check --full-report
