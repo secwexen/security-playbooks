@@ -73,7 +73,7 @@ security-playbooks
 ├── docker-compose.yml
 ├── docs
 │   ├── FAQ.md
-│   ├── INDEX.md
+│   ├── GLOSSARY.md
 │   ├── README.md
 │   ├── architecture
 │   │   ├── architecture.md
@@ -109,7 +109,9 @@ security-playbooks
 │   │   ├── escalation-process.md
 │   │   ├── incident-handling.md
 │   │   └── soc-workflow.md
-│   ├── playbook-guide.md
+│   ├── playbooks
+│   │   ├── playbook-authoring.md
+│   │   └── playbook-guide.md
 │   ├── product
 │   │   ├── features.md
 │   │   ├── overview.md
@@ -180,6 +182,7 @@ security-playbooks
 │       └── ransomware-attack.json
 ├── playbooks
 │   ├── README.md
+│   ├── catalog.yaml
 │   ├── cloud
 │   │   ├── application-access-token-abuse.md
 │   │   ├── cloud-account-compromise.md
@@ -340,7 +343,8 @@ security-playbooks
 │   ├── run_sigma_tests.py
 │   ├── run_suricata_tests.py
 │   ├── run_yara_tests.py
-│   └── validate_all_rules.py
+│   ├── validate_all_rules.py
+│   └── validate_playbooks.py
 ├── templates
 │   ├── playbook-template.md
 │   ├── sigma-template.yml
