@@ -2,7 +2,7 @@
 
 This quickstart file helps you run your first Security Playbooks request in under 5 minutes.
 
-### 1. Clone & Setup
+## 1. Clone & Setup
 
 ```bash
 # Clone repository
@@ -21,7 +21,7 @@ pip install -r requirements.txt
 pip install -r requirements-dev.txt
 ```
 
-### 2. Run Detection Tests
+## 2. Run Detection Tests
 
 The project includes automated tests for Sigma, YARA, and Suricata detection rules.
 
