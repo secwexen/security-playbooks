@@ -1,0 +1,68 @@
+name: "Architecture Review"
+description: "Request an architectural change or propose a new architecture for detection engineering, threat hunting, or incident response workflows"
+title: "[ARCH]: "
+labels: ["architecture", "design"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Architecture Review Request
+        
+        Use this template to propose architectural changes or new design patterns for detection engineering, incident response workflows, threat hunting methodologies, or security validation labs.
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Architecture Change
+      description: Describe the architectural change, new detection framework, threat hunting workflow, or incident response pattern you want to introduce.
+      placeholder: |
+        Example: Restructure detection rules to support multi-stage attack chains with parent-child relationships for MITRE ATT&CK mapping.
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+      description: Why is this change necessary? How does it improve detection capabilities, threat hunting effectiveness, or incident response processes?
+      placeholder: |
+        Example: Current flat structure makes it difficult to correlate related detections across attack stages.
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impacted Systems
+      description: List the systems, modules, detection rules, frameworks, or workflows affected by this change (e.g., Sigma rules, YARA signatures, incident response labs, threat hunting guides).
+      placeholder: |
+        - Detection rules engine
+        - MITRE ATT&CK mapping system
+        - Incident response workflows
+        - SOC analyst training labs
+    validations:
+      required: true
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risk Assessment
+      description: Identify potential risks, breaking changes, or impacts on existing detection capabilities and SOC workflows.
+      placeholder: |
+        - Backward compatibility with existing detection rules
+        - Changes to threat hunting query syntax
+        - Updates required for documentation and labs
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Implementation Plan (Optional)
+      description: Suggest how this architecture change should be implemented or rolled out.
+      placeholder: |
+        Phase 1: Design and validation
+        Phase 2: Pilot with sample detection rules
+        Phase 3: Full rollout and documentation update
+    validations:
+      required: false
