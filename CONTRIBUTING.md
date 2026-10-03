@@ -12,9 +12,9 @@ For planned features and project direction, see [ROADMAP](ROADMAP.md).
 
 You may contribute in several ways:
 
-- Code Contributions  
-- Detection Rules  
-- Documentation  
+- Code Contributions
+- Detection Rules
+- Documentation
 - Issues & Suggestions
 
 ## Before You Start
@@ -22,9 +22,9 @@ You may contribute in several ways:
 ### 1. Open an Issue First
 
 Before submitting a Pull Request, please open an issue describing:
-- What you want to add or fix  
-- Why it is needed  
-- How you plan to implement it  
+- What you want to add or fix
+- Why it is needed
+- How you plan to implement it
 
 This helps maintain project structure and prevents duplicate work.
 
@@ -68,22 +68,22 @@ python -m pytest -v
 
 ### General Guidelines
 
-- Keep code clean, readable, and well‑commented  
-- Follow Python best practices (PEP8 recommended)  
-- Use meaningful filenames and commit messages  
-- Avoid breaking existing functionality  
+- Keep code clean, readable, and well‑commented
+- Follow Python best practices (PEP8 recommended)
+- Use meaningful filenames and commit messages
+- Avoid breaking existing functionality
 
 ### Detection Rules
 
-- Include MITRE ATT&CK technique IDs  
-- Add clear descriptions and references  
-- Test rules on sample logs if possible  
-- Follow Sigma/YARA/Suricata syntax standards  
+- Include MITRE ATT&CK technique IDs
+- Add clear descriptions and references
+- Test rules on sample logs if possible
+- Follow Sigma/YARA/Suricata syntax standards
 
 ### Documentation
 
-- Include examples, screenshots, or logs when helpful  
-- Keep formatting consistent  
+- Include examples, screenshots, or logs when helpful
+- Keep formatting consistent
 
 ## Pull Request Process
 
@@ -153,7 +153,7 @@ python -m scripts.run_suricata_tests
 
 ## Code of Conduct
 
-By contributing, you agree to follow the project’s [Code of Conduct](CODE_OF_CONDUCT.md).  
+By contributing, you agree to follow the project’s [Code of Conduct](CODE_OF_CONDUCT.md).
 Respectful and professional communication is expected at all times.
 
 ## License
@@ -164,5 +164,5 @@ For full license details, see [LICENSE](LICENSE).
 
 ## Thank You
 
-Your contributions help improve this project and support the cybersecurity community.  
+Your contributions help improve this project and support the cybersecurity community.
 We appreciate your time, effort, and expertise.
