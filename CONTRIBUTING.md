@@ -60,7 +60,7 @@ pip install -r requirements-dev.txt
 
 ### 5. Tests
 
-```bash
+```python
 python -m pytest -v
 ```
 
