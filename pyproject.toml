@@ -7,7 +7,7 @@ name = "security-playbooks"
 version = "0.2.1"
 description = "Security Playbooks is a collection of MITRE ATT&CK mapping, detection rules (Sigma, YARA, and Suricata), detection validation, and hands-on lab for cybersecurity professionals and SOC analysts."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 license = { file = "LICENSE" }
 
 authors = [
