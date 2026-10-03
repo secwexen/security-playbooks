@@ -177,7 +177,7 @@ pip install -r requirements-dev.txt
 
 The project includes automated tests for Sigma, YARA, and Suricata detection rules.
 
-```bash
+```python
 # Run Sigma detection tests
 python -m scripts.run_sigma_tests
 
@@ -195,7 +195,7 @@ The Suricata fixtures are real PCAP files generated with Scapy. Scapy is include
 
 If the PCAP fixtures need to be regenerated:
 
-```bash
+```python
 python tests/suricata/generate_fixtures.py
 ```
 
