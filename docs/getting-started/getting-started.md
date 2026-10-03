@@ -34,13 +34,13 @@ The project requires Python 3.13 or later.
 
 Check the installed version:
 
-```bash
+```python
 python --version
 ```
 
 or:
 
-```bash
+```python
 python3 --version
 ```
 
@@ -82,7 +82,7 @@ pip install -r requirements-dev.txt
 
 Run the automated tests before making changes:
 
-```bash
+```python
 pytest -m pytest -v
 ```
 
