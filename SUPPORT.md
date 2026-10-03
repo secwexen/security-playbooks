@@ -10,21 +10,21 @@ This document explains how to get help, report issues, and request improvements.
 
 Use the **Issues** tab for:
 
-- Bug reports  
-- Documentation problems  
-- Broken links or missing files  
-- Incorrect detection rules (Sigma, YARA, Suricata)  
-- Scenario or lab errors  
-- Feature requests  
-- General questions about repository usage  
+- Bug reports
+- Documentation problems
+- Broken links or missing files
+- Incorrect detection rules (Sigma, YARA, Suricata)
+- Scenario or lab errors
+- Feature requests
+- General questions about repository usage
 
 Create an issue here: [Issues](https://github.com/secwexen/security-playbooks/issues)
 
 Please include:
 
-- Clear description of the problem  
-- Steps to reproduce  
-- Logs, screenshots, or error messages  
+- Clear description of the problem
+- Steps to reproduce
+- Logs, screenshots, or error messages
 - Environment details (OS, Python version, tools used)
 
 ### GitHub Discussions
@@ -55,8 +55,8 @@ You can view the status of your issue and track its progress through the project
 
 ## Response Commitments
 
-- **General Issues**: We aim to respond within 24 business hours.  
-- **Critical Bugs**: Security or production-impacting bugs are prioritized and reviewed immediately.  
+- **General Issues**: We aim to respond within 24 business hours.
+- **Critical Bugs**: Security or production-impacting bugs are prioritized and reviewed immediately.
 - **Community Contributions**: Pull requests are reviewed within 3 business days.
 
 ## Frequently Asked Questions (FAQ)
@@ -105,10 +105,10 @@ This project is designed primarily for **educational, testing, and lab environme
 
 If you want to contribute:
 
-- New detection rules  
-- New MITRE ATT&CK scenarios  
-- Lab improvements  
-- Documentation updates  
+- New detection rules
+- New MITRE ATT&CK scenarios
+- Lab improvements
+- Documentation updates
 
 Please read:
 
@@ -119,5 +119,5 @@ Pull requests are welcome.
 
 ## Thank You
 
-Your feedback helps improve the project and supports the cybersecurity community.  
+Your feedback helps improve the project and supports the cybersecurity community.
 We appreciate your interest and contributions!
