@@ -23,16 +23,16 @@ Report any issues directly to the repository owner.
 
 ### Handling Vulnerabilities
 
-- Security reports will be reviewed as soon as possible (within 24 business hours).  
+- Security reports will be reviewed as soon as possible (within 24 business hours).
 - Initial acknowledgment will be provided to the reporter.
 - Fixes or updates will be applied and documented in the repository.
 - The reporter will be credited in the security advisory (unless anonymity is requested).
 
 ## Response Expectations
 
-- **Initial response**: We aim to respond within 24 business hours  
-- **Fix or mitigation**: Within 7-14 days for critical issues, longer for non-critical  
-- **Security issues** will be tracked via a ticket system or CVE where applicable  
+- **Initial response**: We aim to respond within 24 business hours
+- **Fix or mitigation**: Within 7-14 days for critical issues, longer for non-critical
+- **Security issues** will be tracked via a ticket system or CVE where applicable
 - **Coordinated disclosure** will be handled in collaboration with the reporter
 
 ## Bug Bounty Program
@@ -54,11 +54,11 @@ We encourage security research and appreciate responsible disclosure practices.
 
 ### Version Support
 
-| Version | Status | Security Support |
-|---------|--------|------------------|
-| Latest Stable | Active | Full support |
+| Version        | Status      | Security Support      |
+| -------------- | ----------- | --------------------- |
+| Latest Stable  | Active      | Full support          |
 | Previous Minor | Maintenance | Critical patches only |
-| Older Versions | End of Life | No support |
+| Older Versions | End of Life | No support            |
 
 **Support Timeline**:
 
@@ -92,8 +92,8 @@ Users are encouraged to upgrade to the latest stable release to receive all secu
 
 ## Security Best Practices
 
-- All scripts and labs are intended for **educational and lab use only**.  
-- Use **isolated environments** (VMs, containers, sandboxes) to avoid affecting production systems.  
+- All scripts and labs are intended for **educational and lab use only**.
+- Use **isolated environments** (VMs, containers, sandboxes) to avoid affecting production systems.
 - Follow **ethical guidelines** and local laws when experimenting with scripts or scenarios.
 - Keep your Python environment and dependencies updated
 - Review code before execution, especially in security contexts
