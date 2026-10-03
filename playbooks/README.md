@@ -45,4 +45,4 @@ Playbooks should be adapted to the organization's available telemetry, security 
 
 All activities must be performed in authorized environments.
 
-For playbook structure, metadata, naming conventions, and maintenance requirements, see the [Playbook Guide](../docs/playbooks/playbooks-guide.md).
+For playbook structure, metadata, naming conventions, and maintenance requirements, see the [Playbook Guide](../docs/playbooks/playbook-guide.md).
