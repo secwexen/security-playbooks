@@ -41,7 +41,7 @@ Use lab materials only in authorized and controlled environments.
 
 Run the project test suite with:
 
-```bash
+```python
 python -m pytest -v
 ```
 
