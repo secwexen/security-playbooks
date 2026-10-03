@@ -27,6 +27,6 @@ suricata --build-info
 
 Run the complete pytest suite:
 
-```bash
+```python
 python -m pytest -v
 ```
