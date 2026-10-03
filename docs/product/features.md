@@ -95,9 +95,9 @@ Visibility into security coverage:
 
 ## Key Benefits
 
-- Comprehensive defensive security coverage  
-- Framework-based approach (MITRE ATT&CK)  
-- Multiple detection rule formats  
-- Practical, hands-on learning resources  
-- Continuous security validation  
+- Comprehensive defensive security coverage
+- Framework-based approach (MITRE ATT&CK)
+- Multiple detection rule formats
+- Practical, hands-on learning resources
+- Continuous security validation
 - Community-driven updates and improvements
