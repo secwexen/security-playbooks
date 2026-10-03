@@ -4,7 +4,7 @@ This document describes the development workflow and standards for Security Play
 
 ## 1. Development Environment
 
-Security Playbooks uses Python 3.11 or later.
+Security Playbooks uses Python 3.13 or later.
 
 Create and activate a virtual environment:
 
