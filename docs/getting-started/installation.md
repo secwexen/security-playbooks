@@ -4,8 +4,8 @@ This file will help you install Security Playbooks in your local development env
 
 ## Supported Operating Systems
 
-- **Linux** — Recommended for development, testing, automation, and deployment  
-- **Windows** — Supported for development and testing with Visual Studio Code and WSL2  
+- **Linux** — Recommended for development, testing, automation, and deployment
+- **Windows** — Supported for development and testing with Visual Studio Code and WSL2
 - **macOS** — Supported for local development and testing
 
 ## Requirements
