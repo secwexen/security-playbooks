@@ -8,7 +8,7 @@ Security Playbooks uses Python 3.13 or later.
 
 Create and activate a virtual environment:
 
-```bash
+```python
 python -m venv .venv
 ```
 
@@ -90,7 +90,7 @@ New or modified rules should include appropriate metadata, valid syntax, and sup
 
 Run the test suite before submitting changes:
 
-```bash
+```python
 python -m pytest -v
 ```
 
@@ -104,7 +104,7 @@ Do not validate security content against unauthorized systems or production envi
 
 ## 8. Makefile
 
-The root [Makefile](/Makefile) provides common development and validation commands.
+The root [Makefile](../Makefile) provides common development and validation commands.
 
 Run commands from the repository root:
 
