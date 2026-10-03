@@ -16,21 +16,21 @@ It includes foundational detection content, incident response playbooks, and han
 
 ### Detection Rules
 
-- Sigma rules for common attack techniques  
-- MITRE ATT&CK–aligned detection logic  
-- Example log sources and mappings  
+- Sigma rules for common attack techniques
+- MITRE ATT&CK–aligned detection logic
+- Example log sources and mappings
 
 ### Incident Response Playbooks
 
-- Step‑by‑step response procedures  
-- Containment, eradication, and recovery guidelines  
-- Analyst checklists and decision trees  
+- Step‑by‑step response procedures
+- Containment, eradication, and recovery guidelines
+- Analyst checklists and decision trees
 
 ### Lab Scenarios
 
-- Practical exercises for testing detections  
-- Simulated attack chains  
-- Walkthroughs for hands‑on learning  
+- Practical exercises for testing detections
+- Simulated attack chains
+- Walkthroughs for hands‑on learning
 
 ## What's Changed
 
