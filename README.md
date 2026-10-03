@@ -26,11 +26,11 @@ It is designed to help cybersecurity professionals detect threats, investigate a
 
 ## Use Cases
 
-- Alert Investigation & Triage  
-- Threat Hunting Operations  
-- Detection Engineering & Validation  
-- Incident Response Simulation  
-- Adversary Emulation (Lab Only)  
+- Alert Investigation & Triage
+- Threat Hunting Operations
+- Detection Engineering & Validation
+- Incident Response Simulation
+- Adversary Emulation (Lab Only)
 - Training & Skill Development
 - Security Awareness Training
 - Detection Gap Analysis
@@ -52,12 +52,12 @@ For more information, see the [DISCLAIMER](DISCLAIMER.md) and [Terms of Service]
 
 ## Who Is This For
 
-- SOC Analysts  
-- Threat Hunters  
-- Blue Team Engineers  
-- Cybersecurity professionals  
-- Red Teamers (Lab Use Only)  
-- Detection Engineers  
+- SOC Analysts
+- Threat Hunters
+- Blue Team Engineers
+- Cybersecurity professionals
+- Red Teamers (Lab Use Only)
+- Detection Engineers
 - Threat Intelligence Analysts
 - Security Operations Managers
 
@@ -77,10 +77,10 @@ For more information, see the [DISCLAIMER](DISCLAIMER.md) and [Terms of Service]
 
 Coverage mappings are maintained in:
 
-- [MITRE Mapping](detection-rules/mappings/mitre-mapping.yaml) — MITRE ATT&CK techniques mapping  
-- [Coverage Matrix](detection-rules/mappings/coverage-matrix.md) — Detection coverage matrix  
-- [Coverage Report](reports/coverage-summary.md) — Detection coverage summary and analysis  
-- [Attack Navigator Layer](detection-rules/mappings/attack-navigator-layer.json) — ATT&CK Navigator layer  
+- [MITRE Mapping](detection-rules/mappings/mitre-mapping.yaml) — MITRE ATT&CK techniques mapping
+- [Coverage Matrix](detection-rules/mappings/coverage-matrix.md) — Detection coverage matrix
+- [Coverage Report](reports/coverage-summary.md) — Detection coverage summary and analysis
+- [Attack Navigator Layer](detection-rules/mappings/attack-navigator-layer.json) — ATT&CK Navigator layer
 - [Rule Coverage Map](detection-rules/mappings/rule-coverage-map.json) — Rule-to-technique coverage mapping
 
 ## Supported Integrations
@@ -130,8 +130,8 @@ Coverage / Reporting / Improvement
 
 ### Supported Operating Systems
 
-- **Linux** — Recommended for development, testing, automation, and deployment  
-- **Windows** — Supported for development and testing with Visual Studio Code and WSL2  
+- **Linux** — Recommended for development, testing, automation, and deployment
+- **Windows** — Supported for development and testing with Visual Studio Code and WSL2
 - **macOS** — Supported for local development and testing
 
 ### Requirements
@@ -203,8 +203,8 @@ For complete setup instructions and troubleshooting, see the [Quick Start](docs/
 
 ## Documentation
 
-- [Installation Guide](docs/getting-started/installation.md)  
-- [Security Playbooks](playbooks/)  
+- [Installation Guide](docs/getting-started/installation.md)
+- [Security Playbooks](playbooks/)
 - [Playbook Guide](docs/playbooks/playbook-guide.md)
 - [Testing Guide](docs/testing/testing.md)
 - [FAQ](docs/FAQ.md)
@@ -213,7 +213,7 @@ For complete setup instructions and troubleshooting, see the [Quick Start](docs/
 
 Copyright © 2026 secwexen.
 
-This project is licensed under the **MIT License**.  
+This project is licensed under the **MIT License**.
 See the [LICENSE](LICENSE) file for full details.
 
 ## Contributing
@@ -234,11 +234,11 @@ See [CONTRIBUTING](CONTRIBUTING.md) for detailed contribution guidelines.
 
 Planned improvements include:
 
-- Expanded ATT&CK-mapped playbooks and lab scenarios  
-- Enhanced and validated detection rules (Sigma, YARA, and Suricata)  
-- Structured SOC workflows and incident response playbooks  
-- Standardized, machine-readable playbook formats  
-- Alignment with security frameworks (NIST, CIS, ISO)  
+- Expanded ATT&CK-mapped playbooks and lab scenarios
+- Enhanced and validated detection rules (Sigma, YARA, and Suricata)
+- Structured SOC workflows and incident response playbooks
+- Standardized, machine-readable playbook formats
+- Alignment with security frameworks (NIST, CIS, ISO)
 
 For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
