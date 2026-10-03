@@ -213,7 +213,7 @@ For complete setup instructions and troubleshooting, see the [Quick Start](docs/
 
 Copyright © 2026 secwexen.
 
-This project is licensed under the **MIT License**.
+This project is licensed under the **MIT License**.    
 See the [LICENSE](LICENSE) file for full details.
 
 ## Contributing
