@@ -35,7 +35,7 @@ def test_playbooks_directory_exists():
 
 
 def test_playbook_guide_exists():
-    guide = DOCS_DIR / "playbook-guide.md"
+    guide = DOCS_DIR / "playbooks/playbook-guide.md"
 
     assert guide.exists(), f"Missing playbook guide: {guide}"
     assert guide.is_file(), f"Not a file: {guide}"
