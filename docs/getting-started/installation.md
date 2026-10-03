@@ -10,7 +10,7 @@ This file will help you install Security Playbooks in your local development env
 
 ## Requirements
 
-- Python 3.11+
+- Python 3.13+
 - pip for Python dependency installation
 - Make for repository automation and common development tasks
 - Git for repository management
