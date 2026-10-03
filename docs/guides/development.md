@@ -74,7 +74,7 @@ New or modified playbooks should include:
 - validation;
 - safety guidance.
 
-Detection-rule references must point to files that actually exist in [Detection Rules](/detection-rules/).
+Detection-rule references must point to files that actually exist in [Detection Rules](../detection-rules/).
 
 ## 5. Detection Rule Development
 
