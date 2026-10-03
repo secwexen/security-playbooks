@@ -50,7 +50,7 @@ Install Python 3.13+ if the required version is not available.
 
 Create a virtual environment:
 
-```bash
+```python
 python -m venv .venv
 ```
 
