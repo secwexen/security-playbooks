@@ -42,7 +42,7 @@ Yes, Security Playbooks can be used in cloud-based lab environments, provided th
 
 Supported setups include:
 
-- Docker-based deployments  
+- Docker-based deployments
 - SIEM-integrated lab environments (e.g., Microsoft Sentinel, Elastic Cloud)
 
 ## 5. What detection rule formats are supported?
@@ -53,7 +53,7 @@ Security Playbooks supports multiple detection rule formats to accommodate diffe
 - YARA Rules – Malware and file-based detection signatures
 - Suricata Rules – Network-based intrusion detection rules for IDS/IPS systems
 
-All rules are mapped to MITRE ATT&CK techniques for standardized threat coverage. Rules are stored in the [Detection Rules](detection-rules/) directory and can be integrated with your existing security infrastructure.
+All rules are mapped to MITRE ATT&CK techniques for standardized threat coverage. Rules are stored in the [Detection Rules](../detection-rules/) directory and can be integrated with your existing security infrastructure.
 
 ## 6. Is this for offensive security or red teaming?
 
@@ -69,4 +69,4 @@ See [Ethics & Responsible Use Guidelines](docs/legal/ethics.md) and [Terms of Se
 
 Contributions are welcome.
 
-See the [Contributing](CONTRIBUTING.md) for contribution guidelines.
+See the [Contributing](../CONTRIBUTING.md) for contribution guidelines.
