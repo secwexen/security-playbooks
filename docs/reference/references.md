@@ -4,17 +4,17 @@ The following resources are recommended for additional learning, research, and r
 
 ## Detection Engineering & Rules
 
-- MITRE ATT&CK Framework — https://attack.mitre.org  
-- MITRE D3FEND — https://d3fend.mitre.org  
-- Sigma HQ — https://github.com/SigmaHQ/sigma  
+- MITRE ATT&CK Framework — https://attack.mitre.org
+- MITRE D3FEND — https://d3fend.mitre.org
+- Sigma HQ — https://github.com/SigmaHQ/sigma
 - YARA Documentation — https://yara.readthedocs.io/
 - Suricata Documentation — https://suricata.io/
 
 ## Security Standards & Frameworks
 
-- NIST Cybersecurity Framework (CSF) — https://www.nist.gov/cyberframework  
+- NIST Cybersecurity Framework (CSF) — https://www.nist.gov/cyberframework
 - NIST IR Guide — https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
-- OWASP — https://owasp.org  
+- OWASP — https://owasp.org
 
 ## Threat Intelligence & IOC
 
@@ -23,7 +23,7 @@ The following resources are recommended for additional learning, research, and r
 
 ## SIEM & Log Analysis
 
-- Elastic Security Labs — https://www.elastic.co/security-labs  
+- Elastic Security Labs — https://www.elastic.co/security-labs
 - Microsoft Security Blog — https://www.microsoft.com/en-us/security/blog/
 - Splunk Documentation — https://docs.splunk.com/
 
