@@ -76,13 +76,13 @@ Yes! We welcome contributions. Please see [CONTRIBUTING](CONTRIBUTING.md) for gu
 
 ### Which Python versions are supported?
 
-Currently, we support **Python 3.11+**. See [CONTRIBUTING](CONTRIBUTING.md) for setup instructions.
+Currently, we support **Python 3.13+**. See [CONTRIBUTING](CONTRIBUTING.md) for setup instructions.
 
 ### How do I test my changes locally?
 
 Follow the setup instructions in [CONTRIBUTING](CONTRIBUTING.md). Use `pytest` to run the automated test suite:
 
-```bash
+```python
 python -m pytest -v
 ```
 
@@ -112,7 +112,7 @@ If you want to contribute:
 
 Please read:
 
-- [CONTRIBUTING](CONTRIBUTING.md)  
+- [CONTRIBUTING](CONTRIBUTING.md)
 - [CODE OF CONDUCT](CODE_OF_CONDUCT.md)
 
 Pull requests are welcome.
