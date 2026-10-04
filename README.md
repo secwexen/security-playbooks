@@ -70,7 +70,6 @@ For more information, see the [DISCLAIMER](DISCLAIMER.md) and [Terms of Service]
 - **Coverage Reporting** — ATT&CK Navigator integration
 - **Hands-on Labs** — Adversary emulation scenarios
 - **Platform Integrations** — Splunk, Elastic, Sentinel, CrowdStrike
-- **Comprehensive Docs** — Guides, templates, best practices
 - **SOC Automation** — Python scripts for rule validation & enrichment
 
 For full details, refer to the [Features](docs/product/features.md) file.
