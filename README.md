@@ -73,6 +73,8 @@ For more information, see the [DISCLAIMER](DISCLAIMER.md) and [Terms of Service]
 - **Comprehensive Docs** — Guides, templates, best practices
 - **SOC Automation** — Python scripts for rule validation & enrichment
 
+For full details, refer to the [Features](docs/product/features.md) file.
+
 ## MITRE ATT&CK Coverage
 
 Coverage mappings are maintained in:
