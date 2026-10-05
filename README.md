@@ -36,19 +36,13 @@ It is designed to help cybersecurity professionals detect threats, investigate a
 - Detection Gap Analysis
 - MITRE ATT&CK Alignment
 
-## Legal & Authorized Use Only
+## Legal & Authorized Use
 
 This Security Playbooks repository is intended strictly for educational, research, and authorized security testing purposes only. Users are solely responsible for ensuring their activities comply with all applicable laws and regulations.
 
 The maintainers assume no liability for misuse or any damages resulting from the use of this project.
 
-## Legal Disclaimer
-
-The contents of this repository, including scripts, scenarios, and detection rules, are provided for educational, research purposes only. The maintainers assume no responsibility for any damage, misuse, or legal consequences resulting from the use of this material.
-
-This software is provided "as is" without warranty of any kind, express or implied.
-
-For more information, see the [DISCLAIMER](DISCLAIMER.md) and [Terms of Service](docs/legal/terms-of-service.md).
+See [Ethics & Responsible Use Guidelines](docs/legal/ethics.md) for details.
 
 ## Who Is This For
 
