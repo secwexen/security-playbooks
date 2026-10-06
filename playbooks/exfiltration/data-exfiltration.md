@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-10-05T16:42:00Z"
-updated_at: "2026-10-05T16:42:00Z"
+updated_at: "2026-10-05T16:28:00Z"
 description: "Investigate suspected unauthorized transfer of data from an affected environment to an external or attacker-controlled destination."
 objective: "Determine whether data was exfiltrated, identify the transferred data and transfer mechanism, establish the affected scope, and support appropriate containment and response actions."
 severity: "high"
@@ -432,8 +432,6 @@ For confirmed malicious data exfiltration:
 Do not delete files, logs, network artifacts, or other relevant evidence before required evidence preservation has been completed.
 
 ## Related Detection Rules
-
-- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
