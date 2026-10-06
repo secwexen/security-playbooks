@@ -90,26 +90,31 @@ python -m pytest -v
 ### Review Process
 
 1. **PR Submission**
-   - Ensure your branch is up to date with `main`
-   - Submit a PR with a clear title and description
-   - Link the related issue (required)
+
+- Ensure your branch is up to date with `main`
+- Submit a PR with a clear title and description
+- Link the related issue (required)
 
 2. **Automated Checks**
-   - All CI/CD checks must pass before manual review
+
+- All CI/CD checks must pass before manual review
 
 3. **Code Review**
-   - One or more maintainers will review your PR
-   - Feedback will be provided for any necessary changes
-   - Reviewers may request additional tests or documentation
+
+- One or more maintainers will review your PR
+- Feedback will be provided for any necessary changes
+- Reviewers may request additional tests or documentation
 
 4. **Changes & Approval**
-   - Requested changes (if any) must be completed
-   - Re-request review after making changes
-   - Once approved by maintainers, PR will be merged
+
+- Requested changes (if any) must be completed
+- Re-request review after making changes
+- Once approved by maintainers, PR will be merged
 
 5. **Merge**
-   - PRs are merged using "Squash and merge" strategy
-   - Commit message follows Conventional Commits format
+
+- PRs are merged using "Squash and merge" strategy
+- Commit message follows Conventional Commits format
 
 ### CI/CD Requirements
 
