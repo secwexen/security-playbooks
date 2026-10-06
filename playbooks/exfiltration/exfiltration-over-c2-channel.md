@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.0"
 author: "Secwexen"
 created_at: "2026-10-04T17:50:00Z"
-updated_at: "2026-10-05T16:43:00Z"
+updated_at: "2026-10-06T16:01:00Z"
 description: "Investigate suspected data exfiltration performed through an established command-and-control channel."
 objective: "Determine whether data was transferred from an affected system through an existing command-and-control channel, identify the transferred data, destination, determine the scope and impact of the activity."
 severity: "high"
@@ -36,54 +36,54 @@ tags:
 references:
   - "https://attack.mitre.org/techniques/T1041/"
 steps:
-- id: "identify-exfiltration-alert"
-  order: 1
-  name: "Identify Exfiltration Alert"
-  action: "investigate"
-  description: "Identify the detection source, affected host, associated account, destination, timestamp, transfer volume, and alert context."
-  expected_result: "The suspected exfiltration event, affected asset, destination, and initial alert context are identified."
-- id: "identify-source-process"
-  order: 2
-  name: "Identify Source Process"
-  action: "analyze"
-  description: "Determine which process or application generated the outbound traffic and review its execution context."
-  expected_result: "The source process, associated account, command line, execution path, and process context are identified."
-- id: "identify-accessed-data"
-  order: 3
-  name: "Identify Accessed Data"
-  action: "analyze"
-  description: "Review file, database, archive, or other data access activity preceding the outbound transfer and determine what information may have been selected for exfiltration."
-  expected_result: "Potentially exfiltrated data and the associated collection or access activity are identified."
-- id: "review-transfer-activity"
-  order: 4
-  name: "Review Transfer Activity"
-  action: "analyze"
-  description: "Examine outbound connection timing, volume, frequency, protocol, session duration, destination, and transfer patterns."
-  expected_result: "The transfer characteristics and anomalous outbound data behavior are documented."
-- id: "review-c2-channel"
-  order: 5
-  name: "Review C2 Channel"
-  action: "analyze"
-  description: "Determine whether the transfer used an established command-and-control channel and assess whether the channel behavior is consistent with normal C2 communication or indicates data exfiltration."
-  expected_result: "The relationship between the outbound transfer and the suspected C2 channel is established."
-- id: "correlate-related-activity"
-  order: 6
-  name: "Correlate Related Activity"
-  action: "hunt"
-  description: "Correlate process, file, authentication, network, persistence, command-and-control, and other security telemetry associated with the affected host, account, and destination."
-  expected_result: "Related activity and evidence of collection, staging, command-and-control, or additional compromise are identified or ruled out."
-- id: "determine-exfiltration-scope"
-  order: 7
-  name: "Determine Exfiltration Scope"
-  action: "hunt"
-  description: "Search for the same source process, destination, command-and-control infrastructure, transfer pattern, file selection pattern, or affected account across the environment."
-  expected_result: "The number of affected hosts, accounts, destinations, and potentially exfiltrated datasets is determined."
-- id: "determine-investigation-outcome"
-  order: 8
-  name: "Determine Investigation Outcome"
-  action: "document"
-  description: "Classify the observed transfer activity and document the evidence supporting the final assessment."
-  expected_result: "The investigation receives a documented outcome with supporting evidence and escalation status."
+  - id: "identify-exfiltration-alert"
+    order: 1
+    name: "Identify Exfiltration Alert"
+    action: "investigate"
+    description: "Identify the detection source, affected host, associated account, destination, timestamp, transfer volume, and alert context."
+    expected_result: "The suspected exfiltration event, affected asset, destination, and initial alert context are identified."
+  - id: "identify-source-process"
+    order: 2
+    name: "Identify Source Process"
+    action: "analyze"
+    description: "Determine which process or application generated the outbound traffic and review its execution context."
+    expected_result: "The source process, associated account, command line, execution path, and process context are identified."
+  - id: "identify-accessed-data"
+    order: 3
+    name: "Identify Accessed Data"
+    action: "analyze"
+    description: "Review file, database, archive, or other data access activity preceding the outbound transfer and determine what information may have been selected for exfiltration."
+    expected_result: "Potentially exfiltrated data and the associated collection or access activity are identified."
+  - id: "review-transfer-activity"
+    order: 4
+    name: "Review Transfer Activity"
+    action: "analyze"
+    description: "Examine outbound connection timing, volume, frequency, protocol, session duration, destination, and transfer patterns."
+    expected_result: "The transfer characteristics and anomalous outbound data behavior are documented."
+  - id: "review-c2-channel"
+    order: 5
+    name: "Review C2 Channel"
+    action: "analyze"
+    description: "Determine whether the transfer used an established command-and-control channel and assess whether the channel behavior is consistent with normal C2 communication or indicates data exfiltration."
+    expected_result: "The relationship between the outbound transfer and the suspected C2 channel is established."
+  - id: "correlate-related-activity"
+    order: 6
+    name: "Correlate Related Activity"
+    action: "hunt"
+    description: "Correlate process, file, authentication, network, persistence, command-and-control, and other security telemetry associated with the affected host, account, and destination."
+    expected_result: "Related activity and evidence of collection, staging, command-and-control, or additional compromise are identified or ruled out."
+  - id: "determine-exfiltration-scope"
+    order: 7
+    name: "Determine Exfiltration Scope"
+    action: "hunt"
+    description: "Search for the same source process, destination, command-and-control infrastructure, transfer pattern, file selection pattern, or affected account across the environment."
+    expected_result: "The number of affected hosts, accounts, destinations, and potentially exfiltrated datasets is determined."
+  - id: "determine-investigation-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the observed transfer activity and document the evidence supporting the final assessment."
+    expected_result: "The investigation receives a documented outcome with supporting evidence and escalation status."
 validation:
   validated: false
   required: true
@@ -441,8 +441,6 @@ For confirmed malicious exfiltration over a C2 channel:
 Do not delete files, terminate processes, modify network artifacts, or destroy logs before required evidence preservation and appropriate authorization have been considered.
 
 ## Related Detection Rules
-
-- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
