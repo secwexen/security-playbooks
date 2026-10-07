@@ -14,7 +14,7 @@
 
 Security Playbooks is a defensive security repository designed for cybersecurity professionals and SOC analysts.
 
-It focuses on delivering realistic and practical security content, including MITRE ATT&CK mapping, detection rules, detection validation, incident response playbooks, SOC workflows, adversary emulation, threat intelligence, IOC enrichment, security automation, security integrations, coverage analysis, and hands-on labs. The project helps users build practical skills in detection engineering, threat hunting, incident response, and adversary simulation within controlled environments.
+It focuses on delivering realistic and practical blue team security content, including MITRE ATT&CK mapping, detection rules, detection validation, incident response playbooks, SOC workflows, adversary emulation, threat intelligence, IOC enrichment, security automation, security integrations, coverage analysis, and hands-on labs. The project helps users build practical skills in detection engineering, threat hunting, incident response, and adversary simulation within controlled environments.
 
 The project aims to bridge the gap between theoretical knowledge and real-world security operations by providing structured, reproducible, and practical cybersecurity workflows, threat intelligence, security validation, automated testing, machine-readable security content, and security coverage analysis capabilities.
 
