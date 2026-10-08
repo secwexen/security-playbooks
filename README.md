@@ -140,7 +140,7 @@ Coverage / Reporting / Improvement
 - Sigma rule support
 - YARA rule support
 - Suricata rule support
-- pytest for automated testing and validation
+- Pytest for automated testing and validation
 
 ### Optional Components
 
