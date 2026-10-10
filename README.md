@@ -147,6 +147,8 @@ Coverage / Reporting / Improvement
 - Docker: Used for containerized labs, testing, and integration workflows
 - Scapy: Used for generating and working with Suricata PCAP fixtures
 
+For full details, refer to the [Installation Guide](docs/getting-started/installation.md) file.
+
 ## Quick Start
 
 ### 1. Clone & Setup
@@ -198,7 +200,6 @@ For complete setup instructions and troubleshooting, see the [Quick Start](docs/
 
 ## Documentation
 
-- [Installation Guide](docs/getting-started/installation.md)
 - [Security Playbooks](playbooks/)
 - [Playbook Guide](docs/playbooks/playbook-guide.md)
 - [Testing Guide](docs/testing/testing.md)
