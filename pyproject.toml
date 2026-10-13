@@ -8,7 +8,10 @@ version = "0.2.1"
 description = "Security Playbooks is a collection of MITRE ATT&CK mapping, detection rules (Sigma, YARA, and Suricata), detection validation, and hands-on lab for cybersecurity professionals and SOC analysts."
 readme = "README.md"
 requires-python = ">=3.13"
-license = { file = "LICENSE" }
+license = "Apache-2.0"
+license-files = [
+    "LICENSE",
+]
 
 authors = [
   { name = "secwexen" }
@@ -35,7 +38,6 @@ keywords = [
 classifiers = [
   "Development Status :: 4 - Beta",
   "Intended Audience :: Information Technology",
-  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.13",
   "Operating System :: OS Independent",
@@ -114,17 +116,17 @@ directory = "reports/coverage"
 
 [tool.black]
 line-length = 88
-target-version = ["py311"]
+target-version = ["py313"]
 
 [tool.ruff]
 line-length = 120
-target-version = "py311"
+target-version = "py313"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "S"]
 ignore = []
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.13"
 strict = true
 ignore_missing_imports = true
