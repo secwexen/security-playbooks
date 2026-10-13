@@ -86,6 +86,14 @@ Run the automated tests before making changes:
 pytest -m pytest -v
 ```
 
+Alternatively, use the Makefile target:
+
+```bash
+make test
+```
+
+The test command uses the project's configured pytest options, including coverage reporting.
+
 Use the test results to identify validation, metadata, schema, detection-rule, or playbook issues before contributing changes.
 
 ## 6. Explore the Playbooks
