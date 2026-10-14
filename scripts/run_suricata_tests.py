@@ -372,7 +372,6 @@ def collect_engine_stats(
                         )
                     ]
 
-                    if loaded_values:
                         rules_loaded = sum(loaded_values)
 
                 alert_value = detect.get("alert")
