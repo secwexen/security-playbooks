@@ -350,38 +350,34 @@ def collect_engine_stats(
             if not isinstance(stats, dict):
                 continue
 
-            detect = stats.get(
-                "detect",
-                {},
-            )
+                     detect = stats.get("detect", {})
 
-            if isinstance(detect, dict):
-                engines = detect.get(
-                    "engines",
-                    [],
-                )
+            if not isinstance(detect, dict):
+                continue
 
-                if isinstance(engines, list):
-                    loaded_values = [
-                        engine.get("rules_loaded")
-                        for engine in engines
-                        if isinstance(engine, dict)
-                        and isinstance(
-                            engine.get("rules_loaded"),
-                            int,
-                        )
-                    ]
+            engines = detect.get("engines", [])
+            loaded_values: list[int] = []
 
-                        rules_loaded = sum(loaded_values)
+            if isinstance(engines, list):
+                for engine in engines:
+                    if not isinstance(engine, dict):
+                        continue
 
-                alert_value = detect.get("alert")
+                    value = engine.get("rules_loaded")
 
-                if isinstance(
-                    alert_value,
-                    int,
-                ):
-                    alerts = alert_value
+                    if isinstance(value, int) and not isinstance(value, bool):
+                        loaded_values.append(value)
 
+            if loaded_values:
+                rules_loaded = sum(loaded_values)
+
+            alert_value = detect.get("alert")
+
+            if isinstance(alert_value, int) and not isinstance(
+                alert_value, bool
+            ):
+                alerts = alert_value
+    
     return rules_loaded, alerts
 
 
