@@ -1,3 +1,5 @@
+"""Validate repository Suricata rules against network traffic fixtures."""
+
 from __future__ import annotations
 
 import json
@@ -82,7 +84,7 @@ def load_expected_alerts() -> dict[str, Any]:
     """Load expected Suricata alerts."""
     if not EXPECTED_ALERTS_FILE.exists():
         raise FileNotFoundError(
-            f"Expected Suricata alerts file not found: " f"{EXPECTED_ALERTS_FILE}"
+            f"Expected Suricata alerts file not found: {EXPECTED_ALERTS_FILE}"
         )
 
     data = load_json(EXPECTED_ALERTS_FILE)
@@ -318,47 +320,47 @@ def collect_alert_signatures(
 def collect_engine_stats(
     output_dir: Path,
 ) -> tuple[int | None, int | None]:
-    """
-    Extract rules_loaded and alert count from eve.json.
-    """
+    """Extract rules_loaded and alert count from eve.json."""
+
     eve_path = output_dir / "eve.json"
 
-    if not eve_path.exists():
+    if not eve_path.is_file():
         return None, None
 
     rules_loaded: int | None = None
     alerts: int | None = None
 
-    with eve_path.open(
-        "r",
-        encoding="utf-8",
-    ) as file:
+    with eve_path.open("r", encoding="utf-8") as file:
         for line in file:
+            if not line.strip():
+                continue
+
             try:
                 event = json.loads(line)
             except json.JSONDecodeError:
                 continue
 
+            if not isinstance(event, dict):
+                continue
+
             if event.get("event_type") != "stats":
                 continue
 
-            stats = event.get(
-                "stats",
-                {},
-            )
+            stats = event.get("stats")
 
             if not isinstance(stats, dict):
                 continue
 
-            detect = stats.get("detect", {})
+            detect = stats.get("detect")
 
             if not isinstance(detect, dict):
                 continue
 
             engines = detect.get("engines", [])
-            loaded_values: list[int] = []
 
             if isinstance(engines, list):
+                loaded_values: list[int] = []
+
                 for engine in engines:
                     if not isinstance(engine, dict):
                         continue
@@ -368,18 +370,15 @@ def collect_engine_stats(
                     if isinstance(value, int) and not isinstance(value, bool):
                         loaded_values.append(value)
 
-            if loaded_values:
-                rules_loaded = sum(loaded_values)
+                if loaded_values:
+                    rules_loaded = sum(loaded_values)
 
             alert_value = detect.get("alert")
 
-            if isinstance(alert_value, int) and not isinstance(
-                alert_value, bool
-            ):
+            if isinstance(alert_value, int) and not isinstance(alert_value, bool):
                 alerts = alert_value
-    
-    return rules_loaded, alerts
 
+    return rules_loaded, alerts
 
 def run_suricata(
     pcap_path: Path,
@@ -594,14 +593,14 @@ def run_test_case(
 
     if passed:
         logger.info(
-            "Suricata test PASS: %s | " "expected=%s matched=%s",
+            "Suricata test PASS: %s | "expected=%s matched=%s",
             name,
             expected_normalized,
             actual_normalized,
         )
     else:
         logger.error(
-            "Suricata test FAIL: %s | " "expected=%s matched=%s",
+            "Suricata test FAIL: %s | "expected=%s matched=%s",
             name,
             expected_normalized,
             actual_normalized,
@@ -615,7 +614,7 @@ def main() -> int:
     logger.info("Starting Suricata test runner.")
 
     if not find_suricata():
-        logger.error("Suricata is not installed or not " "available in PATH.")
+        logger.error("Suricata is not installed or not available in PATH.")
         return 1
 
     if not SURICATA_RULES_DIR.exists():
@@ -659,7 +658,7 @@ def main() -> int:
     total = passed + failed
 
     logger.info(
-        "Suricata tests completed. " "PASS=%d FAIL=%d TOTAL=%d",
+        "Suricata tests completed. PASS=%d FAIL=%d TOTAL=%d",
         passed,
         failed,
         total,
