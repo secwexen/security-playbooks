@@ -97,6 +97,9 @@ python_functions = ["test_*"]
 addopts = "-ra"
 pythonpath = ["."]
 
+[tool.pylint.format]
+max-line-length = 120
+
 [tool.coverage.run]
 branch = true
 source = [
