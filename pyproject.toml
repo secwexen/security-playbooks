@@ -89,6 +89,7 @@ Repository = "https://github.com/secwexen/security-playbooks"
 "Bug Tracker" = "https://github.com/secwexen/security-playbooks/issues"
 
 [tool.pytest.ini_options]
+addopts = "--cov=. --cov-report=term-missing -n auto"
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
@@ -104,6 +105,7 @@ source = [
 ]
 
 [tool.coverage.report]
+fail_under = 80
 show_missing = true
 skip_covered = false
 exclude_lines = [
