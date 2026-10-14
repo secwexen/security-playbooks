@@ -205,7 +205,7 @@ def build_combined_rules_file(
             content = rule_file.read_text(encoding="utf-8")
         except OSError as exc:
             raise RuntimeError(
-                f"Unable to read rule file " f"{rule_file}: {exc}"
+                f"Unable to read rule file {rule_file}: {exc}"
             ) from exc
 
         generated_rules.extend(extract_suricata_rules(content))
@@ -350,7 +350,7 @@ def collect_engine_stats(
             if not isinstance(stats, dict):
                 continue
 
-                     detect = stats.get("detect", {})
+            detect = stats.get("detect", {})
 
             if not isinstance(detect, dict):
                 continue
