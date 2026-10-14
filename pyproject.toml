@@ -94,8 +94,8 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
-addopts = "-ra"
 pythonpath = ["."]
+asyncio_mode = "auto"
 
 [tool.pylint.format]
 max-line-length = 120
