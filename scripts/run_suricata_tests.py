@@ -593,14 +593,14 @@ def run_test_case(
 
     if passed:
         logger.info(
-            "Suricata test PASS: %s | "expected=%s matched=%s",
+            "Suricata test PASS: %s | expected=%s matched=%s",
             name,
             expected_normalized,
             actual_normalized,
         )
     else:
         logger.error(
-            "Suricata test FAIL: %s | "expected=%s matched=%s",
+            "Suricata test FAIL: %s | expected=%s matched=%s",
             name,
             expected_normalized,
             actual_normalized,
