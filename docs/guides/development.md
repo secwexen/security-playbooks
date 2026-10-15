@@ -28,6 +28,11 @@ Install dependencies:
 
 ```bash
 pip install -r requirements.txt
+```
+
+Install development dependencies:
+
+```bash
 pip install -r requirements-dev.txt
 ```
 
