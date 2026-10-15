@@ -200,6 +200,7 @@ For complete setup instructions and troubleshooting, see the [Quick Start](docs/
 
 ## Documentation
 
+- [Architecture](docs/architecture/architecture.md)
 - [Security Playbooks](playbooks/)
 - [Playbook Guide](docs/playbooks/playbook-guide.md)
 - [Testing Guide](docs/testing/testing.md)
