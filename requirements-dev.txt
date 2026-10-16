@@ -2,6 +2,7 @@
 pytest==9.0.3
 pytest-cov==7.1.0
 pytest-mock==3.14.0
+pytest-asyncio
 yara-python==4.5.4
 scapy==2.7.0
 
