@@ -30,39 +30,82 @@ This helps maintain project structure and prevents duplicate work.
 
 ## Getting Started
 
-### 1. Fork the repository
+## 1. Clone the Repository
+
+Clone the repository and move into the project directory:
 
 ```bash
 git clone https://github.com/secwexen/security-playbooks.git
 cd security-playbooks
 ```
 
-### 2. Create a new branch from `main`
+## 2. Install Python
 
-```bash
-git checkout -b feature/your-feature-name
+The project requires Python 3.13 or later.
+
+Check the installed version:
+
+```python
+python --version
 ```
 
-### 3. Set up a local development environment
+or:
 
-```bash
+```python
+python3 --version
+```
+
+Install Python 3.13+ if the required version is not available.
+
+## 3. Install Dependencies
+
+Create a virtual environment:
+
+```python
 python -m venv .venv
-source .venv/bin/activate     # Linux/Mac
-.\.venv\Scripts\Activate.ps1  # Windows
 ```
 
-### 4. Install dependencies
+Activate it on Linux or macOS:
+
+```bash
+source .venv/bin/activate
+```
+
+Activate it on Windows:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+Install the project dependencies:
 
 ```bash
 pip install -r requirements.txt
+```
+
+Install the project development dependencies:
+
+```bash
 pip install -r requirements-dev.txt
 ```
 
-### 5. Tests
+## 4. Run the Test Suite
+
+Run the automated tests before making changes:
 
 ```python
-python -m pytest -v
+pytest -m pytest -v
 ```
+
+Alternatively, use the Makefile target:
+
+```bash
+make test
+```
+
+The test command uses the project's configured pytest options, including coverage reporting.
+
+Use the test results to identify validation, metadata, schema, detection-rule, or playbook issues before contributing changes.
 
 ## Code & Rule Quality Guidelines
 
