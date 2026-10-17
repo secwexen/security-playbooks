@@ -168,6 +168,6 @@ security:
     - CODE_OF_CONDUCT.md
 
 development:
-  python_version: "3.11+"
+  python_version: "3.13+"
   package_manager:
     - pip
