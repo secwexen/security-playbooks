@@ -30,7 +30,7 @@ This helps maintain project structure and prevents duplicate work.
 
 ## Getting Started
 
-## 1. Clone the Repository
+### 1. Clone the Repository
 
 Clone the repository and move into the project directory:
 
@@ -39,7 +39,30 @@ git clone https://github.com/secwexen/security-playbooks.git
 cd security-playbooks
 ```
 
-## 2. Install Python
+### 2. Create a new branch from `main`
+
+```bash
+git checkout -b feature/your-feature-name
+```
+
+### 3. Review the Repository Structure
+
+The main project components are organized as follows:
+
+```text
+playbooks/            # Security investigation and response playbooks
+detection-rules/      # Sigma, YARA, and Suricata detection rules
+docs/                 # Project documentation
+labs/                 # Training datasets, logs, PCAPs, and scenarios
+integrations/         # SIEM and security-tool integrations
+scripts/              # Automation and utility scripts
+reports/              # Validation and test reports
+tests/                # Automated tests
+```
+
+Review the relevant documentation before using playbooks, detection rules, or lab materials.
+
+### 4. Install Python
 
 The project requires Python 3.13 or later.
 
@@ -57,7 +80,7 @@ python3 --version
 
 Install Python 3.13+ if the required version is not available.
 
-## 3. Install Dependencies
+### 5. Install Dependencies
 
 Create a virtual environment:
 
@@ -89,7 +112,7 @@ Install the project development dependencies:
 pip install -r requirements-dev.txt
 ```
 
-## 4. Run the Test Suite
+### 6. Run the Test Suite
 
 Run the automated tests before making changes:
 
