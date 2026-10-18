@@ -59,48 +59,6 @@ You can view the status of your issue and track its progress through the project
 - **Critical Bugs**: Security or production-impacting bugs are prioritized and reviewed immediately.
 - **Community Contributions**: Pull requests are reviewed within 3 business days.
 
-## Frequently Asked Questions (FAQ)
-
-### How long does it take to fix a reported bug?
-
-Bug fix timelines depend on severity:
-
-- **Critical**: 24-48 hours
-- **High**: 3-7 days
-- **Medium**: 1-2 weeks
-- **Low**: As resources allow
-
-### Can I contribute detection rules?
-
-Yes! We welcome contributions. Please see [CONTRIBUTING](CONTRIBUTING.md) for guidelines.
-
-### Which Python versions are supported?
-
-Currently, we support **Python 3.13+**. See [CONTRIBUTING](CONTRIBUTING.md) for setup instructions.
-
-### How do I test my changes locally?
-
-Follow the setup instructions in [CONTRIBUTING](CONTRIBUTING.md). Use `pytest` to run the automated test suite:
-
-```python
-python -m pytest -v
-```
-
-### Where can I find examples of detection rules?
-
-Check the [Detection Rules](detection-rules/) directory for Sigma, YARA, and Suricata rule examples.
-
-### Is this project suitable for production use?
-
-This project is designed primarily for **educational, testing, and lab environments**. Review the [Security Policy](SECURITY.md) for best practices.
-
-### How do I report a bug responsibly?
-
-1. Check existing issues to avoid duplicates
-2. Provide clear steps to reproduce
-3. Include relevant logs, error messages, and environment details
-4. For security issues, use [Private Security Advisories](https://github.com/secwexen/security-playbooks/security/advisories/new)
-
 ## Contributing
 
 If you want to contribute:
