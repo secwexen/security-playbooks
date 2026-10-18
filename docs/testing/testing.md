@@ -6,10 +6,15 @@ This guide describes how to run, validate, and maintain the automated tests for 
 
 Before running the test suite, install the project and development
 
-dependencies:
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
+```
+
+Install development dependencies:
+
+```bash
 pip install -r requirements-dev.txt
 ```
 
