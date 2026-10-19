@@ -42,7 +42,7 @@ cd security-playbooks
 ### 2. Create a new branch from `main`
 
 ```bash
-git checkout -b feature/your-feature-name
+git checkout -b feature/feature-name
 ```
 
 ### 3. Review the Repository Structure
