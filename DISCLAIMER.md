@@ -20,7 +20,7 @@ All tools and scripts are intended to be executed **in isolated lab environments
 
 ## 2. Limitation of Liability
 
-The repository owner [Secwexen](https://github.com/secwexen) **assumes no responsibility** for any damage, misuse, or legal consequences resulting from the use of these materials:
+The author(s), developers, contributors, and maintainers **assumes no responsibility** for any damage, misuse, or legal consequences resulting from the use of these materials:
 
 - Damage caused by improper or illegal use   
 - Actions performed by third parties using this code
