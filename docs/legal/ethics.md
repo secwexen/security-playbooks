@@ -25,7 +25,7 @@ This document defines the ethical principles and responsible-use requirements fo
 ## 5. Collaboration Ethics
 
 - Respect contributors and maintainers.
-- Give appropriate credit when using repository content in research, education, or portfolios.
+- Give appropriate credit when using repository content in research and education,.
 - Do not misrepresent the origin or status of project content.
 
 ## 6. Safe Environment
