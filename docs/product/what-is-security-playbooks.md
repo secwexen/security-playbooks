@@ -98,12 +98,6 @@ The repository combines human-readable documentation with machine-readable secur
 
 This structure makes Security Playbooks suitable for both **hands-on learning** and **security engineering workflows**.
 
-## Defensive and Authorized Use
-
-Security Playbooks is intended for **defensive security, education, research, and authorized security testing**.
-
-Adversary emulation techniques and attack scenarios should only be executed within environments where the operator has explicit authorization. The primary purpose of these capabilities is to validate detections, improve security controls, and strengthen incident response readiness.
-
 ## In Summary
 
 **Security Playbooks** is a practical blue team and security operations repository that combines **detection engineering, threat hunting, incident response, threat intelligence, MITRE ATT&CK mapping, security validation, automation, and hands-on labs** into a unified security workflow.
