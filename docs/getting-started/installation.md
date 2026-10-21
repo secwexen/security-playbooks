@@ -19,7 +19,7 @@ This file will help you install Security Playbooks in your local development env
 - Sigma rule support
 - YARA rule support
 - Suricata rule support
-- pytest for automated testing and validation
+- Pytest for automated testing and validation
 
 ## Optional Components
 
