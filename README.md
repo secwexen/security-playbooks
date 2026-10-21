@@ -58,7 +58,7 @@ See [Ethics & Responsible Use Guidelines](docs/legal/ethics.md) for details.
 - **Detection Rules** — Sigma, YARA, Suricata (tested & validated)
 - **Security Playbooks** — IR & threat hunting workflows
 - **MITRE ATT&CK Mapping** — Full technique coverage
-- **Automated Testing** — pytest suite with fixtures
+- **Automated Testing** — Pytest suite with fixtures
 - **Coverage Reporting** — ATT&CK Navigator integration
 - **Hands-on Labs** — Adversary emulation scenarios
 - **Platform Integrations** — Splunk, Elastic, Sentinel, CrowdStrike
