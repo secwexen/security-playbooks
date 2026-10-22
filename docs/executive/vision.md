@@ -1,6 +1,6 @@
 # Vision
 
-Security Playbooks is built with a clear and ambitious vision.
+Security Playbooks is built with a clear and ambitious vision: to make defensive cybersecurity knowledge practical, reproducible, verifiable, and operationally useful.
 
 ## Our Vision
 
@@ -19,3 +19,9 @@ Security Playbooks is intended to evolve beyond a collection of scripts and dete
 > **Build an open, practical, and continuously validated defensive security knowledge base that transforms cybersecurity concepts into reproducible detections, measurable coverage, actionable investigations, and effective incident-response workflows.**
 
 Security Playbooks is ultimately about turning security knowledge into **defensive capability**.
+
+## Our Mission
+
+Our mission is to make defensive cybersecurity practices more accessible, consistent, and measurable by connecting detection engineering, threat hunting, incident response, and security validation within a structured and maintainable repository.
+
+We aim to help security professionals move from theoretical understanding to repeatable operational procedures supported by documented evidence, testable detection logic, and clearly defined investigation outcomes.
