@@ -25,3 +25,9 @@ Security Playbooks is ultimately about turning security knowledge into **defensi
 Our mission is to make defensive cybersecurity practices more accessible, consistent, and measurable by connecting detection engineering, threat hunting, incident response, and security validation within a structured and maintainable repository.
 
 We aim to help security professionals move from theoretical understanding to repeatable operational procedures supported by documented evidence, testable detection logic, and clearly defined investigation outcomes.
+
+## Call to Action
+
+Security Playbooks welcomes contributions from security researchers, cybersecurity professionals, developers, students, and organizations interested in improving.
+
+Contributions to the codebase, documentation, testing, research, and development process can help improve the project's reliability, transparency, and practical value.
