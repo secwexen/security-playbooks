@@ -8,14 +8,18 @@
 **pycache**/
 *.py[cod]
 
-# Virtual environments
-.venv/
-venv/
-env/
-
-# Environment and local configuration
+# Environments
 .env
+.envrc
+.venv
 .env.*
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Local configuration
 *.local
 
 # Build and test artifacts
