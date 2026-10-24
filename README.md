@@ -217,7 +217,7 @@ See the [LICENSE](LICENSE) file for full details.
 
 Contributions and suggestions are welcome!
 
-- Fork the repository and create a feature or fix branch (e.g. `feature/your-feature`, `fix/bug-name`, `docs/update-readme`, `chore/dependency-update`).
+- Fork the repository and create a feature or fix branch (e.g. `feature/feature-name`, `fix/bug-name`, `docs/update-readme`, `chore/dependency-update`).
 - Make your changes and update the relevant documentation, playbooks, or detection rules as needed.
 - Use clear commit messages (e.g. Conventional Commits: `feat:`, `fix:`, `docs:`, `refactor:`).
 - Open a pull request referencing related issues/discussion when possible.
