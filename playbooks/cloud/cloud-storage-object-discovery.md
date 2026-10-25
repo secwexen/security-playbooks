@@ -5,7 +5,7 @@ category: "cloud"
 status: "active"
 version: "1.0.0"
 author: "Secwexen"
-created_at: "2026-10-25T14:26:00Z"
+created_at: "2026-10-25T14:25:00Z"
 updated_at: "2026-10-25T14:26:00Z"
 description: "Investigate suspicious enumeration of cloud storage objects and determine whether the activity represents legitimate administration, unauthorized reconnaissance, or part of a broader security incident."
 objective: "Identify the cloud identity, storage resources, enumeration activity, and associated access patterns; determine the scope of the discovery activity; and establish whether escalation or incident response is required."
@@ -340,8 +340,6 @@ Record the supporting evidence and any remaining uncertainties.
 | Scope               | Affected identities, storage resources, and time range                              |
 | Correlated Alerts   | Related cloud security findings and incident identifiers                            |
 | Limitations         | Missing logs, unavailable fields, and other investigative constraints               |
-
-Collect only the evidence necessary for the investigation and follow applicable data-handling requirements.
 
 ## Decision Criteria
 
