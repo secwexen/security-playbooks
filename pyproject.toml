@@ -18,21 +18,26 @@ authors = [
 ]
 
 keywords = [
-  "cybersecurity",
-  "blue-team",
-  "defensive-security",
-  "security-playbooks",
-  "mitre-attack",
-  "detection-engineering",
-  "security-validation",
-  "detection-rules",
-  "threat-hunting",
-  "incident-response",
-  "sigma-rules",
-  "yara-rules",
-  "suricata-rules",
-  "python",
-  "soc"
+    "blue-team",
+    "cybersecurity",
+    "defensive-security",
+    "detection-engineering",
+    "detection-rules",
+    "detection-validation",
+    "dfir",
+    "incident-response",
+    "log-analysis",
+    "mitre-attack",
+    "python",
+    "security-automation",
+    "security-playbooks",
+    "security-validation",
+    "sigma-rules",
+    "soc",
+    "suricata-rules",
+    "threat-hunting",
+    "threat-intelligence",
+    "yara-rules",
 ]
 
 classifiers = [
@@ -59,7 +64,7 @@ dependencies = [
   "dnspython==2.7.0",
   "jinja2==3.1.6",
   "structlog==24.4.0",
-  "scapy==2.7.0"
+  "scapy==2.7.0",
 ]
 
 [project.optional-dependencies]
@@ -81,7 +86,7 @@ dev = [
   "bandit==1.7.8",
   "pip-audit==2.7.3",
   "pre-commit==3.7.1",
-  "yamllint==1.35.1"
+  "yamllint==1.35.1",
 ]
 
 [project.urls]
