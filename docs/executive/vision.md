@@ -16,7 +16,7 @@ Security Playbooks is intended to evolve beyond a collection of scripts and dete
 
 ## Vision Statement
 
-**Build an open, practical, and continuously validated defensive security knowledge base that transforms cybersecurity concepts into reproducible detections, measurable coverage, actionable investigations, and effective incident-response workflows.**
+Build an open, practical, and continuously validated defensive security knowledge base that transforms cybersecurity concepts into reproducible detections, measurable coverage, actionable investigations, and effective incident-response workflows.
 
 Security Playbooks is ultimately about turning security knowledge into **defensive capability**.
 
