@@ -23,7 +23,7 @@ For these Terms:
 
 Security Playbooks may be used for legitimate and authorized purposes, including:
 
-- Security education and training.
+- Cybersecurity education and training.
 - Cybersecurity research.
 - SOC analyst and blue team training.
 - Threat hunting exercises.
