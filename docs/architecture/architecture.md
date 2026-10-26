@@ -11,7 +11,6 @@ security-playbooks
 │   .gitattributes
 │   .gitignore
 │   .pre-commit-config.yaml
-│   ACKNOWLEDGEMENTS.md
 │   CHANGELOG.md
 │   CITATION.cff
 │   CODE_OF_CONDUCT.md
