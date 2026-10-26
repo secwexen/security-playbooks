@@ -28,9 +28,9 @@ keywords = [
   "detection-rules",
   "threat-hunting",
   "incident-response",
-  "sigma",
-  "yara",
-  "suricata",
+  "sigma-rules",
+  "yara-rules",
+  "suricata-rules",
   "python",
   "soc"
 ]
