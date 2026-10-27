@@ -44,6 +44,12 @@ security_frameworks:
   - YARA
   - Suricata
 
+compliance_frameworks:
+  - NIST SP 800-53 Rev. 5
+  - CIS Controls v8
+  - ISO/IEC 27001:2022
+  - PCI-DSS v4.0
+
 telemetry_sources:
   windows:
     - Security Event Logs
