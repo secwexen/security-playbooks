@@ -44,6 +44,26 @@ security_frameworks:
   - YARA
   - Suricata
 
+telemetry_sources:
+  windows:
+    - Security Event Logs
+    - Application Event Logs
+    - System Event Logs
+    - Sysmon (Event ID 1, 3, 7, 10, 11, 13)
+    - PowerShell Operational Logs (Event ID 4104)
+  linux:
+    - Auditd
+    - Syslog / Auth.log
+  network:
+    - Zeek / Bro
+    - Suricata EVE JSON
+    - PCAP Traffic
+  cloud:
+    - AWS CloudTrail
+    - Microsoft Entra ID Logs
+  endpoint:
+    - EDR Telemetry
+
 components:
 
   detection_engineering:
