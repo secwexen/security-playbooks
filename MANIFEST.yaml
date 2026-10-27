@@ -1,6 +1,8 @@
+schema_version: "1.0.0"
+
 project:
   name: Security Playbooks
-  version: v0.2.1
+  version: "v0.2.1"
   description: >
     Security Playbooks is a collection of MITRE ATT&CK attack scenarios, 
     detection rules (Sigma, YARA, and Suricata), detection validation, 
@@ -47,23 +49,20 @@ compiled_rules:
 
 security_frameworks:
   - MITRE ATT&CK
-  - NIST Cybersecurity Framework
-  - Sigma
-  - YARA
-  - Suricata
+  - NIST Cybersecurity Framework (CSF) 2.0
 
 compliance_frameworks:
   - NIST SP 800-53 Rev. 5
-  - CIS Controls v8
+  - CIS Controls v8.1
   - ISO/IEC 27001:2022
-  - PCI-DSS v4.0
+  - PCI DSS v4.0.1
 
 telemetry_sources:
   windows:
     - Security Event Logs
     - Application Event Logs
     - System Event Logs
-    - Sysmon (Event ID 1, 3, 7, 10, 11, 13)
+    - Sysmon (Event ID 1, 3, 7, 10, 11, 13, 19, 20, 21)
     - PowerShell Operational Logs (Event ID 4104)
   linux:
     - Auditd
@@ -203,5 +202,5 @@ security:
 
 development:
   python_version: "3.13+"
-  package_manager:
-    - pip
+  tested_python_versions:
+    - "3.13"
