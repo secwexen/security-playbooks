@@ -37,6 +37,14 @@ detection_frameworks:
     enabled: true
     path: detection-rules/suricata
 
+compiled_rules:
+  enabled: true
+  path: build/compiled-rules
+  targets:
+    - splunk
+    - microsoft_sentinel
+    - elasticsearch
+
 security_frameworks:
   - MITRE ATT&CK
   - NIST Cybersecurity Framework
