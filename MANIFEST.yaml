@@ -38,7 +38,7 @@ detection_frameworks:
     path: detection-rules/suricata
 
 compiled_rules:
-  enabled: true
+  enabled: false
   path: build/compiled-rules
   targets:
     - splunk
