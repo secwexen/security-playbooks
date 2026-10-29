@@ -61,7 +61,7 @@ dependencies = [
   "python-dateutil==2.9.0",
   "validators==0.35.0",
   "tldextract==5.1.2",
-  "dnspython==2.7.0",
+  "dnspython==2.9.0",
   "jinja2==3.1.6",
   "structlog==24.4.0",
   "scapy==2.7.0",
