@@ -69,4 +69,4 @@ See [Ethics & Responsible Use Guidelines](legal/ethics.md) for details.
 
 Contributions are welcome.
 
-See the [Contributing](../CONTRIBUTING.md) for contribution guidelines.
+See the [Contributing Guide](../CONTRIBUTING.md) for contribution guidelines.
