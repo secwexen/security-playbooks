@@ -70,3 +70,20 @@ See [Ethics & Responsible Use Guidelines](legal/ethics.md) for details.
 Contributions are welcome.
 
 See the [Contributing Guide](../CONTRIBUTING.md) for contribution guidelines.
+
+## 8. How do I verify if a playbook execution was successfully detected?
+
+After executing an authorized test scenario, verify detection by following these steps:
+
+1. **Verify Events:** Confirm expected events were generated.
+2. **Check Log Ingestion:** Ensure logs reached the SIEM with correct timestamps and host details.
+3. **Validate Rules:** Confirm detection rules are enabled and match the test data.
+4. **Verify Alerts:** Check alert timestamps, rule IDs, affected hosts, and severity.
+5. **Confirm Results:** Compare observed results with expected outcomes and document failures.
+
+**Detection Methods:**
+- **Sigma:** Verify event-to-rule matching.
+- **YARA:** Verify matching against the test sample.
+- **Suricata:** Confirm the network signature generated an alert.
+
+**Important:** Successful scenario execution does not necessarily mean successful detection. A detection validation is successful only when the expected telemetry and detection results have been verified. A missing alert may indicate a rule mismatch, missing telemetry, an ingestion delay, or an integration issue.
