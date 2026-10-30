@@ -86,7 +86,7 @@ Security updates are provided based on the following policy:
 
 - **Latest Stable Release**: Full security support
 - **Previous Minor Release**: Critical security patches only (6 months)
-- **Older Versions**: End of Life — no security updates provided
+- **Older Versions**: End of Life - no security updates provided
 
 Users are encouraged to upgrade to the latest stable release to receive all security patches.
 
