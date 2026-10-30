@@ -20,7 +20,7 @@ ENUM_DEFAULTS = {
     "high": "high",
     "critical": "critical",
     "ipv4": "192.168.1.1",
-    "ipv6": "2001:db8::1",
+    "ipv6": "2001:0db8:0000:0000:0000:0000:0000:0001",
     "domain": "example.com",
     "url": "https://example.com",
     "md5": "d41d8cd98f00b204e9800998ecf8427e",
