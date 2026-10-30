@@ -14,21 +14,21 @@ Playbooks are organized into directories based on their primary security functio
 
 The main categories include:
 
-- `cloud/` — Cloud security and cloud account activities
-- `collection/` — Data and information collection activities
-- `command-and-control/` — C2 communication and remote control activities
-- `credential-access/` — Credential theft and credential access investigations
-- `defense-evasion/` — Techniques used to evade security controls
-- `discovery/` — System, network, account, and environment discovery
-- `execution/` — Command, script, and program execution
-- `exfiltration/` — Data exfiltration activities
-- `impact/` — Destructive and disruptive activities
-- `initial-access/` — Initial access techniques and investigations
-- `lateral-movement/` — Movement between systems
-- `persistence/` — Persistence mechanisms
-- `privilege-escalation/` — Privilege escalation techniques
-- `response/` — Incident response procedures
-- `triage/` — Initial alert and event investigation
+- `cloud/` - Cloud security and cloud account activities
+- `collection/` - Data and information collection activities
+- `command-and-control/` - C2 communication and remote control activities
+- `credential-access/` - Credential theft and credential access investigations
+- `defense-evasion/` - Techniques used to evade security controls
+- `discovery/` - System, network, account, and environment discovery
+- `execution/` - Command, script, and program execution
+- `exfiltration/` - Data exfiltration activities
+- `impact/` - Destructive and disruptive activities
+- `initial-access/` - Initial access techniques and investigations
+- `lateral-movement/` - Movement between systems
+- `persistence/` - Persistence mechanisms
+- `privilege-escalation/` - Privilege escalation techniques
+- `response/` - Incident response procedures
+- `triage/` - Initial alert and event investigation
 
 Each playbook should belong to the category that best represents its primary purpose.
 
