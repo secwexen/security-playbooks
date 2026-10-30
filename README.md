@@ -55,14 +55,14 @@ See [Ethics & Responsible Use Guidelines](docs/legal/ethics.md) for details.
 
 ## Features
 
-- **Detection Rules** — Sigma, YARA, Suricata (tested & validated)
-- **Security Playbooks** — IR & threat hunting workflows
-- **MITRE ATT&CK Mapping** — Full technique coverage
-- **Automated Testing** — Pytest suite with fixtures
-- **Coverage Reporting** — ATT&CK Navigator integration
-- **Hands-on Labs** — Adversary emulation scenarios
-- **Platform Integrations** — Splunk, Elastic, Sentinel, CrowdStrike
-- **SOC Automation** — Python scripts for rule validation & enrichment
+- **Detection Rules** - Sigma, YARA, Suricata (tested & validated)
+- **Security Playbooks** - IR & threat hunting workflows
+- **MITRE ATT&CK Mapping** - Full technique coverage
+- **Automated Testing** - Pytest suite with fixtures
+- **Coverage Reporting** - ATT&CK Navigator integration
+- **Hands-on Labs** - Adversary emulation scenarios
+- **Platform Integrations** - Splunk, Elastic, Sentinel, CrowdStrike
+- **SOC Automation** - Python scripts for rule validation & enrichment
 
 For full details, refer to the [Features](docs/product/features.md) file.
 
@@ -70,11 +70,11 @@ For full details, refer to the [Features](docs/product/features.md) file.
 
 Coverage mappings are maintained in:
 
-- [MITRE Mapping](detection-rules/mappings/mitre-mapping.yaml) — MITRE ATT&CK techniques mapping
-- [Coverage Matrix](detection-rules/mappings/coverage-matrix.md) — Detection coverage matrix
-- [Coverage Report](reports/coverage-summary.md) — Detection coverage summary and analysis
-- [Attack Navigator Layer](detection-rules/mappings/attack-navigator-layer.json) — ATT&CK Navigator layer
-- [Rule Coverage Map](detection-rules/mappings/rule-coverage-map.json) — Rule-to-technique coverage mapping
+- [MITRE Mapping](detection-rules/mappings/mitre-mapping.yaml) - MITRE ATT&CK techniques mapping
+- [Coverage Matrix](detection-rules/mappings/coverage-matrix.md) - Detection coverage matrix
+- [Coverage Report](reports/coverage-summary.md) - Detection coverage summary and analysis
+- [Attack Navigator Layer](detection-rules/mappings/attack-navigator-layer.json) - ATT&CK Navigator layer
+- [Rule Coverage Map](detection-rules/mappings/rule-coverage-map.json) - Rule-to-technique coverage mapping
 
 ## Supported Integrations
 
@@ -123,9 +123,9 @@ Coverage / Reporting / Improvement
 
 ### Supported Operating Systems
 
-- **Linux** — Recommended for development, testing, automation, and deployment
-- **Windows** — Supported for development and testing with Visual Studio Code and WSL2
-- **macOS** — Supported for local development and testing
+- **Linux**: Recommended for development, testing, automation, and deployment
+- **Windows**: Supported for development and testing with Visual Studio Code and WSL2
+- **macOS**: Supported for local development and testing
 
 ### Requirements
 
@@ -241,9 +241,9 @@ For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
 ## Community & Support
 
-- **GitHub Issues** — Report bugs or request features
-- **GitHub Discussions** — Ask questions and share ideas
-- **Contributing** — Submit improvements and new playbooks
+- **GitHub Issues** - Report bugs or request features
+- **GitHub Discussions** - Ask questions and share ideas
+- **Contributing** - Submit improvements and new playbooks
 
 ## Security
 
