@@ -10,16 +10,16 @@ Security Playbooks is designed to bridge the gap between cybersecurity theory an
 
 The repository covers the following core areas:
 
-- **Detection Engineering** — Sigma, YARA, and Suricata detection rules, validation, tuning, and testing.
-- **Threat Hunting** — Hypothesis-driven hunting methodologies and queries for platforms such as Elastic, KQL, and Splunk.
-- **Incident Response** — Structured response procedures for incidents such as ransomware, credential compromise, phishing, and host compromise.
-- **SOC Operations** — Alert triage, escalation, investigation, incident handling, and SOC workflows.
-- **Threat Intelligence** — Threat actors, malware families, campaigns, indicators of compromise, threat feeds, and MITRE ATT&CK mappings.
-- **MITRE ATT&CK** — Detection coverage mappings, technique relationships, coverage analysis, and ATT&CK Navigator data.
-- **Security Validation** — Automated testing of detection rules, attack scenarios, PCAP-based testing, malicious samples, and expected detection results.
-- **Security Automation** — IOC enrichment, threat feed synchronization, validation pipelines, and reporting automation.
-- **Hands-on Labs** — Controlled scenarios and datasets for practicing detection, hunting, investigation, and incident response.
-- **Adversary Emulation** — Controlled laboratory scenarios for validating defensive capabilities against realistic attack techniques.
+- **Detection Engineering** - Sigma, YARA, and Suricata detection rules, validation, tuning, and testing.
+- **Threat Hunting** - Hypothesis-driven hunting methodologies and queries for platforms such as Elastic, KQL, and Splunk.
+- **Incident Response** - Structured response procedures for incidents such as ransomware, credential compromise, phishing, and host compromise.
+- **SOC Operations** - Alert triage, escalation, investigation, incident handling, and SOC workflows.
+- **Threat Intelligence** - Threat actors, malware families, campaigns, indicators of compromise, threat feeds, and MITRE ATT&CK mappings.
+- **MITRE ATT&CK** - Detection coverage mappings, technique relationships, coverage analysis, and ATT&CK Navigator data.
+- **Security Validation** - Automated testing of detection rules, attack scenarios, PCAP-based testing, malicious samples, and expected detection results.
+- **Security Automation** - IOC enrichment, threat feed synchronization, validation pipelines, and reporting automation.
+- **Hands-on Labs** - Controlled scenarios and datasets for practicing detection, hunting, investigation, and incident response.
+- **Adversary Emulation** - Controlled laboratory scenarios for validating defensive capabilities against realistic attack techniques.
 
 ## Purpose
 
@@ -72,12 +72,12 @@ Security Playbooks is intended for:
 
 Security Playbooks emphasizes:
 
-- **Practicality** — Content should be useful in real security operations.
-- **Reproducibility** — Rules, playbooks, scenarios, and tests should be structured and repeatable.
-- **Validation** — Detection logic should be tested rather than assumed to work.
-- **ATT&CK Alignment** — Defensive content should be mapped to relevant adversary techniques where appropriate.
-- **Automation** — Repetitive security operations should be supported by scripts and machine-readable formats.
-- **Continuous Improvement** — Detection gaps, false positives, validation results, and operational feedback should drive ongoing tuning.
+- **Practicality** - Content should be useful in real security operations.
+- **Reproducibility** - Rules, playbooks, scenarios, and tests should be structured and repeatable.
+- **Validation** - Detection logic should be tested rather than assumed to work.
+- **ATT&CK Alignment** - Defensive content should be mapped to relevant adversary techniques where appropriate.
+- **Automation** - Repetitive security operations should be supported by scripts and machine-readable formats.
+- **Continuous Improvement** - Detection gaps, false positives, validation results, and operational feedback should drive ongoing tuning.
 
 ## Repository Scope
 
