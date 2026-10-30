@@ -113,6 +113,7 @@ playbooks:
   - {id: "weak-service-permissions", category: "privilege-escalation", path: "privilege-escalation/weak-service-permissions.md"}
 
   - {id: "account-compromise-response", category: "response", path: "response/account-compromise-response.md"}
+  - {id: "business-email-compromise-response", category: "response", path: "response/business-email-compromise-response.md"}
   - {id: "credential-compromise-response", category: "response", path: "response/credential-compromise-response.md"}
   - {id: "data-exfiltration-response", category: "response", path: "response/data-exfiltration-response.md"}
   - {id: "isolate-host-response", category: "response", path: "response/isolate-host-response.md"}
