@@ -8,21 +8,21 @@ indent_style = space
 indent_size = 4
 trim_trailing_whitespace = true
 
+# Markdown documentation
 [*.md]
 trim_trailing_whitespace = false
 
-[*.yml]
+# YAML configuration and detection rules
+[*.{yml,yaml}]
 indent_style = space
 indent_size = 2
 
-[*.yaml]
-indent_style = space
-indent_size = 2
-
+# JSON schemas, datasets and reports
 [*.json]
 indent_style = space
 indent_size = 2
 
+# Python source code, scripts and tests
 [*.py]
 indent_style = space
 indent_size = 4
@@ -37,6 +37,7 @@ indent_size = 4
 indent_style = space
 indent_size = 4
 
+# Makefile
 [Makefile]
 indent_style = tab
 indent_size = tab
