@@ -12,16 +12,22 @@ trim_trailing_whitespace = true
 trim_trailing_whitespace = false
 
 [*.yml]
+indent_style = space
 indent_size = 2
 
 [*.yaml]
+indent_style = space
 indent_size = 2
 
 [*.json]
+indent_style = space
 indent_size = 2
 
 [*.py]
+indent_style = space
 indent_size = 4
 
 [Makefile]
 indent_style = tab
+indent_size = tab
+tab_width = 4
