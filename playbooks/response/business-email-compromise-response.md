@@ -3,10 +3,10 @@ id: "business-email-compromise-response"
 name: "Business Email Compromise Response"
 category: "response"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-31T19:01:00Z"
-updated_at: "2026-10-31T19:01:00Z"
+updated_at: "2026-11-02T14:24:00Z"
 description: "Business Email Compromise (BEC) is a social-engineering and email-fraud attack in which an adversary impersonates a trusted person or organization, or abuses a compromised email account, to induce unauthorized payments, disclosure of sensitive information, or other business actions."
 objective: "Identify, investigate, contain, and remediate suspected or confirmed BEC activity; determine whether email accounts or business processes were abused; limit financial and data loss; and identify related compromise activity across the organization and its external contacts."
 severity: "high"
@@ -463,16 +463,6 @@ For suspected or confirmed BEC:
 Do not rely on the suspicious email thread or contact details contained within it to verify payment instructions or communicate with the purported sender. Do not delete original messages or authentication evidence before required preservation has been completed.
 
 ## Related Detection Rules
-
-The following detection areas should be covered by repository rules where available:
-
-- Suspicious sender spoofing, lookalike domains, and display-name impersonation
-- Suspicious inbound email containing payment, invoice, or bank-detail change requests
-- Unauthorized mailbox forwarding or inbox-rule creation
-- Unexpected mailbox delegate or Send As permission changes
-- Anomalous outbound email activity from internal accounts
-- Suspicious OAuth consent and mailbox access
-- Internal spearphishing from potentially compromised accounts
 
 ## Related Playbooks
 
