@@ -12,15 +12,15 @@
 
 Security Playbooks is a defensive security repository designed for cybersecurity professionals and SOC analysts.
 
-It focuses on delivering realistic and practical blue team security content, including MITRE ATT&CK mapping, detection rules, detection validation, incident response playbooks, SOC workflows, adversary emulation, threat intelligence, IOC enrichment, security automation, security integrations, coverage analysis, and hands-on labs. The project helps users build practical skills in detection engineering, threat hunting, incident response, and adversary simulation within controlled environments.
+It brings together blue-team resources such as MITRE ATT&CK mappings, detection rules, incident-response and threat-hunting playbooks, validation tests, coverage reports, and lab materials. The repository also includes selected threat-intelligence, IOC-enrichment, automation, and integration resources; their scope and functionality vary by component.
 
-The project aims to bridge the gap between theoretical knowledge and real-world security operations by providing structured, reproducible, and practical cybersecurity workflows, security validation, automated testing, machine-readable security content, and security coverage analysis capabilities.
+The project is intended to support learning and defensive workflows, including detection engineering, threat hunting, incident response, and security-content validation in controlled environments.
 
 ## Why Security Playbooks?
 
-Security Playbooks brings detection engineering, threat hunting, incident response, MITRE ATT&CK mapping, security validation, automated testing, and hands-on labs together in a structured repository. It is designed to make defensive security workflows practical, reproducible, and easier to validate in controlled environments.
+Security Playbooks organizes detection engineering, threat hunting, incident response, ATT&CK mapping, validation tests, and lab materials in one repository. Its workflows and reports are intended to help users investigate alerts, test supported detection content, review mapped coverage, and identify areas for further improvement.
 
-It is designed to help cybersecurity professionals detect threats, investigate alerts, validate controls, respond to incidents, identify detection gaps, and continuously improve defensive capabilities.
+By keeping detection content, validation tests, and coverage mappings together, the repository makes it easier to review how supported rules are tested and mapped.
 
 ## Use Cases
 
