@@ -68,6 +68,8 @@ For full details, refer to the [Features](docs/product/features.md) file.
 
 ## MITRE ATT&CK Coverage
 
+> Coverage reflects the ATT&CK techniques mapped in this repository; it does not represent coverage of all MITRE ATT&CK techniques.
+
 Coverage mappings are maintained in:
 
 - [MITRE Mapping](detection-rules/mappings/mitre-mapping.yaml) - MITRE ATT&CK techniques mapping
@@ -75,8 +77,6 @@ Coverage mappings are maintained in:
 - [Coverage Report](reports/coverage-summary.md) - Detection coverage summary and analysis
 - [Attack Navigator Layer](detection-rules/mappings/attack-navigator-layer.json) - ATT&CK Navigator layer
 - [Rule Coverage Map](detection-rules/mappings/rule-coverage-map.json) - Rule-to-technique coverage mapping
-
-> Coverage reflects the ATT&CK techniques mapped in this repository; it does not represent coverage of all MITRE ATT&CK techniques.
 
 ## Supported Integrations
 
