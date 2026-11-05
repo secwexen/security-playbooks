@@ -3,10 +3,10 @@ id: "suspicious-powershell-triage"
 name: "Suspicious PowerShell Triage"
 category: "triage"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-08-30T16:45:00Z"
-updated_at: "2026-10-05T17:02:00Z"
+updated_at: "2026-11-05T16:02:00Z"
 description: "Investigate suspicious PowerShell execution alerts and determine whether the observed activity is benign, suspicious, or malicious."
 objective: "Determine the nature, scope, and impact of suspicious PowerShell activity and provide evidence for escalation or closure."
 severity: "high"
@@ -37,56 +37,50 @@ steps:
     order: 1
     name: "Identify the Affected Host"
     action: "investigate"
-    description: "Identify the endpoint on which the suspicious PowerShell activity was observed."
-    expected_result: "The affected host, asset type, ownership, and criticality are identified."
+    description: "Identify the endpoint on which the suspicious PowerShell activity was observed, including its asset type, ownership, operating system, and criticality."
+    expected_result: "The affected host, asset type, ownership, operating system, and criticality are identified."
   - id: "identify-user"
     order: 2
     name: "Identify the User"
     action: "investigate"
-    description: "Identify the account associated with the PowerShell process and review relevant authentication context."
-    expected_result: "The associated account, account type, and authentication context are identified."
+    description: "Identify the account associated with the PowerShell process and review its account type, privilege level, and relevant authentication context."
+    expected_result: "The associated account, account type, privilege level, and authentication context are identified."
   - id: "review-process-execution"
     order: 3
     name: "Review Process Execution"
     action: "analyze"
-    description: "Review the PowerShell process, parent process, child processes, execution path, and process metadata."
-    expected_result: "The PowerShell process execution context and process relationships are characterized."
-  - id: "review-command-line"
+    description: "Review the PowerShell process, parent and child processes, execution path, process identifiers, timestamps, and available process metadata."
+    expected_result: "The PowerShell process execution context, process lineage, and related process activity are characterized."
+  - id: "review-command-and-script-content"
     order: 4
-    name: "Review the Command Line"
+    name: "Review Command Line and Script Content"
     action: "analyze"
-    description: "Inspect the PowerShell command line for suspicious parameters, encoded commands, download behavior, or control-evasion indicators."
-    expected_result: "The observed PowerShell command line and relevant execution indicators are documented."
-  - id: "check-encoding-obfuscation"
-    order: 5
-    name: "Check for Encoding or Obfuscation"
-    action: "analyze"
-    description: "Determine whether the PowerShell content contains encoding, obfuscation, dynamic command construction, or transformed script content."
-    expected_result: "Encoding or obfuscation indicators are identified and their context is assessed."
+    description: "Inspect the PowerShell command line and available script content for suspicious parameters, encoded commands, obfuscation, dynamic command construction, download behavior, and potential security-control evasion."
+    expected_result: "The observed command line, script content, and relevant encoding, obfuscation, or execution indicators are documented and assessed."
   - id: "review-powershell-logging"
-    order: 6
+    order: 5
     name: "Review PowerShell Logging"
     action: "analyze"
-    description: "Review available PowerShell and Windows logging sources and correlate them with endpoint activity."
-    expected_result: "Relevant PowerShell logging and correlated endpoint events are identified."
-  - id: "review-network-activity"
-    order: 7
-    name: "Review Network Activity"
+    description: "Review available PowerShell and Windows logging sources, including operational events, script block logging, module logging, and transcription logs, and correlate them with endpoint activity."
+    expected_result: "Relevant PowerShell logging and correlated endpoint events are identified and documented."
+  - id: "review-network-and-file-activity"
+    order: 6
+    name: "Review Network and File Activity"
     action: "analyze"
-    description: "Review network connections associated with PowerShell execution and identify anomalous or suspicious destinations."
-    expected_result: "Related network activity and potentially suspicious destinations are identified."
-  - id: "review-file-artifacts"
-    order: 8
-    name: "Review File and Artifact Activity"
-    action: "analyze"
-    description: "Identify files and artifacts created, modified, or accessed around the time of PowerShell execution."
-    expected_result: "Relevant files, artifacts, and hashes are identified where available."
+    description: "Review network connections associated with PowerShell execution and identify files or artifacts created, modified, downloaded, or accessed around the execution time."
+    expected_result: "Related network activity, potentially suspicious destinations, and relevant file artifacts are identified and documented."
   - id: "correlate-related-events"
-    order: 9
-    name: "Correlate Related Events"
+    order: 7
+    name: "Correlate Related Events and Determine Scope"
     action: "hunt"
-    description: "Correlate related process, authentication, persistence, credential access, lateral movement, and PowerShell activity across the environment."
-    expected_result: "Related activity is identified, correlated, and scoped."
+    description: "Correlate related process, authentication, persistence, credential access, lateral movement, and PowerShell activity across the affected host and the wider environment."
+    expected_result: "Related malicious or suspicious activity, additional affected hosts, accounts, and associated indicators are identified or reasonably ruled out."
+  - id: "determine-outcome"
+    order: 8
+    name: "Determine Investigation Outcome"
+    action: "document"
+    description: "Classify the PowerShell activity, document supporting evidence, establish its execution and impact status, and record affected resources and remaining investigative or escalation requirements."
+    expected_result: "The investigation receives a documented outcome with its classification, execution assessment, affected resources, and follow-up requirements recorded."
 validation:
   validated: false
   required: true
@@ -144,6 +138,8 @@ The investigation should consider:
 
 ### Step 1 — Identify the Affected Host
 
+Identify the endpoint on which the suspicious PowerShell activity was observed.
+
 Collect:
 
 - hostname;
@@ -151,6 +147,7 @@ Collect:
 - operating system;
 - asset owner;
 - host criticality;
+- endpoint type;
 - current isolation status.
 
 Determine whether the endpoint is:
@@ -158,8 +155,11 @@ Determine whether the endpoint is:
 - a user workstation;
 - a server;
 - an administrative workstation;
-- a domain controller; or
-- another security-sensitive asset.
+- a domain controller;
+- a security-sensitive asset;
+- another organizational endpoint.
+
+Preserve the original alert and relevant endpoint telemetry before making investigation or remediation changes.
 
 ### Step 2 — Identify the User
 
@@ -170,8 +170,10 @@ Collect:
 - username;
 - domain;
 - account type;
+- privilege level;
 - logon type;
 - source workstation where available;
+- authentication method;
 - recent authentication activity.
 
 Check whether the account is:
@@ -179,8 +181,10 @@ Check whether the account is:
 - a standard user;
 - an administrator;
 - a service account;
-- a privileged account; or
+- a privileged account;
 - an unexpected account for the affected host.
+
+Determine whether the account's permissions and expected responsibilities are consistent with the observed PowerShell activity.
 
 ### Step 3 — Review Process Execution
 
@@ -193,7 +197,10 @@ Collect the PowerShell process details:
 - command line;
 - integrity level;
 - parent process;
-- child processes.
+- child processes;
+- process lineage;
+- execution account;
+- digital signature where available.
 
 Pay particular attention to unusual parent processes such as:
 
@@ -204,9 +211,13 @@ Pay particular attention to unusual parent processes such as:
 - temporary directory executables;
 - unknown or unsigned binaries.
 
-### Step 4 — Review the Command Line
+Determine whether PowerShell was started by an expected administrative tool, scheduled task, management platform, user application, or suspicious process.
 
-Inspect the PowerShell command line for:
+Correlate the process execution timeline with the original detection.
+
+### Step 4 — Review Command Line and Script Content
+
+Inspect the PowerShell command line and available script content for:
 
 - encoded commands;
 - unusual parameters;
@@ -216,24 +227,28 @@ Inspect the PowerShell command line for:
 - unusual temporary paths;
 - embedded scripts;
 - dynamically generated content;
+- string concatenation;
+- excessive escaping;
+- compressed or transformed content;
 - attempts to bypass normal logging or security controls.
 
-Do not classify a command as malicious solely because it contains a suspicious-looking parameter. Correlate command-line evidence with process, user, host, and network context.
+Investigate whether the content contains:
 
-### Step 5 — Check for Encoding or Obfuscation
-
-Investigate indicators such as:
-
-- encoded PowerShell input;
-- excessive escaping;
-- string concatenation;
+- Base64-encoded data;
 - dynamically constructed commands;
-- compressed or transformed script content;
-- unusually long command lines.
+- obfuscated strings;
+- suspicious download or execution functions;
+- unexpected external references;
+- suspicious file or registry operations;
+- commands associated with credential access or persistence.
 
 Determine whether the encoding or obfuscation has a legitimate operational explanation.
 
-### Step 6 — Review PowerShell Logging
+Do not classify a command as malicious solely because it contains a suspicious-looking parameter or encoded content. Correlate the command with its execution context, user, host, script behavior, and related telemetry.
+
+Do not execute unknown or suspicious scripts on production systems.
+
+### Step 5 — Review PowerShell Logging
 
 When available, review:
 
@@ -241,18 +256,27 @@ When available, review:
 - Script Block Logging;
 - module logging;
 - transcription logs;
-- associated Windows event records.
+- associated Windows event records;
+- process creation events;
+- relevant security audit events.
 
 Correlate timestamps with:
 
 - process creation;
 - authentication events;
+- script execution;
 - file creation;
-- network activity.
+- file modification;
+- network activity;
+- endpoint detections.
 
-### Step 7 — Review Network Activity
+Determine whether the available logs provide visibility into the executed commands and scripts.
 
-Investigate network connections associated with the PowerShell process.
+Identify relevant telemetry gaps, disabled logging sources, or missing events that limit the investigation.
+
+### Step 6 — Review Network and File Activity
+
+Investigate network connections associated with PowerShell execution.
 
 Collect:
 
@@ -263,7 +287,8 @@ Collect:
 - connection time;
 - connection duration;
 - DNS lookups;
-- HTTP/HTTPS metadata where available.
+- HTTP/HTTPS metadata where available;
+- proxy or firewall events.
 
 Escalate investigation priority when PowerShell execution is followed by:
 
@@ -272,11 +297,10 @@ Escalate investigation priority when PowerShell execution is followed by:
 - suspicious domains;
 - repeated periodic connections;
 - payload retrieval;
+- unexpected outbound connections;
 - command-and-control-like behavior.
 
-### Step 8 — Review File and Artifact Activity
-
-Identify files created, modified, or accessed around the execution time.
+Identify files created, modified, downloaded, or accessed around the execution time.
 
 Focus on:
 
@@ -285,24 +309,80 @@ Focus on:
 - executables;
 - archives;
 - downloaded payloads;
-- suspicious files in user-writable directories.
+- suspicious files in user-writable directories;
+- files associated with child processes;
+- unexpected configuration changes.
 
-Collect hashes where appropriate.
+Collect:
 
-### Step 9 — Correlate Related Events
+- filename;
+- file path;
+- file type;
+- file size;
+- creation timestamp;
+- modification timestamp;
+- SHA-256 hash;
+- digital signature where available.
 
-Search for related activity on the same host and account:
+Correlate file and network activity with the PowerShell execution timeline.
+
+### Step 7 — Correlate Related Events and Determine Scope
+
+Search for related activity on the same host and account.
+
+Review:
 
 - process creation;
-- authentication;
+- parent-child process relationships;
+- authentication activity;
 - scheduled tasks;
 - service creation;
 - persistence mechanisms;
 - credential access;
 - lateral movement;
-- additional PowerShell execution.
+- suspicious remote sessions;
+- additional PowerShell execution;
+- related endpoint alerts;
+- associated network connections.
 
-Search across the environment for the same command line, hash, domain, or behavioral pattern.
+Search across the environment for:
+
+- the same command line;
+- similar script content;
+- matching file hashes;
+- identical executable paths;
+- related domains;
+- suspicious IP addresses;
+- similar process behavior;
+- related authentication activity;
+- additional affected hosts.
+
+Determine:
+
+- number of affected hosts;
+- number of affected accounts;
+- number of related PowerShell executions;
+- related malicious or suspicious processes;
+- associated network destinations;
+- earliest observed activity;
+- most recent observed activity;
+- presence of persistence;
+- evidence of credential access;
+- evidence of lateral movement;
+- whether malicious activity is ongoing.
+
+Document the identified scope and any telemetry limitations that prevent the complete extent of the activity from being established.
+
+### Step 8 — Determine Investigation Outcome
+
+Classify the PowerShell activity as:
+
+- **Benign**
+- **Suspicious**
+- **Malicious**
+- **Inconclusive**
+
+Document the evidence supporting the classification.
 
 ## Evidence to Collect
 
