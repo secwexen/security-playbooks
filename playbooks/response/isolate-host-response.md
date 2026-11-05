@@ -3,10 +3,10 @@ id: "isolate-host-response"
 name: "Host Isolation Response"
 category: "response"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-27T16:40:00Z"
-updated_at: "2026-10-05T16:57:00Z"
+updated_at: "2026-11-05T13:16:00Z"
 description: "Host Isolation Response provides a structured process for identifying affected systems, assessing active threats, applying authorized network isolation, preserving evidence, and validating containment."
 objective: "Identify, contain, and validate isolation of affected hosts while preserving required evidence and minimizing operational impact."
 severity: "high"
@@ -298,16 +298,6 @@ Classify the response outcome as:
 - **Suspicious**
 - **Malicious**
 - **Inconclusive**
-
-Document:
-
-- evidence reviewed;
-- containment actions performed;
-- isolation status;
-- containment limitations;
-- operational impact;
-- remaining investigative requirements;
-- required follow-up response actions.
 
 ## Evidence to Collect
 
