@@ -3,10 +3,10 @@ id: "suspicious-login-triage"
 name: "Suspicious Login Triage"
 category: "triage"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-08-31T11:45:00Z"
-updated_at: "2026-10-05T17:01:00Z"
+updated_at: "2026-11-05T15:43:00Z"
 description: "Investigate suspicious authentication activity and determine whether observed login behavior is legitimate, suspicious, or indicative of account compromise."
 objective: "Determine the legitimacy, scope, and potential impact of suspicious login activity and identify whether additional account or incident response actions are required."
 severity: "high"
@@ -38,44 +38,50 @@ steps:
     order: 1
     name: "Identify Account"
     action: "investigate"
-    description: "Identify the account associated with the suspicious authentication event."
-    expected_result: "The account, account type, and privilege level are identified."
+    description: "Identify the account associated with the suspicious authentication event, including its account type, owner, privilege level, and expected access context."
+    expected_result: "The affected account, account type, privilege level, and ownership are identified."
   - id: "review-authentication-event"
     order: 2
     name: "Review Authentication Event"
     action: "analyze"
-    description: "Review the authentication timestamp, result, logon type, authentication method, and target resource."
-    expected_result: "The authentication event is fully characterized."
+    description: "Review the authentication timestamp, result, logon type, authentication method, target resource, and associated session information."
+    expected_result: "The authentication event and its relevant details are fully characterized."
   - id: "review-source-context"
     order: 3
     name: "Review Source Context"
     action: "analyze"
-    description: "Review the source IP, hostname, network context, and geographic information when available."
-    expected_result: "The source of the authentication attempt is identified and assessed."
+    description: "Review the source IP, hostname, network context, device identity, VPN or proxy usage, and geographic information where available."
+    expected_result: "The authentication source and its consistency with expected account activity are assessed."
   - id: "review-account-history"
     order: 4
     name: "Review Account History"
     action: "analyze"
-    description: "Compare the activity with the account's normal authentication behavior and recent login history."
-    expected_result: "The activity is compared with the account's expected behavior."
+    description: "Compare the activity with the account's normal authentication behavior, previous login history, expected devices, locations, and operational patterns."
+    expected_result: "The observed authentication activity is compared with the account's expected behavior."
   - id: "review-related-events"
     order: 5
     name: "Review Related Events"
     action: "hunt"
-    description: "Search for related failed logons, successful logons, MFA events, password changes, privilege changes, and endpoint activity."
-    expected_result: "Related authentication and account activity is identified or ruled out."
+    description: "Search for related failed logons, successful logons, MFA events, password changes, privilege changes, session activity, and associated endpoint or network events."
+    expected_result: "Related authentication, identity, endpoint, and network activity is identified or reasonably ruled out."
   - id: "assess-compromise"
     order: 6
     name: "Assess Account Compromise"
     action: "analyze"
-    description: "Determine whether the authentication activity is consistent with credential misuse or account compromise."
-    expected_result: "The likelihood of account compromise is documented."
-  - id: "determine-outcome"
+    description: "Determine whether the authentication activity is consistent with credential misuse, unauthorized account access, or other malicious authentication behavior."
+    expected_result: "The likelihood and available evidence of account compromise are documented."
+  - id: "determine-scope"
     order: 7
+    name: "Determine Investigation Scope"
+    action: "hunt"
+    description: "Search for related authentication activity, source addresses, devices, target systems, accounts, and security indicators across the environment."
+    expected_result: "The scope of the suspicious authentication activity, including potentially affected accounts, hosts, and services, is identified or reasonably ruled out."
+  - id: "determine-outcome"
+    order: 8
     name: "Determine Investigation Outcome"
     action: "document"
-    description: "Classify the authentication activity and document supporting evidence."
-    expected_result: "The alert receives a documented investigation outcome."
+    description: "Classify the authentication activity, document supporting evidence, establish the account compromise status, and record affected resources and remaining investigative or escalation requirements."
+    expected_result: "The suspicious login investigation receives a documented outcome with its classification, compromise assessment, scope, and follow-up requirements recorded."
 validation:
   validated: false
   required: true
@@ -144,7 +150,7 @@ The investigation should consider:
 
 ### Step 1 — Identify Account
 
-Determine which account is associated with the authentication event.
+Identify the account associated with the suspicious authentication event.
 
 Collect:
 
@@ -154,7 +160,8 @@ Collect:
 - privilege level;
 - service-account status where applicable;
 - account owner;
-- expected operating environment.
+- expected operating environment;
+- expected access permissions.
 
 Determine whether the account is:
 
@@ -162,8 +169,10 @@ Determine whether the account is:
 - an administrator;
 - a privileged account;
 - a service account;
-- a shared account; or
+- a shared account;
 - an account not normally expected to access the target resource.
+
+Preserve the original detection context and associated authentication evidence.
 
 ### Step 2 — Review Authentication Event
 
@@ -188,6 +197,10 @@ Determine whether the authentication was:
 - challenged;
 - approved after additional authentication.
 
+Correlate authentication events with relevant identity-provider and directory-service telemetry.
+
+Determine whether the authentication sequence indicates unusual or potentially unauthorized access.
+
 ### Step 3 — Review Source Context
 
 Investigate the source of the authentication attempt.
@@ -196,11 +209,13 @@ Collect:
 
 - source IP address;
 - source hostname;
+- source device;
 - network segment;
 - VPN status;
 - proxy or gateway context;
 - geographic information where available;
-- device identity where available.
+- device identity where available;
+- network reputation where available.
 
 Pay particular attention to:
 
@@ -208,7 +223,11 @@ Pay particular attention to:
 - unusual network locations;
 - unexpected external access;
 - source systems not normally associated with the account;
-- authentication from infrastructure unrelated to the user's normal activity.
+- authentication from suspicious infrastructure;
+- unexpected remote-access activity;
+- abnormal device characteristics.
+
+Determine whether the source context is consistent with the account's normal access patterns.
 
 ### Step 4 — Review Account History
 
@@ -222,9 +241,13 @@ Review:
 - normal source locations;
 - normal source devices;
 - normal target systems;
-- previous authentication patterns.
+- previous authentication patterns;
+- typical authentication methods;
+- expected remote-access behavior.
 
-A deviation from the normal baseline should increase investigation priority, but should not by itself establish account compromise.
+Identify deviations from the established account baseline.
+
+A deviation from normal behavior should increase investigation priority but should not independently establish account compromise.
 
 ### Step 5 — Review Related Events
 
@@ -243,6 +266,7 @@ Review:
 - recovery-method changes;
 - account lockouts;
 - identity-provider events;
+- session creation and termination;
 - process creation;
 - remote sessions;
 - network connections;
@@ -255,7 +279,7 @@ Review:
 Determine:
 
 - number of failed authentication attempts;
-- time period;
+- relevant time period;
 - source distribution;
 - targeted accounts;
 - targeted services;
@@ -263,29 +287,76 @@ Determine:
 - whether unexpected MFA or identity changes occurred;
 - whether suspicious authentication was followed by additional endpoint or network activity.
 
-A large volume of authentication failures across multiple accounts may indicate password spraying or brute-force activity and should be correlated with the relevant detection and hunting workflows.
+A large volume of authentication failures across multiple accounts may indicate password spraying or brute-force activity. Correlate these findings with the relevant detection and hunting workflows.
 
 ### Step 6 — Assess Account Compromise
 
-Assess whether the evidence is consistent with credential misuse.
+Assess whether the available evidence is consistent with credential misuse or unauthorized account access.
 
-Increase concern when multiple indicators are present, such as:
+Increase investigation priority when multiple indicators are present, such as:
 
 - unusual source;
 - unexpected device;
-- abnormal time;
+- abnormal authentication time;
 - suspicious authentication sequence;
 - unexpected MFA behavior;
 - privileged account involvement;
 - successful login following suspicious failures;
+- unauthorized authentication;
+- suspicious post-authentication activity;
 - suspicious endpoint activity;
 - suspicious network activity.
 
+Determine whether:
+
+- credentials may have been exposed;
+- unauthorized authentication occurred;
+- an unauthorized session was established;
+- privileged access was obtained;
+- additional account activity followed authentication;
+- other systems or services may have been accessed.
+
 Do not classify an event as compromised solely because a login originated from an unusual location.
 
-### Step 7 — Determine Investigation Outcome
+Document the evidence supporting the compromise assessment and distinguish confirmed unauthorized access from suspected credential misuse.
 
-Classify the activity as:
+### Step 7 — Determine Investigation Scope
+
+Search across the environment for related authentication and account activity.
+
+Investigate:
+
+- the affected account;
+- associated source IP addresses;
+- associated devices;
+- related authentication events;
+- repeated failed authentication attempts;
+- successful authentication following failures;
+- related privileged account activity;
+- additional target systems;
+- accessed services;
+- related security alerts;
+- associated endpoint activity;
+- related network indicators.
+
+Determine:
+
+- number of affected accounts;
+- number of affected hosts;
+- number of affected services;
+- number of suspicious source addresses;
+- number of successful suspicious authentications;
+- earliest observed activity;
+- most recent observed activity;
+- whether unauthorized access is ongoing;
+- whether additional accounts may be affected;
+- whether the activity is isolated or part of a broader attack.
+
+Document the identified scope and any telemetry limitations that prevent the full extent of the activity from being established.
+
+### Step 8 — Determine Investigation Outcome
+
+Classify the authentication activity as:
 
 - **Benign**
 - **Suspicious**
