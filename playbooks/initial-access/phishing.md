@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-08T15:49:00Z"
-updated_at: "2026-10-05T16:49:00Z"
+updated_at: "2026-11-05T14:54:00Z"
 description: "Phishing is a social engineering technique used to obtain access, credentials, or user interaction through deceptive messages and content."
 objective: "Identify, analyze, and validate phishing activity and determine whether the technique resulted in credential exposure, malicious execution, or unauthorized access."
 severity: "high"
@@ -264,7 +264,6 @@ Classify the activity as:
 - **Benign**
 - **Suspicious**
 - **Malicious**
-- **Compromise Suspected**
 - **Inconclusive**
 
 Document the evidence supporting the classification.
@@ -325,12 +324,6 @@ Classify the activity as **malicious** when sufficient evidence indicates:
 - confirmed post-delivery malicious activity.
 
 Escalate to the appropriate incident-response workflow.
-
-### Compromise Suspected
-
-Use **compromise suspected** when the recipient interacted with phishing content and there is credible evidence that credentials, sessions, or endpoint security may have been affected, but compromise has not yet been confirmed.
-
-Continue account and endpoint investigation.
 
 ### Inconclusive
 
