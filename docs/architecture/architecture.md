@@ -5,7 +5,7 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 ## Project Structure
 
 ```text
-security-playbooks
+.
 │   .dockerignore
 │   .editorconfig
 │   .gitattributes
@@ -390,6 +390,7 @@ security-playbooks
 │   │       
 │   ├───response
 │   │       account-compromise-response.md
+│   │       business-email-compromise-response.md
 │   │       credential-compromise-response.md
 │   │       data-exfiltration-response.md
 │   │       isolate-host-response.md

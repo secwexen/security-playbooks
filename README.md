@@ -12,15 +12,15 @@
 
 Security Playbooks is a defensive security repository designed for cybersecurity professionals and SOC analysts.
 
-It focuses on delivering realistic and practical blue team security content, including MITRE ATT&CK mapping, detection rules, detection validation, incident response playbooks, SOC workflows, adversary emulation, threat intelligence, IOC enrichment, security automation, security integrations, coverage analysis, and hands-on labs. The project helps users build practical skills in detection engineering, threat hunting, incident response, and adversary simulation within controlled environments.
+It brings together blue-team resources such as MITRE ATT&CK mappings, detection rules, incident-response and threat-hunting playbooks, validation tests, coverage reports, and lab materials. The repository also includes selected threat-intelligence, IOC-enrichment, automation, and integration resources; their scope and functionality vary by component.
 
-The project aims to bridge the gap between theoretical knowledge and real-world security operations by providing structured, reproducible, and practical cybersecurity workflows, security validation, automated testing, machine-readable security content, and security coverage analysis capabilities.
+The project is intended to support learning and defensive workflows, including detection engineering, threat hunting, incident response, and security-content validation in controlled environments.
 
 ## Why Security Playbooks?
 
-Security Playbooks brings detection engineering, threat hunting, incident response, MITRE ATT&CK mapping, security validation, automated testing, and hands-on labs together in a structured repository. It is designed to make defensive security workflows practical, reproducible, and easier to validate in controlled environments.
+Security Playbooks organizes detection engineering, threat hunting, incident response, ATT&CK mapping, validation tests, and lab materials in one repository. Its workflows and reports are intended to help users investigate alerts, test supported detection content, review mapped coverage, and identify areas for further improvement.
 
-It is designed to help cybersecurity professionals detect threats, investigate alerts, validate controls, respond to incidents, identify detection gaps, and continuously improve defensive capabilities.
+By keeping detection content, validation tests, and coverage mappings together, the repository makes it easier to review how supported rules are tested and mapped.
 
 ## Use Cases
 
@@ -55,26 +55,28 @@ See [Ethics & Responsible Use Guidelines](docs/legal/ethics.md) for details.
 
 ## Features
 
-- **Detection Rules** — Sigma, YARA, Suricata (tested & validated)
-- **Security Playbooks** — IR & threat hunting workflows
-- **MITRE ATT&CK Mapping** — Full technique coverage
-- **Automated Testing** — Pytest suite with fixtures
-- **Coverage Reporting** — ATT&CK Navigator integration
-- **Hands-on Labs** — Adversary emulation scenarios
-- **Platform Integrations** — Splunk, Elastic, Sentinel, CrowdStrike
-- **SOC Automation** — Python scripts for rule validation & enrichment
+- **Detection Rules** - Sigma, YARA, Suricata (tested & validated)
+- **Security Playbooks** - IR & threat hunting workflows
+- **MITRE ATT&CK Mapping** - Full technique coverage
+- **Automated Testing** - Pytest suite with fixtures
+- **Coverage Reporting** - ATT&CK Navigator integration
+- **Hands-on Labs** - Adversary emulation scenarios
+- **Platform Integrations** - Splunk, Elastic, Sentinel, CrowdStrike
+- **SOC Automation** - Python scripts for rule validation & enrichment
 
 For full details, refer to the [Features](docs/product/features.md) file.
 
 ## MITRE ATT&CK Coverage
 
+> Coverage reflects the ATT&CK techniques mapped in this repository; it does not represent coverage of all MITRE ATT&CK techniques.
+
 Coverage mappings are maintained in:
 
-- [MITRE Mapping](detection-rules/mappings/mitre-mapping.yaml) — MITRE ATT&CK techniques mapping
-- [Coverage Matrix](detection-rules/mappings/coverage-matrix.md) — Detection coverage matrix
-- [Coverage Report](reports/coverage-summary.md) — Detection coverage summary and analysis
-- [Attack Navigator Layer](detection-rules/mappings/attack-navigator-layer.json) — ATT&CK Navigator layer
-- [Rule Coverage Map](detection-rules/mappings/rule-coverage-map.json) — Rule-to-technique coverage mapping
+- [MITRE Mapping](detection-rules/mappings/mitre-mapping.yaml) - MITRE ATT&CK techniques mapping
+- [Coverage Matrix](detection-rules/mappings/coverage-matrix.md) - Detection coverage matrix
+- [Coverage Report](reports/coverage-summary.md) - Detection coverage summary and analysis
+- [Attack Navigator Layer](detection-rules/mappings/attack-navigator-layer.json) - ATT&CK Navigator layer
+- [Rule Coverage Map](detection-rules/mappings/rule-coverage-map.json) - Rule-to-technique coverage mapping
 
 ## Supported Integrations
 
@@ -123,9 +125,9 @@ Coverage / Reporting / Improvement
 
 ### Supported Operating Systems
 
-- **Linux** — Recommended for development, testing, automation, and deployment
-- **Windows** — Supported for development and testing with Visual Studio Code and WSL2
-- **macOS** — Supported for local development and testing
+- **Linux**: Recommended for development, testing, automation, and deployment
+- **Windows**: Supported for development and testing with Visual Studio Code and WSL2
+- **macOS**: Supported for local development and testing
 
 ### Requirements
 
@@ -241,9 +243,9 @@ For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
 ## Community & Support
 
-- **GitHub Issues** — Report bugs or request features
-- **GitHub Discussions** — Ask questions and share ideas
-- **Contributing** — Submit improvements and new playbooks
+- **GitHub Issues** - Report bugs or request features
+- **GitHub Discussions** - Ask questions and share ideas
+- **Contributing** - Submit improvements and new playbooks
 
 ## Security
 

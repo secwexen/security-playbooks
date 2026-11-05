@@ -36,15 +36,15 @@ The scope identifies the primary component affected by the commit.
 
 Common scopes include:
 
-- `ci` — Continuous integration and GitHub Actions
-- `config` — Configuration files and repository settings
-- `detection` — Detection rules and detection metadata
-- `docs` — Documentation
-- `playbooks` — Security playbooks
-- `registry` — Detection or playbook registries
-- `scripts` — Automation and utility scripts
-- `tests` — Test suites and test fixtures
-- `validation` — Validation and repository quality checks
+- `ci` - Continuous integration and GitHub Actions
+- `config` - Configuration files and repository settings
+- `detection` - Detection rules and detection metadata
+- `docs` - Documentation
+- `playbooks` - Security playbooks
+- `registry` - Detection or playbook registries
+- `scripts` - Automation and utility scripts
+- `tests` - Test suites and test fixtures
+- `validation` - Validation and repository quality checks
 
 Use the most specific applicable scope.
 

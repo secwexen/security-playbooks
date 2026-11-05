@@ -1,103 +1,152 @@
 # Security Playbooks Features
 
-This document outlines the comprehensive features of Security Playbooks, a defensive cybersecurity repository designed for security professionals and SOC analysts.
+Security Playbooks is a defensive cybersecurity repository designed for security engineers, SOC analysts, incident responders, and threat hunters. It provides a structured collection of detection content, response workflows, validation processes, and hands-on security exercises focused on practical defense operations.
 
-## Features
+## Overview
+
+The repository brings together the core disciplines needed to build and operate a modern security defense capability:
+
+- Detection engineering and rule development
+- Threat hunting and IOC analysis
+- Incident response and containment workflows
+- Attack simulation and security validation
+- Security automation and testing
+- Coverage assessment and reporting
+
+## Core Features
 
 ### Detection Rules
 
-Comprehensive detection rule library with multiple formats:
+A comprehensive library of threat detection content across multiple rule formats and platforms:
 
-- **Sigma Rules**: Generic, platform-agnostic detection rules
-- **YARA Rules**: Binary and file-based threat detection
-- **Suricata Rules**: Network-based intrusion detection
-- Continuously updated threat signatures
+- Sigma rules for SIEM and detection pipelines
+- YARA rules for malware and file-based detection
+- Suricata rules for network intrusion detection
+- Platform-agnostic and platform-specific rule coverage
+- Continuously updated detection logic
 
 ### Security Playbooks
 
-Structured incident response and defense procedures:
+Structured operational guidance for defensive security teams:
 
-- Step-by-step response workflows
-- MITRE ATT&CK framework alignment
-- Containment and remediation guides
-- Best practices documentation
+- Step-by-step response procedures
+- Containment and eradication workflows
+- Recovery and remediation playbooks
+- MITRE ATT&CK-aligned operational guidance
+- Standardized response patterns for common scenarios
 
 ### Threat Hunting
 
-Proactive threat detection capabilities:
+Proactive detection and investigation workflows for identifying adversary behavior:
 
 - Hunting hypothesis templates
-- Search queries and procedures
-- Anomaly detection guidance
-- Indicator of compromise (IOC) tracking
+- Search queries and analyst procedures
+- Behavioral indicators and anomaly detection
+- IOC validation and triage guidance
+- Threat actor and campaign tracking patterns
 
 ### Incident Response
 
-Complete incident handling framework:
+End-to-end guidance for handling security incidents and investigations:
 
-- Investigation procedures
-- Evidence collection guidelines
-- Timeline analysis methods
-- Post-incident reporting templates
+- Initial triage and incident scoping
+- Evidence collection and preservation
+- Timeline reconstruction and forensic analysis
+- Containment and eradication actions
+- Post-incident analysis and reporting
 
 ### Attack Scenarios
 
-Realistic security exercise scenarios:
+Realistic adversary emulation content designed for testing and training:
 
 - Red team exercise templates
 - Simulated attack walkthroughs
-- Defensive technique demonstrations
-- Real-world incident replications
+- Defensive response drills
+- Attack chain analysis
+- Real-world scenario-based learning
 
 ### Log Analysis
 
-Security log investigation techniques:
+Analyst-focused techniques for investigating and correlating security data:
 
-- Log parsing methodologies
-- Event correlation procedures
-- Forensic analysis guides
-- Alert investigation workflows
+- Log parsing and normalization methods
+- Event correlation workflows
+- Threat detection validation
+- Alert investigation playbooks
+- Forensic review and anomaly analysis
 
 ### IOC Enrichment
 
-Indicator of Compromise enhancement tools:
+Tools and processes for improving the quality and context of indicators:
 
-- Threat intelligence integration
+- Threat intelligence enrichment
 - IOC contextualization
-- Malware family classification
-- Attribution analysis
+- Malware family and campaign identification
+- Reputation and risk classification
+- Attribution support and research workflows
 
 ### Automated Testing
 
-Security validation automation:
+Validation and quality assurance for security content:
 
-- Detection rule testing
+- Detection rule testing frameworks
 - Playbook validation scripts
-- Coverage assessment tools
-- Regression testing frameworks
+- Coverage and validation automation
+- Regression testing for rule changes
+- Security engineering quality checks
 
 ### Coverage Reporting
 
-Visibility into security coverage:
+Operational visibility into detection and defense maturity:
 
-- Detection capability metrics
-- Gap analysis reports
-- Control effectiveness dashboards
-- Risk assessment summaries
+- Detection coverage analysis
+- Capability gap assessment
+- Control effectiveness reporting
+- Risk summary and tracking
+- Security program reporting metrics
+
+## Repository Scope
+
+Security Playbooks is designed to support both defensive operations and security engineering practices. It helps teams:
+
+- Build and maintain detection coverage
+- Standardize incident response activities
+- Improve hunting and investigation workflows
+- Validate defensive controls
+- Train analysts through realistic scenarios
+- Align security operations to a common framework
 
 ## Technology Stack
 
-- **Python**: Core automation and tooling
-- **YARA**: Malware detection patterns
-- **Suricata**: Network threat detection and IDS/IPS rules
-- **Sigma**: Portable detection rules for SIEM and security platforms
-- **Other**: Supporting technologies
+The repository primarily leverages the technologies commonly used in modern detection and security operations:
+
+- Python for automation, tooling, and validation workflows
+- Sigma for portable detection rules
+- YARA for malware and file-based detections
+- Suricata for network-based intrusion detection
+- Supporting security tooling and operational scripts
 
 ## Key Benefits
 
 - Comprehensive defensive security coverage
-- Framework-based approach (MITRE ATT&CK)
-- Multiple detection rule formats
-- Practical, hands-on learning resources
-- Continuous security validation
-- Community-driven updates and improvements
+- Structured and repeatable operational workflows
+- Alignment with the MITRE ATT&CK framework
+- Support for multiple detection rule formats
+- Practical, hands-on security workflows
+- Continuous validation of detection capabilities
+- Useful for both education and real-world defense operations
+
+## Intended Users
+
+This repository is particularly valuable for:
+
+- SOC analysts
+- Detection engineers
+- Incident responders
+- Threat hunters
+- Security operations teams
+- Cybersecurity students and practitioners
+
+## Summary
+
+Security Playbooks provides a practical security operations framework for building, refining, and validating defense capabilities. By combining detections, playbooks, hunting guidance, and testing workflows, it supports a mature and operationally focused approach to cybersecurity defense.

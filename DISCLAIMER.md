@@ -39,7 +39,23 @@ Detection rules and attack scenarios are **for reference and learning purposes**
 
 This repository is provided **“as is”** and **"as available"**, without warranty of any kind, express or implied.
 
-## 6. Intellectual Property & Licensing
+## 6. Detection Accuracy & Operational Risk
+
+Detection rules, security scripts, playbooks, and automated validation mechanisms provided by this repository are not guaranteed to detect, prevent, or mitigate all security threats.
+
+Users acknowledge that:
+
+- Detection rules may produce false positives and false negatives.
+- Detection coverage does not guarantee complete visibility into adversary activities.
+- Detection logic may require environment-specific tuning and validation.
+- Security scripts and automation tools may affect system performance or functionality.
+- Compatibility with specific SIEM, EDR, operating system, or security platform versions is not guaranteed.
+- Users are responsible for validating detection content and assessing operational risks before deployment.
+- Appropriate backups, change management procedures, and testing environments should be maintained before executing potentially disruptive operations.
+
+The repository should not be considered a substitute for professional security assessments, incident response services, or established organizational security controls.
+
+## 7. Intellectual Property & Licensing
 
 This repository and its contents are protected by copyright and applicable intellectual property laws.
 
@@ -47,7 +63,7 @@ This repository and its contents are protected by copyright and applicable intel
 
 - The specific license under which this repository is distributed is detailed in the [LICENSE](LICENSE) file
 - Users must comply with all license terms and conditions
-- Redistribution, modification, and commercial use are subject to license restrictions
+- Redistribution, modification, and commercial use are permitted under the terms of the MIT License, provided that the required copyright and license notices are preserved.
 - Attribution and license notices must be preserved in any derivative works
 - If no explicit license is provided, all rights are reserved by the repository owner
 
@@ -57,6 +73,6 @@ This repository and its contents are protected by copyright and applicable intel
 - Users are responsible for reviewing and complying with the licenses of any third-party resources they use
 - The repository owner is not liable for any intellectual property disputes arising from third-party usage
 
-## 7. Acknowledgement & Acceptance
+## 8. Acknowledgement & Acceptance
 
 By accessing, cloning, or using this repository, you acknowledge that you have read, understood, and agreed to all terms listed in this disclaimer. If you do not agree with these terms, you must immediately cease using this repository and delete all copies from your systems.

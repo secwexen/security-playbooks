@@ -9,3 +9,20 @@ Security Playbooks combines offensive simulation with defensive validation by of
 Whether you are building detection rules, performing threat hunts, validating SIEM and EDR alerts, or improving SOC workflows, this repository provides practical examples that can be adapted to enterprise environments, security labs, and educational exercises.
 
 The repository is continuously expanded with new attack scenarios, detection content, and practical security workflows to help security strengthen defensive capabilities and improve operational readiness.
+
+## Detection Validation & Coverage Analysis
+
+Security Playbooks goes beyond providing detection rules by incorporating automated validation, detection testing, and security coverage analysis.
+
+The project provides structured validation mechanisms to evaluate detection rule reliability, verify expected detection behavior, identify coverage gaps, and analyze detection coverage against MITRE ATT&CK techniques.
+
+Key capabilities include:
+
+- **Automated Detection Validation:** Validation of Sigma, YARA, and Suricata detection rules.
+- **Detection Rule Testing:** Automated test cases, fixtures, and Pytest-based validation workflows.
+- **Detection Coverage Measurement:** MITRE ATT&CK technique mapping and detection coverage analysis.
+- **Detection Gap Analysis:** Identification of techniques and adversary behaviors lacking sufficient detection coverage.
+- **Validation Reporting:** Structured reports containing validation results, coverage metrics, and detection analysis.
+- **Continuous Improvement:** Using validation results and coverage analysis to identify opportunities for improving defensive capabilities.
+
+These capabilities help transform detection content into testable, measurable, and continuously improvable defensive security resources.

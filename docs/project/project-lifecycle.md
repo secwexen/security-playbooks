@@ -2,7 +2,7 @@
 
 This document defines the lifecycle of a Security Playbook from creation to retirement.
 
-## 1. Purpose
+## Purpose
 
 The Security Playbooks lifecycle provides a controlled process for designing, reviewing, validating, maintaining, and retiring security playbooks.
 

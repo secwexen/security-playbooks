@@ -3,10 +3,10 @@ id: "pass-the-ticket"
 name: "Pass the Ticket"
 category: "lateral-movement"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-11T07:21:00Z"
-updated_at: "2026-10-11T07:21:00Z"
+updated_at: "2026-10-30T14:52:00Z"
 description: "Investigate suspected abuse of Kerberos tickets to authenticate to systems or services without using the account's plaintext password."
 objective: "Determine whether Kerberos ticket use is legitimate or unauthorized, identify affected accounts and systems, establish the scope of lateral movement, and preserve evidence for response."
 severity: "high"
@@ -167,15 +167,14 @@ Identify unexpected use of privileged, service, or sensitive accounts. An accoun
 
 ### Step 3 — Review Kerberos Ticket Activity
 
-Review available domain controller Security logs for relevant Kerberos authentication activity.
+Review available domain controller Security logs for relevant Kerberos authentication activity:
 
-Relevant Windows Security events include:
-
-- **4768** — Kerberos authentication ticket (TGT) request.
-- **4769** — Kerberos service-ticket request.
-- **4770** — Kerberos service-ticket renewal, as supplementary context.
-
-Correlate the events by account, client address, requested service, destination, and timestamp.
+- Review Domain Controller Security logs for Kerberos events 4768, 4769, and 4770.
+- Correlate ticket activity by account, source IP, destination host, service, and timestamp.
+- Identify unusual ticket requests and authentication patterns.
+- Compare observed activity with the account's normal behavior.
+- Identify service-ticket requests originating from unusual hosts or IP addresses.
+- Check for the same account requesting Kerberos tickets from multiple hosts within a short time period.
 
 Review event results and available ticket-related fields in the context of the account's expected behavior. Do not treat an individual event or an absent event as conclusive evidence of Pass-the-Ticket activity.
 
