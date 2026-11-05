@@ -263,8 +263,7 @@ Classify the activity as:
 
 - **Benign**
 - **Suspicious**
-- **Exploit Attempt**
-- **Confirmed Compromise**
+- **Malicious**
 - **Inconclusive**
 
 Document the evidence supporting the classification.
@@ -316,29 +315,23 @@ Classify the activity as **suspicious** when:
 
 Continue investigation and collect additional evidence.
 
-### Exploit Attempt
+### Malicious
 
-Classify the event as an **exploit attempt** when:
+Classify the activity as **malicious** when sufficient evidence indicates:
 
-- evidence indicates exploitation targeting the browser or related software;
-- exploitation indicators are present;
-- there is no sufficient evidence of successful compromise.
-
-Continue monitoring and investigate potential follow-on activity.
-
-### Confirmed Compromise
-
-Classify the event as **confirmed compromise** when sufficient evidence indicates:
-
+- confirmed malicious web content or infrastructure;
+- a verified exploit attempt targeting the browser or related software;
 - successful exploitation;
 - unauthorized code execution;
-- malicious file execution;
-- persistence;
-- command-and-control activity;
-- credential access;
-- other confirmed post-compromise activity.
+- execution of a malicious downloaded file;
+- malicious scripts or payloads executed through the browsing activity;
+- unauthorized persistence;
+- command-and-control activity associated with the web activity;
+- credential access or other confirmed post-compromise activity.
 
-Escalate to the appropriate incident-response workflow.
+A successful compromise is not required to classify verified malicious activity as malicious. An unsuccessful but confirmed malicious exploit attempt can also receive a malicious classification.
+
+Escalate confirmed compromise to the appropriate incident-response workflow and follow approved containment and remediation procedures.
 
 ### Inconclusive
 
