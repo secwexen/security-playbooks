@@ -3,10 +3,10 @@ id: "ransomware"
 name: "Ransomware"
 category: "impact"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-01T18:59:00Z"
-updated_at: "2026-10-31T13:58:00Z"
+updated_at: "2026-11-05T15:18:00Z"
 description: "Investigate suspected ransomware activity involving unauthorized data encryption and determine the affected scope, operational impact, and required response actions."
 objective: "Identify, investigate, contain, and scope ransomware activity while preserving evidence and supporting coordinated incident response."
 severity: "critical"
@@ -42,13 +42,13 @@ steps:
     name: "Identify Ransomware Alert"
     action: "investigate"
     description: "Identify the detection source, affected assets, timestamps, encryption indicators, and original alert context."
-    expected_result: "The ransomware alert, associated assets, and initial encryption indicators are identified."
+    expected_result: "The ransomware alert, associated assets, and initial encryption indicators are identified and the original detection context is preserved."
   - id: "identify-affected-host"
     order: 2
     name: "Identify Affected Host"
     action: "investigate"
     description: "Determine which hosts, servers, or endpoints are affected and identify their ownership, criticality, and current operational status."
-    expected_result: "Affected hosts and their operational context are documented."
+    expected_result: "Affected hosts and their operational context are identified and documented."
   - id: "identify-encryption-activity"
     order: 3
     name: "Identify Encryption Activity"
@@ -72,19 +72,19 @@ steps:
     name: "Assess Recovery and Backup Impact"
     action: "analyze"
     description: "Determine whether backup systems, recovery mechanisms, snapshots, or other restoration resources are affected or remain available."
-    expected_result: "The availability and integrity of recovery resources are assessed."
+    expected_result: "The availability, integrity, and recoverability of recovery resources are assessed."
   - id: "determine-ransomware-scope"
     order: 7
     name: "Determine Ransomware Scope"
     action: "hunt"
     description: "Search the environment for related encryption activity, ransomware artifacts, affected hosts, accounts, file shares, and common indicators."
-    expected_result: "The number and scope of affected assets, accounts, and data locations are determined."
+    expected_result: "The affected assets, accounts, data locations, and overall ransomware scope are identified or reasonably ruled out."
   - id: "determine-investigation-outcome"
     order: 8
     name: "Determine Investigation Outcome"
     action: "document"
-    description: "Classify the activity and document the evidence supporting the final assessment and required response actions."
-    expected_result: "The ransomware investigation receives a documented outcome and response disposition."
+    description: "Classify the ransomware activity, document the evidence and operational impact, identify affected resources, record containment and recovery status, and document remaining risks or follow-up requirements."
+    expected_result: "The ransomware investigation receives a documented outcome with its classification, encryption status, affected resources, operational impact, and remaining actions recorded."
 validation:
   validated: false
   required: true
@@ -151,7 +151,7 @@ The investigation should consider:
 
 ### Step 1 — Identify Ransomware Alert
 
-Determine:
+Identify the original ransomware detection and determine:
 
 - detection source;
 - alert identifier;
@@ -162,11 +162,13 @@ Determine:
 - detection reason;
 - observed encryption indicators.
 
-Preserve the original alert context before modifying affected systems.
+Preserve the original alert context and relevant telemetry before modifying affected systems.
+
+Determine whether the alert originated from endpoint security, file monitoring, SIEM correlation, threat hunting, or another detection source.
 
 ### Step 2 — Identify Affected Host
 
-Determine:
+Identify all potentially affected systems and determine:
 
 - hostname;
 - IP address;
@@ -183,9 +185,10 @@ Determine whether the affected system contains:
 - shared storage;
 - database systems;
 - backup-related resources;
-- administrative infrastructure.
+- administrative infrastructure;
+- critical business applications.
 
-Prioritize systems based on organizational response procedures and business impact.
+Identify dependencies between affected systems and prioritize assets according to organizational incident-response procedures and business impact.
 
 ### Step 3 — Identify Encryption Activity
 
@@ -206,8 +209,17 @@ Identify whether file modifications are:
 - localized to a single directory;
 - distributed across multiple directories;
 - present on multiple volumes;
-- present across network-accessible shares; or
+- present across network-accessible shares;
 - occurring across multiple hosts.
+
+Determine:
+
+- number of affected files;
+- affected storage locations;
+- original and observed file extensions;
+- first observed file modification;
+- latest observed file modification;
+- whether encryption activity remains active.
 
 High-volume file modification alone does not establish ransomware activity. Correlate file activity with process, user, host, and artifact context.
 
@@ -237,6 +249,8 @@ Assess whether the process:
 - interacted with network shares;
 - exhibited behavior consistent with unauthorized encryption.
 
+Determine whether the execution was associated with a legitimate application, authorized administrative activity, or suspected ransomware.
+
 Do not execute suspected ransomware binaries for analysis on production systems.
 
 ### Step 5 — Review Ransomware Artifacts
@@ -255,9 +269,13 @@ Collect and review:
 - creation and modification timestamps;
 - related process artifacts.
 
+Determine whether the artifacts are associated with known ransomware activity or another confirmed malicious source.
+
 Preserve representative encrypted files and ransom-note samples where permitted by evidence-preservation procedures.
 
 Correlate artifacts across affected systems to determine whether the same ransomware activity is present elsewhere.
+
+Do not treat an isolated ransom note or suspicious file extension as definitive proof of ransomware without supporting evidence.
 
 ### Step 6 — Assess Recovery and Backup Impact
 
@@ -270,13 +288,19 @@ Determine whether:
 - recovery data was modified or deleted;
 - affected systems can be restored through approved procedures.
 
+Review backup and recovery telemetry for unauthorized access, modification, deletion, or unusual activity.
+
 Document:
 
 - available recovery sources;
 - affected recovery sources;
 - unavailable recovery sources;
 - integrity status of available backups;
+- recovery point availability;
+- restoration dependencies;
 - additional restoration requirements.
+
+Determine whether recovery resources remain trustworthy and usable.
 
 Do not modify or delete backup evidence during investigation unless authorized containment or recovery procedures require it.
 
@@ -295,7 +319,8 @@ Search the environment for:
 - related authentication activity;
 - related network activity;
 - affected file shares;
-- additional affected hosts.
+- additional affected hosts;
+- suspicious backup activity.
 
 Determine:
 
@@ -303,11 +328,28 @@ Determine:
 - number of affected accounts;
 - affected servers;
 - affected workstations;
-- affected shares;
+- affected network shares;
+- affected storage locations;
+- affected business applications;
 - first observed encryption activity;
 - latest observed activity;
 - whether encryption remains active;
-- whether additional systems show precursor activity.
+- whether additional systems show precursor activity;
+- whether lateral movement is suspected or confirmed;
+- whether backup infrastructure is affected.
+
+Document the affected assets and any investigation limitations that prevent the complete scope from being established.
+
+### Step 8 — Determine Investigation Outcome
+
+Classify the ransomware activity as:
+
+- **Benign**
+- **Suspicious**
+- **Malicious**
+- **Inconclusive**
+
+Record the evidence supporting the classification, affected users and hosts, and any remaining investigative requirements.
 
 ## Evidence to Collect
 
