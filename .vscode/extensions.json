@@ -5,8 +5,11 @@
     "ms-python.debugpy",
     "ms-python.vscode-python-envs",
     "ms-python.black-formatter",
+    "charliermarsh.ruff",
     "ms-vscode.makefile-tools",
     "ms-azuretools.vscode-containers",
-    "ms-vscode-remote.remote-wsl"
+    "ms-vscode-remote.remote-wsl",
+    "redhat.vscode-yaml",
+    "github.vscode-github-actions"
   ]
 }
