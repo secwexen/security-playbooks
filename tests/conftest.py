@@ -256,7 +256,7 @@ def example_string(
         "email": "test@example.com",
         "hostname": "example.com",
         "ipv4": "192.168.1.1",
-        "ipv6": "2001:db8::1",
+        "ipv6": "2001:0db8:0000:0000:0000:0000:0000:0001",
         "uuid": "123e4567-e89b-12d3-a456-426614174000",
     }
 
