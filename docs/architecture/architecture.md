@@ -402,6 +402,7 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │   │       persistence-removal-response.md
 │   │       phishing-response.md
 │   │       ransomware-response.md
+│   │       supply-chain-incident-response.md
 │   │       vulnerability-exploitation-response.md
 │   │       
 │   └───triage
