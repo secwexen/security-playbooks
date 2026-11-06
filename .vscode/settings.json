@@ -3,9 +3,11 @@
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
   "editor.trimTrailingWhitespace": true,
+  "editor.formatOnSave": true,
 
   "files.insertFinalNewline": true,
   "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
 
   "[python]": {
     "editor.tabSize": 4,
@@ -16,18 +18,21 @@
 
   "[yaml]": {
     "editor.tabSize": 2,
-    "editor.insertSpaces": true
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true
   },
 
   "[json]": {
     "editor.tabSize": 2,
-    "editor.insertSpaces": true
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true
   },
 
   "[markdown]": {
     "editor.wordWrap": "on",
     "editor.tabSize": 2,
-    "editor.insertSpaces": true
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true
   },
 
   "[kql]": {
@@ -40,18 +45,29 @@
     "editor.insertSpaces": true
   },
 
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv",
   "python.testing.pytestEnabled": true,
   "python.testing.unittestEnabled": false,
   "python.testing.pytestArgs": [
     "tests"
   ],
+  "python.testing.cwd": "${workspaceFolder}",
 
   "python.analysis.typeCheckingMode": "basic",
   "python.analysis.diagnosticMode": "workspace",
   "python.analysis.autoImportCompletions": true,
   "python.analysis.indexing": true,
+  "python.analysis.completeFunctionParens": true,
 
   "python.terminal.activateEnvironment": true,
+
+  "yaml.format.enable": true,
+  "yaml.validate": true,
+
+  "markdownlint.config": {
+    "default": true,
+    "MD013": false
+  },
 
   "files.exclude": {
     "**/.git": true,
