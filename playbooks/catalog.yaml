@@ -124,6 +124,7 @@ playbooks:
   - {id: "persistence-removal-response", category: "response", path: "response/persistence-removal-response.md"}
   - {id: "phishing-response", category: "response", path: "response/phishing-response.md"}
   - {id: "ransomware-response", category: "response", path: "response/ransomware-response.md"}
+  - {id: "supply-chain-incident-response", category: "response", path: "response/supply-chain-incident-response.md"}
   - {id: "vulnerability-exploitation-response", category: "response", path: "response/vulnerability-exploitation-response.md"}
 
   - {id: "data-exfiltration-triage", category: "triage", path: "triage/data-exfiltration-triage.md"}
