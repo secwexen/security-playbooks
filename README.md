@@ -208,6 +208,7 @@ For complete setup instructions and troubleshooting, see the [Quick Start](docs/
 4. **Follow the investigation steps** using your organization's approved tools and procedures. Collect and document relevant evidence, timestamps, and decisions.
 5. **Apply the decision and escalation criteria.** Escalate or perform response actions only in accordance with your organization's authority and incident-response procedures.
 6. **Record the outcome** and review any linked detection rules, related playbooks, or validation guidance.
+7. **Document findings and actions.** Record the investigation steps, evidence collected, decisions made, and any related detections or follow-up tasks.
 
 Playbooks are analyst-guidance documents; they do not automatically execute actions. Adapt them to your environment and verify that each step is appropriate for your tooling, policies, and authorization.
 
@@ -215,13 +216,13 @@ Playbooks are analyst-guidance documents; they do not automatically execute acti
 
 The playbooks are organized by their primary purpose. Browse a category or open the linked playbook to review its scope and procedures.
 
-| Category                                          | Example playbooks                                                                                                                                                                                                    |
-| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Triage](playbooks/triage/)                       | [Phishing Alert Triage](playbooks/triage/phishing-alert-triage.md), [Suspicious Login Triage](playbooks/triage/suspicious-login-triage.md), [Malware Detection Triage](playbooks/triage/malware-detection-triage.md) |
-| [Incident Response](playbooks/response/)          | [Phishing Response](playbooks/response/phishing-response.md), [Malware Response](playbooks/response/malware-response.md), [Ransomware Response](playbooks/response/ransomware-response.md)                           |
-| [Cloud](playbooks/cloud/)                         | [Cloud Account Compromise](playbooks/cloud/cloud-account-compromise.md), [Cloud Credential Access](playbooks/cloud/cloud-credential-access.md)                                                                       |
-| [Credential Access](playbooks/credential-access/) | [Credential Dumping](playbooks/credential-access/credential-dumping.md), [Password Spraying](playbooks/credential-access/password-spraying.md)                                                                       |
-| [Exfiltration](playbooks/exfiltration/)           | [Data Exfiltration](playbooks/exfiltration/data-exfiltration.md), [Cloud Exfiltration](playbooks/exfiltration/cloud-exfiltration.md)                                                                                 |
+| Category                                          | Typical Use                                         | Example playbooks                                                                                                                                                                                                    |
+| ------------------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Triage](playbooks/triage/)                       | Initial alert validation and prioritization         | [Phishing Alert Triage](playbooks/triage/phishing-alert-triage.md), [Suspicious Login Triage](playbooks/triage/suspicious-login-triage.md), [Malware Detection Triage](playbooks/triage/malware-detection-triage.md) |
+| [Incident Response](playbooks/response/)          | Containment, remediation, and recovery              | [Phishing Response](playbooks/response/phishing-response.md), [Malware Response](playbooks/response/malware-response.md), [Ransomware Response](playbooks/response/ransomware-response.md)                           |
+| [Cloud](playbooks/cloud/)                         | Cloud account, identity, and service incidents      | [Cloud Account Compromise](playbooks/cloud/cloud-account-compromise.md), [Cloud Credential Access](playbooks/cloud/cloud-credential-access.md)                                                                       |
+| [Credential Access](playbooks/credential-access/) | Credential theft and credential abuse investigation | [Credential Dumping](playbooks/credential-access/credential-dumping.md), [Password Spraying](playbooks/credential-access/password-spraying.md)                                                                       |
+| [Exfiltration](playbooks/exfiltration/)           | Data theft and outbound transfer investigation      | [Data Exfiltration](playbooks/exfiltration/data-exfiltration.md), [Cloud Exfiltration](playbooks/exfiltration/cloud-exfiltration.md)                                                                                 |
 
 For the complete list of playbooks, see the [playbook catalog](playbooks/catalog.yaml). For category descriptions and playbook structure, see the [Playbooks README](playbooks/README.md) and [Playbook Guide](docs/playbooks/playbook-guide.md).
 
