@@ -113,15 +113,18 @@ playbooks:
   - {id: "weak-service-permissions", category: "privilege-escalation", path: "privilege-escalation/weak-service-permissions.md"}
 
   - {id: "account-compromise-response", category: "response", path: "response/account-compromise-response.md"}
+  - {id: "cloud-incident-response", category: "response", path: "response/cloud-incident-response.md"}
   - {id: "business-email-compromise-response", category: "response", path: "response/business-email-compromise-response.md"}
   - {id: "credential-compromise-response", category: "response", path: "response/credential-compromise-response.md"}
   - {id: "data-exfiltration-response", category: "response", path: "response/data-exfiltration-response.md"}
+  - {id: "ddos-response", category: "response", path: "response/ddos-response.md"}
   - {id: "isolate-host-response", category: "response", path: "response/isolate-host-response.md"}
   - {id: "lateral-movement-response", category: "response", path: "response/lateral-movement-response.md"}
   - {id: "malware-response", category: "response", path: "response/malware-response.md"}
   - {id: "persistence-removal-response", category: "response", path: "response/persistence-removal-response.md"}
   - {id: "phishing-response", category: "response", path: "response/phishing-response.md"}
   - {id: "ransomware-response", category: "response", path: "response/ransomware-response.md"}
+  - {id: "vulnerability-exploitation-response", category: "response", path: "response/vulnerability-exploitation-response.md"}
 
   - {id: "data-exfiltration-triage", category: "triage", path: "triage/data-exfiltration-triage.md"}
   - {id: "email-compromise-triage", category: "triage", path: "triage/email-compromise-triage.md"}
