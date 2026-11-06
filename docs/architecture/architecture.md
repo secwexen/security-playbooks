@@ -174,6 +174,7 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │   │       
 │   ├───product
 │   │       features.md
+│   │       introduction.md
 │   │       overview.md
 │   │       what-is-security-playbooks.md
 │   │       
