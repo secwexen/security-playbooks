@@ -1,6 +1,6 @@
 # Threat Model
 
-Security Playbooks assumes a realistic enterprise environment and adversary behavior. This model is designed for educational and lab purposes only.
+Security Playbooks assumes a realistic enterprise environment and adversary behavior.
 
 ## Target Environment
 
