@@ -12,9 +12,14 @@ The following resources are recommended for security research, detection enginee
 ## Security Standards & Frameworks
 
 - [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework) - Cybersecurity risk management and security program development.
-- [NIST Incident Response Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) - Incident response processes, preparation, detection, analysis, containment, and recovery.
 - [OWASP](https://owasp.org/) - Application security guidance, testing methodologies, and common security risks.
 - [MITRE D3FEND](https://d3fend.mitre.org/) - Knowledge base of defensive cybersecurity techniques mapped to adversary behaviors.
+
+## Incident Response
+
+- [NIST Incident Response Recommendations and Considerations (SP 800-61 Rev. 3)](https://csrc.nist.gov/pubs/sp/800/61/r3/final) - Current guidance for preparing for, detecting, responding to, and recovering from cybersecurity incidents.
+- [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html) - Guidance for preparing for and responding to security incidents in AWS environments.
+- [Microsoft Incident Response Playbooks](https://learn.microsoft.com/en-us/security/operations/incident-response-playbooks) - Step-by-step playbooks for investigating and responding to common security incidents.
 
 ## Threat Intelligence & IOC
 
