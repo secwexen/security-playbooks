@@ -3,10 +3,10 @@ id: "ddos-response"
 name: "DDoS Response"
 category: "response"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
-created_at: "2026-11-08T11:41:00Z"
-updated_at: "2026-11-08T11:41:00Z"
+created_at: "2026-11-08T11:49:00Z"
+updated_at: "2026-11-08T11:49:00Z"
 description: "Distributed Denial of Service (DDoS) attacks occur when multiple systems generate excessive traffic against network infrastructure or application services, causing resource exhaustion, service degradation, or unavailability."
 objective: "Identify, investigate, contain, and mitigate DDoS attacks, determine affected infrastructure and attack vectors, and restore normal service availability."
 severity: "critical"
@@ -440,6 +440,9 @@ For confirmed DDoS activity:
 8. Restore affected services after attack activity is controlled.
 9. Verify service availability and mitigation effectiveness.
 10. Document the incident timeline, evidence, response actions, and recovery status.
+11. Check for secondary attack vectors and recurring malicious traffic.
+12. Preserve mitigation changes, provider actions, and incident communication records.
+13. Remove temporary mitigation restrictions after confirming stable service recovery.
 
 Do not rely exclusively on local firewall filtering when upstream network capacity is saturated.
 
@@ -474,8 +477,6 @@ Validation should confirm that:
 
 This playbook is intended for defensive security operations, incident response, controlled laboratory environments, and authorized security validation.
 
-Network filtering, traffic mitigation, firewall modifications, and service restrictions must be performed by authorized personnel.
+Network filtering, traffic mitigation, firewall modifications, and DDoS testing must only be performed by authorized personnel against explicitly authorized infrastructure.
 
-DDoS testing must only be conducted in controlled environments or against explicitly authorized infrastructure.
-
-Preserve relevant evidence and coordinate mitigation with network providers and infrastructure teams.
+Preserve relevant forensic evidence without delaying critical mitigation and service recovery. Coordinate response activities with network providers, infrastructure teams, and service owners to minimize operational impact.
