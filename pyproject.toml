@@ -75,6 +75,7 @@ dev = [
   "pytest-xdist>=3.5",
   "yara-python",
   "black==26.10.1",
+  "ruff>=0.4",
   "flake8==7.0.0",
   "isort==5.13.2",
   "pylint==4.0.9",
