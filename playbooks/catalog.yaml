@@ -1,4 +1,4 @@
-catalog_version: "1.0"
+catalog_version: "1.1"
 repository: "https://github.com/secwexen/security-playbooks"
 
 playbooks:
@@ -120,6 +120,7 @@ playbooks:
   - {id: "ddos-response", category: "response", path: "response/ddos-response.md"}
   - {id: "isolate-host-response", category: "response", path: "response/isolate-host-response.md"}
   - {id: "lateral-movement-response", category: "response", path: "response/lateral-movement-response.md"}
+  - {id: "malicious-oauth-app-consent-response", category: "response", path: "response/malicious-oauth-app-consent-response.md"}
   - {id: "malware-response", category: "response", path: "response/malware-response.md"}
   - {id: "persistence-removal-response", category: "response", path: "response/persistence-removal-response.md"}
   - {id: "phishing-response", category: "response", path: "response/phishing-response.md"}
