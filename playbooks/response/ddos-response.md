@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-11-08T11:49:00Z"
-updated_at: "2026-11-08T11:49:00Z"
+updated_at: "2026-11-09T12:53:00Z"
 description: "Distributed Denial of Service (DDoS) attacks occur when multiple systems generate excessive traffic against network infrastructure or application services, causing resource exhaustion, service degradation, or unavailability."
 objective: "Identify, investigate, contain, and mitigate DDoS attacks, determine affected infrastructure and attack vectors, and restore normal service availability."
 severity: "critical"
@@ -62,7 +62,7 @@ steps:
     order: 3
     name: "Analyze Attack Vector"
     action: "analyze"
-    description: "Examine traffic patterns, protocols, connection behavior, and application requests to identify volumetric, protocol-based, or application-layer attacks."
+    description: "Examine traffic patterns, protocols, connection behavior, and application requests to identify volumetric flooding, protocol exhaustion, service exhaustion, and application-layer exhaustion attacks."
     expected_result: "The suspected DDoS attack vector and targeted infrastructure layer are identified."
   - id: "determine-scope"
     order: 4
@@ -204,29 +204,23 @@ Correlate traffic anomalies with service performance and infrastructure telemetr
 
 Analyze the traffic characteristics to identify the suspected attack category.
 
-**Volumetric Attacks**
+Review:
 
-- Excessive inbound bandwidth.
-- Unusual UDP or ICMP traffic.
-- Abnormal packet rates.
-- Network bandwidth saturation.
-- Unusual packet-size distribution.
-
-**Protocol Attacks**
-
-- Excessive TCP connection attempts.
-- Incomplete TCP handshakes.
-- Connection table exhaustion.
-- Abnormal protocol behavior.
-- Unusual TCP flag distribution.
-
-**Application-Layer Attacks**
-
-- Excessive HTTP or HTTPS requests.
-- Repeated requests to resource-intensive endpoints.
-- Application worker exhaustion.
-- Unusual API request rates.
-- Abnormal user-agent and request patterns.
+- excessive inbound bandwidth consumption;
+- unusual UDP, ICMP, or TCP traffic;
+- abnormal packets per second and connections per second;
+- network bandwidth saturation;
+- reflection and amplification traffic patterns;
+- excessive TCP connection attempts;
+- incomplete TCP handshakes;
+- unusual TCP flag distribution;
+- connection tracking table exhaustion;
+- excessive HTTP or HTTPS requests;
+- repeated requests targeting resource-intensive endpoints;
+- abnormal API request rates;
+- application worker, thread, CPU, or memory exhaustion;
+- unusual packet-size and request distribution;
+- suspicious source and destination traffic patterns.
 
 Determine which infrastructure components are targeted and whether multiple attack vectors are involved.
 
