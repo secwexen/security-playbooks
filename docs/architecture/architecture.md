@@ -396,13 +396,16 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │   │       credential-compromise-response.md
 │   │       data-exfiltration-response.md
 │   │       ddos-response.md
+│   │       insider-threat-response.md
 │   │       isolate-host-response.md
 │   │       lateral-movement-response.md
+│   │       malicious-oauth-app-consent-response.md
 │   │       malware-response.md
 │   │       persistence-removal-response.md
 │   │       phishing-response.md
 │   │       ransomware-response.md
 │   │       supply-chain-incident-response.md
+│   │       token-theft-session-hijacking-response.md
 │   │       vulnerability-exploitation-response.md
 │   │       
 │   └───triage
