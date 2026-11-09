@@ -118,6 +118,7 @@ playbooks:
   - {id: "credential-compromise-response", category: "response", path: "response/credential-compromise-response.md"}
   - {id: "data-exfiltration-response", category: "response", path: "response/data-exfiltration-response.md"}
   - {id: "ddos-response", category: "response", path: "response/ddos-response.md"}
+  - {id: "insider-threat-response", category: "response", path: "response/insider-threat-response.md"}
   - {id: "isolate-host-response", category: "response", path: "response/isolate-host-response.md"}
   - {id: "lateral-movement-response", category: "response", path: "response/lateral-movement-response.md"}
   - {id: "malicious-oauth-app-consent-response", category: "response", path: "response/malicious-oauth-app-consent-response.md"}
