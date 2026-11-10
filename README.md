@@ -66,7 +66,7 @@ See [Ethics & Responsible Use Guidelines](docs/legal/ethics.md) for details.
 
 For full details, refer to the [Features](docs/product/features.md) file.
 
-## MITRE ATT&CK Coverage
+## MITRE ATT&CK Technique Mapping & Coverage
 
 > Coverage reflects the ATT&CK techniques mapped in this repository; it does not represent coverage of all MITRE ATT&CK techniques.
 
