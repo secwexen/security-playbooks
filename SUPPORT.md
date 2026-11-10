@@ -33,7 +33,7 @@ Join community discussions for general questions and knowledge sharing:
 
 - [GitHub Discussions](https://github.com/secwexen/security-playbooks/discussions)
 
-## Security & Vulnerability Reports
+## Reporting a Vulnerability
 
 If you discover a **security issue**, do **NOT** open a public GitHub issue.
 
