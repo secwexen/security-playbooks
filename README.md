@@ -10,7 +10,7 @@
 
 ## About
 
-Security Playbooks is a defensive security repository designed for cybersecurity professionals and SOC analysts.
+Security Playbooks is a defensive security repository designed for cybersecurity professionals, detection engineers, and SOC analysts.
 
 It brings together blue-team resources such as MITRE ATT&CK mappings, detection rules, incident-response and threat-hunting playbooks, validation tests, coverage reports, and lab materials. The repository also includes selected threat-intelligence, IOC-enrichment, automation, and integration resources; their scope and functionality vary by component.
 
@@ -32,7 +32,7 @@ By keeping detection content, validation tests, and coverage mappings together, 
 - Training & Skill Development
 - Security Awareness Training
 - Detection Gap Analysis
-- MITRE ATT&CK Alignment
+- MITRE ATT&CK Mapping
 
 ## Legal & Authorized Use
 
@@ -57,7 +57,7 @@ See [Ethics & Responsible Use Guidelines](docs/legal/ethics.md) for details.
 
 - **Detection Rules** - Sigma, YARA, Suricata (tested & validated)
 - **Security Playbooks** - IR & threat hunting workflows
-- **MITRE ATT&CK Mapping** - Full technique coverage
+- **MITRE ATT&CK Mapping** - Mapped technique coverage
 - **Automated Testing** - Pytest suite with fixtures
 - **Coverage Reporting** - ATT&CK Navigator integration
 - **Hands-on Labs** - Adversary emulation scenarios
@@ -66,7 +66,7 @@ See [Ethics & Responsible Use Guidelines](docs/legal/ethics.md) for details.
 
 For full details, refer to the [Features](docs/product/features.md) file.
 
-## MITRE ATT&CK Coverage
+## MITRE ATT&CK Technique Mapping & Coverage
 
 > Coverage reflects the ATT&CK techniques mapped in this repository; it does not represent coverage of all MITRE ATT&CK techniques.
 
