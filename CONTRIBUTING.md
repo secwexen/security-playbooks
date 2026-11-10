@@ -202,9 +202,6 @@ flake8 .
 
 # Import sorting
 isort --check-only .
-
-# Type checking (recommended)
-mypy src/
 ```
 
 ### Detection Rule Tests
