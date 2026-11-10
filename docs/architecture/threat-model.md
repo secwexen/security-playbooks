@@ -73,7 +73,3 @@ Security Playbooks assumes a realistic enterprise environment and adversary beha
 - Validate SIEM and EDR alerts
 - Improve incident response capabilities
 - Develop security operations skills
-
-## Defensive Assumption
-
-All scenarios assume **defensive security operations**. Offensive techniques are simulated for validation purposes only in authorized lab environments.
