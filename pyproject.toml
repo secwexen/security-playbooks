@@ -142,3 +142,4 @@ ignore = []
 python_version = "3.13"
 strict = true
 ignore_missing_imports = true
+mypy_path = "src"
