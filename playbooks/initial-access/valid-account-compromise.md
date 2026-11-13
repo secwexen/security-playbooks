@@ -3,10 +3,10 @@ id: "valid-account-compromise"
 name: "Valid Account Compromise"
 category: "initial-access"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-09T17:15:00Z"
-updated_at: "2026-10-05T16:50:00Z"
+updated_at: "2026-11-13T12:50:00Z"
 description: "Investigate suspected unauthorized use of valid credentials to access systems, applications, or cloud resources."
 objective: "Determine whether valid credentials were used without authorization, identify affected accounts and systems, establish scope, and determine whether containment or incident response is required."
 severity: "high"
@@ -103,8 +103,6 @@ The objective is to determine whether legitimate credentials were used by an una
 | --------- | -------------- | ------------------------------------------------------------------------------------------ |
 | T1078     | Valid Accounts | Relevant when an adversary uses legitimate account credentials to gain unauthorized access |
 
-Additional ATT&CK sub-techniques should only be mapped when supported by the observed account and authentication behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -143,7 +141,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Authentication Alert
+### Step 1 - Identify Authentication Alert
 
 Determine:
 
@@ -159,7 +157,7 @@ Determine:
 
 Preserve the original authentication and alert context before making account changes.
 
-### Step 2 — Review Authentication Context
+### Step 2 - Review Authentication Context
 
 Review:
 
@@ -184,7 +182,7 @@ Pay particular attention to:
 - repeated failed attempts followed by success;
 - abnormal MFA activity.
 
-### Step 3 — Review Account Context
+### Step 3 - Review Account Context
 
 Determine:
 
@@ -199,7 +197,7 @@ Determine:
 
 Assess whether the authentication was consistent with the account's normal responsibilities.
 
-### Step 4 — Review Target Activity
+### Step 4 - Review Target Activity
 
 Review activity performed after successful authentication, including:
 
@@ -214,7 +212,7 @@ Review activity performed after successful authentication, including:
 
 Determine whether the account performed actions inconsistent with its normal behavior.
 
-### Step 5 — Review Endpoint and Network Activity
+### Step 5 - Review Endpoint and Network Activity
 
 Correlate the authentication event with:
 
@@ -228,7 +226,7 @@ Correlate the authentication event with:
 
 Determine whether the account activity is associated with a compromised endpoint or suspicious network infrastructure.
 
-### Step 6 — Review Account Changes
+### Step 6 - Review Account Changes
 
 Review:
 
@@ -244,7 +242,7 @@ Review:
 
 Determine whether the account was modified as part of the suspected compromise.
 
-### Step 7 — Determine Compromise Scope
+### Step 7 - Determine Compromise Scope
 
 Search across the environment for:
 
@@ -265,7 +263,7 @@ Determine:
 - most recent observed activity;
 - whether unauthorized access is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -341,7 +339,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether the legitimate account owner can be verified.
+- whether unauthorized post-authentication activity can be confirmed.
 
 ## Escalation
 
