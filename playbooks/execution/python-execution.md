@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-12T17:43:00Z"
-updated_at: "2026-11-13T11:59:00Z"
+updated_at: "2026-11-13T12:13:00Z"
 description: "Python execution involves using the Python interpreter or Python-based tooling to execute scripts and code on a system."
 objective: "Identify, investigate, and validate suspicious Python execution and determine whether the activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -102,8 +102,6 @@ The objective is to determine whether Python execution is legitimate, suspicious
 | Technique | Name                                      | Relevance                                                   |
 | --------- | ----------------------------------------- | ----------------------------------------------------------- |
 | T1059.006 | Command and Scripting Interpreter: Python | Relevant when Python is used to execute commands or scripts |
-
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
 
 ## Trigger Conditions
 
