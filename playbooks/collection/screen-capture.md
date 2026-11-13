@@ -3,10 +3,10 @@ id: "screen-capture"
 name: "Screen Capture Collection"
 category: "collection"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-30T18:18:00Z"
-updated_at: "2026-10-30T18:18:00Z"
+updated_at: "2026-11-13T10:45:00Z"
 description: "Investigate suspicious screen capture activity and the unauthorized collection of screenshots or displayed visual information."
 objective: "Determine whether screen content was captured or collected without authorization, identify the affected users and systems, establish the scope of activity, and support appropriate incident response."
 severity: "medium"
@@ -154,7 +154,7 @@ Captured images and recordings may contain confidential information, personal in
 
 ## Investigation Procedure
 
-### Step 1 — Identify Screen Capture Alert
+### Step 1 - Identify Screen Capture Alert
 
 Record the detection source, alert identifier, timestamp, affected endpoint, observed process, and reported screen capture activity.
 
@@ -174,7 +174,7 @@ Collect:
 
 Determine what triggered the investigation and preserve the original alert context.
 
-### Step 2 — Identify Affected Host and User
+### Step 2 - Identify Affected Host and User
 
 Identify the endpoint and user account associated with the activity.
 
@@ -196,7 +196,7 @@ Determine whether the activity occurred on a workstation, server, administrative
 
 Identify whether the affected user was actively logged in during the observed capture activity.
 
-### Step 3 — Identify Capture Mechanism
+### Step 3 - Identify Capture Mechanism
 
 Identify the application, process, or operating system functionality associated with screen capture activity.
 
@@ -217,7 +217,7 @@ Determine whether the application is associated with approved remote support, co
 
 Do not assume that every application using screen capture functionality is malicious.
 
-### Step 4 — Review Capture Artifacts
+### Step 4 - Review Capture Artifacts
 
 Determine whether screenshot or screen recording artifacts were created and whether their creation was expected.
 
@@ -239,7 +239,7 @@ Correlate the observed activity with normal application operation, approved moni
 
 Do not unnecessarily open or distribute captured images. Where possible, use file metadata and endpoint telemetry to establish the nature and scope of the activity.
 
-### Step 5 — Review Process Activity
+### Step 5 - Review Process Activity
 
 Review the process responsible for performing screen capture operations.
 
@@ -261,7 +261,7 @@ Assess whether the process and its behavior are consistent with approved applica
 
 Determine whether screen capture activity occurred as part of normal application execution or an unexpected process workflow.
 
-### Step 6 — Review Collection and Staging Activity
+### Step 6 - Review Collection and Staging Activity
 
 Determine whether captured screen content was collected beyond ordinary application operation.
 
@@ -281,7 +281,7 @@ Correlate any suspected transfer with network telemetry and other available evid
 
 Do not infer successful data exfiltration from screenshot creation, file copying, or archive creation alone.
 
-### Step 7 — Determine Capture Scope
+### Step 7 - Determine Capture Scope
 
 Establish the scope and timeline of the suspected activity.
 
@@ -310,7 +310,7 @@ Document:
 
 Determine whether the activity was limited to one endpoint or represents a broader collection operation.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
