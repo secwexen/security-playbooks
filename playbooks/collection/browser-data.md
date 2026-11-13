@@ -3,10 +3,10 @@ id: "browser-data"
 name: "Browser Data Collection"
 category: "collection"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-27T18:56:00Z"
-updated_at: "2026-10-27T18:56:00Z"
+updated_at: "2026-11-13T10:41:00Z"
 description: "Investigate suspicious access to web browser profiles and the collection of browser-related information."
 objective: "Determine whether browser data was accessed or collected without authorization, identify the affected users and systems, establish the scope of activity, and support appropriate incident response."
 severity: "medium"
@@ -153,7 +153,7 @@ Saved passwords, authentication tokens, cookies, and other session-related secre
 
 ## Investigation Procedure
 
-### Step 1 — Identify Browser Data Alert
+### Step 1 - Identify Browser Data Alert
 
 Record the detection source, alert identifier, timestamp, affected endpoint, observed process, and reported browser data access.
 
@@ -173,7 +173,7 @@ Collect:
 
 Determine what triggered the investigation and preserve the original alert context.
 
-### Step 2 — Identify Affected Host and User
+### Step 2 - Identify Affected Host and User
 
 Identify the endpoint and user account associated with the activity.
 
@@ -196,7 +196,7 @@ Collect the hostname, asset type, operating system, user identifier, account typ
 
 Determine whether the activity occurred on a workstation, server, administrative endpoint, or another sensitive system.
 
-### Step 3 — Identify Browser Profiles
+### Step 3 - Identify Browser Profiles
 
 Identify the browser applications and profiles relevant to the investigation.
 
@@ -211,7 +211,7 @@ Review available endpoint inventory and authorized telemetry to establish:
 
 Do not assume that every browser profile on the endpoint was accessed or affected.
 
-### Step 4 — Review Browser Artifacts
+### Step 4 - Review Browser Artifacts
 
 Determine which browser-related artifacts were accessed and whether that access was expected.
 
@@ -228,7 +228,7 @@ Correlate the observed activity with normal browser operation, approved administ
 
 Do not classify activity as malicious solely because a process reads a browser profile.
 
-### Step 5 — Review Process and File Activity
+### Step 5 - Review Process and File Activity
 
 Review the process responsible for accessing browser-related artifacts.
 
@@ -246,7 +246,7 @@ Collect and correlate:
 
 Assess whether the process and its behavior are consistent with approved administrative or security activity.
 
-### Step 6 — Review Collection and Staging Activity
+### Step 6 - Review Collection and Staging Activity
 
 Determine whether browser-related data was collected beyond ordinary browser operation.
 
@@ -261,7 +261,7 @@ Review available evidence for:
 
 Correlate any suspected transfer with network telemetry and other available evidence. Do not infer successful data exfiltration from file access or archive creation alone.
 
-### Step 7 — Determine Collection Scope
+### Step 7 - Determine Collection Scope
 
 Establish the scope and timeline of the suspected activity.
 
@@ -276,7 +276,7 @@ Search for related indicators across relevant endpoints and users, including:
 
 Document the first and last observed events, affected profiles, affected endpoints, relevant artifacts, and any uncertainty caused by missing telemetry.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
