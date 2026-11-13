@@ -3,10 +3,10 @@ id: "ddos-response"
 name: "DDoS Response"
 category: "response"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-11-08T11:49:00Z"
-updated_at: "2026-11-09T12:53:00Z"
+updated_at: "2026-11-13T13:40:00Z"
 description: "Distributed Denial of Service (DDoS) attacks occur when multiple systems generate excessive traffic against network infrastructure or application services, causing resource exhaustion, service degradation, or unavailability."
 objective: "Identify, investigate, contain, and mitigate DDoS attacks, determine affected infrastructure and attack vectors, and restore normal service availability."
 severity: "critical"
@@ -159,7 +159,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify DDoS Alert
+### Step 1 - Identify DDoS Alert
 
 Determine:
 
@@ -178,7 +178,7 @@ Determine:
 
 Preserve the original alert context and relevant network, infrastructure, and application telemetry.
 
-### Step 2 — Validate Traffic Activity
+### Step 2 - Validate Traffic Activity
 
 Determine whether the observed traffic is consistent with legitimate business operations.
 
@@ -200,7 +200,7 @@ A sudden increase in traffic should not automatically be classified as a DDoS at
 
 Correlate traffic anomalies with service performance and infrastructure telemetry before assigning the incident classification.
 
-### Step 3 — Analyze Attack Vector
+### Step 3 - Analyze Attack Vector
 
 Analyze the traffic characteristics to identify the suspected attack category.
 
@@ -224,7 +224,7 @@ Review:
 
 Determine which infrastructure components are targeted and whether multiple attack vectors are involved.
 
-### Step 4 — Determine Attack Scope
+### Step 4 - Determine Attack Scope
 
 Search for:
 
@@ -250,7 +250,7 @@ Determine:
 - potential business disruption;
 - whether the attack is ongoing.
 
-### Step 5 — Mitigate DDoS Attack
+### Step 5 - Mitigate DDoS Attack
 
 Apply appropriate mitigation controls based on the identified attack vector.
 
@@ -272,7 +272,7 @@ Ensure mitigation controls do not unnecessarily block legitimate traffic.
 
 For attacks exceeding available network bandwidth, prioritize upstream mitigation rather than relying exclusively on local firewall filtering.
 
-### Step 6 — Restore Services
+### Step 6 - Restore Services
 
 Review affected infrastructure and restore normal traffic handling.
 
@@ -290,7 +290,7 @@ Consider:
 
 Coordinate service recovery with network, infrastructure, and application teams.
 
-### Step 7 — Verify Service Recovery
+### Step 7 - Verify Service Recovery
 
 Verify:
 
@@ -310,7 +310,7 @@ Confirm that legitimate traffic can access affected services and mitigation cont
 
 Continue monitoring for recurring attacks or secondary attack vectors.
 
-### Step 8 — Determine Response Outcome
+### Step 8 - Determine Response Outcome
 
 Classify the incident as:
 
