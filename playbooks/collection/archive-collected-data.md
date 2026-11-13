@@ -3,10 +3,10 @@ id: "archive-collected-data"
 name: "Archive Collected Data"
 category: "collection"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-26T16:32:00Z"
-updated_at: "2026-10-26T16:32:00Z"
+updated_at: "2026-11-13T10:40:00Z"
 description: "Investigate suspicious compression, archiving, or encryption of collected data that may indicate preparation for unauthorized data transfer."
 objective: "Determine whether observed archiving activity is authorized, suspicious, or malicious; identify the affected data, associated processes, and potential relationship to data exfiltration."
 severity: "high"
@@ -171,7 +171,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Archive Activity Alert
+### Step 1 - Identify Archive Activity Alert
 
 Collect:
 
@@ -189,7 +189,7 @@ Preserve the original alert and relevant event context.
 
 Determine whether the activity was associated with an approved backup, software deployment, administrative task, or documented data-processing workflow.
 
-### Step 2 — Identify the Archive Artifact
+### Step 2 - Identify the Archive Artifact
 
 Identify the archive file or other packaged data artifact.
 
@@ -210,7 +210,7 @@ Do not rely exclusively on file extensions to determine file type. Compare the a
 
 Preserve the artifact in accordance with organizational evidence-handling procedures.
 
-### Step 3 — Review the Archiving Process
+### Step 3 - Review the Archiving Process
 
 Identify the process responsible for creating or modifying the archive.
 
@@ -233,7 +233,7 @@ Assess whether the process execution context is consistent with expected adminis
 
 Do not classify a process as malicious solely because it is capable of compression or encryption.
 
-### Step 4 — Inspect Archive Contents and Metadata
+### Step 4 - Inspect Archive Contents and Metadata
 
 Determine what can be established about the archive without unnecessarily exposing sensitive data.
 
@@ -264,7 +264,7 @@ Determine whether the archive appears to contain:
 
 If the archive is encrypted or cannot be safely inspected, document the limitation rather than assuming its contents.
 
-### Step 5 — Review Source Data and Collection Context
+### Step 5 - Review Source Data and Collection Context
 
 Identify the original files or data sources included in the archive where possible.
 
@@ -286,7 +286,7 @@ Look for evidence that files were collected from multiple locations or accessed 
 
 Consider whether the activity is consistent with an approved backup, export, migration, or data-processing operation.
 
-### Step 6 — Correlate Network and Exfiltration Activity
+### Step 6 - Correlate Network and Exfiltration Activity
 
 Determine whether archive creation was followed by data-transfer activity.
 
@@ -308,7 +308,7 @@ Determine whether the archive remained local, was moved to another internal loca
 
 Do not classify an archive as exfiltrated solely because outbound network activity occurred nearby in time. Establish a defensible relationship between the archived data and the observed transfer wherever possible.
 
-### Step 7 — Determine Archive Activity Scope
+### Step 7 - Determine Archive Activity Scope
 
 Search across available endpoint and security telemetry for:
 
@@ -334,7 +334,7 @@ Determine:
 
 Document gaps in coverage and any limitations affecting scope determination.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
