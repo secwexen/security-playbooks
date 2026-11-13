@@ -3,10 +3,10 @@ id: "credential-compromise-response"
 name: "Credential Compromise Response"
 category: "response"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-11-02T12:00:00Z"
-updated_at: "2026-11-02T12:00:00Z"
+updated_at: "2026-11-13T13:37:00Z"
 description: "Respond to suspected or confirmed compromise of user, service, or application credentials, including passwords, MFA, tokens, and service-account secrets."
 objective: "Contain unauthorized access, validate the scope of compromise, invalidate exposed credentials, restore trusted access, and document the effective response and recovery actions."
 severity: "critical"
@@ -145,7 +145,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Validate Compromise Signal
+### Step 1 - Identify Validate Compromise Signal
 
 Determine:
 
@@ -160,7 +160,7 @@ Determine:
 
 Preserve the original alert context before making administrative changes.
 
-### Step 2 — Review Contain Current Access
+### Step 2 - Review Contain Current Access
 
 Immediately:
 
@@ -174,7 +174,7 @@ Immediately:
 
 If the user is a privileged account, take additional precautions and escalate to the responsible administrator quickly.
 
-### Step 3 — Review Reset Credentials
+### Step 3 - Review Reset Credentials
 
 Reset or rotate the following materials when relevant:
 
@@ -192,7 +192,7 @@ Reset or rotate the following materials when relevant:
 
 Use secure distribution channels. Do not re-use prior credentials or copies from the compromised account.
 
-### Step 4 — Review Authentication Activity
+### Step 4 - Review Authentication Activity
 
 Review:
 
@@ -208,7 +208,7 @@ Review:
 
 Determine whether the activity is consistent with normal user behavior or indicates an attacker using the account.
 
-### Step 5 — Review Assess Impact
+### Step 5 - Review Assess Impact
 
 Determine:
 
@@ -223,7 +223,7 @@ Determine:
 
 Assess whether the compromise created an operational outage, confidentiality risk, integrity risk, or availability risk.
 
-### Step 6 — Review Correlate Related Activity
+### Step 6 - Review Correlate Related Activity
 
 Search for:
 
@@ -241,7 +241,7 @@ Search for:
 
 Also review evidence that the attacker may have obtained data before or after compromise.
 
-### Step 7 — Determine Restore Secure Access
+### Step 7 - Determine Restore Secure Access
 
 After containment and remediation:
 
@@ -255,7 +255,7 @@ After containment and remediation:
 
 If the account was a privileged identity, ensure the restore path includes tighter controls, monitoring, and owner approval.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as one of the following:
 
