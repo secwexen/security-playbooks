@@ -3,10 +3,10 @@ id: "exfiltration-over-c2-channel"
 name: "Exfiltration Over C2 Channel"
 category: "exfiltration"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-04T17:50:00Z"
-updated_at: "2026-10-06T16:01:00Z"
+updated_at: "2026-11-13T12:28:00Z"
 description: "Investigate suspected data exfiltration performed through an established command-and-control channel."
 objective: "Determine whether data was transferred from an affected system through an existing command-and-control channel, identify the transferred data, destination, determine the scope and impact of the activity."
 severity: "high"
@@ -111,8 +111,6 @@ Exfiltration over C2 should be assessed in context. Unusually large outbound tra
 | --------- | ---------------------------- | ------------------------------------------------------------------------------------------ |
 | T1041     | Exfiltration Over C2 Channel | Primary technique when data is exfiltrated through an existing command-and-control channel |
 
-T1041 covers the use of an existing command-and-control channel to transfer stolen data from a compromised environment.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -153,7 +151,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Exfiltration Alert
+### Step 1 - Identify Exfiltration Alert
 
 Determine:
 
@@ -169,7 +167,7 @@ Determine:
 
 Preserve the original alert context before modifying or isolating the affected system.
 
-### Step 2 — Identify Source Process
+### Step 2 - Identify Source Process
 
 Identify the process responsible for the outbound connection.
 
@@ -196,7 +194,7 @@ Determine whether the process is:
 
 An established network connection does not by itself establish malicious activity.
 
-### Step 3 — Identify Accessed Data
+### Step 3 - Identify Accessed Data
 
 Review activity immediately preceding the transfer.
 
@@ -223,7 +221,7 @@ Collect:
 
 Determine whether the accessed data could reasonably account for the observed outbound transfer.
 
-### Step 4 — Review Transfer Activity
+### Step 4 - Review Transfer Activity
 
 Review:
 
@@ -250,7 +248,7 @@ Pay particular attention to:
 
 High transfer volume alone should not be treated as proof of exfiltration. Compare the activity with established host and application behavior.
 
-### Step 5 — Review C2 Channel
+### Step 5 - Review C2 Channel
 
 Determine whether the transfer used an existing command-and-control channel.
 
@@ -277,7 +275,7 @@ Examples of relevant indicators include:
 
 MITRE's current detection strategy for T1041 specifically highlights anomalous outbound traffic volume following file or data access and correlation of process, network, and file telemetry.
 
-### Step 6 — Correlate Related Activity
+### Step 6 - Correlate Related Activity
 
 Correlate the suspected exfiltration with:
 
@@ -305,7 +303,7 @@ Search for:
 
 Determine whether the activity forms part of a broader attack chain.
 
-### Step 7 — Determine Exfiltration Scope
+### Step 7 - Determine Exfiltration Scope
 
 Determine:
 
@@ -323,7 +321,7 @@ Search across the environment for matching process, destination, hash, command l
 
 Where exact data transfer cannot be established, document the evidence supporting the estimated scope and the limitations of available telemetry.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
