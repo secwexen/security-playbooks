@@ -3,10 +3,10 @@ id: "drive-by-download"
 name: "Drive-by Compromise"
 category: "initial-access"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-09T13:49:00Z"
-updated_at: "2026-11-05T14:37:00Z"
+updated_at: "2026-11-13T12:48:00Z"
 description: "Investigate suspected drive-by compromise activity in which a user is exposed to malicious web content that may lead to unauthorized access or execution."
 objective: "Determine whether malicious web content resulted in exploitation, unwanted downloads, code execution, or other compromise and establish the affected users, systems, and scope."
 severity: "high"
@@ -103,8 +103,6 @@ The objective is to determine whether the activity resulted in an exploit, unwan
 | --------- | ------------------- | -------------------------------------------------------------------------------------------------------------- |
 | T1189     | Drive-by Compromise | Relevant when an adversary gains access through a user's interaction with malicious or compromised web content |
 
-Additional ATT&CK techniques should only be mapped when supported by the observed activity.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -140,7 +138,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Alert
+### Step 1 - Identify the Alert
 
 Determine:
 
@@ -154,7 +152,7 @@ Determine:
 
 Preserve the original alert and relevant telemetry before making remediation changes.
 
-### Step 2 — Identify the Web Resource
+### Step 2 - Identify the Web Resource
 
 Collect:
 
@@ -175,7 +173,7 @@ Determine whether the destination is:
 
 Do not actively browse suspicious infrastructure from production systems.
 
-### Step 3 — Review Browser Activity
+### Step 3 - Review Browser Activity
 
 Review:
 
@@ -188,7 +186,7 @@ Review:
 
 Determine whether the suspicious resource was accessed directly or through another page or redirect.
 
-### Step 4 — Review Download Activity
+### Step 4 - Review Download Activity
 
 Determine whether the browsing event resulted in:
 
@@ -210,7 +208,7 @@ Collect:
 
 Do not execute downloaded artifacts outside an approved analysis environment.
 
-### Step 5 — Review Endpoint Activity
+### Step 5 - Review Endpoint Activity
 
 Correlate the browsing event with:
 
@@ -224,7 +222,7 @@ Correlate the browsing event with:
 
 Pay particular attention to processes launched immediately after suspicious browser activity.
 
-### Step 6 — Review Network Activity
+### Step 6 - Review Network Activity
 
 Review:
 
@@ -238,7 +236,7 @@ Review:
 
 Determine whether the browser or a spawned process established additional network connections.
 
-### Step 7 — Determine Scope
+### Step 7 - Determine Scope
 
 Search across the environment for:
 
@@ -257,7 +255,7 @@ Determine:
 - most recent observed activity;
 - whether the activity is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -341,7 +339,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether browser exploitation succeeded or was unsuccessful.
+- whether downloaded files were executed.
 
 ## Escalation
 
