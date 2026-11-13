@@ -3,10 +3,10 @@ id: "scheduled-task-abuse"
 name: "Scheduled Task Abuse"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-22T15:14:00Z"
-updated_at: "2026-10-05T16:54:00Z"
+updated_at: "2026-11-13T13:17:00Z"
 description: "Scheduled Task Abuse involves using Windows scheduled tasks to execute programs under an elevated or otherwise unauthorized security context."
 objective: "Identify, investigate, and validate suspicious scheduled task abuse and determine whether scheduled execution resulted in unauthorized privilege escalation or related malicious activity."
 severity: "high"
@@ -107,8 +107,6 @@ The objective is to determine whether scheduled task activity is legitimate, sus
 | --------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | T1053.005 | Scheduled Task/Job: Scheduled Task | Relevant when Windows scheduled tasks are used to execute programs under an unexpected or elevated security context |
 
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -152,7 +150,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Scheduled Task Abuse Alert
+### Step 1 - Identify Scheduled Task Abuse Alert
 
 Determine:
 
@@ -168,7 +166,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Identify Task Context
+### Step 2 - Identify Task Context
 
 Collect:
 
@@ -187,7 +185,7 @@ Determine whether the task is expected on the affected host.
 
 MITRE identifies scheduled task creation/modification and subsequent process execution as useful telemetry for detecting scheduled task abuse.
 
-### Step 3 — Review Scheduled Action
+### Step 3 - Review Scheduled Action
 
 Review:
 
@@ -208,7 +206,7 @@ Pay particular attention to:
 - unusual command-line parameters;
 - interpreters such as PowerShell or command shell.
 
-### Step 4 — Review Account and Privileges
+### Step 4 - Review Account and Privileges
 
 Determine:
 
@@ -223,7 +221,7 @@ Assess whether the task's configured security context is appropriate for the hos
 
 A scheduled task may legitimately execute with elevated privileges, so the presence of a privileged task alone should not be treated as malicious.
 
-### Step 5 — Review Process Activity
+### Step 5 - Review Process Activity
 
 Correlate the scheduled task with:
 
@@ -237,7 +235,7 @@ Correlate the scheduled task with:
 
 Determine whether the task launched unexpected processes or caused execution under an unauthorized privileged context.
 
-### Step 6 — Review Follow-on Activity
+### Step 6 - Review Follow-on Activity
 
 Review activity associated with the task, including:
 
@@ -252,7 +250,7 @@ Review activity associated with the task, including:
 
 Determine whether the scheduled task was used as part of a broader compromise.
 
-### Step 7 — Determine Scheduled Task Abuse Scope
+### Step 7 - Determine Scheduled Task Abuse Scope
 
 Search the environment for:
 
@@ -273,7 +271,7 @@ Determine:
 - latest observed execution;
 - whether the task remains active.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -357,7 +355,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether task creation was authorized;
+- whether elevated execution occurred.
 
 ## Escalation
 
