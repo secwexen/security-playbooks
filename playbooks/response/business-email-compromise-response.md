@@ -3,10 +3,10 @@ id: "business-email-compromise-response"
 name: "Business Email Compromise Response"
 category: "response"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-31T19:01:00Z"
-updated_at: "2026-11-02T14:24:00Z"
+updated_at: "2026-11-13T13:33:00Z"
 description: "Business Email Compromise (BEC) is a social-engineering and email-fraud attack in which an adversary impersonates a trusted person or organization, or abuses a compromised email account, to induce unauthorized payments, disclosure of sensitive information, or other business actions."
 objective: "Identify, investigate, contain, and remediate suspected or confirmed BEC activity; determine whether email accounts or business processes were abused; limit financial and data loss; and identify related compromise activity across the organization and its external contacts."
 severity: "high"
@@ -162,7 +162,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Business Email Compromise Alert
+### Step 1 - Identify Business Email Compromise Alert
 
 Determine:
 
@@ -180,7 +180,7 @@ Determine:
 
 Preserve the original alert and reported message details before quarantining, deleting, modifying, or otherwise changing the relevant email or mailbox state. Record the reporting employee and the method through which the message was received.
 
-### Step 2 — Preserve and Analyze Email Evidence
+### Step 2 - Preserve and Analyze Email Evidence
 
 Preserve the original message in an appropriate native format, such as `.eml` or `.msg`, including complete headers, attachments, URLs, and available delivery metadata.
 
@@ -200,7 +200,7 @@ Review:
 
 Determine whether the message was sent from an external spoofed domain, a lookalike domain, a compromised external account, or a potentially compromised organizational mailbox.
 
-### Step 3 — Validate Business Request and User Impact
+### Step 3 - Validate Business Request and User Impact
 
 Determine whether the requested business action is legitimate and whether any user acted on the message.
 
@@ -219,7 +219,7 @@ Review:
 
 Verify requests for payment or account changes through a previously established and independently trusted contact method, such as a known telephone number or approved vendor contact record.
 
-### Step 4 — Investigate Mailbox and Identity Activity
+### Step 4 - Investigate Mailbox and Identity Activity
 
 For potentially compromised internal or partner accounts, review identity and mailbox activity before and after the suspicious message was sent or received.
 
@@ -242,7 +242,7 @@ Review:
 
 Determine whether an unauthorized user accessed the mailbox, modified its configuration, created persistence, monitored business communications, or used the account to send fraudulent messages.
 
-### Step 5 — Determine Compromise Scope and Business Impact
+### Step 5 - Determine Compromise Scope and Business Impact
 
 Search the environment for related email, identity, endpoint, and financial activity.
 
@@ -278,7 +278,7 @@ Determine:
 
 Record confirmed impact separately from suspected or potential impact. Do not report a financial loss as confirmed unless the transaction or loss has been verified.
 
-### Step 6 — Contain Business Email Compromise Activity
+### Step 6 - Contain Business Email Compromise Activity
 
 Based on incident severity, evidence, and organizational procedures, consider:
 
@@ -299,7 +299,7 @@ Based on incident severity, evidence, and organizational procedures, consider:
 
 Coordinate containment with identity-management, messaging, finance, legal, privacy, and incident-response functions as appropriate. Use approved financial-institution contact details, not information supplied by the suspected adversary.
 
-### Step 7 — Eradicate and Recover
+### Step 7 - Eradicate and Recover
 
 Determine and address the likely source and enabling conditions of the incident.
 
@@ -333,7 +333,7 @@ Restore affected accounts and business workflows only after required containment
 
 Coordinate financial recovery and external notifications with the appropriate finance, legal, privacy, and management functions. Preserve transaction records and communications that may be required for a financial institution, insurer, regulator, or law-enforcement report.
 
-### Step 8 — Determine Response Outcome
+### Step 8 - Determine Response Outcome
 
 Classify the incident as:
 
@@ -466,8 +466,16 @@ Do not rely on the suspicious email thread or contact details contained within i
 
 ## Related Playbooks
 
-- `playbooks/response/account-compromise-response.md`
+- `playbooks/triage/email-compromise-triage.md`
+- `playbooks/triage/phishing-alert-triage.md`
 - `playbooks/triage/suspicious-login-triage.md`
+- `playbooks/initial-access/phishing.md`
+- `playbooks/initial-access/valid-account-compromise.md`
+- `playbooks/initial-access/application-consent-abuse.md`
+- `playbooks/response/account-compromise-response.md`
+- `playbooks/response/credential-compromise-response.md`
+- `playbooks/response/phishing-response.md`
+- `playbooks/response/malicious-oauth-app-consent-response.md`
 
 ## Validation
 
