@@ -3,10 +3,10 @@ id: "wmi-execution"
 name: "Windows Management Instrumentation"
 category: "execution"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-13T12:10:00Z"
-updated_at: "2026-10-05T17:06:00Z"
+updated_at: "2026-11-13T12:11:00Z"
 description: "Windows Management Instrumentation (WMI) can be used to manage Windows systems and execute commands or programs locally or remotely."
 objective: "Identify, investigate, and validate suspicious WMI activity and determine whether the activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -106,8 +106,6 @@ The objective is to determine whether WMI activity is legitimate, suspicious, or
 | --------- | ---------------------------------- | --------------------------------------------------------- |
 | T1047     | Windows Management Instrumentation | Relevant when WMI is used to execute commands or programs |
 
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -145,7 +143,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify WMI Alert
+### Step 1 - Identify WMI Alert
 
 Determine:
 
@@ -161,7 +159,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Identify WMI Activity
+### Step 2 - Identify WMI Activity
 
 Determine how WMI was used.
 
@@ -176,7 +174,7 @@ Identify whether the activity involved:
 
 Determine whether the observed activity is associated with an approved administrative or management workflow.
 
-### Step 3 — Review Command Line
+### Step 3 - Review Command Line
 
 Review available command-line telemetry.
 
@@ -192,7 +190,7 @@ Identify:
 
 Pay particular attention to unexpected executables or scripts launched through WMI.
 
-### Step 4 — Review Source and Target Hosts
+### Step 4 - Review Source and Target Hosts
 
 Determine:
 
@@ -206,7 +204,7 @@ Determine:
 
 Investigate activity between hosts that do not normally communicate through remote management channels.
 
-### Step 5 — Review Process Activity
+### Step 5 - Review Process Activity
 
 Review:
 
@@ -221,7 +219,7 @@ Determine whether WMI activity resulted in unexpected process execution.
 
 Correlate the WMI event with the resulting process activity rather than evaluating WMI use in isolation.
 
-### Step 6 — Review Network Activity
+### Step 6 - Review Network Activity
 
 Review:
 
@@ -233,7 +231,7 @@ Review:
 
 Investigate unexpected remote connections and authentication associated with the WMI operation.
 
-### Step 7 — Determine WMI Activity Scope
+### Step 7 - Determine WMI Activity Scope
 
 Search the environment for:
 
@@ -253,7 +251,7 @@ Determine:
 - latest observed activity;
 - whether remote execution is still occurring.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -335,7 +333,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether remote WMI source, target, and initiating account are verified;
+- whether WMI process creation can be correlated with the initiating operation.
 
 ## Escalation
 
@@ -372,12 +372,9 @@ Do not terminate, delete, or modify relevant processes, files, WMI configuration
 
 - `playbooks/triage/suspicious-process-triage.md`
 - `playbooks/triage/suspicious-file-triage.md`
-- `playbooks/triage/malware-detection-triage.md`
 - `playbooks/execution/scripting.md`
 - `playbooks/execution/powershell.md`
 - `playbooks/execution/command-shell.md`
-- `playbooks/execution/python-execution.md`
-- `playbooks/execution/scheduled-task-execution.md`
 - `playbooks/response/malware-response.md`
 - `playbooks/response/isolate-host-response.md`
 
