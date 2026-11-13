@@ -3,10 +3,10 @@ id: "lateral-movement-response"
 name: "Lateral Movement Response"
 category: "response"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-11-11T12:17:00Z"
-updated_at: "2026-11-11T12:17:00Z"
+updated_at: "2026-11-13T13:45:00Z"
 description: "Lateral Movement Response provides a structured process for identifying unauthorized movement between systems, investigating compromised accounts and remote access activity, determining the affected environment scope, applying authorized containment, and validating response effectiveness."
 objective: "Identify, investigate, contain, and validate suspected or confirmed lateral movement while preserving evidence, limiting further compromise, and minimizing operational impact."
 severity: "critical"
@@ -168,7 +168,7 @@ The response should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Lateral Movement Alert
+### Step 1 - Identify Lateral Movement Alert
 
 Determine:
 
@@ -187,7 +187,7 @@ Determine:
 
 Preserve the original alert context before containment actions are performed.
 
-### Step 2 — Validate Source and Destination
+### Step 2 - Validate Source and Destination
 
 Determine whether the observed communication is consistent with expected system behavior.
 
@@ -207,7 +207,7 @@ Review:
 
 A single unusual connection should not automatically be treated as confirmed lateral movement. Correlate endpoint, authentication, and network signals before assigning the final classification.
 
-### Step 3 — Review Remote Access Events
+### Step 3 - Review Remote Access Events
 
 Review:
 
@@ -228,7 +228,7 @@ Review:
 
 Construct a timeline covering the period immediately before and after the suspected lateral movement.
 
-### Step 4 — Review Post-Authentication Activity
+### Step 4 - Review Post-Authentication Activity
 
 Correlate successful authentication with:
 
@@ -248,7 +248,7 @@ Correlate successful authentication with:
 
 Determine what actions were performed on the destination systems after authentication.
 
-### Step 5 — Determine Lateral Movement Scope
+### Step 5 - Determine Lateral Movement Scope
 
 Search the environment for:
 
@@ -276,7 +276,7 @@ Determine:
 - whether privileged systems are affected;
 - whether unauthorized access is ongoing.
 
-### Step 6 — Contain Lateral Movement
+### Step 6 - Contain Lateral Movement
 
 Based on incident severity and organizational procedures, consider:
 
@@ -292,7 +292,7 @@ Based on incident severity and organizational procedures, consider:
 
 Containment actions should be coordinated with endpoint, network, and identity-management teams to prevent further unauthorized access while minimizing operational impact.
 
-### Step 7 — Eradicate and Recover
+### Step 7 - Eradicate and Recover
 
 Determine and address the likely source of lateral movement.
 
@@ -321,7 +321,7 @@ Restore affected systems and identities to a trusted state and verify:
 - endpoint and network telemetry are available;
 - containment can be safely removed through authorized procedures.
 
-### Step 8 — Determine Response Outcome
+### Step 8 - Determine Response Outcome
 
 Classify the incident as:
 
