@@ -3,10 +3,10 @@ id: "uac-bypass"
 name: "UAC Bypass"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-24T17:58:00Z"
-updated_at: "2026-10-05T16:55:00Z"
+updated_at: "2026-11-13T13:23:00Z"
 description: "UAC Bypass occurs when an attacker attempts to circumvent Windows User Account Control to execute a process with elevated privileges without following the expected elevation workflow."
 objective: "Identify, investigate, and validate suspicious UAC bypass activity and determine whether unauthorized privilege escalation occurred."
 severity: "high"
@@ -105,8 +105,6 @@ The objective is to determine whether the observed behavior represents legitimat
 | --------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | T1548.002 | Abuse Elevation Control Mechanism: Bypass User Account Control | Relevant when an actor bypasses Windows UAC to execute a process with elevated privileges |
 
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -143,7 +141,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify UAC Bypass Alert
+### Step 1 - Identify UAC Bypass Alert
 
 Determine:
 
@@ -160,7 +158,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Identify User and Privilege Context
+### Step 2 - Identify User and Privilege Context
 
 Collect:
 
@@ -174,7 +172,7 @@ Collect:
 
 Determine whether the user was expected to perform an elevated operation on the affected host.
 
-### Step 3 — Review Process Lineage
+### Step 3 - Review Process Lineage
 
 Review:
 
@@ -190,7 +188,7 @@ Review:
 
 Determine whether the process tree contains an unexpected transition from a non-elevated context to an elevated context.
 
-### Step 4 — Review UAC Bypass Indicators
+### Step 4 - Review UAC Bypass Indicators
 
 Review:
 
@@ -203,7 +201,7 @@ Review:
 
 A known Windows component alone should not be treated as proof of malicious behavior. Correlate process identity, path, parent, user, integrity level, and timing.
 
-### Step 5 — Review Registry Activity
+### Step 5 - Review Registry Activity
 
 Review:
 
@@ -217,7 +215,7 @@ Determine whether Registry activity is associated with the suspected elevation e
 
 Do not modify Registry keys during investigation before required evidence has been preserved and authorization has been established.
 
-### Step 6 — Validate Privilege Elevation
+### Step 6 - Validate Privilege Elevation
 
 Determine:
 
@@ -230,7 +228,7 @@ Determine:
 
 Determine whether elevated execution actually occurred and whether it was expected.
 
-### Step 7 — Determine UAC Bypass Scope
+### Step 7 - Determine UAC Bypass Scope
 
 Search the environment for:
 
@@ -252,7 +250,7 @@ Determine:
 - whether the behavior is isolated;
 - whether additional post-elevation activity occurred.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -332,7 +330,8 @@ Document:
 - evidence collected;
 - evidence unavailable;
 - telemetry limitations;
-- additional data required.
+- additional data required;
+- whether elevated token creation can be verified.
 
 ## Escalation
 
