@@ -3,10 +3,10 @@ id: "startup-folder"
 name: "Startup Folder Persistence"
 category: "persistence"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-14T17:49:00Z"
-updated_at: "2026-10-05T16:52:00Z"
+updated_at: "2026-11-13T13:09:00Z"
 description: "Windows Startup Folders can automatically launch programs when a user logs on and may be abused to establish persistence."
 objective: "Identify, investigate, and validate suspicious Startup Folder persistence and determine whether startup items are legitimate, suspicious, or malicious."
 severity: "high"
@@ -119,8 +119,6 @@ Do not treat the presence of a file in a Startup Folder as malicious by itself. 
 | --------- | ---------------------------------- | -------------------------------------------------------------------------------- |
 | T1547.001 | Registry Run Keys / Startup Folder | Relevant when a Startup Folder item is used to establish or maintain persistence |
 
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -158,7 +156,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Startup Folder Alert
+### Step 1 - Identify Startup Folder Alert
 
 Determine:
 
@@ -174,7 +172,7 @@ Determine:
 
 Preserve the original alert context before modifying or removing the startup item.
 
-### Step 2 — Identify the Startup Item
+### Step 2 - Identify the Startup Item
 
 Collect:
 
@@ -189,7 +187,7 @@ Collect:
 
 Determine whether the item belongs to known and approved software.
 
-### Step 3 — Review File Context
+### Step 3 - Review File Context
 
 Determine:
 
@@ -202,7 +200,7 @@ Determine:
 
 Correlate file creation with software installation, updates, administrative activity, or other expected changes.
 
-### Step 4 — Review Startup Payload
+### Step 4 - Review Startup Payload
 
 Review the executable, script, shortcut, or other startup item.
 
@@ -227,7 +225,7 @@ Pay particular attention to payloads stored in:
 
 A shortcut or script should be investigated based on its target and execution behavior rather than its file type alone.
 
-### Step 5 — Review Logon Execution
+### Step 5 - Review Logon Execution
 
 Correlate the startup item with:
 
@@ -239,7 +237,7 @@ Correlate the startup item with:
 
 Determine whether the startup item executed and whether it resulted in additional suspicious activity.
 
-### Step 6 — Review Network Activity
+### Step 6 - Review Network Activity
 
 Determine whether the startup payload or its child processes generated network activity.
 
@@ -254,7 +252,7 @@ Collect:
 
 Investigate unexpected communication with suspicious or unapproved infrastructure.
 
-### Step 7 — Determine Persistence Scope
+### Step 7 - Determine Persistence Scope
 
 Search the environment for:
 
@@ -274,7 +272,7 @@ Determine:
 - latest observed execution;
 - whether the startup item remains present.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -359,7 +357,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether the startup item's target exists.
+- whether execution after user logon is confirmed.
 
 ## Escalation
 
