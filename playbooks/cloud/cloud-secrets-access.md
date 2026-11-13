@@ -3,10 +3,10 @@ id: "cloud-secrets-access"
 name: "Cloud Secrets Access"
 category: "cloud"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-22T17:45:00Z"
-updated_at: "2026-10-22T17:45:00Z"
+updated_at: "2026-11-13T10:34:00Z"
 description: "Investigate suspicious or unauthorized access to cloud-based secrets management services and determine whether sensitive credentials may have been exposed."
 objective: "Identify unauthorized cloud secrets access, assess potential credential exposure, determine the affected identities and resources, and provide evidence for containment and remediation."
 severity: "high"
@@ -159,7 +159,7 @@ The investigation should use the available cloud audit and identity telemetry. T
 
 ## Investigation Procedure
 
-### Step 1 — Identify Cloud Secrets Access Alert
+### Step 1 - Identify Cloud Secrets Access Alert
 
 Collect the initial alert context:
 
@@ -180,7 +180,7 @@ Record the original event and preserve relevant identifiers before making change
 
 Determine whether the event represents an attempted access, a successful metadata operation, or a successful retrieval operation. These outcomes have different implications for potential credential exposure.
 
-### Step 2 — Identify Cloud Identity and Secret Store
+### Step 2 - Identify Cloud Identity and Secret Store
 
 Identify the affected secret management service and its associated resources.
 
@@ -201,7 +201,7 @@ Determine whether the accessing identity is expected to retrieve the secret and 
 
 Avoid retrieving secret values solely to establish their identity or ownership. Use resource metadata, access records, and approved inventory sources wherever possible.
 
-### Step 3 — Review Authentication and Session Context
+### Step 3 - Review Authentication and Session Context
 
 Determine how the accessing identity obtained its authentication context.
 
@@ -222,7 +222,7 @@ Assess whether the source, session, and role are consistent with the identity's 
 
 Pay particular attention to secret access following an unusual login, unexpected role assumption, newly created credential, or modification to the permissions of a user or workload.
 
-### Step 4 — Review Secret Retrieval Activity
+### Step 4 - Review Secret Retrieval Activity
 
 Examine available audit events associated with the affected secret and accessing identity.
 
@@ -242,7 +242,7 @@ Compare the events with documented application behavior, scheduled processes, de
 
 Do not classify access as malicious based solely on retrieval volume or time of day. Correlate these indicators with authorization, resource ownership, identity behavior, and additional evidence.
 
-### Step 5 — Assess Secret Sensitivity and Exposure
+### Step 5 - Assess Secret Sensitivity and Exposure
 
 Determine the potential impact of access to each affected secret.
 
@@ -263,7 +263,7 @@ Determine whether the audit evidence confirms successful retrieval or only indic
 
 Do not copy secret values into investigation tickets, chat messages, general-purpose logs, or reports. Access actual secret material only when explicitly authorized and necessary for the investigation, following approved evidence-handling procedures.
 
-### Step 6 — Correlate Related Cloud Activity
+### Step 6 - Correlate Related Cloud Activity
 
 Correlate the suspected access with surrounding identity and cloud activity.
 
@@ -284,7 +284,7 @@ Determine whether the secret access is an isolated event or part of a broader co
 
 Where relevant, coordinate with the owners of the affected applications, identities, and cloud resources to establish whether the observed access corresponds to an approved operational task.
 
-### Step 7 — Determine Exposure Scope
+### Step 7 - Determine Exposure Scope
 
 Establish the scope of potentially unauthorized access by searching the available audit records.
 
@@ -311,7 +311,7 @@ Determine:
 
 Document gaps in logging or visibility that prevent the scope from being established conclusively.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the observed activity as:
 
