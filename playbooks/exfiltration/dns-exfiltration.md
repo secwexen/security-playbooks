@@ -3,10 +3,10 @@ id: "dns-exfiltration"
 name: "DNS Exfiltration"
 category: "exfiltration"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-06T15:59:00Z"
-updated_at: "2026-10-06T16:07:00Z"
+updated_at: "2026-11-13T12:26:00Z"
 description: "DNS Exfiltration involves transferring collected data through DNS queries or responses to an external destination in order to bypass or reduce the effectiveness of conventional network controls."
 objective: "Identify, investigate, scope, and assess suspected DNS-based data exfiltration and determine whether unauthorized data transfer occurred."
 severity: "high"
@@ -146,7 +146,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify DNS Exfiltration Alert
+### Step 1 - Identify DNS Exfiltration Alert
 
 Determine:
 
@@ -162,7 +162,7 @@ Determine:
 
 Preserve the original DNS telemetry and alert context before making containment or remediation changes.
 
-### Step 2 — Review DNS Activity
+### Step 2 - Review DNS Activity
 
 Review:
 
@@ -184,7 +184,7 @@ Determine whether the activity is consistent with:
 - service discovery; or
 - potentially anomalous data transfer.
 
-### Step 3 — Analyze Query Structure
+### Step 3 - Analyze Query Structure
 
 Inspect queried hostnames for:
 
@@ -201,7 +201,7 @@ Assess whether the observed structure could reasonably represent transferred dat
 
 Do not classify encoded DNS labels as malicious solely because encoding is present. Some legitimate applications use encoded or structured identifiers.
 
-### Step 4 — Identify Source Process
+### Step 4 - Identify Source Process
 
 Correlate the DNS activity with endpoint telemetry.
 
@@ -227,7 +227,7 @@ Determine whether the generating process is:
 - an unsigned or unknown binary; or
 - associated with previously identified malicious activity.
 
-### Step 5 — Review Destination
+### Step 5 - Review Destination
 
 Assess the queried domain and associated infrastructure.
 
@@ -247,7 +247,7 @@ Review:
 
 Determine whether the destination is associated with legitimate business activity or suspicious infrastructure.
 
-### Step 6 — Correlate Related Activity
+### Step 6 - Correlate Related Activity
 
 Correlate the DNS activity with:
 
@@ -264,7 +264,7 @@ Correlate the DNS activity with:
 
 Review whether the DNS behavior forms part of a broader execution or exfiltration sequence.
 
-### Step 7 — Determine Exfiltration Scope
+### Step 7 - Determine Exfiltration Scope
 
 Search the environment for:
 
@@ -286,7 +286,7 @@ Determine:
 - duration of the activity;
 - estimated volume of transferred data where reliably measurable.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -370,7 +370,8 @@ Document:
 - evidence collected;
 - evidence unavailable;
 - telemetry limitations;
-- additional data required.
+- additional data required;
+- whether DNS query payloads can be decoded or their transferred content verified.
 
 ## Escalation
 
@@ -406,6 +407,7 @@ Do not delete DNS, endpoint, or network evidence before required evidence preser
 
 ## Related Playbooks
 
+- `playbooks/exfiltration/data-exfiltration.md`
 - `playbooks/command-and-control/dns-c2.md`
 - `playbooks/command-and-control/application-layer-protocol.md`
 - `playbooks/triage/data-exfiltration-triage.md`
