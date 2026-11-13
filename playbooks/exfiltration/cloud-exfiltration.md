@@ -3,10 +3,10 @@ id: "cloud-exfiltration"
 name: "Cloud Storage Exfiltration"
 category: "exfiltration"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-08T17:33:00Z"
-updated_at: "2026-10-08T17:33:00Z"
+updated_at: "2026-11-13T12:21:00Z"
 description: "Cloud storage exfiltration involves transferring data from an affected environment to an external or unauthorized cloud storage service."
 objective: "Identify, investigate, and scope suspicious transfers of sensitive or collected data to cloud storage services and determine whether unauthorized exfiltration occurred."
 severity: "high"
@@ -145,7 +145,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Exfiltration Alert
+### Step 1 - Identify Exfiltration Alert
 
 Determine:
 
@@ -161,7 +161,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Identify Cloud Storage Service
+### Step 2 - Identify Cloud Storage Service
 
 Determine:
 
@@ -176,7 +176,7 @@ Determine:
 
 Do not classify a cloud storage service as malicious solely because it is external. Evaluate whether its use is consistent with approved organizational activity.
 
-### Step 3 — Identify Source Context
+### Step 3 - Identify Source Context
 
 Determine:
 
@@ -193,7 +193,7 @@ Determine:
 
 Assess whether the initiating account, process, and host are expected to perform the observed transfer.
 
-### Step 4 — Review Data Access
+### Step 4 - Review Data Access
 
 Review activity immediately preceding the transfer.
 
@@ -213,7 +213,7 @@ Determine whether the accessed data contains confidential, regulated, proprietar
 
 Do not assume that all uploaded data was successfully exfiltrated. Confirm transfer activity using available endpoint, network, or cloud telemetry.
 
-### Step 5 — Review Upload Activity
+### Step 5 - Review Upload Activity
 
 Review:
 
@@ -238,7 +238,7 @@ Look for:
 - compressed archives followed by cloud uploads;
 - sensitive files transferred to unauthorized destinations.
 
-### Step 6 — Review Destination Context
+### Step 6 - Review Destination Context
 
 Determine whether the destination is:
 
@@ -261,7 +261,7 @@ Review available:
 
 Correlate the destination activity with the user's normal business role and approved workflows.
 
-### Step 7 — Determine Exfiltration Scope
+### Step 7 - Determine Exfiltration Scope
 
 Search the environment for:
 
@@ -287,7 +287,7 @@ Determine:
 - whether the activity remains active;
 - whether other users or systems were involved.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
