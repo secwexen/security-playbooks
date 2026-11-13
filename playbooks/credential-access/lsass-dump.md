@@ -3,10 +3,10 @@ id: "lsass-dump"
 name: "LSASS Credential Access"
 category: "credential-access"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-15T14:51:00Z"
-updated_at: "2026-10-05T17:10:00Z"
+updated_at: "2026-11-13T11:13:00Z"
 description: "LSASS credential access involves attempts to access the Local Security Authority Subsystem Service for authentication material."
 objective: "Identify, investigate, and validate suspicious access to LSASS and determine whether credential material may have been targeted or exposed."
 severity: "critical"
@@ -146,7 +146,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify LSASS Access Alert
+### Step 1 - Identify LSASS Access Alert
 
 Determine:
 
@@ -162,7 +162,7 @@ Determine:
 
 Preserve the original alert context before taking remediation actions.
 
-### Step 2 — Identify the Accessing Process
+### Step 2 - Identify the Accessing Process
 
 Collect:
 
@@ -179,7 +179,7 @@ Collect:
 
 Determine whether the process belongs to approved security software, administrative tooling, endpoint protection, or another legitimate workload.
 
-### Step 3 — Review Process Access Context
+### Step 3 - Review Process Access Context
 
 Review available process-access telemetry associated with `lsass.exe`.
 
@@ -193,7 +193,7 @@ Determine:
 
 A single access event should be evaluated in context rather than treated as conclusive evidence of credential theft.
 
-### Step 4 — Review Process Tree
+### Step 4 - Review Process Tree
 
 Correlate the accessing process with:
 
@@ -205,7 +205,7 @@ Correlate the accessing process with:
 
 Investigate unusual process chains, especially when LSASS access follows unexpected execution or suspicious user activity.
 
-### Step 5 — Review File and Network Activity
+### Step 5 - Review File and Network Activity
 
 Review activity associated with the accessing process, including:
 
@@ -219,7 +219,7 @@ Review activity associated with the accessing process, including:
 
 Determine whether the LSASS access was followed by additional suspicious behavior.
 
-### Step 6 — Assess Potential Credential Exposure
+### Step 6 - Assess Potential Credential Exposure
 
 Identify accounts that may have been present or active on the affected system.
 
@@ -233,7 +233,7 @@ Consider:
 
 Correlate the LSASS event with later authentication activity to identify possible credential misuse.
 
-### Step 7 — Determine LSASS Access Scope
+### Step 7 - Determine LSASS Access Scope
 
 Search the environment for:
 
@@ -253,7 +253,7 @@ Determine:
 - latest observed event;
 - whether suspicious activity is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -334,7 +334,10 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- affected hosts, initiating processes, and potentially exposed accounts identified so far;
+- unresolved process-access patterns and possible legitimate explanations requiring further investigation;
+- recommended follow-up actions, additional evidence sources, and monitoring requirements.
 
 ## Escalation
 
@@ -378,10 +381,6 @@ Do not perform credential extraction or attempt to reproduce credential theft on
 - `playbooks/credential-access/sam-dump.md`
 - `playbooks/credential-access/ntds-dump.md`
 - `playbooks/credential-access/dpapi-credential-access.md`
-- `playbooks/credential-access/credentials-from-password-stores.md`
-- `playbooks/credential-access/password-manager-credential-theft.md`
-- `playbooks/credential-access/browser-credential-theft.md`
-- `playbooks/credential-access/password-spraying.md`
 - `playbooks/triage/suspicious-process-triage.md`
 - `playbooks/triage/suspicious-login-triage.md`
 - `playbooks/response/credential-compromise-response.md`
