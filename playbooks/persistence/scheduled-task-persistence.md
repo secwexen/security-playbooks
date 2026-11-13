@@ -3,10 +3,10 @@ id: "scheduled-task-persistence"
 name: "Scheduled Task Persistence"
 category: "persistence"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-13T18:41:00Z"
-updated_at: "2026-10-05T16:51:00Z"
+updated_at: "2026-11-13T13:05:00Z"
 description: "Scheduled tasks can be configured to execute programs or scripts automatically and may be abused to maintain persistence on Windows systems."
 objective: "Identify, investigate, and validate suspicious scheduled task persistence and determine whether the task is legitimate, suspicious, or malicious."
 severity: "high"
@@ -105,8 +105,6 @@ The objective is to determine whether a scheduled task is legitimate, suspicious
 | --------- | ---------------------------------- | ---------------------------------------------------------------------------------------------- |
 | T1053.005 | Scheduled Task/Job: Scheduled Task | Relevant when Windows Task Scheduler is used to establish or maintain execution or persistence |
 
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -147,7 +145,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Scheduled Task Persistence Alert
+### Step 1 - Identify Scheduled Task Persistence Alert
 
 Determine:
 
@@ -163,7 +161,7 @@ Determine:
 
 Preserve the original alert context before making changes to the task.
 
-### Step 2 — Identify Scheduled Task
+### Step 2 - Identify Scheduled Task
 
 Collect:
 
@@ -178,7 +176,7 @@ Collect:
 
 Determine whether the task is known and expected on the affected system.
 
-### Step 3 — Review Task Lifecycle
+### Step 3 - Review Task Lifecycle
 
 Determine:
 
@@ -191,7 +189,7 @@ Determine:
 
 Look for unexpected creation or modification activity around the time of the alert.
 
-### Step 4 — Review Persistence Payload
+### Step 4 - Review Persistence Payload
 
 Review the task action, including:
 
@@ -211,7 +209,7 @@ Pay particular attention to payloads located in:
 - unusual application data paths;
 - locations not normally used by scheduled tasks.
 
-### Step 5 — Review Account and Privilege Context
+### Step 5 - Review Account and Privilege Context
 
 Determine:
 
@@ -223,7 +221,7 @@ Determine:
 
 An elevated task is not inherently malicious; assess it against normal administrative and application behavior.
 
-### Step 6 — Review Task Execution
+### Step 6 - Review Task Execution
 
 Correlate the task with:
 
@@ -237,7 +235,7 @@ Correlate the task with:
 
 Determine whether the task produced unexpected activity after execution.
 
-### Step 7 — Determine Persistence Scope
+### Step 7 - Determine Persistence Scope
 
 Search across the environment for:
 
@@ -258,7 +256,7 @@ Determine:
 - latest observed execution;
 - whether the task remains active.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -341,7 +339,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether task creation or modification was authorized;
+- whether the task payload executed successfully.
 
 ## Escalation
 
