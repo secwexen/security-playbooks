@@ -3,10 +3,10 @@ id: "data-exfiltration-response"
 name: "Data Exfiltration Response"
 category: "response"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-11-03T16:50:00Z"
-updated_at: "2026-11-03T16:50:00Z"
+updated_at: "2026-11-13T13:39:00Z"
 description: "Data exfiltration occurs when sensitive, confidential, or organizational data is transferred, copied, or removed from an authorized environment to an unauthorized destination or recipient."
 objective: "Identify, investigate, contain, and remediate confirmed or suspected data exfiltration and determine the scope, sensitivity, destination, and potential impact of unauthorized data transfers."
 severity: "critical"
@@ -170,7 +170,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Data Exfiltration Alert
+### Step 1 - Identify Data Exfiltration Alert
 
 Determine:
 
@@ -190,7 +190,7 @@ Determine:
 
 Preserve the original alert context and relevant endpoint, network, and application telemetry before containment actions are performed.
 
-### Step 2 — Validate Transfer Activity
+### Step 2 - Validate Transfer Activity
 
 Determine whether the observed data access and transfer activity is consistent with authorized business operations.
 
@@ -212,7 +212,7 @@ A large outbound transfer should not automatically be classified as malicious da
 
 Correlate network activity with file access, application logs, user behavior, and organizational data-transfer policies before assigning the final classification.
 
-### Step 3 — Review Data Access Events
+### Step 3 - Review Data Access Events
 
 Review:
 
@@ -242,7 +242,7 @@ Determine:
 
 Construct a timeline covering the period immediately before and after the suspected exfiltration.
 
-### Step 4 — Review Exfiltration Activity
+### Step 4 - Review Exfiltration Activity
 
 Correlate suspicious data access with:
 
@@ -278,7 +278,7 @@ MITRE ATT&CK identifies command-and-control channels, alternative protocols, and
 
 Determine whether the observed transfer represents an actual unauthorized data movement event or only an attempted transfer.
 
-### Step 5 — Determine Exfiltration Scope
+### Step 5 - Determine Exfiltration Scope
 
 Search the environment for:
 
@@ -314,7 +314,7 @@ Determine:
 
 Distinguish between data that was accessed, staged, transmitted, and confirmed as received by an unauthorized destination.
 
-### Step 6 — Contain Data Exfiltration
+### Step 6 - Contain Data Exfiltration
 
 Based on incident severity and organizational procedures, consider:
 
@@ -335,7 +335,7 @@ Containment actions should be coordinated with network, identity, cloud, and inc
 
 Avoid indiscriminate network blocking that could disrupt critical business operations or destroy visibility into ongoing malicious activity.
 
-### Step 7 — Eradicate and Recover
+### Step 7 - Eradicate and Recover
 
 Determine and address the likely source of data exfiltration.
 
@@ -370,7 +370,7 @@ Restore affected resources to a trusted state and verify:
 
 Where external data exposure is confirmed, coordinate additional notification, legal, privacy, regulatory, and contractual assessments according to organizational requirements.
 
-### Step 8 — Determine Response Outcome
+### Step 8 - Determine Response Outcome
 
 Classify the incident as:
 
