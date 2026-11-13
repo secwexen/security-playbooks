@@ -3,10 +3,10 @@ id: "service-permission-abuse"
 name: "Service Permission Abuse"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-20T18:33:00Z"
-updated_at: "2026-10-05T16:54:00Z"
+updated_at: "2026-11-13T13:19:00Z"
 description: "Weak permissions on Windows service files or registry configuration may allow unauthorized modification of service execution behavior and privilege escalation."
 objective: "Identify, investigate, and validate suspicious abuse of weak Windows service permissions and determine whether the activity enabled unauthorized privilege escalation."
 severity: "high"
@@ -130,12 +130,6 @@ The investigation should focus on the **permission context, modifying account, a
 | T1574.010 | Hijack Execution Flow: Services File Permissions Weakness     | Relevant when weak permissions allow modification of a service executable or related file |
 | T1574.011 | Hijack Execution Flow: Services Registry Permissions Weakness | Relevant when weak Registry permissions allow modification of service configuration       |
 
-MITRE identifies both techniques as execution-flow hijacking mechanisms that can result in malicious code executing with the privileges of the affected service.
-
-Windows Service activity itself is tracked separately under **T1543.003**, which covers creation or modification of Windows services and can also contribute to privilege escalation.
-
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -177,7 +171,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Service Permission Alert
+### Step 1 - Identify Service Permission Alert
 
 Determine:
 
@@ -193,7 +187,7 @@ Determine:
 
 Preserve the original alert context before taking remediation actions.
 
-### Step 2 — Identify Target Service
+### Step 2 - Identify Target Service
 
 Determine:
 
@@ -208,7 +202,7 @@ Determine:
 
 Document the normal service configuration before making changes.
 
-### Step 3 — Review Service Permissions
+### Step 3 - Review Service Permissions
 
 Review:
 
@@ -222,7 +216,7 @@ Review:
 
 Determine whether the modifying account had legitimate permission to change the affected resource.
 
-### Step 4 — Review Process Context
+### Step 4 - Review Process Context
 
 Review:
 
@@ -245,7 +239,7 @@ Determine whether the modifying process is associated with:
 - security tooling;
 - an unknown or suspicious executable.
 
-### Step 5 — Review Follow-on Execution
+### Step 5 - Review Follow-on Execution
 
 Determine whether the affected service was:
 
@@ -266,7 +260,7 @@ Review the resulting process and determine:
 
 Pay particular attention to processes executing under a higher-privileged service context after an unexpected modification.
 
-### Step 6 — Assess Privilege Impact
+### Step 6 - Assess Privilege Impact
 
 Determine:
 
@@ -283,7 +277,7 @@ Correlate the event with:
 - lateral movement;
 - suspicious network activity.
 
-### Step 7 — Determine Service Abuse Scope
+### Step 7 - Determine Service Abuse Scope
 
 Search the environment for:
 
@@ -305,7 +299,7 @@ Determine:
 - latest observed activity;
 - whether suspicious activity is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -388,7 +382,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether permission changes were authorized;
+- whether modified service files were executed.
 
 ## Escalation
 
