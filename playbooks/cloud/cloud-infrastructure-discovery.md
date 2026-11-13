@@ -3,10 +3,10 @@ id: "cloud-infrastructure-discovery"
 name: "Cloud Infrastructure Discovery"
 category: "cloud"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-21T17:16:00Z"
-updated_at: "2026-10-21T17:16:00Z"
+updated_at: "2026-11-13T10:33:00Z"
 description: "Investigate suspicious enumeration of cloud infrastructure resources, including virtual machines, disks, snapshots, storage services, databases, and network components across cloud environments."
 objective: "Determine whether cloud infrastructure discovery is authorized, identify the identities and resources involved, establish the scope of suspicious enumeration, and identify potential follow-on malicious activity."
 severity: "medium"
@@ -158,7 +158,7 @@ Do not assume that a read-only API operation is harmless. Resource metadata can 
 
 ## Investigation Procedure
 
-### Step 1 — Identify Infrastructure Discovery Alert
+### Step 1 - Identify Infrastructure Discovery Alert
 
 Identify the source and context of the alert.
 
@@ -176,7 +176,7 @@ Collect:
 - detection severity and reason;
 - associated authentication or security alerts.
 
-### Step 2 — Identify Enumerated Resource Types
+### Step 2 - Identify Enumerated Resource Types
 
 Determine which cloud infrastructure resources were accessed or enumerated.
 
@@ -190,7 +190,7 @@ Determine which cloud infrastructure resources were accessed or enumerated.
 - Relevant API operation names and resource identifiers.
 - The cloud provider and affected environment.
 
-### Step 3 — Review Identity and Access Context
+### Step 3 - Review Identity and Access Context
 
 Identify the identity responsible for the observed activity.
 
@@ -207,7 +207,7 @@ Determine:
 - whether multifactor authentication or applicable access policies were satisfied;
 - whether the identity has recently exhibited suspicious behavior.
 
-### Step 4 — Analyze Discovery Pattern
+### Step 4 - Analyze Discovery Pattern
 
 Assess how resource enumeration was performed.
 
@@ -232,7 +232,7 @@ Look for patterns such as:
 - enumeration immediately following an unusual authentication event;
 - discovery followed by activity directed at specific high-value resources.
 
-### Step 5 — Review Cloud Audit Events
+### Step 5 - Review Cloud Audit Events
 
 Review cloud audit logs to identify who performed the discovery operations, when they occurred, and which resources were involved.
 
@@ -245,7 +245,7 @@ Review cloud audit logs to identify who performed the discovery operations, when
 - Correlate discovery events with authentication activity and subsequent resource changes.
 - Verify audit logging coverage and document missing or incomplete records.
 
-### Step 6 — Correlate Follow-on Activity
+### Step 6 - Correlate Follow-on Activity
 
 Determine whether the discovery activity was followed by additional actions that may indicate an attack.
 
@@ -265,7 +265,7 @@ Correlate the timeline with:
 - unusual data transfer or exfiltration alerts;
 - other suspicious cloud API activity.
 
-### Step 7 — Determine Discovery Scope
+### Step 7 - Determine Discovery Scope
 
 Establish the known and potential scope of the activity.
 
@@ -286,7 +286,7 @@ Determine:
 - whether the activity is ongoing;
 - which relevant logs or evidence remain unavailable.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the observed activity using the available evidence.
 
