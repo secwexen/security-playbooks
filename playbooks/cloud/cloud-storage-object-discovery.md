@@ -3,10 +3,10 @@ id: "cloud-storage-object-discovery"
 name: "Cloud Storage Object Discovery"
 category: "cloud"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-25T14:25:00Z"
-updated_at: "2026-10-25T14:26:00Z"
+updated_at: "2026-11-13T10:38:00Z"
 description: "Investigate suspicious enumeration of cloud storage objects and determine whether the activity represents legitimate administration, unauthorized reconnaissance, or part of a broader security incident."
 objective: "Identify the cloud identity, storage resources, enumeration activity, and associated access patterns; determine the scope of the discovery activity; and establish whether escalation or incident response is required."
 severity: "medium"
@@ -152,7 +152,7 @@ The investigation should distinguish object enumeration from subsequent object r
 
 ## Investigation Procedure
 
-### Step 1 — Identify Cloud Storage Discovery Alert
+### Step 1 - Identify Cloud Storage Discovery Alert
 
 Collect:
 
@@ -171,7 +171,7 @@ Establish the time range surrounding the initial activity.
 
 Preserve the original alert and associated audit records before taking response actions.
 
-### Step 2 — Identify Cloud Identity and Session
+### Step 2 - Identify Cloud Identity and Session
 
 Determine which identity initiated the observed requests.
 
@@ -196,7 +196,7 @@ Review whether the activity originated from a known administrative workflow, app
 
 An unfamiliar identity or unusual source address should increase investigation priority but does not independently confirm compromise.
 
-### Step 3 — Review Enumeration API Activity
+### Step 3 - Review Enumeration API Activity
 
 Review provider audit logs for object-enumeration operations.
 
@@ -222,7 +222,7 @@ Determine whether the request pattern is consistent with documented administrati
 
 Object enumeration may be legitimate even when the request volume is high. Assess the observed pattern against the identity's role, expected workload, and historical activity.
 
-### Step 4 — Review Storage Resources and Object Scope
+### Step 4 - Review Storage Resources and Object Scope
 
 Determine which storage resources and object namespaces were enumerated.
 
@@ -242,7 +242,7 @@ Establish whether the identity was authorized to enumerate the affected resource
 
 Assess the potential sensitivity of the discovered objects without assuming that listing an object confirms that its contents were accessed.
 
-### Step 5 — Correlate Authentication and Permission Changes
+### Step 5 - Correlate Authentication and Permission Changes
 
 Correlate the enumeration activity with identity and access-management events.
 
@@ -263,7 +263,7 @@ Determine whether the identity's permissions or authentication context changed s
 
 A permission change or unusual login is supporting evidence only. Establish its relationship to the storage enumeration before classifying the incident.
 
-### Step 6 — Review Follow-on Object Access
+### Step 6 - Review Follow-on Object Access
 
 Determine whether the enumeration was followed by additional storage operations.
 
@@ -285,7 +285,7 @@ Distinguish the ability to enumerate objects from evidence that their contents w
 
 If unauthorized object access or suspected data transfer is identified, escalate to the appropriate investigation and response workflows.
 
-### Step 7 — Determine Discovery Scope
+### Step 7 - Determine Discovery Scope
 
 Search available cloud audit records for the same:
 
@@ -310,7 +310,7 @@ Determine:
 
 Document logging gaps that prevent reliable determination of the full scope.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
