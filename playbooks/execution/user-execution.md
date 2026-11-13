@@ -3,10 +3,10 @@ id: "user-execution"
 name: "User Execution"
 category: "execution"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-10T17:23:00Z"
-updated_at: "2026-10-05T17:06:00Z"
+updated_at: "2026-11-13T12:09:00Z"
 description: "User Execution involves adversaries relying on users to execute malicious files, links, scripts, or other content to initiate or continue malicious activity."
 objective: "Identify, investigate, and validate suspicious user-driven execution and determine whether user interaction resulted in unauthorized code execution or further compromise."
 severity: "high"
@@ -144,7 +144,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify User Execution Alert
+### Step 1 - Identify User Execution Alert
 
 Determine:
 
@@ -158,7 +158,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Identify User Action
+### Step 2 - Identify User Action
 
 Determine exactly what the user did.
 
@@ -173,7 +173,7 @@ Examples include:
 
 Establish the first known user interaction and its timestamp.
 
-### Step 3 — Review Source Content
+### Step 3 - Review Source Content
 
 Review the content that prompted the action.
 
@@ -190,7 +190,7 @@ Collect:
 
 Assess whether the content was expected and whether it contains suspicious characteristics.
 
-### Step 4 — Review Process Activity
+### Step 4 - Review Process Activity
 
 Review:
 
@@ -211,7 +211,7 @@ Pay particular attention to unexpected processes launched by:
 - document readers;
 - other user-facing applications.
 
-### Step 5 — Review File and Network Activity
+### Step 5 - Review File and Network Activity
 
 Review:
 
@@ -225,7 +225,7 @@ Review:
 
 Correlate network and file activity with the user's execution timestamp.
 
-### Step 6 — Review Follow-on Activity
+### Step 6 - Review Follow-on Activity
 
 Search for:
 
@@ -239,7 +239,7 @@ Search for:
 
 Determine whether user execution was an isolated event or the beginning of a broader attack chain.
 
-### Step 7 — Determine Execution Scope
+### Step 7 - Determine Execution Scope
 
 Search across the environment for:
 
@@ -259,7 +259,7 @@ Determine:
 - latest observed execution;
 - whether execution is still active.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -340,7 +340,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether the user's interaction with the file, link, or attachment can be verified;
+- whether the resulting execution chain can be linked to the original user action.
 
 ## Escalation
 
