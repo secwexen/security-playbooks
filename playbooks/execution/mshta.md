@@ -3,10 +3,10 @@ id: "mshta"
 name: "Mshta"
 category: "execution"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-13T14:58:00Z"
-updated_at: "2026-10-05T17:03:00Z"
+updated_at: "2026-11-13T11:47:00Z"
 description: "Mshta.exe is a Windows utility that can execute HTML Applications (HTA) and may be abused to execute scripts or other malicious content."
 objective: "Identify, investigate, and validate suspicious mshta.exe execution and determine whether the activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -144,7 +144,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Mshta Alert
+### Step 1 - Identify Mshta Alert
 
 Determine:
 
@@ -159,7 +159,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Review Mshta Command Line
+### Step 2 - Review Mshta Command Line
 
 Review the complete command line, including:
 
@@ -178,7 +178,7 @@ Pay particular attention to:
 - commands that execute other interpreters;
 - content hosted outside approved infrastructure.
 
-### Step 3 — Review Parent Process
+### Step 3 - Review Parent Process
 
 Determine which process launched `mshta.exe`.
 
@@ -193,7 +193,7 @@ Investigate unusual parent processes such as:
 
 Assess the relationship in context. Administrative or application workflows may legitimately invoke mshta in some environments.
 
-### Step 4 — Review HTA or Script Content
+### Step 4 - Review HTA or Script Content
 
 Where content is available, review:
 
@@ -219,7 +219,7 @@ Look for:
 
 Do not execute unknown HTA or script content on production systems.
 
-### Step 5 — Review Child Processes
+### Step 5 - Review Child Processes
 
 Review:
 
@@ -239,7 +239,7 @@ Pay particular attention to `mshta.exe` spawning:
 
 Correlate child-process activity with the original mshta execution.
 
-### Step 6 — Review Network Activity
+### Step 6 - Review Network Activity
 
 Determine whether `mshta.exe` or its child processes generated network activity.
 
@@ -255,7 +255,7 @@ Collect:
 
 Investigate unexpected communication with suspicious or unapproved infrastructure.
 
-### Step 7 — Determine Mshta Activity Scope
+### Step 7 - Determine Mshta Activity Scope
 
 Search the environment for:
 
@@ -275,7 +275,7 @@ Determine:
 - latest observed execution;
 - whether execution is still active.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -357,7 +357,10 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether the HTA file and remote URL are verified;
+- whether the parent process and execution chain are legitimate;
+- whether child processes and remote content retrieval are correlated with the event.
 
 ## Escalation
 
@@ -398,10 +401,6 @@ Do not delete or modify relevant HTA files, scripts, logs, or other evidence bef
 - `playbooks/execution/user-execution.md`
 - `playbooks/execution/powershell.md`
 - `playbooks/execution/command-shell.md`
-- `playbooks/execution/python-execution.md`
-- `playbooks/execution/wmi-execution.md`
-- `playbooks/execution/scheduled-task-execution.md`
-- `playbooks/defense-evasion/obfuscated-powershell.md`
 - `playbooks/response/malware-response.md`
 - `playbooks/response/isolate-host-response.md`
 
