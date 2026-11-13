@@ -3,10 +3,10 @@ id: "asrep-roasting"
 name: "AS-REP Roasting"
 category: "credential-access"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-17T20:17:00Z"
-updated_at: "2026-10-05T17:07:00Z"
+updated_at: "2026-11-13T10:48:00Z"
 description: "AS-REP Roasting targets Active Directory accounts that do not require Kerberos pre-authentication and may expose material that can be subjected to offline credential-recovery attempts."
 objective: "Identify, investigate, and validate suspicious AS-REP activity and determine whether domain accounts may have been targeted or exposed."
 severity: "high"
@@ -155,7 +155,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify AS-REP Roasting Alert
+### Step 1 - Identify AS-REP Roasting Alert
 
 Determine:
 
@@ -172,7 +172,7 @@ Determine:
 
 Preserve the original alert context before taking response actions.
 
-### Step 2 — Identify Target Accounts
+### Step 2 - Identify Target Accounts
 
 For each targeted account, determine:
 
@@ -188,7 +188,7 @@ For each targeted account, determine:
 
 Pay particular attention to privileged or high-value domain accounts.
 
-### Step 3 — Review Source Context
+### Step 3 - Review Source Context
 
 Review:
 
@@ -202,7 +202,7 @@ Review:
 
 Determine whether the source normally performs administrative, application, or authentication-related activities.
 
-### Step 4 — Review Authentication Pattern
+### Step 4 - Review Authentication Pattern
 
 Review:
 
@@ -215,7 +215,7 @@ Review:
 
 Look for patterns that differ from the normal behavior of the initiating account or host.
 
-### Step 5 — Review Account Risk
+### Step 5 - Review Account Risk
 
 For targeted accounts, determine:
 
@@ -230,7 +230,7 @@ For targeted accounts, determine:
 
 Prioritize accounts with elevated access or broad domain privileges.
 
-### Step 6 — Review Follow-on Activity
+### Step 6 - Review Follow-on Activity
 
 Correlate the AS-REP activity with:
 
@@ -245,7 +245,7 @@ Correlate the AS-REP activity with:
 
 Pay particular attention to suspicious authentication involving targeted accounts after the AS-REP activity.
 
-### Step 7 — Determine AS-REP Activity Scope
+### Step 7 - Determine AS-REP Activity Scope
 
 Search the environment for:
 
@@ -266,7 +266,7 @@ Determine:
 - latest observed activity;
 - whether suspicious activity is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -386,26 +386,15 @@ Do not attempt to recover real account credentials during routine investigation 
 
 ## Related Playbooks
 
-- `playbooks/credential-access/credential-dumping.md`
-- `playbooks/credential-access/lsass-dump.md`
-- `playbooks/credential-access/ntds-dump.md`
-- `playbooks/credential-access/sam-dump.md`
 - `playbooks/credential-access/kerberoasting.md`
 - `playbooks/credential-access/password-spraying.md`
-- `playbooks/credential-access/credential-access.md`
+- `playbooks/credential-access/credential-dumping.md`
 - `playbooks/initial-access/valid-account-compromise.md`
 - `playbooks/lateral-movement/pass-the-ticket.md`
-- `playbooks/lateral-movement/pass-the-hash.md`
 - `playbooks/lateral-movement/rdp-lateral-movement.md`
-- `playbooks/lateral-movement/smb-lateral-movement.md`
-- `playbooks/lateral-movement/winrm-lateral-movement.md`
-- `playbooks/lateral-movement/wmi-lateral-movement.md`
-- `playbooks/triage/suspicious-login-triage.md`
-- `playbooks/triage/lateral-movement-triage.md`
 - `playbooks/response/account-compromise-response.md`
 - `playbooks/response/credential-compromise-response.md`
-- `playbooks/response/lateral-movement-response.md`
-- `playbooks/response/isolate-host-response.md`
+- `playbooks/triage/suspicious-login-triage.md`
 
 ## Validation
 
