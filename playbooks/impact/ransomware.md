@@ -3,10 +3,10 @@ id: "ransomware"
 name: "Ransomware"
 category: "impact"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-10-01T18:59:00Z"
-updated_at: "2026-11-05T15:18:00Z"
+updated_at: "2026-11-13T12:36:00Z"
 description: "Investigate suspected ransomware activity involving unauthorized data encryption and determine the affected scope, operational impact, and required response actions."
 objective: "Identify, investigate, contain, and scope ransomware activity while preserving evidence and supporting coordinated incident response."
 severity: "critical"
@@ -149,7 +149,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Ransomware Alert
+### Step 1 - Identify Ransomware Alert
 
 Identify the original ransomware detection and determine:
 
@@ -166,7 +166,7 @@ Preserve the original alert context and relevant telemetry before modifying affe
 
 Determine whether the alert originated from endpoint security, file monitoring, SIEM correlation, threat hunting, or another detection source.
 
-### Step 2 — Identify Affected Host
+### Step 2 - Identify Affected Host
 
 Identify all potentially affected systems and determine:
 
@@ -190,7 +190,7 @@ Determine whether the affected system contains:
 
 Identify dependencies between affected systems and prioritize assets according to organizational incident-response procedures and business impact.
 
-### Step 3 — Identify Encryption Activity
+### Step 3 - Identify Encryption Activity
 
 Review:
 
@@ -223,7 +223,7 @@ Determine:
 
 High-volume file modification alone does not establish ransomware activity. Correlate file activity with process, user, host, and artifact context.
 
-### Step 4 — Review Execution Context
+### Step 4 - Review Execution Context
 
 Review the encryption-related process:
 
@@ -253,7 +253,7 @@ Determine whether the execution was associated with a legitimate application, au
 
 Do not execute suspected ransomware binaries for analysis on production systems.
 
-### Step 5 — Review Ransomware Artifacts
+### Step 5 - Review Ransomware Artifacts
 
 Collect and review:
 
@@ -271,13 +271,9 @@ Collect and review:
 
 Determine whether the artifacts are associated with known ransomware activity or another confirmed malicious source.
 
-Preserve representative encrypted files and ransom-note samples where permitted by evidence-preservation procedures.
-
-Correlate artifacts across affected systems to determine whether the same ransomware activity is present elsewhere.
-
 Do not treat an isolated ransom note or suspicious file extension as definitive proof of ransomware without supporting evidence.
 
-### Step 6 — Assess Recovery and Backup Impact
+### Step 6 - Assess Recovery and Backup Impact
 
 Determine whether:
 
@@ -304,7 +300,7 @@ Determine whether recovery resources remain trustworthy and usable.
 
 Do not modify or delete backup evidence during investigation unless authorized containment or recovery procedures require it.
 
-### Step 7 — Determine Ransomware Scope
+### Step 7 - Determine Ransomware Scope
 
 Search the environment for:
 
@@ -340,7 +336,7 @@ Determine:
 
 Document the affected assets and any investigation limitations that prevent the complete scope from being established.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the ransomware activity as:
 
