@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-09T20:50:00Z"
-updated_at: "2026-11-13T12:06:00Z"
+updated_at: "2026-11-13T12:12:00Z"
 description: "Scripting enables adversaries to execute commands and code through scripting engines and interpreters available on a system."
 objective: "Identify, investigate, and validate suspicious scripting activity and determine whether script execution is associated with unauthorized or malicious behavior."
 severity: "high"
@@ -101,8 +101,6 @@ The objective is to determine whether script execution is legitimate, suspicious
 | Technique | Name                              | Relevance                                                                 |
 | --------- | --------------------------------- | ------------------------------------------------------------------------- |
 | T1059     | Command and Scripting Interpreter | Relevant when scripting interpreters are used to execute commands or code |
-
-Additional T1059 sub-techniques should only be mapped when supported by the observed interpreter and execution behavior.
 
 ## Trigger Conditions
 
