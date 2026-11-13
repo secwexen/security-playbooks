@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-10T17:23:00Z"
-updated_at: "2026-11-13T12:09:00Z"
+updated_at: "2026-11-13T12:12:00Z"
 description: "User Execution involves adversaries relying on users to execute malicious files, links, scripts, or other content to initiate or continue malicious activity."
 objective: "Identify, investigate, and validate suspicious user-driven execution and determine whether user interaction resulted in unauthorized code execution or further compromise."
 severity: "high"
@@ -102,8 +102,6 @@ The objective is to determine whether user interaction resulted in malicious exe
 | Technique | Name           | Relevance                                                                |
 | --------- | -------------- | ------------------------------------------------------------------------ |
 | T1204     | User Execution | Relevant when an adversary relies on a user to execute malicious content |
-
-Additional T1204 sub-techniques should only be mapped when supported by the observed user-execution behavior.
 
 ## Trigger Conditions
 
