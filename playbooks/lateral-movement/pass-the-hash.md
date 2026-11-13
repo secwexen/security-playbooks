@@ -3,10 +3,10 @@ id: "pass-the-hash"
 name: "Pass the Hash"
 category: "lateral-movement"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-10T06:23:00Z"
-updated_at: "2026-10-10T06:23:00Z"
+updated_at: "2026-11-13T12:51:00Z"
 description: "Investigate suspected pass-the-hash activity involving the unauthorized use of captured password hashes to authenticate to remote Windows systems."
 objective: "Determine whether suspicious authentication and remote access activity indicate pass-the-hash, identify affected accounts and systems, establish the extent of lateral movement, and support appropriate incident response."
 severity: "high"
@@ -149,7 +149,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Pass-the-Hash Alert
+### Step 1 - Identify Pass-the-Hash Alert
 
 Review the original alert and preserve its context.
 
@@ -169,7 +169,7 @@ Determine which indicators triggered the investigation and whether they are suff
 
 Do not classify the activity as pass-the-hash solely because NTLM authentication was observed.
 
-### Step 2 — Identify Source and Destination
+### Step 2 - Identify Source and Destination
 
 Identify the system originating the authentication and the system receiving it.
 
@@ -187,7 +187,7 @@ Determine whether the observed connection is consistent with documented administ
 
 Investigate unexpected source-to-destination relationships and access to systems that the account does not normally use.
 
-### Step 3 — Review Authentication Activity
+### Step 3 - Review Authentication Activity
 
 Examine the authentication sequence on the destination system and, where available, the relevant domain controllers and identity infrastructure.
 
@@ -214,7 +214,7 @@ Pay particular attention to unusual network logons, especially when the authenti
 
 Event 4768 and Kerberos-related activity should be interpreted in context. They may help establish the wider authentication sequence but do not independently confirm pass-the-hash.
 
-### Step 4 — Review Account and Credential Context
+### Step 4 - Review Account and Credential Context
 
 Determine whether the account's observed behavior is consistent with its normal use.
 
@@ -234,7 +234,7 @@ Assess whether the account has privileges that could enable access to additional
 
 A privileged account or an NTLM authentication event alone does not demonstrate credential theft. Look for corroborating evidence of unauthorized credential use.
 
-### Step 5 — Review Remote Execution Activity
+### Step 5 - Review Remote Execution Activity
 
 Review activity on the destination host following the suspicious authentication.
 
@@ -256,7 +256,7 @@ Determine whether remote activity is consistent with authorized administration o
 
 Do not execute suspicious binaries or modify affected systems merely to reproduce the observed behavior.
 
-### Step 6 — Correlate Related Events
+### Step 6 - Correlate Related Events
 
 Build a timeline combining authentication, process, network, and endpoint activity.
 
@@ -275,7 +275,7 @@ Where available, compare the observed behavior with established administrative a
 
 Determine whether the evidence supports suspected pass-the-hash, another authentication-related technique, legitimate administration, or an alternative explanation.
 
-### Step 7 — Determine Lateral Movement Scope
+### Step 7 - Determine Lateral Movement Scope
 
 Search the environment for related activity involving:
 
@@ -300,7 +300,7 @@ Establish:
 
 Document gaps in telemetry and distinguish confirmed affected systems from systems requiring further investigation.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
