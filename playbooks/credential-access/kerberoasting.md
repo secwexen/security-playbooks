@@ -3,10 +3,10 @@ id: "kerberoasting"
 name: "Kerberoasting"
 category: "credential-access"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-16T18:45:00Z"
-updated_at: "2026-10-05T17:09:00Z"
+updated_at: "2026-11-13T11:09:00Z"
 description: "Kerberoasting involves requesting Kerberos service tickets for service accounts and attempting to recover account credentials from the captured ticket material."
 objective: "Identify, investigate, and validate suspicious Kerberoasting activity and determine whether service-account credentials may have been targeted or exposed."
 severity: "high"
@@ -158,7 +158,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Kerberoasting Alert
+### Step 1 - Identify Kerberoasting Alert
 
 Determine:
 
@@ -176,7 +176,7 @@ Determine:
 
 Preserve the original alert context before taking response actions.
 
-### Step 2 — Identify Service Ticket Activity
+### Step 2 - Identify Service Ticket Activity
 
 Determine:
 
@@ -190,7 +190,7 @@ Determine:
 
 Look for patterns that differ from the normal behavior of the initiating account or host.
 
-### Step 3 — Review Source Context
+### Step 3 - Review Source Context
 
 Review:
 
@@ -203,7 +203,7 @@ Review:
 
 Determine whether the source account or system normally performs administrative, application, or service-related authentication.
 
-### Step 4 — Review Service Account Context
+### Step 4 - Review Service Account Context
 
 For each targeted service account, determine:
 
@@ -219,7 +219,7 @@ For each targeted service account, determine:
 
 Prioritize service accounts with elevated privileges or access to sensitive systems for further investigation.
 
-### Step 5 — Review Authentication Activity
+### Step 5 - Review Authentication Activity
 
 Correlate service-ticket requests with:
 
@@ -232,7 +232,7 @@ Correlate service-ticket requests with:
 
 Determine whether the activity is part of an expected application or administrative workflow.
 
-### Step 6 — Review Follow-on Activity
+### Step 6 - Review Follow-on Activity
 
 Investigate activity occurring after the suspicious ticket requests, including:
 
@@ -246,7 +246,7 @@ Investigate activity occurring after the suspicious ticket requests, including:
 
 A suspicious ticket-request pattern combined with later account misuse should be treated as a higher-priority investigation.
 
-### Step 7 — Determine Kerberoasting Scope
+### Step 7 - Determine Kerberoasting Scope
 
 Search the environment for:
 
@@ -267,7 +267,7 @@ Determine:
 - latest observed activity;
 - whether activity is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -349,7 +349,10 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- identified source hosts, initiating accounts, targeted service accounts, and SPNs;
+- unresolved authentication patterns and alternative explanations requiring further investigation;
+- recommended follow-up actions and additional evidence needed to reach a conclusive assessment.
 
 ## Escalation
 
@@ -386,17 +389,8 @@ Do not attempt to recover real service-account passwords during routine investig
 
 ## Related Playbooks
 
-- `playbooks/credential-access/credential-dumping.md`
-- `playbooks/credential-access/ntds-dump.md`
-- `playbooks/credential-access/lsass-dump.md`
 - `playbooks/credential-access/asrep-roasting.md`
-- `playbooks/credential-access/password-spraying.md`
-- `playbooks/credential-access/credential-access.md`
 - `playbooks/lateral-movement/pass-the-ticket.md`
-- `playbooks/lateral-movement/pass-the-hash.md`
-- `playbooks/lateral-movement/wmi-lateral-movement.md`
-- `playbooks/lateral-movement/smb-lateral-movement.md`
-- `playbooks/privilege-escalation/token-manipulation.md`
 - `playbooks/triage/suspicious-login-triage.md`
 - `playbooks/triage/lateral-movement-triage.md`
 - `playbooks/response/credential-compromise-response.md`
@@ -420,7 +414,6 @@ Validation should confirm that:
 - escalation criteria produce consistent outcomes.
 
 Validation should use synthetic accounts, sanitized telemetry, and isolated laboratory environments.
-
 ## Safety
 
 This playbook is intended for defensive security operations, security validation, controlled laboratory environments, and authorized testing only.
