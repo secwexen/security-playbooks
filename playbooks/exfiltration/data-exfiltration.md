@@ -3,10 +3,10 @@ id: "data-exfiltration"
 name: "Data Exfiltration"
 category: "exfiltration"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-05T16:42:00Z"
-updated_at: "2026-10-06T16:29:00Z"
+updated_at: "2026-11-13T12:23:00Z"
 description: "Investigate suspected unauthorized transfer of data from an affected environment to an external or attacker-controlled destination."
 objective: "Determine whether data was exfiltrated, identify the transferred data and transfer mechanism, establish the affected scope, and support appropriate containment and response actions."
 severity: "high"
@@ -176,7 +176,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Exfiltration Alert
+### Step 1 - Identify Exfiltration Alert
 
 Determine:
 
@@ -192,7 +192,7 @@ Determine:
 
 Preserve the original alert context before making containment or remediation changes.
 
-### Step 2 — Identify Transferred Data
+### Step 2 - Identify Transferred Data
 
 Determine what information may have been transferred.
 
@@ -212,7 +212,7 @@ Determine the sensitivity and business ownership of the potentially transferred 
 
 Do not assume that all accessed files were successfully exfiltrated.
 
-### Step 3 — Review Transfer Activity
+### Step 3 - Review Transfer Activity
 
 Review:
 
@@ -233,7 +233,7 @@ Compare the observed traffic with normal activity for the host, account, process
 
 Unexpected outbound volume following access to sensitive files should receive increased investigative priority. Detection guidance for `T1041` specifically considers anomalous outbound traffic associated with preceding file or data access.
 
-### Step 4 — Review Source Context
+### Step 4 - Review Source Context
 
 Review the source endpoint and associated activity.
 
@@ -255,7 +255,7 @@ Determine whether collection or staging occurred before the transfer.
 
 Data staging may be used to consolidate data before exfiltration and can reduce the number of connections made to an external destination.
 
-### Step 5 — Review Destination
+### Step 5 - Review Destination
 
 Assess:
 
@@ -270,7 +270,7 @@ Assess:
 
 Do not classify a destination as malicious solely because it is external or previously unseen.
 
-### Step 6 — Correlate Related Activity
+### Step 6 - Correlate Related Activity
 
 Correlate the suspected transfer with:
 
@@ -288,7 +288,7 @@ Correlate the suspected transfer with:
 
 Construct a timeline covering relevant activity before, during, and after the suspected transfer.
 
-### Step 7 — Determine Exfiltration Scope
+### Step 7 - Determine Exfiltration Scope
 
 Search across the environment for:
 
@@ -313,7 +313,7 @@ Determine:
 - latest observed activity;
 - whether the transfer is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
