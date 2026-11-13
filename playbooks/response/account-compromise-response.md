@@ -3,10 +3,10 @@ id: "account-compromise-response"
 name: "Account Compromise Response"
 category: "response"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-25T18:50:00Z"
-updated_at: "2026-10-05T16:57:00Z"
+updated_at: "2026-11-13T13:29:00Z"
 description: "Account compromise occurs when an unauthorized party gains access to a legitimate user account or abuses compromised credentials to access organizational resources."
 objective: "Identify, investigate, contain, and remediate confirmed or suspected account compromise and determine whether compromised credentials were used to access additional systems or services."
 severity: "high"
@@ -112,8 +112,6 @@ The objective is to establish whether the account was compromised, determine the
 | T1078     | Valid Accounts | Relevant when compromised or otherwise unauthorized credentials are used to access organizational resources   |
 | T1110     | Brute Force    | Relevant when repeated credential-guessing or related authentication attacks contribute to account compromise |
 
-Additional ATT&CK techniques should only be mapped when supported by observed behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -154,7 +152,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Account Compromise Alert
+### Step 1 - Identify Account Compromise Alert
 
 Determine:
 
@@ -170,7 +168,7 @@ Determine:
 
 Preserve the original alert context before account-containment actions are performed.
 
-### Step 2 — Validate Account Activity
+### Step 2 - Validate Account Activity
 
 Determine whether the observed activity is consistent with the account's expected behavior.
 
@@ -187,7 +185,7 @@ Review:
 
 A single unusual login should not automatically be treated as confirmed compromise. Correlate multiple authentication and endpoint signals before assigning the final classification.
 
-### Step 3 — Review Authentication Events
+### Step 3 - Review Authentication Events
 
 Review:
 
@@ -208,7 +206,7 @@ Construct a timeline covering the period immediately before and after the suspec
 
 MITRE's current Valid Accounts detection strategy includes anomalous logon patterns, abnormal logon types, and inconsistent geographic or time-based activity as detection signals.
 
-### Step 4 — Review Post-Authentication Activity
+### Step 4 - Review Post-Authentication Activity
 
 Correlate successful authentication with:
 
@@ -225,7 +223,7 @@ Correlate successful authentication with:
 
 Determine what actions were performed using the affected identity after authentication.
 
-### Step 5 — Determine Compromise Scope
+### Step 5 - Determine Compromise Scope
 
 Search the environment for:
 
@@ -250,7 +248,7 @@ Determine:
 - latest suspicious activity;
 - whether unauthorized access is ongoing.
 
-### Step 6 — Contain Account Access
+### Step 6 - Contain Account Access
 
 Based on incident severity and organizational procedures, consider:
 
@@ -265,7 +263,7 @@ Based on incident severity and organizational procedures, consider:
 
 Containment actions should be coordinated with identity-management and incident-response procedures to avoid unnecessary operational impact.
 
-### Step 7 — Eradicate and Recover
+### Step 7 - Eradicate and Recover
 
 Determine and address the likely source of compromise.
 
@@ -290,7 +288,7 @@ Restore the affected account to a trusted state and verify:
 - access permissions remain appropriate;
 - dependent systems accept the restored authentication state.
 
-### Step 8 — Determine Response Outcome
+### Step 8 - Determine Response Outcome
 
 Classify the incident as:
 
