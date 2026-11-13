@@ -3,10 +3,10 @@ id: "unquoted-service-path"
 name: "Unquoted Service Path"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-23T15:39:00Z"
-updated_at: "2026-10-05T16:56:00Z"
+updated_at: "2026-11-13T13:26:00Z"
 description: "Unquoted Service Path abuse occurs when a Windows service executable path containing spaces is not enclosed in quotation marks and can be intercepted by an unintended executable."
 objective: "Identify, investigate, and validate suspicious unquoted service paths and determine whether path interception could result in unauthorized execution, privilege escalation, persistence, or related malicious activity."
 severity: "high"
@@ -106,8 +106,6 @@ The objective is to determine whether an unquoted service path represents an exp
 | --------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | T1574.009 | Hijack Execution Flow: Path Interception by Unquoted Path | Relevant when an unquoted Windows service path containing spaces can be intercepted by an unintended executable |
 
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -147,7 +145,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Unquoted Service Path Alert
+### Step 1 - Identify Unquoted Service Path Alert
 
 Determine:
 
@@ -163,7 +161,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Identify Service Path
+### Step 2 - Identify Service Path
 
 Collect:
 
@@ -185,7 +183,7 @@ Determine whether the executable path:
 
 A path should not be treated as malicious solely because it is unquoted; determine whether the path is actually vulnerable to interception.
 
-### Step 3 — Review Path Resolution
+### Step 3 - Review Path Resolution
 
 Analyze the path components and determine where Windows could resolve an executable before reaching the intended executable.
 
@@ -205,7 +203,7 @@ Document:
 
 Do not create test executables or modify production paths during investigation.
 
-### Step 4 — Review File and Directory Activity
+### Step 4 - Review File and Directory Activity
 
 Review files located in potentially relevant parent directories.
 
@@ -220,7 +218,7 @@ Determine:
 
 Pay particular attention to recently created executables in locations that could affect path resolution.
 
-### Step 5 — Review Process Activity
+### Step 5 - Review Process Activity
 
 Correlate the service with:
 
@@ -236,7 +234,7 @@ Correlate the service with:
 
 Determine whether the service started the expected executable or an unexpected executable.
 
-### Step 6 — Review Privilege Context
+### Step 6 - Review Privilege Context
 
 Determine:
 
@@ -249,7 +247,7 @@ Determine:
 
 Assess whether an intercepted executable would execute with a more privileged context than the user who could place or modify the executable.
 
-### Step 7 — Determine Unquoted Path Scope
+### Step 7 - Determine Unquoted Path Scope
 
 Search across the environment for:
 
@@ -268,7 +266,7 @@ Determine:
 - latest observed activity;
 - whether suspicious executable placement is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -348,7 +346,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether interception files exist;
+- whether the service executed the intended file.
 
 ## Escalation
 
