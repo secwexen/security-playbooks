@@ -3,10 +3,10 @@ id: "application-consent-abuse"
 name: "Application Consent Abuse"
 category: "initial-access"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-08T11:11:00Z"
-updated_at: "2026-10-05T16:47:00Z"
+updated_at: "2026-11-13T12:40:00Z"
 description: "Investigate suspicious application consent, OAuth grants, and delegated access that may allow unauthorized access to user or organizational resources."
 objective: "Determine whether an application consent or delegated-access event was legitimate, identify affected accounts and permissions, establish scope, and determine whether containment or incident response is required."
 severity: "high"
@@ -103,8 +103,6 @@ The objective is to determine whether an application was legitimately granted ac
 | --------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | T1671     | Cloud Application Integration | Relevant when OAuth application integration or consent is used to establish or maintain unauthorized access            |
 
-Additional ATT&CK techniques should only be mapped when supported by the observed application-consent behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -142,7 +140,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Consent Alert
+### Step 1 - Identify Consent Alert
 
 Determine:
 
@@ -157,7 +155,7 @@ Determine:
 
 Preserve the original alert context before removing permissions or modifying the account.
 
-### Step 2 — Identify the Application
+### Step 2 - Identify the Application
 
 Collect:
 
@@ -178,7 +176,7 @@ Determine whether the application is:
 
 An unfamiliar application should be investigated further but should not be classified as malicious solely because it is unknown.
 
-### Step 3 — Review Granted Permissions
+### Step 3 - Review Granted Permissions
 
 Identify all permissions and scopes granted to the application.
 
@@ -194,7 +192,7 @@ Pay particular attention to access involving:
 
 Determine whether the requested access is consistent with the application's documented purpose.
 
-### Step 4 — Review Consent Context
+### Step 4 - Review Consent Context
 
 Determine:
 
@@ -213,7 +211,7 @@ Look for:
 - suspicious MFA activity;
 - consent occurring immediately after another suspicious event.
 
-### Step 5 — Review Application Activity
+### Step 5 - Review Application Activity
 
 Where application audit telemetry is available, review:
 
@@ -227,7 +225,7 @@ Where application audit telemetry is available, review:
 
 Determine whether the application actually used the granted permissions.
 
-### Step 6 — Correlate Account Activity
+### Step 6 - Correlate Account Activity
 
 Review the affected account for:
 
@@ -242,7 +240,7 @@ Review the affected account for:
 
 Determine whether the consent event is isolated or part of a broader account compromise.
 
-### Step 7 — Determine Scope
+### Step 7 - Determine Scope
 
 Search for:
 
@@ -261,7 +259,7 @@ Determine:
 - most recent event;
 - whether the application currently retains access.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the event as:
 
@@ -336,7 +334,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether all granted permissions and OAuth scopes can be verified;
+- whether post-consent application access to resources can be confirmed.
 
 ## Escalation
 
