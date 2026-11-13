@@ -3,10 +3,10 @@ id: "cloud-account-compromise"
 name: "Cloud Account Compromise"
 category: "cloud"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-16T19:48:00Z"
-updated_at: "2026-10-16T19:48:00Z"
+updated_at: "2026-11-13T10:12:00Z"
 description: "Investigate suspected compromise or unauthorized use of cloud accounts and determine the scope, impact, and persistence of the activity."
 objective: "Identify compromised cloud identities, establish the extent of unauthorized access, preserve relevant evidence, and coordinate containment and recovery."
 severity: "high"
@@ -153,7 +153,7 @@ The investigation must account for provider-specific logging capabilities and re
 
 ## Investigation Procedure
 
-### Step 1 — Identify Cloud Account Compromise Alert
+### Step 1 - Identify Cloud Account Compromise Alert
 
 Collect the original alert and establish the initial investigation context.
 
@@ -173,7 +173,7 @@ Preserve the original alert data before performing containment or account change
 
 Determine whether the alert concerns a successful sign-in, failed authentication attempts, a privilege change, suspicious resource activity, or another identity-related event.
 
-### Step 2 — Identify the Cloud Identity and Account
+### Step 2 - Identify the Cloud Identity and Account
 
 Establish the identity and its expected operating context.
 
@@ -196,7 +196,7 @@ Compare its access and responsibilities with the affected environment's establis
 
 Do not assume that a privileged account is compromised solely because it has extensive permissions.
 
-### Step 3 — Review Authentication and Session Activity
+### Step 3 - Review Authentication and Session Activity
 
 Review authentication logs and session information surrounding the suspicious activity.
 
@@ -229,7 +229,7 @@ Investigate:
 
 Correlate multiple indicators before concluding that authentication was unauthorized. Geographic anomalies and unusual IP addresses may also result from VPNs, proxies, mobile networks, or legitimate travel.
 
-### Step 4 — Review Privilege and Role Changes
+### Step 4 - Review Privilege and Role Changes
 
 Determine whether the account or related identities experienced unexpected permission changes.
 
@@ -251,7 +251,7 @@ Determine whether the changes were approved and consistent with documented admin
 
 If unauthorized privilege escalation is suspected, preserve the relevant audit events and escalate according to the organization's incident-response procedures.
 
-### Step 5 — Review Token and Credential Activity
+### Step 5 - Review Token and Credential Activity
 
 Investigate changes and activity involving credentials, tokens, and authentication methods.
 
@@ -273,7 +273,7 @@ Identify credentials or sessions that may require revocation through approved co
 
 Do not copy passwords, secret values, private keys, or bearer tokens into incident notes. Record relevant identifiers and metadata without unnecessarily exposing sensitive authentication material.
 
-### Step 6 — Review Cloud Resource Activity
+### Step 6 - Review Cloud Resource Activity
 
 Correlate the account's identity activity with operations performed in the cloud environment.
 
@@ -296,7 +296,7 @@ Record the affected resources, operation types, timestamps, initiating identity,
 
 Investigate suspicious resource activity in conjunction with authentication and credential evidence. A successful API operation alone does not establish malicious intent.
 
-### Step 7 — Determine Compromise Scope
+### Step 7 - Determine Compromise Scope
 
 Establish the extent and duration of the suspected compromise.
 
@@ -325,7 +325,7 @@ Determine:
 
 Separate confirmed findings from suspected relationships. Document limitations caused by unavailable telemetry or insufficient log retention.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity using the following outcomes:
 
