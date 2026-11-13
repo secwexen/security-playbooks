@@ -3,10 +3,10 @@ id: "clipboard-theft"
 name: "Clipboard Theft"
 category: "collection"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-28T16:53:00Z"
-updated_at: "2026-10-28T16:53:00Z"
+updated_at: "2026-11-13T10:43:00Z"
 description: "Investigate suspected unauthorized access to clipboard data and determine whether sensitive information was collected."
 objective: "Identify suspicious clipboard access, assess potential exposure of sensitive information, determine the scope of the activity, and provide evidence for escalation or incident response."
 severity: "medium"
@@ -158,7 +158,7 @@ The investigation must minimize exposure of clipboard contents that may contain 
 
 ## Investigation Procedure
 
-### Step 1 — Identify Clipboard Access Alert
+### Step 1 - Identify Clipboard Access Alert
 
 Review the original alert and record:
 
@@ -177,7 +177,7 @@ Determine why the activity was identified as suspicious.
 
 Preserve the original alert context and relevant event records before taking remediation actions.
 
-### Step 2 — Identify Affected Host and User
+### Step 2 - Identify Affected Host and User
 
 Identify the endpoint on which the activity occurred.
 
@@ -198,7 +198,7 @@ Determine whether the activity occurred in an interactive user session, a backgr
 
 Assess whether clipboard access is expected for the application and the user's normal workflow.
 
-### Step 3 — Review Clipboard Access Process
+### Step 3 - Review Clipboard Access Process
 
 Examine the process associated with the observed activity.
 
@@ -223,7 +223,7 @@ Investigate unexpected relationships involving script interpreters, downloaded e
 
 A legitimate executable name or valid digital signature does not independently establish that the observed activity is authorized.
 
-### Step 4 — Review Clipboard Access Method
+### Step 4 - Review Clipboard Access Method
 
 Determine how the process accessed or monitored clipboard data.
 
@@ -244,7 +244,7 @@ Distinguish clipboard reads from clipboard writes or replacement behavior where 
 
 Do not classify a utility or API call as malicious solely because it can interact with the clipboard. Determine whether its use is consistent with the application's purpose and the user's normal activity.
 
-### Step 5 — Assess Potential Data Exposure
+### Step 5 - Assess Potential Data Exposure
 
 Assess the potential sensitivity of the information accessible to the process.
 
@@ -262,7 +262,7 @@ Correlate clipboard access timestamps with application activity and other availa
 
 Where clipboard contents are unavailable, do not assume that sensitive data was collected. Document the evidence that supports or limits the assessment.
 
-### Step 6 — Correlate Related Activity
+### Step 6 - Correlate Related Activity
 
 Correlate the clipboard access event with surrounding endpoint and network activity.
 
@@ -287,7 +287,7 @@ Investigate whether the observed behavior is associated with unauthorized collec
 
 Do not conclude that data was exfiltrated unless supported by available evidence.
 
-### Step 7 — Determine Collection Scope
+### Step 7 - Determine Collection Scope
 
 Establish the prevalence and potential scope of the activity.
 
@@ -313,7 +313,7 @@ Determine:
 
 Document telemetry gaps and identify any additional investigation required to establish scope.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as one of the following:
 
