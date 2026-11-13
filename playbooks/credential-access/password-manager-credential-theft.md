@@ -3,10 +3,10 @@ id: "password-manager-credential-theft"
 name: "Password Manager Credential Theft"
 category: "credential-access"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-19T11:34:00Z"
-updated_at: "2026-10-05T17:11:00Z"
+updated_at: "2026-11-13T11:23:00Z"
 description: "Unauthorized access to password-manager data can expose stored credentials, secrets, and other authentication material."
 objective: "Identify, investigate, and validate suspicious access to password-manager data and determine whether stored credentials may have been exposed."
 severity: "critical"
@@ -164,7 +164,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Password Manager Access Alert
+### Step 1 - Identify Password Manager Access Alert
 
 Determine:
 
@@ -181,7 +181,7 @@ Determine:
 
 Preserve the original alert context before taking remediation actions.
 
-### Step 2 — Identify Target Store
+### Step 2 - Identify Target Store
 
 Determine:
 
@@ -194,7 +194,7 @@ Determine:
 
 Document the targeted resource without extracting or displaying real credentials.
 
-### Step 3 — Review Process Context
+### Step 3 - Review Process Context
 
 Review:
 
@@ -216,7 +216,7 @@ Determine whether the process is:
 - approved backup or synchronization software;
 - an unknown or suspicious executable.
 
-### Step 4 — Review Store Access Activity
+### Step 4 - Review Store Access Activity
 
 Review available:
 
@@ -236,7 +236,7 @@ Determine:
 
 Unexpected access from processes unrelated to the password manager requires additional investigation.
 
-### Step 5 — Assess Potential Credential Exposure
+### Step 5 - Assess Potential Credential Exposure
 
 Identify potentially affected accounts or services represented in the password-manager store, based on available evidence.
 
@@ -251,7 +251,7 @@ Consider:
 
 Do not extract or display real credentials during routine investigation.
 
-### Step 6 — Review Follow-on Activity
+### Step 6 - Review Follow-on Activity
 
 Correlate password-manager access with:
 
@@ -267,7 +267,7 @@ Correlate password-manager access with:
 
 Pay particular attention to suspicious authentication shortly after the password-manager access.
 
-### Step 7 — Determine Password Manager Access Scope
+### Step 7 - Determine Password Manager Access Scope
 
 Search the environment for:
 
@@ -288,7 +288,7 @@ Determine:
 - latest observed activity;
 - whether suspicious activity is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -370,7 +370,10 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether vault access, synchronization, backup, or export activity could be distinguished from normal password-manager operations;
+- whether the available evidence establishes unauthorized access to encrypted vault data or subsequent interaction with the password-manager application;
+- whether potentially affected stored accounts and their subsequent authentication activity could be reliably correlated.
 
 ## Escalation
 
@@ -409,21 +412,15 @@ Do not extract, display, or disclose real password-manager credentials during in
 
 ## Related Playbooks
 
-- `playbooks/credential-access/credential-dumping.md`
 - `playbooks/credential-access/browser-credential-theft.md`
 - `playbooks/credential-access/credentials-from-password-stores.md`
 - `playbooks/credential-access/windows-credential-manager.md`
 - `playbooks/credential-access/dpapi-credential-access.md`
-- `playbooks/credential-access/lsass-dump.md`
-- `playbooks/credential-access/sam-dump.md`
-- `playbooks/credential-access/ntds-dump.md`
-- `playbooks/credential-access/password-spraying.md`
 - `playbooks/initial-access/valid-account-compromise.md`
 - `playbooks/triage/suspicious-file-triage.md`
 - `playbooks/triage/suspicious-process-triage.md`
 - `playbooks/triage/suspicious-login-triage.md`
 - `playbooks/response/credential-compromise-response.md`
-- `playbooks/response/account-compromise-response.md`
 - `playbooks/response/malware-response.md`
 - `playbooks/response/isolate-host-response.md`
 
