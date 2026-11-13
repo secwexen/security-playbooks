@@ -3,10 +3,10 @@ id: "password-spraying"
 name: "Password Spraying"
 category: "credential-access"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-17T15:17:00Z"
-updated_at: "2026-10-05T17:11:00Z"
+updated_at: "2026-11-13T11:26:00Z"
 description: "Password spraying is an authentication attack pattern in which a limited number of common or compromised passwords are attempted against multiple accounts."
 objective: "Identify, investigate, and validate suspicious password-spraying activity and determine whether accounts may have been targeted or compromised."
 severity: "high"
@@ -165,7 +165,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Password Spraying Alert
+### Step 1 - Identify Password Spraying Alert
 
 Determine:
 
@@ -182,7 +182,7 @@ Determine:
 
 Preserve the original alert context before taking response actions.
 
-### Step 2 — Identify Authentication Pattern
+### Step 2 - Identify Authentication Pattern
 
 Determine:
 
@@ -198,7 +198,7 @@ Determine:
 
 Look for a pattern involving repeated authentication attempts against multiple accounts rather than repeated failures against a single account.
 
-### Step 3 — Review Source Context
+### Step 3 - Review Source Context
 
 Review:
 
@@ -219,7 +219,7 @@ Determine whether the source is:
 - a misconfigured application;
 - an unknown or suspicious host.
 
-### Step 4 — Review Target Accounts
+### Step 4 - Review Target Accounts
 
 For targeted accounts, determine:
 
@@ -236,7 +236,7 @@ For targeted accounts, determine:
 
 Prioritize accounts with elevated privileges or access to sensitive systems.
 
-### Step 5 — Review Successful Authentication
+### Step 5 - Review Successful Authentication
 
 Identify any successful authentication that occurs:
 
@@ -258,7 +258,7 @@ Review:
 
 A successful authentication following a suspicious multi-account failure pattern requires further investigation.
 
-### Step 6 — Review Follow-on Activity
+### Step 6 - Review Follow-on Activity
 
 Correlate successful authentications with:
 
@@ -274,7 +274,7 @@ Correlate successful authentications with:
 
 Determine whether potentially compromised accounts were subsequently used for unauthorized activity.
 
-### Step 7 — Determine Password Spraying Scope
+### Step 7 - Determine Password Spraying Scope
 
 Search the environment for:
 
@@ -296,7 +296,7 @@ Determine:
 - latest observed activity;
 - whether activity is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -381,7 +381,10 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether shared IP addresses, VPN gateways, proxies, or NAT infrastructure prevent reliable attribution of the authentication source;
+- whether the distribution of authentication failures across accounts, services, and time intervals is consistent with password spraying or legitimate application behavior;
+- whether successful sign-ins, account lockouts, and subsequent session activity can be reliably linked to the targeted accounts.
 
 ## Escalation
 
@@ -419,24 +422,12 @@ Do not test passwords against real user accounts as part of routine investigatio
 ## Related Playbooks
 
 - `playbooks/credential-access/credential-access.md`
-- `playbooks/credential-access/credential-dumping.md`
-- `playbooks/credential-access/kerberoasting.md`
-- `playbooks/credential-access/lsass-dump.md`
-- `playbooks/credential-access/ntds-dump.md`
-- `playbooks/credential-access/sam-dump.md`
 - `playbooks/initial-access/valid-account-compromise.md`
-- `playbooks/lateral-movement/pass-the-hash.md`
-- `playbooks/lateral-movement/pass-the-ticket.md`
-- `playbooks/lateral-movement/rdp-lateral-movement.md`
-- `playbooks/lateral-movement/smb-lateral-movement.md`
-- `playbooks/lateral-movement/winrm-lateral-movement.md`
-- `playbooks/lateral-movement/wmi-lateral-movement.md`
 - `playbooks/triage/suspicious-login-triage.md`
 - `playbooks/triage/lateral-movement-triage.md`
 - `playbooks/response/account-compromise-response.md`
 - `playbooks/response/credential-compromise-response.md`
 - `playbooks/response/lateral-movement-response.md`
-- `playbooks/response/isolate-host-response.md`
 
 ## Validation
 
