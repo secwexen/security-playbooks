@@ -3,10 +3,10 @@ id: "wmi-event-subscription"
 name: "WMI Event Subscription"
 category: "persistence"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-28T17:15:00Z"
-updated_at: "2026-10-05T16:53:00Z"
+updated_at: "2026-11-13T13:11:00Z"
 description: "WMI Event Subscription persistence involves establishing Windows Management Instrumentation event filters, consumers, and bindings that trigger execution when defined system events occur."
 objective: "Identify, investigate, and validate suspicious WMI event subscription activity and determine whether the mechanism establishes unauthorized persistence or related privilege escalation."
 severity: "high"
@@ -106,8 +106,6 @@ The objective is to determine whether the observed subscription is legitimate, s
 | --------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | T1546.003 | Windows Management Instrumentation Event Subscription | Primary technique for persistence established through malicious WMI event subscriptions and triggered execution |
 
-T1546.003 is a sub-technique of Event Triggered Execution. Is associated with the Persistence and Privilege Escalation tactics.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -150,7 +148,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify WMI Event Subscription Alert
+### Step 1 - Identify WMI Event Subscription Alert
 
 Determine:
 
@@ -166,7 +164,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Identify WMI Subscription
+### Step 2 - Identify WMI Subscription
 
 Collect and review:
 
@@ -183,7 +181,7 @@ Collect and review:
 
 Determine whether the subscription is expected for the affected host and application environment.
 
-### Step 3 — Review Consumer Action
+### Step 3 - Review Consumer Action
 
 Determine what occurs when the subscribed event is triggered.
 
@@ -209,7 +207,7 @@ Pay particular attention to consumers that launch:
 
 Do not execute unknown payloads on production systems.
 
-### Step 4 — Review Process Activity
+### Step 4 - Review Process Activity
 
 Correlate the subscription with process telemetry.
 
@@ -228,7 +226,7 @@ Review:
 
 Determine whether the process chain is consistent with expected administrative or application activity.
 
-### Step 5 — Review File Context
+### Step 5 - Review File Context
 
 Investigate files associated with the WMI subscription.
 
@@ -248,7 +246,7 @@ Collect:
 
 Determine whether the artifacts are expected and whether they were created or modified near the time of subscription creation.
 
-### Step 6 — Review Related Events
+### Step 6 - Review Related Events
 
 Correlate the WMI subscription with:
 
@@ -263,7 +261,7 @@ Correlate the WMI subscription with:
 
 Review available WMI telemetry, including relevant object creation and modification events where supported by the monitoring environment. MITRE identifies WMI object creation and WMI event channels as relevant data sources for this technique.
 
-### Step 7 — Determine Subscription Scope
+### Step 7 - Determine Subscription Scope
 
 Search the environment for:
 
@@ -288,7 +286,7 @@ Determine:
 - whether the subscription remains active;
 - whether the same mechanism exists on additional systems.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -375,7 +373,8 @@ Document:
 - evidence collected;
 - evidence unavailable;
 - additional telemetry required;
-- limitations affecting the investigation.
+- limitations affecting the investigation;
+- whether the WMI subscription is still active.
 
 ## Escalation
 
