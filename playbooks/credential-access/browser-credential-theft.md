@@ -3,10 +3,10 @@ id: "browser-credential-theft"
 name: "Browser Credential Theft"
 category: "credential-access"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-18T14:47:00Z"
-updated_at: "2026-10-05T17:07:00Z"
+updated_at: "2026-11-13T10:52:00Z"
 description: "Browser credential theft involves attempts to access stored authentication material from web browsers and related browser profile data."
 objective: "Identify, investigate, and validate suspicious access to browser credential stores and determine whether authentication material may have been exposed."
 severity: "high"
@@ -164,7 +164,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Browser Credential Access Alert
+### Step 1 - Identify Browser Credential Access Alert
 
 Determine:
 
@@ -181,7 +181,7 @@ Determine:
 
 Preserve the original alert context before taking remediation actions.
 
-### Step 2 — Identify Browser Data Target
+### Step 2 - Identify Browser Data Target
 
 Determine:
 
@@ -195,7 +195,7 @@ Determine:
 
 Document the target without extracting or disclosing real credentials.
 
-### Step 3 — Review Process Context
+### Step 3 - Review Process Context
 
 Review:
 
@@ -213,7 +213,7 @@ Review:
 
 Determine whether the accessing process belongs to the browser itself, approved administration, backup, endpoint security, or another legitimate application.
 
-### Step 4 — Review File Activity
+### Step 4 - Review File Activity
 
 Investigate:
 
@@ -235,7 +235,7 @@ Pay particular attention to unusual access from:
 - unsigned executables;
 - unexpected administrative tools.
 
-### Step 5 — Review Follow-on Activity
+### Step 5 - Review Follow-on Activity
 
 Correlate browser credential access with:
 
@@ -250,7 +250,7 @@ Correlate browser credential access with:
 
 Pay particular attention to suspicious authentication shortly after the browser credential-access event.
 
-### Step 6 — Assess Potential Credential Exposure
+### Step 6 - Assess Potential Credential Exposure
 
 Identify potentially affected accounts and services based on available evidence.
 
@@ -265,7 +265,7 @@ Consider:
 
 Do not attempt to recover or display real credentials as part of routine investigation.
 
-### Step 7 — Determine Browser Credential Access Scope
+### Step 7 - Determine Browser Credential Access Scope
 
 Search the environment for:
 
@@ -287,7 +287,7 @@ Determine:
 - latest observed activity;
 - whether suspicious activity is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -370,7 +370,10 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- affected hosts, users, browser profiles, and artifacts identified so far;
+- remaining investigation hypotheses and evidence needed to confirm or rule them out;
+- recommended follow-up actions and responsible investigation owners.
 
 ## Escalation
 
@@ -407,13 +410,9 @@ Do not extract, display, or disclose real browser credentials during investigati
 
 ## Related Playbooks
 
-- `playbooks/credential-access/credential-dumping.md`
-- `playbooks/credential-access/lsass-dump.md`
-- `playbooks/credential-access/sam-dump.md`
 - `playbooks/credential-access/credentials-from-password-stores.md`
 - `playbooks/credential-access/password-manager-credential-theft.md`
 - `playbooks/credential-access/windows-credential-manager.md`
-- `playbooks/credential-access/credential-access.md`
 - `playbooks/initial-access/valid-account-compromise.md`
 - `playbooks/triage/suspicious-file-triage.md`
 - `playbooks/triage/suspicious-process-triage.md`
