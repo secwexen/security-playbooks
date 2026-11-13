@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-11T11:40:00Z"
-updated_at: "2026-11-13T12:04:00Z"
+updated_at: "2026-11-13T12:13:00Z"
 description: "Scheduled Task/Job Execution enables commands or programs to run automatically at defined times or system events."
 objective: "Identify, investigate, and validate scheduled task or job execution and determine whether the activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -102,8 +102,6 @@ The objective is to determine whether scheduled execution is legitimate, suspici
 | Technique | Name               | Relevance                                                                      |
 | --------- | ------------------ | ------------------------------------------------------------------------------ |
 | T1053     | Scheduled Task/Job | Relevant when scheduled tasks or jobs are used to execute commands or programs |
-
-Additional T1053 sub-techniques should only be mapped when supported by the observed scheduler and platform.
 
 ## Trigger Conditions
 
