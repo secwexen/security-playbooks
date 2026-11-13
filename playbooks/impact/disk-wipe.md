@@ -3,10 +3,10 @@ id: "disk-wipe"
 name: "Disk Wipe"
 category: "impact"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-02T18:41:00Z"
-updated_at: "2026-10-05T16:44:00Z"
+updated_at: "2026-11-13T12:31:00Z"
 description: "Disk Wipe involves corrupting or wiping disk data or disk structures to disrupt system availability and prevent normal system boot or operation."
 objective: "Identify, investigate, and scope suspected disk wiping activity and determine whether disk data or critical disk structures were intentionally corrupted or removed."
 severity: "critical"
@@ -113,8 +113,6 @@ The presence of direct disk access alone does not establish malicious activity. 
 | --------- | ------------------- | ---------------------------------------------------------------------------------------- |
 | T1561.002 | Disk Structure Wipe | Primary technique for activity targeting disk structures required for normal system boot |
 
-Disk Structure Wipe is specifically concerned with corrupting or wiping disk structures such as the MBR or partition information. It is distinct from `T1561.001 Disk Content Wipe`, which targets storage contents rather than disk structures.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -155,7 +153,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Disk Wipe Alert
+### Step 1 - Identify Disk Wipe Alert
 
 Determine:
 
@@ -171,7 +169,7 @@ Determine:
 
 Preserve the original alert context before performing remediation or recovery actions.
 
-### Step 2 — Identify Affected Host
+### Step 2 - Identify Affected Host
 
 Collect:
 
@@ -194,7 +192,7 @@ Determine whether the affected system is:
 - a security-sensitive infrastructure system;
 - another critical asset.
 
-### Step 3 — Review Disk and System State
+### Step 3 - Review Disk and System State
 
 Review available telemetry describing:
 
@@ -212,7 +210,7 @@ Determine whether critical disk structures or storage components were modified.
 
 Where the system remains operational, preserve relevant telemetry before performing recovery operations.
 
-### Step 4 — Review Process and Command Activity
+### Step 4 - Review Process and Command Activity
 
 Review:
 
@@ -241,7 +239,7 @@ Pay particular attention to:
 
 A legitimate disk-management tool does not by itself establish malicious activity. Correlate process activity with account, host role, change records, and operational context.
 
-### Step 5 — Review File and Artifact Activity
+### Step 5 - Review File and Artifact Activity
 
 Identify:
 
@@ -260,7 +258,7 @@ Preserve relevant artifacts according to evidence-handling requirements.
 
 Do not execute unknown binaries or intentionally reproduce destructive disk activity on production systems.
 
-### Step 6 — Review Network Activity
+### Step 6 - Review Network Activity
 
 Review network activity associated with:
 
@@ -280,7 +278,7 @@ Determine whether the disk modification was preceded or followed by:
 - command-and-control activity;
 - similar activity on additional systems.
 
-### Step 7 — Determine Disk Wipe Scope
+### Step 7 - Determine Disk Wipe Scope
 
 Search the environment for:
 
@@ -302,7 +300,7 @@ Determine:
 - whether activity remains active;
 - whether backups or recovery infrastructure are affected.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
