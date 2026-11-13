@@ -3,10 +3,10 @@ id: "powershell"
 name: "PowerShell"
 category: "execution"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-11T16:03:00Z"
-updated_at: "2026-10-05T17:04:00Z"
+updated_at: "2026-11-13T11:52:00Z"
 description: "PowerShell is a command and scripting interpreter commonly used for Windows administration and automation and may also be abused to execute malicious commands and scripts."
 objective: "Identify, investigate, and validate suspicious PowerShell activity and determine whether execution is legitimate, suspicious, or malicious."
 severity: "high"
@@ -143,7 +143,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify PowerShell Alert
+### Step 1 - Identify PowerShell Alert
 
 Determine:
 
@@ -158,7 +158,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Review PowerShell Command Line
+### Step 2 - Review PowerShell Command Line
 
 Review the complete command line, including:
 
@@ -179,7 +179,7 @@ Pay particular attention to:
 - commands that retrieve additional content;
 - commands executed from temporary or user-writable locations.
 
-### Step 3 — Review Parent Process
+### Step 3 - Review Parent Process
 
 Determine which process launched PowerShell.
 
@@ -196,7 +196,7 @@ Investigate unusual relationships such as PowerShell launched by:
 
 Parent-child relationships should be assessed in context and not classified as malicious solely because PowerShell was launched.
 
-### Step 4 — Review Script Content
+### Step 4 - Review Script Content
 
 Where script content is available, review:
 
@@ -214,7 +214,7 @@ Where script content is available, review:
 
 Do not execute unknown PowerShell scripts on production systems.
 
-### Step 5 — Review Child Processes
+### Step 5 - Review Child Processes
 
 Review:
 
@@ -232,7 +232,7 @@ Pay attention to PowerShell spawning:
 - archive tools;
 - unexpected executables.
 
-### Step 6 — Review Network Activity
+### Step 6 - Review Network Activity
 
 Determine whether PowerShell or its child processes generated network activity.
 
@@ -248,7 +248,7 @@ Collect:
 
 Investigate unexpected communication with suspicious or unapproved infrastructure.
 
-### Step 7 — Determine PowerShell Activity Scope
+### Step 7 - Determine PowerShell Activity Scope
 
 Search the environment for:
 
@@ -268,7 +268,7 @@ Determine:
 - latest observed execution;
 - whether execution is still active.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -350,7 +350,10 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether encoded commands and script blocks can be analyzed;
+- whether AMSI and PowerShell logging provide sufficient execution visibility;
+- whether downloaded scripts and child processes can be correlated with the PowerShell session.
 
 ## Escalation
 
