@@ -3,10 +3,10 @@ id: "automated-exfiltration"
 name: "Automated Exfiltration"
 category: "exfiltration"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-07T17:29:00Z"
-updated_at: "2026-10-07T17:29:00Z"
+updated_at: "2026-11-13T12:18:00Z"
 description: "Automated Exfiltration involves the automated transfer of collected data from a compromised environment to an external destination."
 objective: "Identify, investigate, and scope automated data exfiltration activity and determine whether collected data was transferred without authorization."
 severity: "high"
@@ -106,8 +106,6 @@ The objective is to determine whether the observed transfer is legitimate, suspi
 | --------- | ---------------------- | ---------------------------------------------------------- |
 | T1020     | Automated Exfiltration | Primary technique for automated transfer of collected data |
 
-T1020 is an Enterprise ATT&CK technique under the Exfiltration tactic (TA0010).
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -145,7 +143,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Automated Exfiltration Alert
+### Step 1 - Identify Automated Exfiltration Alert
 
 Determine:
 
@@ -162,7 +160,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Identify Transfer Mechanism
+### Step 2 - Identify Transfer Mechanism
 
 Determine which mechanism performed or initiated the transfer.
 
@@ -189,7 +187,7 @@ Determine whether the mechanism is:
 
 A legitimate transfer utility does not by itself establish benign activity.
 
-### Step 3 — Identify Transferred Data
+### Step 3 - Identify Transferred Data
 
 Determine what data may have been accessed, staged, or transmitted.
 
@@ -210,7 +208,7 @@ Correlate file access and creation activity with the observed transfer window.
 
 Where technically and legally appropriate, preserve copies or hashes of relevant artifacts for investigation.
 
-### Step 4 — Review Transfer Pattern
+### Step 4 - Review Transfer Pattern
 
 Analyze the transfer behavior for automation indicators.
 
@@ -230,7 +228,7 @@ Pay particular attention to periodic behavior such as repeated transfers at regu
 
 Current MITRE detection guidance specifically describes automated tools or scripts periodically transmitting data to external destinations through scheduled tasks or background processes.
 
-### Step 5 — Review Execution Context
+### Step 5 - Review Execution Context
 
 Determine:
 
@@ -249,7 +247,7 @@ Assess whether the observed transfer is consistent with an approved backup, sync
 
 Do not classify recurring network communication as malicious solely because it is periodic.
 
-### Step 6 — Review Destination
+### Step 6 - Review Destination
 
 Assess the destination:
 
@@ -275,7 +273,7 @@ Determine whether the destination is:
 - unauthorized; or
 - associated with suspicious infrastructure.
 
-### Step 7 — Determine Exfiltration Scope
+### Step 7 - Determine Exfiltration Scope
 
 Search the environment for:
 
@@ -299,7 +297,7 @@ Determine:
 - number of external destinations;
 - whether transfers are still occurring.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -383,7 +381,8 @@ Document:
 - evidence collected;
 - evidence unavailable;
 - telemetry limitations;
-- additional data required.
+- additional data required;
+- transfer destination ownership and authorization status.
 
 ## Escalation
 
