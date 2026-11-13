@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-12T11:08:00Z"
-updated_at: "2026-11-13T11:43:00Z"
+updated_at: "2026-11-13T12:15:00Z"
 description: "Command Shell execution involves using command-line interpreters to execute commands and programs on a system."
 objective: "Identify, investigate, and validate suspicious command shell activity and determine whether command execution is legitimate, suspicious, or malicious."
 severity: "high"
@@ -102,8 +102,6 @@ The objective is to determine whether command-line activity is legitimate, suspi
 | Technique | Name                                                     | Relevance                                                             |
 | --------- | -------------------------------------------------------- | --------------------------------------------------------------------- |
 | T1059.003 | Command and Scripting Interpreter: Windows Command Shell | Relevant when a command shell is used to execute commands or programs |
-
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
 
 ## Trigger Conditions
 
