@@ -3,10 +3,10 @@ id: "command-shell"
 name: "Command Shell"
 category: "execution"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-12T11:08:00Z"
-updated_at: "2026-10-05T17:03:00Z"
+updated_at: "2026-11-13T11:43:00Z"
 description: "Command Shell execution involves using command-line interpreters to execute commands and programs on a system."
 objective: "Identify, investigate, and validate suspicious command shell activity and determine whether command execution is legitimate, suspicious, or malicious."
 severity: "high"
@@ -140,7 +140,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Command Shell Alert
+### Step 1 - Identify Command Shell Alert
 
 Determine:
 
@@ -155,7 +155,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Review Command Line
+### Step 2 - Review Command Line
 
 Review the complete command line, including:
 
@@ -176,7 +176,7 @@ Pay particular attention to:
 - commands that retrieve additional content;
 - commands that execute tools from temporary or user-writable locations.
 
-### Step 3 — Review Parent Process
+### Step 3 - Review Parent Process
 
 Determine which process launched the command shell.
 
@@ -191,7 +191,7 @@ Investigate unusual parent processes such as:
 
 Assess the process relationship in context. A command shell launched by an administrative or automation tool is not inherently malicious.
 
-### Step 4 — Review Child Processes
+### Step 4 - Review Child Processes
 
 Review:
 
@@ -212,7 +212,7 @@ Pay attention to command shells spawning:
 
 Correlate child-process execution with the original command line.
 
-### Step 5 — Review File Activity
+### Step 5 - Review File Activity
 
 Determine whether command shell activity resulted in:
 
@@ -234,7 +234,7 @@ Collect:
 
 Do not execute unknown files on production systems.
 
-### Step 6 — Review Network Activity
+### Step 6 - Review Network Activity
 
 Determine whether the command shell or its child processes generated network activity.
 
@@ -249,7 +249,7 @@ Collect:
 
 Investigate communication with unexpected or suspicious infrastructure.
 
-### Step 7 — Determine Command Shell Activity Scope
+### Step 7 - Determine Command Shell Activity Scope
 
 Search the environment for:
 
@@ -268,7 +268,7 @@ Determine:
 - latest observed execution;
 - whether execution is still active.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -353,7 +353,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether the complete command execution flow, including command chaining, piping, redirection, and encoded arguments, can be reconstructed from available telemetry;
+- whether spawned child processes, executed scripts, file modifications, and network connections can be reliably attributed to the original command shell session.
 
 ## Escalation
 
