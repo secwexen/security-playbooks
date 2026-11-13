@@ -3,10 +3,10 @@ id: "smb-lateral-movement"
 name: "SMB Lateral Movement"
 category: "lateral-movement"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-13T10:48:00Z"
-updated_at: "2026-10-13T10:48:00Z"
+updated_at: "2026-11-13T12:56:00Z"
 description: "Investigate suspicious SMB activity involving remote network shares, Windows administrative shares, and potential lateral movement between systems."
 objective: "Determine whether SMB-based remote access represents legitimate administrative activity or unauthorized lateral movement, identify affected systems and accounts, and establish the scope of the activity."
 severity: "high"
@@ -108,10 +108,6 @@ The objective is to determine whether the observed SMB activity is legitimate, s
 | --------- | ------------------------ | ------------------------------------------------------------------------------------------ |
 | T1021.002 | SMB/Windows Admin Shares | Primary technique when SMB or Windows administrative shares are used for lateral movement. |
 
-T1021.002 belongs to the Remote Services technique family and is associated with the Lateral Movement tactic.
-
-The mapping should be retained only when the observed activity supports SMB-based remote access or administrative share abuse.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -156,7 +152,7 @@ The investigation should include sufficient historical context to distinguish ex
 
 ## Investigation Procedure
 
-### Step 1 — Identify SMB Lateral Movement Alert
+### Step 1 - Identify SMB Lateral Movement Alert
 
 Collect:
 
@@ -175,7 +171,7 @@ Determine whether the activity was reported by endpoint monitoring, Windows secu
 
 Preserve the original alert context before taking response actions.
 
-### Step 2 — Identify Source and Destination
+### Step 2 - Identify Source and Destination
 
 Determine which system initiated the SMB connection and which system received it.
 
@@ -197,7 +193,7 @@ Investigate connections involving unusual workstation-to-workstation communicati
 
 A connection to TCP port 445 is not inherently malicious. Assess it in conjunction with authentication, share access, and endpoint activity.
 
-### Step 3 — Review Authentication Activity
+### Step 3 - Review Authentication Activity
 
 Review the authentication associated with the SMB session.
 
@@ -226,7 +222,7 @@ Investigate:
 
 Do not conclude that an account is compromised solely because it successfully authenticated to an unfamiliar system.
 
-### Step 4 — Review SMB Session and Share Access
+### Step 4 - Review SMB Session and Share Access
 
 Determine which shares and resources were accessed during the investigation window.
 
@@ -261,7 +257,7 @@ Administrative shares are legitimate Windows functionality. Their use should be 
 
 Determine whether file access or transfer activity is consistent with approved administration, software deployment, backup operations, or routine application behavior.
 
-### Step 5 — Review Remote Execution Activity
+### Step 5 - Review Remote Execution Activity
 
 Determine whether the SMB session was followed by activity indicating that the destination system was used to execute unauthorized code or perform additional operations.
 
@@ -284,7 +280,7 @@ Establish whether the sequence of events is consistent with legitimate remote ad
 
 A remote service, scheduled task, or WMI event does not independently prove that SMB was used for lateral movement. Confirm the relationship through timestamps, account context, file activity, and other available evidence.
 
-### Step 6 — Correlate Related Events
+### Step 6 - Correlate Related Events
 
 Correlate the identified SMB activity with other security events.
 
@@ -305,7 +301,7 @@ Build a timeline connecting authentication, SMB access, file activity, and any s
 
 Where appropriate, use the available network and endpoint telemetry to determine whether the activity is isolated or part of a broader sequence of related events.
 
-### Step 7 — Determine Lateral Movement Scope
+### Step 7 - Determine Lateral Movement Scope
 
 Determine the potential scope of the activity across the environment.
 
@@ -333,7 +329,7 @@ Document:
 
 Differentiate confirmed observations from inferred scope. Do not classify every host with an SMB connection as compromised.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
