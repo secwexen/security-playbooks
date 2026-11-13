@@ -3,10 +3,10 @@ id: "cloud-service-discovery"
 name: "Cloud Service Discovery"
 category: "cloud"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-24T07:40:00Z"
-updated_at: "2026-10-24T07:40:00Z"
+updated_at: "2026-11-13T10:37:00Z"
 description: "Investigate suspicious cloud service enumeration and determine whether the activity represents legitimate administration, reconnaissance, or malicious discovery."
 objective: "Identify the cloud services and resources enumerated during suspicious activity, determine the associated identity and session context, establish the scope of discovery, and assess whether the activity is associated with unauthorized access or a broader security incident."
 severity: "medium"
@@ -147,7 +147,7 @@ The investigation scope should be expanded when evidence indicates that the disc
 
 ## Investigation Procedure
 
-### Step 1 — Identify Cloud Discovery Alert
+### Step 1 - Identify Cloud Discovery Alert
 
 Collect the initial alert and associated event information:
 
@@ -165,7 +165,7 @@ Preserve the original event details before taking containment actions.
 
 Determine whether the alert represents a single enumeration request, a sequence of related requests, or activity spanning multiple services.
 
-### Step 2 — Identify Cloud Identity and Session
+### Step 2 - Identify Cloud Identity and Session
 
 Identify the principal responsible for the observed activity.
 
@@ -193,7 +193,7 @@ Determine whether the observed identity, session, and authorization context are 
 
 An unfamiliar identity or privileged role does not independently confirm malicious activity.
 
-### Step 3 — Review Service Enumeration
+### Step 3 - Review Service Enumeration
 
 Examine the cloud audit records associated with the discovery activity.
 
@@ -213,7 +213,7 @@ Look for patterns such as rapid enumeration across unrelated services, repeated 
 
 Where supported by available telemetry, distinguish successful resource enumeration from failed requests or denied access attempts.
 
-### Step 4 — Inventory Discovered Services
+### Step 4 - Inventory Discovered Services
 
 Determine which services and resource categories were queried.
 
@@ -235,7 +235,7 @@ Prioritize resources that could expose sensitive data, credentials, privileged a
 
 Discovery of a security service is not, by itself, evidence that the service was disabled or bypassed. Investigate any such action separately.
 
-### Step 5 — Review Access Context
+### Step 5 - Review Access Context
 
 Assess whether the observed enumeration is consistent with the initiating identity's expected behavior.
 
@@ -255,7 +255,7 @@ Determine whether the identity had a legitimate reason to enumerate the observed
 
 A valid identity and authorized API request can still be used for unauthorized reconnaissance. Evaluate the complete activity pattern instead of relying exclusively on authentication success.
 
-### Step 6 — Correlate Related Activity
+### Step 6 - Correlate Related Activity
 
 Correlate the discovery timeline with relevant cloud and identity events.
 
@@ -275,7 +275,7 @@ Determine whether the events can be linked through identity, session, source add
 
 Do not infer a complete attack chain from temporal proximity alone. Record the evidence supporting each correlation.
 
-### Step 7 — Determine Discovery Scope
+### Step 7 - Determine Discovery Scope
 
 Establish the known scope of the activity.
 
@@ -300,7 +300,7 @@ Determine:
 
 Document telemetry limitations and distinguish confirmed activity from suspected or unverified scope.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
