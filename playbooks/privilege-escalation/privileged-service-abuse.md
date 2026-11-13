@@ -3,10 +3,10 @@ id: "privileged-service-abuse"
 name: "Privileged Service Abuse"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-22T16:52:00Z"
-updated_at: "2026-10-05T16:53:00Z"
+updated_at: "2026-11-13T13:15:00Z"
 description: "Privileged Service Abuse involves abusing a Windows service or its execution context to obtain elevated privileges or execute unauthorized code."
 objective: "Identify, investigate, and validate suspicious privileged service activity and determine whether the activity resulted in unauthorized privilege escalation or related malicious behavior."
 severity: "high"
@@ -106,8 +106,6 @@ The objective is to determine whether service activity is legitimate, suspicious
 | --------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
 | T1543.003 | Create or Modify System Process: Windows Service | Relevant when Windows services are created or modified to execute unauthorized code or obtain elevated execution |
 
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -151,7 +149,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Service Abuse Alert
+### Step 1 - Identify Service Abuse Alert
 
 Determine:
 
@@ -167,7 +165,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Identify Service Configuration
+### Step 2 - Identify Service Configuration
 
 Collect:
 
@@ -184,7 +182,7 @@ Collect:
 
 Determine whether the service is expected on the affected host.
 
-### Step 3 — Review Service Executable
+### Step 3 - Review Service Executable
 
 Review:
 
@@ -210,7 +208,7 @@ Pay particular attention to:
 
 Do not execute unknown service binaries on production systems.
 
-### Step 4 — Review Account and Privilege Context
+### Step 4 - Review Account and Privilege Context
 
 Determine:
 
@@ -226,7 +224,7 @@ Assess whether the service's security context is appropriate for the affected sy
 
 A privileged service account alone does not establish malicious activity.
 
-### Step 5 — Review Process Activity
+### Step 5 - Review Process Activity
 
 Correlate service execution with:
 
@@ -241,7 +239,7 @@ Correlate service execution with:
 
 Determine whether the service launched unexpected or unauthorized processes.
 
-### Step 6 — Review Follow-on Activity
+### Step 6 - Review Follow-on Activity
 
 Review related:
 
@@ -256,7 +254,7 @@ Review related:
 
 Determine whether service abuse was used as part of a broader attack chain.
 
-### Step 7 — Determine Service Abuse Scope
+### Step 7 - Determine Service Abuse Scope
 
 Search the environment for:
 
@@ -276,7 +274,7 @@ Determine:
 - latest observed execution;
 - whether the service remains active.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -361,7 +359,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether the service executable is verified;
+- whether privileged execution is confirmed.
 
 ## Escalation
 
