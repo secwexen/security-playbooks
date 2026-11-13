@@ -3,10 +3,10 @@ id: "windows-credential-manager"
 name: "Windows Credential Manager"
 category: "credential-access"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-19T17:58:00Z"
-updated_at: "2026-10-05T17:12:00Z"
+updated_at: "2026-11-13T11:38:00Z"
 description: "Unauthorized access to Windows Credential Manager data can expose stored credentials and other authentication material."
 objective: "Identify, investigate, and validate suspicious access to Windows Credential Manager data and determine whether stored credentials may have been exposed."
 severity: "high"
@@ -166,7 +166,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Credential Manager Access Alert
+### Step 1 - Identify Credential Manager Access Alert
 
 Determine:
 
@@ -182,7 +182,7 @@ Determine:
 
 Preserve the original alert context before taking remediation actions.
 
-### Step 2 — Identify Target Credential Store
+### Step 2 - Identify Target Credential Store
 
 Determine:
 
@@ -194,7 +194,7 @@ Determine:
 
 Document the targeted resource without extracting or displaying real credentials.
 
-### Step 3 — Review Process Context
+### Step 3 - Review Process Context
 
 Review:
 
@@ -216,7 +216,7 @@ Determine whether the process is:
 - approved security or management software;
 - an unknown or suspicious executable.
 
-### Step 4 — Review Credential Store Activity
+### Step 4 - Review Credential Store Activity
 
 Review available:
 
@@ -236,7 +236,7 @@ Determine:
 
 Unexpected access from processes unrelated to normal Windows or application activity requires additional investigation.
 
-### Step 5 — Assess Potential Credential Exposure
+### Step 5 - Assess Potential Credential Exposure
 
 Identify potentially affected accounts or services represented in the credential context, based on available evidence.
 
@@ -251,7 +251,7 @@ Consider:
 
 Do not extract or display real credentials during routine investigation.
 
-### Step 6 — Review Follow-on Activity
+### Step 6 - Review Follow-on Activity
 
 Correlate Credential Manager access with:
 
@@ -267,7 +267,7 @@ Correlate Credential Manager access with:
 
 Pay particular attention to suspicious authentication shortly after the Credential Manager access.
 
-### Step 7 — Determine Credential Manager Access Scope
+### Step 7 - Determine Credential Manager Access Scope
 
 Search the environment for:
 
@@ -287,7 +287,7 @@ Determine:
 - latest observed activity;
 - whether suspicious activity is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -368,7 +368,10 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether the accessed entries belong to Windows Credentials, Web Credentials, or Generic Credentials and which associated services or resources may be affected;
+- whether the activity involved legitimate Credential Manager interfaces or unexpected direct access to credential-related files and protected resources;
+- whether subsequent SMB, RDP, network-resource, or application authentication activity can be correlated with the potentially accessed credential entries.
 
 ## Escalation
 
@@ -405,15 +408,10 @@ Do not extract, display, or disclose real credentials during investigation or va
 
 ## Related Playbooks
 
-- `playbooks/credential-access/credential-dumping.md`
 - `playbooks/credential-access/browser-credential-theft.md`
 - `playbooks/credential-access/credentials-from-password-stores.md`
 - `playbooks/credential-access/password-manager-credential-theft.md`
 - `playbooks/credential-access/dpapi-credential-access.md`
-- `playbooks/credential-access/lsass-dump.md`
-- `playbooks/credential-access/sam-dump.md`
-- `playbooks/credential-access/ntds-dump.md`
-- `playbooks/credential-access/password-spraying.md`
 - `playbooks/initial-access/valid-account-compromise.md`
 - `playbooks/triage/suspicious-file-triage.md`
 - `playbooks/triage/suspicious-process-triage.md`
