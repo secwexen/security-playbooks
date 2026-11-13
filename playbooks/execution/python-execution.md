@@ -3,10 +3,10 @@ id: "python-execution"
 name: "Python Execution"
 category: "execution"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-12T17:43:00Z"
-updated_at: "2026-10-05T17:04:00Z"
+updated_at: "2026-11-13T11:59:00Z"
 description: "Python execution involves using the Python interpreter or Python-based tooling to execute scripts and code on a system."
 objective: "Identify, investigate, and validate suspicious Python execution and determine whether the activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -146,7 +146,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Python Execution Alert
+### Step 1 - Identify Python Execution Alert
 
 Determine:
 
@@ -161,7 +161,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Review Python Command Line
+### Step 2 - Review Python Command Line
 
 Review the complete command line, including:
 
@@ -181,7 +181,7 @@ Pay particular attention to:
 - commands that retrieve additional content;
 - unusual or obfuscated command arguments.
 
-### Step 3 — Review Python Script Context
+### Step 3 - Review Python Script Context
 
 Determine:
 
@@ -205,7 +205,7 @@ Where authorized and safely available, review the script content for:
 
 Do not execute unknown Python scripts on production systems.
 
-### Step 4 — Review Parent Process
+### Step 4 - Review Parent Process
 
 Determine which process launched Python.
 
@@ -220,7 +220,7 @@ Investigate unexpected relationships such as Python launched by:
 
 Assess the relationship in context. Python launched by an approved development, automation, or management tool is not inherently malicious.
 
-### Step 5 — Review Child Processes
+### Step 5 - Review Child Processes
 
 Review:
 
@@ -241,7 +241,7 @@ Pay particular attention to Python spawning:
 
 Correlate child-process activity with the original Python execution.
 
-### Step 6 — Review Network Activity
+### Step 6 - Review Network Activity
 
 Determine whether Python or its child processes generated network activity.
 
@@ -259,7 +259,7 @@ Investigate communication with unexpected or suspicious infrastructure.
 
 Review package-management activity such as unexpected downloads or package installation when relevant to the event.
 
-### Step 7 — Determine Python Activity Scope
+### Step 7 - Determine Python Activity Scope
 
 Search the environment for:
 
@@ -279,7 +279,7 @@ Determine:
 - latest observed execution;
 - whether execution is still active.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -363,7 +363,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether Python scripts and imported packages are trusted;
+- whether child processes and network activity are related to the execution.
 
 ## Escalation
 
@@ -405,7 +407,6 @@ Do not delete or modify relevant scripts, files, package artifacts, logs, or oth
 - `playbooks/execution/user-execution.md`
 - `playbooks/execution/powershell.md`
 - `playbooks/execution/command-shell.md`
-- `playbooks/defense-evasion/obfuscated-powershell.md`
 - `playbooks/response/malware-response.md`
 - `playbooks/response/isolate-host-response.md`
 
