@@ -3,10 +3,10 @@ id: "service-stop"
 name: "Service Stop"
 category: "impact"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-30T17:03:00Z"
-updated_at: "2026-10-05T16:46:00Z"
+updated_at: "2026-11-13T12:38:00Z"
 description: "Investigate suspicious service stop or disable activity that may disrupt system or application availability."
 objective: "Determine whether service stop or disable activity was authorized, identify affected services and systems, assess operational impact, and determine whether the activity is associated with malicious impact or broader compromise."
 severity: "high"
@@ -147,7 +147,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Service Stop Alert
+### Step 1 - Identify Service Stop Alert
 
 Determine:
 
@@ -162,7 +162,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Identify Affected Service
+### Step 2 - Identify Affected Service
 
 Collect:
 
@@ -179,7 +179,7 @@ Collect:
 
 Determine whether the service is expected to run continuously and whether a maintenance or operational event explains the stop.
 
-### Step 3 — Review Service Stop Activity
+### Step 3 - Review Service Stop Activity
 
 Review:
 
@@ -203,7 +203,7 @@ Pay particular attention to:
 - repeated service termination activity;
 - service stops immediately following suspicious process execution.
 
-### Step 4 — Review Service Configuration
+### Step 4 - Review Service Configuration
 
 Determine whether any service configuration changed around the time of the stop activity.
 
@@ -218,7 +218,7 @@ Review:
 
 A service being configured as disabled may indicate a broader attempt to prevent normal service operation and should be correlated with the surrounding activity.
 
-### Step 5 — Assess Availability Impact
+### Step 5 - Assess Availability Impact
 
 Determine whether the service disruption affected:
 
@@ -233,7 +233,7 @@ Determine whether the service disruption affected:
 
 Document the duration of the disruption and identify any dependent systems or applications affected by the service state change.
 
-### Step 6 — Correlate Related Activity
+### Step 6 - Correlate Related Activity
 
 Correlate service stop activity with:
 
@@ -251,7 +251,7 @@ Correlate service stop activity with:
 
 Determine whether the service stop forms part of a broader attack sequence.
 
-### Step 7 — Determine Service Stop Scope
+### Step 7 - Determine Service Stop Scope
 
 Search across the environment for:
 
@@ -273,7 +273,7 @@ Determine:
 - whether security controls were impacted;
 - whether the activity remains ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -357,7 +357,8 @@ Document:
 - evidence collected;
 - evidence unavailable;
 - additional telemetry required;
-- unresolved investigation questions.
+- unresolved investigation questions;
+- whether the service stop succeeded.
 
 ## Escalation
 
