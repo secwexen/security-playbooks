@@ -3,10 +3,10 @@ id: "phishing"
 name: "Phishing"
 category: "initial-access"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-08T15:49:00Z"
-updated_at: "2026-11-05T14:56:00Z"
+updated_at: "2026-11-13T12:48:00Z"
 description: "Phishing is a social engineering technique used to obtain access, credentials, or user interaction through deceptive messages and content."
 objective: "Identify, analyze, and validate phishing activity and determine whether the technique resulted in credential exposure, malicious execution, or unauthorized access."
 severity: "high"
@@ -103,8 +103,6 @@ The objective is to identify the phishing technique, determine whether the user 
 | --------- | -------- | ------------------------------------------------------------------------------------------------------- |
 | T1566     | Phishing | Relevant when an adversary uses deceptive messages or content to gain access or influence user behavior |
 
-Additional phishing sub-techniques should be mapped when supported by the observed behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -142,7 +140,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Phishing Activity
+### Step 1 - Identify Phishing Activity
 
 Determine:
 
@@ -156,7 +154,7 @@ Determine:
 
 Preserve the original message and alert context before making changes.
 
-### Step 2 — Review Message Context
+### Step 2 - Review Message Context
 
 Review:
 
@@ -179,7 +177,7 @@ Look for:
 - unexpected business requests;
 - misleading sender information.
 
-### Step 3 — Analyze Phishing Indicators
+### Step 3 - Analyze Phishing Indicators
 
 Assess:
 
@@ -194,7 +192,7 @@ Assess:
 
 Do not access suspicious links from production systems.
 
-### Step 4 — Review User Interaction
+### Step 4 - Review User Interaction
 
 Determine whether the recipient:
 
@@ -208,7 +206,7 @@ Determine whether the recipient:
 
 Record relevant timestamps to establish the event sequence.
 
-### Step 5 — Review Account Activity
+### Step 5 - Review Account Activity
 
 When interaction occurred, review:
 
@@ -223,7 +221,7 @@ When interaction occurred, review:
 
 Determine whether phishing interaction was followed by account compromise indicators.
 
-### Step 6 — Review Endpoint Activity
+### Step 6 - Review Endpoint Activity
 
 Investigate:
 
@@ -237,7 +235,7 @@ Investigate:
 
 Correlate endpoint activity with the phishing event timeline.
 
-### Step 7 — Determine Campaign Scope
+### Step 7 - Determine Campaign Scope
 
 Search across the environment for:
 
@@ -257,7 +255,7 @@ Determine:
 - earliest observed activity;
 - most recent observed activity.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -333,7 +331,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether user interaction with phishing content can be confirmed.
+- whether credential submission or sensitive data exposure can be verified.
 
 ## Escalation
 
