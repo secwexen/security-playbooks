@@ -3,10 +3,10 @@ id: "cloud-incident-response"
 name: "Cloud Incident Response"
 category: "response"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-11-07T11:30:00Z"
-updated_at: "2026-11-07T11:30:00Z"
+updated_at: "2026-11-13T13:35:00Z"
 description: "Cloud security incidents involve unauthorized access, malicious activity, compromised identities, exposed resources, or abuse of cloud infrastructure, services, and configurations."
 objective: "Identify, investigate, contain, and remediate cloud security incidents while determining the scope of affected identities, workloads, resources, applications, and cloud services."
 severity: "high"
@@ -162,7 +162,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Cloud Security Alert
+### Step 1 - Identify Cloud Security Alert
 
 Determine:
 
@@ -185,7 +185,7 @@ Identify whether the alert originated from cloud-native security monitoring, SIE
 
 Preserve the original alert context and relevant cloud audit events before performing containment actions.
 
-### Step 2 — Validate Cloud Activity
+### Step 2 - Validate Cloud Activity
 
 Determine whether the observed cloud activity is consistent with expected organizational operations.
 
@@ -211,7 +211,7 @@ A single unusual cloud API operation should not automatically be classified as a
 
 Correlate identity, resource, network, and workload telemetry before assigning the final incident classification.
 
-### Step 3 — Review Cloud Audit Events
+### Step 3 - Review Cloud Audit Events
 
 Review cloud-native audit and activity logs.
 
@@ -247,7 +247,7 @@ Construct a timeline covering the period immediately before and after the suspec
 
 Cloud audit logging should be evaluated for completeness, retention, integrity, and possible tampering.
 
-### Step 4 — Review Cloud Resource Activity
+### Step 4 - Review Cloud Resource Activity
 
 Correlate suspicious identities and API operations with affected cloud resources.
 
@@ -283,7 +283,7 @@ Investigate whether cloud resources were used for:
 - destructive operations;
 - unauthorized external communication.
 
-### Step 5 — Determine Cloud Incident Scope
+### Step 5 - Determine Cloud Incident Scope
 
 Search the environment for:
 
@@ -319,7 +319,7 @@ Determine:
 
 Determine whether the incident is limited to a single resource, cloud account, subscription, project, or broader cloud organization.
 
-### Step 6 — Contain Cloud Incident
+### Step 6 - Contain Cloud Incident
 
 Based on incident severity and organizational procedures, consider:
 
@@ -344,7 +344,7 @@ Avoid indiscriminate resource deletion or account suspension before understandin
 
 Coordinate containment with cloud platform owners, identity-management teams, application owners, and incident-response personnel.
 
-### Step 7 — Eradicate and Recover
+### Step 7 - Eradicate and Recover
 
 Determine and address the underlying source of compromise.
 
@@ -369,7 +369,7 @@ Investigate:
 
 Remove unauthorized access mechanisms and remediate affected configurations.
 
-### Step 8 — Determine Response Outcome
+### Step 8 - Determine Response Outcome
 
 Classify the incident as:
 
