@@ -3,10 +3,10 @@ id: "isolate-host-response"
 name: "Host Isolation Response"
 category: "response"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-27T16:40:00Z"
-updated_at: "2026-11-05T13:16:00Z"
+updated_at: "2026-11-13T13:43:00Z"
 description: "Host Isolation Response provides a structured process for identifying affected systems, assessing active threats, applying authorized network isolation, preserving evidence, and validating containment."
 objective: "Identify, contain, and validate isolation of affected hosts while preserving required evidence and minimizing operational impact."
 severity: "high"
@@ -116,8 +116,6 @@ The following ATT&CK techniques represent adversary behaviors that may be associ
 | T1078     | Valid Accounts           | Relevant when compromised or otherwise unauthorized credentials are used to access the affected host or organizational resources |
 | T1021     | Remote Services          | Relevant when remote services are used for unauthorized access or lateral movement involving the affected host                   |
 
-Additional ATT&CK techniques should only be mapped when supported by the observed incident behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -158,7 +156,7 @@ The response should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Isolation Alert
+### Step 1 - Identify Isolation Alert
 
 Determine:
 
@@ -175,7 +173,7 @@ Determine:
 
 Preserve the original alert context before containment actions are performed.
 
-### Step 2 — Validate Affected Host
+### Step 2 - Validate Affected Host
 
 Confirm:
 
@@ -192,7 +190,7 @@ Confirm:
 
 Verify that the containment action will be applied to the intended system.
 
-### Step 3 — Assess Active Threat
+### Step 3 - Assess Active Threat
 
 Review available:
 
@@ -218,7 +216,7 @@ Determine whether the host is:
 
 Prioritize immediate containment when ongoing malicious activity may cause additional material impact.
 
-### Step 4 — Determine Containment Scope
+### Step 4 - Determine Containment Scope
 
 Search the environment for:
 
@@ -239,7 +237,7 @@ Determine:
 
 Containment scope should be based on available evidence and approved incident-response procedures.
 
-### Step 5 — Prepare Isolation
+### Step 5 - Prepare Isolation
 
 Before applying isolation:
 
@@ -253,7 +251,7 @@ Before applying isolation:
 
 Do not apply destructive remediation as a substitute for isolation unless authorized by the incident-response procedure.
 
-### Step 6 — Isolate Affected Host
+### Step 6 - Isolate Affected Host
 
 Apply the organization's approved host-isolation control.
 
@@ -275,7 +273,7 @@ Record:
 - host status before isolation;
 - host status after isolation.
 
-### Step 7 — Validate Containment
+### Step 7 - Validate Containment
 
 Verify:
 
@@ -290,7 +288,7 @@ Correlate host-isolation status with endpoint and network telemetry.
 
 Document any containment limitations or exceptions.
 
-### Step 8 — Determine Response Outcome
+### Step 8 - Determine Response Outcome
 
 Classify the response outcome as:
 
