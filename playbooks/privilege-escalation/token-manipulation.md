@@ -3,10 +3,10 @@ id: "token-manipulation"
 name: "Token Manipulation"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-21T14:29:00Z"
-updated_at: "2026-10-05T16:55:00Z"
+updated_at: "2026-11-13T13:21:00Z"
 description: "Token Manipulation involves abusing or modifying access tokens to impersonate users, obtain additional privileges, or execute processes under another security context."
 objective: "Identify, investigate, and validate suspicious access-token manipulation and determine whether token activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -105,8 +105,6 @@ The objective is to determine whether token-related activity is legitimate, susp
 | --------- | ------------------------- | ---------------------------------------------------------------------------------------- |
 | T1134     | Access Token Manipulation | Relevant when access tokens are manipulated or abused to obtain another security context |
 
-Additional T1134 sub-techniques should only be mapped when supported by the observed token behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -145,7 +143,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Token Manipulation Alert
+### Step 1 - Identify Token Manipulation Alert
 
 Determine:
 
@@ -161,7 +159,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Identify Token Context
+### Step 2 - Identify Token Context
 
 Determine, where telemetry is available:
 
@@ -176,7 +174,7 @@ Determine, where telemetry is available:
 
 Compare the observed security context with the expected context for the process and account.
 
-### Step 3 — Review Process Activity
+### Step 3 - Review Process Activity
 
 Review:
 
@@ -196,7 +194,7 @@ Pay particular attention to processes that:
 - launch privileged child processes;
 - appear immediately after suspicious authentication or execution activity.
 
-### Step 4 — Review Account Context
+### Step 4 - Review Account Context
 
 Determine:
 
@@ -211,7 +209,7 @@ Determine:
 
 Assess whether the token-associated account and privileges are consistent with the process's intended function.
 
-### Step 5 — Review Security Context Changes
+### Step 5 - Review Security Context Changes
 
 Review available telemetry for:
 
@@ -224,7 +222,7 @@ Review available telemetry for:
 
 Determine whether the resulting process or thread security context differs from the context expected for the original execution.
 
-### Step 6 — Review Related Activity
+### Step 6 - Review Related Activity
 
 Correlate the token activity with:
 
@@ -240,7 +238,7 @@ Correlate the token activity with:
 
 Determine whether token manipulation was an isolated event or part of a broader compromise.
 
-### Step 7 — Determine Token Manipulation Scope
+### Step 7 - Determine Token Manipulation Scope
 
 Search the environment for:
 
@@ -260,7 +258,7 @@ Determine:
 - latest observed activity;
 - whether the activity is still occurring.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -344,7 +342,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether token ownership can be verified;
+- whether privilege escalation is confirmed.
 
 ## Escalation
 
