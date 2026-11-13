@@ -3,10 +3,10 @@ id: "cloud-account-discovery"
 name: "Cloud Account Discovery"
 category: "cloud"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-17T15:47:00Z"
-updated_at: "2026-10-17T15:47:00Z"
+updated_at: "2026-11-13T10:15:00Z"
 description: "Investigate suspicious enumeration of cloud user accounts, service accounts, roles, and identity resources across cloud platforms and identity providers."
 objective: "Determine whether cloud account discovery activity is authorized, suspicious, or malicious; identify the identities and resources involved; establish the scope; and provide evidence for escalation or closure."
 severity: "medium"
@@ -141,7 +141,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Cloud Account Discovery Alert
+### Step 1 - Identify Cloud Account Discovery Alert
 
 Collect:
 
@@ -159,7 +159,7 @@ Preserve the original alert context and associated event records.
 
 Determine whether the event reflects account enumeration, role discovery, service-account listing, or another identity-related operation.
 
-### Step 2 — Identify Actor and Session
+### Step 2 - Identify Actor and Session
 
 Identify the identity associated with the observed activity.
 
@@ -180,7 +180,7 @@ Determine whether the identity and session are expected for the affected environ
 
 A valid account or successful sign-in does not, by itself, establish that the activity was authorized.
 
-### Step 3 — Review Account Enumeration Activity
+### Step 3 - Review Account Enumeration Activity
 
 Review the cloud audit events and identify the operations performed.
 
@@ -195,7 +195,7 @@ Determine:
 
 Record the relevant event identifiers, timestamps, target resources, and results available in the audit logs.
 
-### Step 4 — Assess API and Console Context
+### Step 4 - Assess API and Console Context
 
 Compare the observed activity with expected operational behavior.
 
@@ -213,7 +213,7 @@ Determine whether the observed operations are consistent with the identity's ass
 
 An unfamiliar source or high query volume should be investigated in context rather than treated as conclusive evidence of malicious activity.
 
-### Step 5 — Correlate Authentication Activity
+### Step 5 - Correlate Authentication Activity
 
 Review authentication events associated with the identity and session.
 
@@ -229,7 +229,7 @@ Investigate:
 
 Correlate the timeline with account enumeration to determine whether discovery occurred during a potentially compromised session.
 
-### Step 6 — Review Permissions and Targeted Accounts
+### Step 6 - Review Permissions and Targeted Accounts
 
 Determine the effective permissions available to the initiating identity at the time of the activity.
 
@@ -247,7 +247,7 @@ Establish whether the activity remained within the identity's authorized scope.
 
 Do not infer privilege escalation solely from the discovery of privileged accounts. Additional evidence is required to establish subsequent unauthorized access or privilege changes.
 
-### Step 7 — Determine Discovery Scope
+### Step 7 - Determine Discovery Scope
 
 Search the relevant audit records for related activity.
 
@@ -273,7 +273,7 @@ Determine:
 
 Document the scope and any limitations caused by unavailable or incomplete telemetry.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
