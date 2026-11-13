@@ -3,10 +3,10 @@ id: "application-access-token-abuse"
 name: "Application Access Token Abuse"
 category: "cloud"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-18T05:53:00Z"
-updated_at: "2026-10-18T05:53:00Z"
+updated_at: "2026-11-13T10:11:00Z"
 description: "Investigate suspected theft, unauthorized use, or abuse of application access tokens in cloud environments and SaaS applications."
 objective: "Determine whether an application access token has been compromised or used without authorization, identify affected identities and resources, establish the scope of the activity, and coordinate appropriate containment and remediation."
 severity: "high"
@@ -153,7 +153,7 @@ Do not include raw access tokens, refresh tokens, client secrets, or other reusa
 
 ## Investigation Procedure
 
-### Step 1 — Identify Token Abuse Alert
+### Step 1 - Identify Token Abuse Alert
 
 Review the original alert and establish the initial investigation context.
 
@@ -174,7 +174,7 @@ Preserve relevant alert details before containment changes alter the available e
 
 Determine whether the alert concerns suspected token theft, unexpected token use, unusual API activity, or a broader identity compromise.
 
-### Step 2 — Identify Token and Principal
+### Step 2 - Identify Token and Principal
 
 Identify the identity and application associated with the activity.
 
@@ -194,7 +194,7 @@ Use approved telemetry to obtain token identifiers or fingerprints when availabl
 
 Do not retrieve, expose, or distribute the raw token merely to confirm its identity. If the token itself is suspected to be compromised, treat it as a credential requiring protection.
 
-### Step 3 — Review Token Context
+### Step 3 - Review Token Context
 
 Assess whether the token's recorded authorization context is consistent with the intended application and identity.
 
@@ -214,7 +214,7 @@ Determine whether the token was issued through an expected authentication flow a
 
 A token's presence, expected format, valid signature, or unexpired status does not by itself demonstrate authorized use. Base conclusions on trusted provider telemetry and corroborating activity.
 
-### Step 4 — Review Authentication and API Activity
+### Step 4 - Review Authentication and API Activity
 
 Review authentication records and API activity associated with the affected identity and application.
 
@@ -234,7 +234,7 @@ Compare the observed activity with established behavior for the identity and app
 
 Look for unexplained changes in source, timing, application context, resource access, or request patterns. Account for legitimate automation, service operations, changes in network infrastructure, and other approved operational causes before drawing conclusions.
 
-### Step 5 — Review Permissions and Resource Access
+### Step 5 - Review Permissions and Resource Access
 
 Determine which resources and operations were available to the token-associated identity and which were actually accessed.
 
@@ -253,7 +253,7 @@ Establish whether the observed operations were authorized and consistent with th
 
 Distinguish between the permissions that could have been exercised and the operations that the available evidence confirms were performed.
 
-### Step 6 — Correlate Related Activity
+### Step 6 - Correlate Related Activity
 
 Correlate the suspected token abuse with relevant identity, application, endpoint, and cloud events.
 
@@ -274,7 +274,7 @@ Establish a timeline of the suspected compromise and identify evidence of relate
 
 Do not assume that a password change alone invalidates every application access token or refresh token. Verify token and session invalidation using the identity provider's supported controls.
 
-### Step 7 — Determine Token Abuse Scope
+### Step 7 - Determine Token Abuse Scope
 
 Search available identity and cloud telemetry for related activity.
 
@@ -295,7 +295,7 @@ Document the difference between confirmed unauthorized access and activity that 
 
 Identify related systems and accounts requiring additional investigation or containment.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
