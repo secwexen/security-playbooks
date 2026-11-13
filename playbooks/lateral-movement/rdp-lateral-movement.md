@@ -3,10 +3,10 @@ id: "rdp-lateral-movement"
 name: "RDP Lateral Movement"
 category: "lateral-movement"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-12T11:47:00Z"
-updated_at: "2026-10-12T11:47:00Z"
+updated_at: "2026-11-13T12:55:00Z"
 description: "Investigate suspicious Remote Desktop Protocol (RDP) activity that may indicate lateral movement between systems."
 objective: "Determine whether RDP activity is authorized, identify affected accounts and hosts, establish the scope of potential lateral movement, and support appropriate incident response."
 severity: "high"
@@ -147,7 +147,7 @@ The investigation should cover the relevant time window before, during, and afte
 
 ## Investigation Procedure
 
-### Step 1 — Identify RDP Alert
+### Step 1 - Identify RDP Alert
 
 Review the original alert and preserve its context.
 
@@ -167,7 +167,7 @@ Determine why the activity was flagged and identify the initial investigative sc
 
 Do not classify the activity as malicious solely because the connection was generated outside normal working hours or originated from an unfamiliar host.
 
-### Step 2 — Identify Source and Destination
+### Step 2 - Identify Source and Destination
 
 Establish the systems involved in the RDP connection.
 
@@ -187,7 +187,7 @@ Determine whether the connection is consistent with documented administration, s
 
 Investigate unexpected connections involving domain controllers, critical servers, privileged administration systems, or systems outside the account's normal access scope.
 
-### Step 3 — Review Authentication Activity
+### Step 3 - Review Authentication Activity
 
 Examine authentication events associated with the suspected RDP session.
 
@@ -219,7 +219,7 @@ Investigate repeated failures followed by success, unexpected use of privileged 
 
 An authentication event alone does not establish whether the associated session was authorized or malicious.
 
-### Step 4 — Review RDP Session Details
+### Step 4 - Review RDP Session Details
 
 Review available Remote Desktop Services logs and other session telemetry.
 
@@ -238,13 +238,11 @@ Collect:
 
 Where available, review the Remote Desktop Services operational logs for events associated with connection establishment and authentication.
 
-Correlate these records with the corresponding Windows Security Event Logs and network telemetry.
-
 Determine whether the source, account, destination, and timing match the expected remote administration workflow.
 
 Do not interpret a single Remote Desktop Services event as conclusive proof that a complete interactive session was established. Validate the event against other available session and authentication evidence.
 
-### Step 5 — Review Post-Logon Activity
+### Step 5 - Review Post-Logon Activity
 
 Investigate activity on the destination system during and after the RDP session.
 
@@ -268,7 +266,7 @@ Determine whether the account performed expected administrative tasks or initiat
 
 A suspicious process occurring after an RDP logon should be correlated with the session timeline rather than automatically attributed to that session.
 
-### Step 6 — Correlate Related Activity
+### Step 6 - Correlate Related Activity
 
 Correlate the RDP session with activity observed before and after the connection.
 
@@ -288,7 +286,7 @@ Determine whether the RDP session is an isolated administrative event or part of
 
 Use corroborating evidence to establish relationships between authentication, remote access, and subsequent actions.
 
-### Step 7 — Determine Lateral Movement Scope
+### Step 7 - Determine Lateral Movement Scope
 
 Search the available environment telemetry for related RDP activity.
 
@@ -317,7 +315,7 @@ Document the search period, data sources, identified systems, and relevant telem
 
 Do not treat systems as confirmed compromised solely because they were contacted through RDP. Establish the extent of compromise from the available evidence.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as one of the following:
 
