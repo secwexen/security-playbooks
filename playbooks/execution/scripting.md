@@ -3,10 +3,10 @@ id: "scripting"
 name: "Scripting"
 category: "execution"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-09T20:50:00Z"
-updated_at: "2026-10-05T17:05:00Z"
+updated_at: "2026-11-13T12:06:00Z"
 description: "Scripting enables adversaries to execute commands and code through scripting engines and interpreters available on a system."
 objective: "Identify, investigate, and validate suspicious scripting activity and determine whether script execution is associated with unauthorized or malicious behavior."
 severity: "high"
@@ -140,7 +140,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Script Execution Alert
+### Step 1 - Identify Script Execution Alert
 
 Determine:
 
@@ -155,7 +155,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Identify Script Interpreter
+### Step 2 - Identify Script Interpreter
 
 Determine which interpreter or scripting engine was used.
 
@@ -168,7 +168,7 @@ Examples include:
 
 Identify the interpreter executable, version where available, and execution context.
 
-### Step 3 — Review Command Line
+### Step 3 - Review Command Line
 
 Review the complete command line, including:
 
@@ -188,7 +188,7 @@ Pay particular attention to:
 - commands that download or execute additional content;
 - commands executed from temporary or user-writable locations.
 
-### Step 4 — Review Script Context
+### Step 4 - Review Script Context
 
 Determine:
 
@@ -209,7 +209,7 @@ Assess whether the script was:
 - retrieved from a network location;
 - deployed by an approved administrative process.
 
-### Step 5 — Review Process Tree
+### Step 5 - Review Process Tree
 
 Review:
 
@@ -231,7 +231,7 @@ Pay attention to interpreters spawning:
 - network utilities;
 - unexpected executables.
 
-### Step 6 — Review Network Activity
+### Step 6 - Review Network Activity
 
 Determine whether the script or its child processes generated network activity.
 
@@ -247,7 +247,7 @@ Collect:
 
 Investigate communication with unexpected or suspicious infrastructure.
 
-### Step 7 — Determine Script Activity Scope
+### Step 7 - Determine Script Activity Scope
 
 Search the environment for:
 
@@ -267,7 +267,7 @@ Determine:
 - latest observed time;
 - whether execution is still active.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -346,7 +346,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether the script source and interpreter are verified;
+- whether dynamically executed code and imported modules can be correlated with the original script.
 
 ## Escalation
 
@@ -379,7 +381,6 @@ Do not delete or modify relevant scripts, logs, or other evidence before require
 
 ## Related Playbooks
 
-- `playbooks/triage/suspicious-powershell-triage.md`
 - `playbooks/triage/suspicious-process-triage.md`
 - `playbooks/triage/suspicious-file-triage.md`
 - `playbooks/triage/malware-detection-triage.md`
