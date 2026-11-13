@@ -3,10 +3,10 @@ id: "credential-access"
 name: "Credential Access"
 category: "credential-access"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-20T12:58:00Z"
-updated_at: "2026-10-05T17:08:00Z"
+updated_at: "2026-11-13T10:55:00Z"
 description: "Credential access activity may expose passwords, authentication material, tokens, hashes, tickets, or other secrets used to access systems and services."
 objective: "Identify, investigate, and validate suspicious credential-access activity, determine the affected credentials and scope, and support appropriate containment and credential-compromise response actions."
 severity: "critical"
@@ -191,7 +191,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Credential Access Alert
+### Step 1 - Identify Credential Access Alert
 
 Determine:
 
@@ -207,7 +207,7 @@ Determine:
 
 Preserve the original alert context before taking remediation actions.
 
-### Step 2 — Identify Credential Access Type
+### Step 2 - Identify Credential Access Type
 
 Determine whether the activity involves:
 
@@ -225,7 +225,7 @@ Determine whether the activity involves:
 
 Document the targeted authentication material without extracting or displaying real credentials.
 
-### Step 3 — Review Process and Account Context
+### Step 3 - Review Process and Account Context
 
 Review:
 
@@ -249,7 +249,7 @@ Determine whether the activity is associated with:
 - an unknown or suspicious executable;
 - a known malicious process.
 
-### Step 4 — Review Credential Access Activity
+### Step 4 - Review Credential Access Activity
 
 Review available:
 
@@ -272,7 +272,7 @@ Determine:
 
 Unexpected access from unrelated or untrusted processes requires additional investigation.
 
-### Step 5 — Assess Potential Credential Exposure
+### Step 5 - Assess Potential Credential Exposure
 
 Identify potentially affected:
 
@@ -295,7 +295,7 @@ Assess:
 
 Do not extract, display, or reuse real credentials during routine investigation.
 
-### Step 6 — Review Follow-on Activity
+### Step 6 - Review Follow-on Activity
 
 Correlate credential-access activity with:
 
@@ -312,7 +312,7 @@ Correlate credential-access activity with:
 
 Pay particular attention to authentication or lateral movement shortly after credential access.
 
-### Step 7 — Determine Credential Access Scope
+### Step 7 - Determine Credential Access Scope
 
 Search the environment for:
 
@@ -333,7 +333,7 @@ Determine:
 - latest observed activity;
 - whether suspicious activity is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
