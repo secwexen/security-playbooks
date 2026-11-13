@@ -3,10 +3,10 @@ id: "weak-service-permissions"
 name: "Weak Service Permissions"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-24T15:19:00Z"
-updated_at: "2026-10-05T16:56:00Z"
+updated_at: "2026-11-13T13:28:00Z"
 description: "Weak Service Permissions occur when a Windows service executable or its containing directory can be modified by an unauthorized user, allowing replacement or modification of the service binary."
 objective: "Identify, investigate, and validate suspicious service file or directory permissions and determine whether weak permissions enabled unauthorized execution, privilege escalation, persistence, or related malicious activity."
 severity: "high"
@@ -106,8 +106,6 @@ The objective is to determine whether weak permissions represent an exploitable 
 | --------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | T1574.010 | Hijack Execution Flow: Services File Permissions Weakness | Relevant when weak file or directory permissions allow unauthorized modification or replacement of a Windows service executable |
 
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -147,7 +145,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Weak Service Permission Alert
+### Step 1 - Identify Weak Service Permission Alert
 
 Determine:
 
@@ -163,7 +161,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Identify Service Configuration
+### Step 2 - Identify Service Configuration
 
 Collect:
 
@@ -178,7 +176,7 @@ Collect:
 
 Determine whether the service and executable are expected on the affected host.
 
-### Step 3 — Review File and Directory Permissions
+### Step 3 - Review File and Directory Permissions
 
 Review permissions on:
 
@@ -200,7 +198,7 @@ Pay particular attention to write or modify permissions granted to unexpected us
 
 Do not change permissions during investigation before required evidence has been preserved and authorization has been established.
 
-### Step 4 — Review File Activity
+### Step 4 - Review File Activity
 
 Review:
 
@@ -217,7 +215,7 @@ Determine whether service-file changes align with expected maintenance or deploy
 
 Pay particular attention to newly created or recently modified executables associated with the service.
 
-### Step 5 — Review Process Activity
+### Step 5 - Review Process Activity
 
 Correlate the service with:
 
@@ -233,7 +231,7 @@ Correlate the service with:
 
 Determine whether the service executed the expected binary or an unauthorized replacement.
 
-### Step 6 — Review Privilege Context
+### Step 6 - Review Privilege Context
 
 Determine:
 
@@ -246,7 +244,7 @@ Determine:
 
 Assess whether unauthorized modification of the service executable could result in execution under a more privileged context.
 
-### Step 7 — Determine Weak Permission Scope
+### Step 7 - Determine Weak Permission Scope
 
 Search the environment for:
 
@@ -267,7 +265,7 @@ Determine:
 - latest observed modification;
 - whether unauthorized access is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -349,7 +347,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether unauthorized write access is confirmed;
+- whether the service binary was modified.
 
 ## Escalation
 
