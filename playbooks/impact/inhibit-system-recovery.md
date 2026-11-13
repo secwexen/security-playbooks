@@ -3,10 +3,10 @@ id: "inhibit-system-recovery"
 name: "Inhibit System Recovery"
 category: "impact"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-09-29T16:04:00Z"
-updated_at: "2026-10-05T16:45:00Z"
+updated_at: "2026-11-13T12:34:00Z"
 description: "Investigate activity that disables, deletes, or otherwise interferes with system recovery mechanisms, backups, snapshots, or recovery services."
 objective: "Determine whether recovery mechanisms were intentionally inhibited, assess the affected recovery capabilities and environmental scope, and support containment and recovery actions."
 severity: "critical"
@@ -108,8 +108,6 @@ The objective is to determine whether recovery capabilities were intentionally i
 | --------- | ----------------------- | ------------------------------------------------------------------------------------------------------ |
 | T1490     | Inhibit System Recovery | Primary impact technique when recovery mechanisms are disabled, deleted, or otherwise made unavailable |
 
-MITRE ATT&CK identifies T1490 under the **Impact** tactic and describes activity intended to prevent or reduce the ability to recover affected systems or data.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -153,7 +151,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Recovery Inhibition Alert
+### Step 1 - Identify Recovery Inhibition Alert
 
 Determine:
 
@@ -169,7 +167,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Identify Recovery Mechanism
+### Step 2 - Identify Recovery Mechanism
 
 Determine which recovery mechanism was affected.
 
@@ -186,7 +184,7 @@ Review, where applicable:
 
 Document the expected role of the affected mechanism and whether the change was authorized.
 
-### Step 3 — Review Process Execution
+### Step 3 - Review Process Execution
 
 Review:
 
@@ -215,7 +213,7 @@ Pay particular attention to recovery-related activity originating from:
 
 Do not execute unknown binaries or intentionally alter recovery mechanisms during investigation.
 
-### Step 4 — Review Recovery Changes
+### Step 4 - Review Recovery Changes
 
 Determine:
 
@@ -228,7 +226,7 @@ Determine:
 
 Establish the earliest known change and identify the responsible account and process where telemetry permits.
 
-### Step 5 — Review Related Activity
+### Step 5 - Review Related Activity
 
 Correlate the event with:
 
@@ -247,7 +245,7 @@ Correlate the event with:
 
 Recovery inhibition combined with encryption, destructive behavior, or unauthorized administrative activity should receive increased investigation priority.
 
-### Step 6 — Determine Recovery Impact
+### Step 6 - Determine Recovery Impact
 
 Assess:
 
@@ -261,7 +259,7 @@ Assess:
 
 Document which recovery options remain functional and which have been affected.
 
-### Step 7 — Determine Environmental Scope
+### Step 7 - Determine Environmental Scope
 
 Search for:
 
@@ -284,7 +282,7 @@ Determine:
 - latest observed occurrence;
 - whether the recovery inhibition activity remains active.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -369,7 +367,8 @@ Document:
 - evidence collected;
 - evidence unavailable;
 - recovery mechanisms that could not be assessed;
-- additional telemetry required.
+- additional telemetry required;
+- whether recovery mechanisms were successfully disabled or deleted, or the operation was only attempted.
 
 ## Escalation
 
