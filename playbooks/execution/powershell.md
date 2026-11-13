@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-11T16:03:00Z"
-updated_at: "2026-11-13T11:52:00Z"
+updated_at: "2026-11-13T12:14:00Z"
 description: "PowerShell is a command and scripting interpreter commonly used for Windows administration and automation and may also be abused to execute malicious commands and scripts."
 objective: "Identify, investigate, and validate suspicious PowerShell activity and determine whether execution is legitimate, suspicious, or malicious."
 severity: "high"
@@ -102,8 +102,6 @@ The objective is to determine whether PowerShell activity is legitimate, suspici
 | Technique | Name                                          | Relevance                                                       |
 | --------- | --------------------------------------------- | --------------------------------------------------------------- |
 | T1059.001 | Command and Scripting Interpreter: PowerShell | Relevant when PowerShell is used to execute commands or scripts |
-
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
 
 ## Trigger Conditions
 
