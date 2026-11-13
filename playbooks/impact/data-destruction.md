@@ -3,10 +3,10 @@ id: "data-destruction"
 name: "Data Destruction"
 category: "impact"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-03T15:25:00Z"
-updated_at: "2026-10-05T16:44:00Z"
+updated_at: "2026-11-13T12:30:00Z"
 description: "Data Destruction involves the unauthorized deletion, overwriting, or deliberate destruction of files and stored data to impair availability or render information irrecoverable."
 objective: "Identify, investigate, and scope suspected data destruction activity, determine the affected data and assets, assess recoverability, and support containment and recovery actions."
 severity: "high"
@@ -106,8 +106,6 @@ The objective is to determine whether the observed activity is legitimate, suspi
 | --------- | ---------------- | -------------------------------------------------------------------------------------------- |
 | T1485     | Data Destruction | Primary technique for intentional destruction of files or stored data to impair availability |
 
-T1485 is categorized by MITRE ATT&CK under the **Impact** tactic. Its current Enterprise scope includes Windows, Linux, macOS, IaaS, ESXi, and container environments.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -147,7 +145,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Data Destruction Alert
+### Step 1 - Identify Data Destruction Alert
 
 Determine:
 
@@ -162,7 +160,7 @@ Determine:
 
 Preserve the original alert context before performing remediation or recovery actions.
 
-### Step 2 — Identify Affected Data and Assets
+### Step 2 - Identify Affected Data and Assets
 
 Determine:
 
@@ -180,7 +178,7 @@ Determine:
 
 Prioritize business-critical, security-sensitive, and operationally essential data.
 
-### Step 3 — Review Destruction Activity
+### Step 3 - Review Destruction Activity
 
 Review:
 
@@ -198,7 +196,7 @@ Determine whether the activity represents routine file management or deliberate 
 
 Data destruction involving file deletion or overwrite should be distinguished from disk-level destruction techniques that target disk content or disk structure.
 
-### Step 4 — Review Execution Context
+### Step 4 - Review Execution Context
 
 Determine:
 
@@ -217,7 +215,7 @@ Determine:
 
 Assess whether the execution context is consistent with approved administrative or operational activity.
 
-### Step 5 — Assess Data Recoverability
+### Step 5 - Assess Data Recoverability
 
 Determine:
 
@@ -234,7 +232,7 @@ Do not modify affected storage or recovery sources before required evidence pres
 
 Backups should be protected from the same destructive activity and maintained in a manner that supports restoration after compromise.
 
-### Step 6 — Correlate Related Activity
+### Step 6 - Correlate Related Activity
 
 Correlate the destruction timeline with:
 
@@ -250,7 +248,7 @@ Correlate the destruction timeline with:
 
 Determine whether the destruction is an isolated event or part of a broader attack chain.
 
-### Step 7 — Determine Destruction Scope
+### Step 7 - Determine Destruction Scope
 
 Search the environment for:
 
@@ -273,7 +271,7 @@ Determine:
 - whether destructive activity remains active;
 - whether recovery resources are also affected.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
