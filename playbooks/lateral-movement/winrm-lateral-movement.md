@@ -3,10 +3,10 @@ id: "winrm-lateral-movement"
 name: "WinRM Lateral Movement"
 category: "lateral-movement"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-14T17:05:00Z"
-updated_at: "2026-10-14T17:05:00Z"
+updated_at: "2026-11-13T12:58:00Z"
 description: "Investigate suspicious Windows Remote Management (WinRM) activity to determine whether remote access and execution indicate unauthorized lateral movement."
 objective: "Identify the source and destination systems, establish the authentication and execution context, determine the scope of suspicious WinRM activity, and support appropriate incident response decisions."
 severity: "high"
@@ -152,7 +152,7 @@ WinRM commonly uses TCP port 5985 for HTTP and TCP port 5986 for HTTPS, but envi
 
 ## Investigation Procedure
 
-### Step 1 — Identify WinRM Alert
+### Step 1 - Identify WinRM Alert
 
 Collect the original alert and establish why the activity requires investigation.
 
@@ -172,7 +172,7 @@ Preserve the original alert context before changing system configurations or ini
 
 Determine whether the alert originated from endpoint telemetry, authentication monitoring, network monitoring, or a threat-hunting investigation.
 
-### Step 2 — Identify Source and Destination
+### Step 2 - Identify Source and Destination
 
 Identify the systems involved in the remote session.
 
@@ -189,13 +189,11 @@ Collect:
 
 Determine whether the source is an approved administrative workstation, management server, automation host, or ordinary user endpoint.
 
-Assess whether the destination is expected to accept remote management connections from the source.
-
 Review asset inventory, administrative access records, and known management relationships.
 
 An unfamiliar source-destination pair is an investigation indicator, not proof of malicious activity.
 
-### Step 3 — Review Authentication Context
+### Step 3 - Review Authentication Context
 
 Review authentication activity associated with the WinRM session.
 
@@ -224,7 +222,7 @@ Correlate authentication events with the session timeline.
 
 Do not classify an account as compromised solely because it has accessed a remote system through WinRM.
 
-### Step 4 — Review WinRM Session
+### Step 4 - Review WinRM Session
 
 Review available WinRM operational telemetry and the configuration of the destination system.
 
@@ -242,13 +240,11 @@ Collect, where available:
 
 Determine whether WinRM is expected to be enabled on the destination system.
 
-Compare the observed activity with approved remote administration procedures and historical usage patterns.
-
 Investigate sessions that originate from unauthorized hosts, involve unexpected accounts, or coincide with other suspicious behavior.
 
 Do not assume that every WinRM session will generate the same event records across Windows versions and logging configurations.
 
-### Step 5 — Review Process Execution
+### Step 5 - Review Process Execution
 
 Correlate the WinRM session with process creation and execution activity on the destination system.
 
@@ -270,11 +266,9 @@ Pay particular attention to process activity that occurs shortly after the remot
 
 Investigate unexpected command execution, suspicious child processes, execution from unusual paths, and activity inconsistent with normal administrative operations.
 
-Where available, correlate WinRM events with Windows process creation telemetry, including Sysmon Event ID 1 or Windows Security Event ID 4688.
-
 A process event alone may not conclusively identify the remote protocol responsible for execution. Correlate it with session and authentication telemetry.
 
-### Step 6 — Correlate Related Activity
+### Step 6 - Correlate Related Activity
 
 Determine whether the WinRM session is associated with a broader attack sequence.
 
@@ -298,7 +292,7 @@ Where multiple systems are involved, determine whether the activity represents a
 
 Document the evidence supporting each correlation. Temporal proximity alone does not establish causation.
 
-### Step 7 — Determine Lateral Movement Scope
+### Step 7 - Determine Lateral Movement Scope
 
 Assess the extent of the activity across the environment.
 
@@ -325,7 +319,7 @@ Document confirmed findings separately from suspected or unverified activity.
 
 If evidence indicates access beyond the initial destination, expand the investigation to the potentially affected systems and accounts.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as one of the following:
 
