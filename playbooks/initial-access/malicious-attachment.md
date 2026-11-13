@@ -3,10 +3,10 @@ id: "malicious-attachment"
 name: "Malicious Attachment"
 category: "initial-access"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-07T09:50:00Z"
-updated_at: "2026-10-05T16:48:00Z"
+updated_at: "2026-11-13T12:46:00Z"
 description: "Investigate and assess malicious or suspicious email attachments that may deliver malware or enable unauthorized access."
 objective: "Determine whether a delivered attachment is malicious, identify recipient and endpoint impact, establish scope, and determine whether incident response is required."
 severity: "high"
@@ -102,8 +102,6 @@ The objective is to determine whether the attachment represents a malicious deli
 | --------- | ---------------------------------- | ------------------------------------------------------------------------------------------- |
 | T1566.001 | Phishing: Spearphishing Attachment | Relevant when an adversary uses a malicious or suspicious attachment to gain initial access |
 
-Additional ATT&CK techniques should only be mapped when supported by the observed attachment or post-delivery behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -141,7 +139,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Attachment Alert
+### Step 1 - Identify Attachment Alert
 
 Determine:
 
@@ -155,7 +153,7 @@ Determine:
 
 Preserve the original alert and message context before making remediation changes.
 
-### Step 2 — Collect Attachment Metadata
+### Step 2 - Collect Attachment Metadata
 
 Collect:
 
@@ -170,7 +168,7 @@ Collect:
 
 Record the metadata before opening or executing the attachment.
 
-### Step 3 — Review Message Context
+### Step 3 - Review Message Context
 
 Review:
 
@@ -186,7 +184,7 @@ Review:
 
 Determine whether the message is consistent with legitimate business communication.
 
-### Step 4 — Analyze the Attachment
+### Step 4 - Analyze the Attachment
 
 Assess the attachment for:
 
@@ -204,7 +202,7 @@ Use approved malware-analysis or sandboxing capabilities when required.
 
 Do not execute suspicious attachments on production systems.
 
-### Step 5 — Review Recipient Activity
+### Step 5 - Review Recipient Activity
 
 Determine whether the recipient:
 
@@ -217,7 +215,7 @@ Determine whether the recipient:
 
 Establish the event sequence and timestamps where telemetry is available.
 
-### Step 6 — Review Endpoint Activity
+### Step 6 - Review Endpoint Activity
 
 When interaction occurred, investigate:
 
@@ -232,7 +230,7 @@ When interaction occurred, investigate:
 
 Pay particular attention to unexpected processes launched after the attachment was opened.
 
-### Step 7 — Determine Campaign Scope
+### Step 7 - Determine Campaign Scope
 
 Search across the environment for:
 
@@ -253,7 +251,7 @@ Determine:
 - first observed activity;
 - latest observed activity.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the attachment as:
 
@@ -331,7 +329,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional analysis required.
+- additional analysis required;
+- whether the attachment's full contents can be analyzed.
+- whether recipient interaction or execution can be confirmed.
 
 ## Escalation
 
