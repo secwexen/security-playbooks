@@ -3,10 +3,10 @@ id: "credential-dumping"
 name: "Credential Dumping"
 category: "credential-access"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-14T21:55:00Z"
-updated_at: "2026-10-05T17:08:00Z"
+updated_at: "2026-11-13T10:57:00Z"
 description: "Credential dumping involves attempts to obtain authentication material such as password hashes, cached credentials, or authentication secrets from systems."
 objective: "Identify, investigate, and validate suspicious credential dumping activity and determine whether authentication material may have been exposed."
 severity: "critical"
@@ -162,7 +162,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Credential Access Alert
+### Step 1 - Identify Credential Access Alert
 
 Determine:
 
@@ -178,7 +178,7 @@ Determine:
 
 Preserve the original alert context before taking remediation actions.
 
-### Step 2 — Identify Credential Access Target
+### Step 2 - Identify Credential Access Target
 
 Determine which credential source was accessed.
 
@@ -192,7 +192,7 @@ Examples include:
 
 Document the target without attempting to reproduce unauthorized credential extraction.
 
-### Step 3 — Review Process Context
+### Step 3 - Review Process Context
 
 Review:
 
@@ -209,7 +209,7 @@ Review:
 
 Determine whether the process belongs to approved security software, administrative tooling, endpoint management, or normal operating-system behavior.
 
-### Step 4 — Review Access Method
+### Step 4 - Review Access Method
 
 Determine the observed access method from available telemetry.
 
@@ -224,7 +224,7 @@ Investigate:
 
 Do not execute credential extraction tools or reproduce credential theft on production systems.
 
-### Step 5 — Assess Potential Account Exposure
+### Step 5 - Assess Potential Account Exposure
 
 Identify:
 
@@ -237,7 +237,7 @@ Identify:
 
 Determine whether additional systems may be affected by the potential exposure.
 
-### Step 6 — Review Follow-on Activity
+### Step 6 - Review Follow-on Activity
 
 Correlate the credential access event with:
 
@@ -253,7 +253,7 @@ Correlate the credential access event with:
 
 Pay particular attention to activity that occurs shortly after the suspected credential access.
 
-### Step 7 — Determine Credential Access Scope
+### Step 7 - Determine Credential Access Scope
 
 Search the environment for:
 
@@ -273,7 +273,7 @@ Determine:
 - latest observed activity;
 - whether credential access is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -388,16 +388,10 @@ Credential resets, session invalidation, or account containment should follow th
 
 ## Related Playbooks
 
-- `playbooks/credential-access/credential-access.md`
 - `playbooks/credential-access/lsass-dump.md`
 - `playbooks/credential-access/ntds-dump.md`
 - `playbooks/credential-access/sam-dump.md`
 - `playbooks/credential-access/dpapi-credential-access.md`
-- `playbooks/credential-access/credentials-from-password-stores.md`
-- `playbooks/credential-access/password-manager-credential-theft.md`
-- `playbooks/credential-access/browser-credential-theft.md`
-- `playbooks/credential-access/password-spraying.md`
-- `playbooks/privilege-escalation/token-manipulation.md`
 - `playbooks/lateral-movement/pass-the-hash.md`
 - `playbooks/lateral-movement/pass-the-ticket.md`
 - `playbooks/triage/suspicious-process-triage.md`
