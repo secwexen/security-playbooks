@@ -3,10 +3,10 @@ id: "wmi-lateral-movement"
 name: "WMI Lateral Movement"
 category: "lateral-movement"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-15T18:55:00Z"
-updated_at: "2026-10-15T18:55:00Z"
+updated_at: "2026-11-13T13:00:00Z"
 description: "Investigate suspected lateral movement involving remote Windows Management Instrumentation activity."
 objective: "Determine whether WMI-related remote activity represents authorized administration or unauthorized lateral movement, identify affected hosts and accounts, and establish the scope of the activity."
 severity: "high"
@@ -107,8 +107,6 @@ WMI activity must not be classified as malicious solely because it involves remo
 | --------- | ---------------------------------- | ------------------------------------------------------------------------------------------------- |
 | T1047     | Windows Management Instrumentation | Primary technique when WMI is abused to execute commands or interact with remote Windows systems. |
 
-MITRE ATT&CK classifies T1047 under the Execution tactic. This playbook focuses on investigating WMI activity when it is associated with suspected lateral movement.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -153,7 +151,7 @@ Remote WMI may use DCOM/RPC or Windows Remote Management (WinRM). Network indica
 
 ## Investigation Procedure
 
-### Step 1 — Identify WMI Lateral Movement Alert
+### Step 1 - Identify WMI Lateral Movement Alert
 
 Record the original detection context before taking response actions.
 
@@ -175,7 +173,7 @@ Determine whether the alert identifies an actual WMI operation, a process associ
 
 Preserve the original alert and associated event references.
 
-### Step 2 — Identify Source and Target Hosts
+### Step 2 - Identify Source and Target Hosts
 
 Identify the systems involved in the suspected remote activity.
 
@@ -196,7 +194,7 @@ Establish whether the target host is normally managed from the identified source
 
 Search for the same source-to-target relationship in historical telemetry to determine whether the activity is consistent with established administrative patterns.
 
-### Step 3 — Review Authentication and Privilege Context
+### Step 3 - Review Authentication and Privilege Context
 
 Identify the account associated with the remote activity.
 
@@ -219,7 +217,7 @@ Investigate unusual administrative account use, unexpected source systems, anoma
 
 A privileged account or successful authentication does not independently establish malicious activity.
 
-### Step 4 — Review WMI Activity
+### Step 4 - Review WMI Activity
 
 Review available WMI Activity operational logs and associated endpoint telemetry.
 
@@ -240,7 +238,7 @@ Do not assume that every WMI operation represents remote execution. WMI is also 
 
 If WMI-specific telemetry is unavailable, document the limitation and use corroborating authentication, process, and network evidence.
 
-### Step 5 — Analyze Process and Command Execution
+### Step 5 - Analyze Process and Command Execution
 
 Correlate the WMI activity with process creation and execution telemetry on the target host.
 
@@ -263,7 +261,7 @@ Assess whether the observed process activity is consistent with authorized admin
 
 Do not classify `WmiPrvSE.exe`, PowerShell, or another legitimate Windows component as malicious based on its name alone. Evaluate the process relationships, execution context, command line, and supporting evidence.
 
-### Step 6 — Correlate Network and Related Activity
+### Step 6 - Correlate Network and Related Activity
 
 Correlate the suspected WMI operation with available network and security telemetry.
 
@@ -285,7 +283,7 @@ Determine whether the WMI operation was isolated or formed part of a broader seq
 
 Network connections alone do not establish that WMI was used. Correlate network indicators with endpoint and authentication evidence.
 
-### Step 7 — Determine Lateral Movement Scope
+### Step 7 - Determine Lateral Movement Scope
 
 Search the environment for related activity using available identifiers and behavioral indicators.
 
@@ -313,7 +311,7 @@ Determine:
 
 Document any limitations caused by missing logs, incomplete endpoint coverage, or unavailable historical telemetry.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
