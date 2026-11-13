@@ -3,10 +3,10 @@ id: "service-persistence"
 name: "Windows Service Persistence"
 category: "persistence"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-14T16:15:00Z"
-updated_at: "2026-10-05T16:52:00Z"
+updated_at: "2026-11-13T13:07:00Z"
 description: "Windows services can be configured to start automatically and may be abused to establish persistence on Windows systems."
 objective: "Identify, investigate, and validate suspicious Windows service persistence and determine whether the service configuration or associated executable is legitimate, suspicious, or malicious."
 severity: "high"
@@ -105,8 +105,6 @@ The objective is to determine whether a service configuration is legitimate, sus
 | --------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------- |
 | T1543.003 | Create or Modify System Process: Windows Service | Relevant when a Windows service is created or modified to establish or maintain persistence |
 
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -147,7 +145,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Service Persistence Alert
+### Step 1 - Identify Service Persistence Alert
 
 Determine:
 
@@ -162,7 +160,7 @@ Determine:
 
 Preserve the original alert context before modifying or removing the service.
 
-### Step 2 — Identify Windows Service
+### Step 2 - Identify Windows Service
 
 Collect:
 
@@ -178,7 +176,7 @@ Collect:
 
 Determine whether the service belongs to known and approved software.
 
-### Step 3 — Review Service Lifecycle
+### Step 3 - Review Service Lifecycle
 
 Determine:
 
@@ -198,7 +196,7 @@ Correlate service creation or modification with:
 - security events;
 - process creation.
 
-### Step 4 — Review Service Payload
+### Step 4 - Review Service Payload
 
 Review the executable or script referenced by the service.
 
@@ -223,7 +221,7 @@ Pay particular attention to payloads located in:
 
 A legitimate service executable should be evaluated in the context of its publisher, installation source, expected path, and normal system behavior.
 
-### Step 5 — Review Service Account
+### Step 5 - Review Service Account
 
 Determine:
 
@@ -235,7 +233,7 @@ Determine:
 
 An elevated service account is not inherently malicious. Assess it against the normal requirements of the associated service.
 
-### Step 6 — Review Service Execution
+### Step 6 - Review Service Execution
 
 Correlate the service with:
 
@@ -249,7 +247,7 @@ Correlate the service with:
 
 Determine whether service startup resulted in unexpected or suspicious activity.
 
-### Step 7 — Determine Persistence Scope
+### Step 7 - Determine Persistence Scope
 
 Search the environment for:
 
@@ -269,7 +267,7 @@ Determine:
 - latest observed service start;
 - whether the suspicious service remains active.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -355,7 +353,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether service creation or modification was authorized;
+- whether the service executable is verified.
 
 ## Escalation
 
