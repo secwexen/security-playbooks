@@ -3,10 +3,10 @@ id: "dpapi-credential-access"
 name: "DPAPI Credential Access"
 category: "credential-access"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-20T09:46:00Z"
-updated_at: "2026-10-05T17:09:00Z"
+updated_at: "2026-11-13T11:02:00Z"
 description: "Unauthorized access to Windows Data Protection API (DPAPI) protected data may expose credentials, secrets, or other protected authentication material."
 objective: "Identify, investigate, and validate suspicious access to DPAPI-protected data and determine whether protected credential material may have been exposed."
 severity: "critical"
@@ -168,7 +168,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify DPAPI Access Alert
+### Step 1 - Identify DPAPI Access Alert
 
 Determine:
 
@@ -184,7 +184,7 @@ Determine:
 
 Preserve the original alert context before taking remediation actions.
 
-### Step 2 — Identify Target DPAPI Data
+### Step 2 - Identify Target DPAPI Data
 
 Determine:
 
@@ -197,7 +197,7 @@ Determine:
 
 Document the targeted resource without extracting or displaying protected credentials.
 
-### Step 3 — Review Process Context
+### Step 3 - Review Process Context
 
 Review:
 
@@ -219,7 +219,7 @@ Determine whether the process is:
 - approved security or management software;
 - an unknown or suspicious executable.
 
-### Step 4 — Review DPAPI Activity
+### Step 4 - Review DPAPI Activity
 
 Review available:
 
@@ -240,7 +240,7 @@ Determine:
 
 MITRE's current detection guidance includes process creation, process access, and file-access telemetry as relevant sources for detecting suspicious password-store access.
 
-### Step 5 — Assess Potential Credential Exposure
+### Step 5 - Assess Potential Credential Exposure
 
 Identify potentially affected accounts, applications, or services represented by the protected data, based on available evidence.
 
@@ -255,7 +255,7 @@ Consider:
 
 Do not extract or display real credentials during routine investigation.
 
-### Step 6 — Review Follow-on Activity
+### Step 6 - Review Follow-on Activity
 
 Correlate DPAPI-related access with:
 
@@ -271,7 +271,7 @@ Correlate DPAPI-related access with:
 
 Pay particular attention to suspicious authentication shortly after the DPAPI-related access.
 
-### Step 7 — Determine DPAPI Access Scope
+### Step 7 - Determine DPAPI Access Scope
 
 Search the environment for:
 
@@ -291,7 +291,7 @@ Determine:
 - latest observed activity;
 - whether suspicious activity is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -372,7 +372,10 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- affected hosts, users, DPAPI resources, and application contexts identified so far;
+- unresolved access patterns and alternative explanations requiring further investigation;
+- recommended follow-up actions and additional evidence needed to reach a conclusive assessment.
 
 ## Escalation
 
@@ -407,14 +410,8 @@ Do not extract, display, or disclose real credentials during investigation or va
 
 ## Related Detection Rules
 
-No dedicated DPAPI detection rule is currently available in the repository.
-
 ## Related Playbooks
 
-- `playbooks/credential-access/credential-dumping.md`
-- `playbooks/credential-access/lsass-dump.md`
-- `playbooks/credential-access/ntds-dump.md`
-- `playbooks/credential-access/sam-dump.md`
 - `playbooks/credential-access/windows-credential-manager.md`
 - `playbooks/credential-access/browser-credential-theft.md`
 - `playbooks/credential-access/credentials-from-password-stores.md`
