@@ -3,10 +3,10 @@ id: "sam-dump"
 name: "SAM Credential Access"
 category: "credential-access"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-16T16:11:00Z"
-updated_at: "2026-10-05T17:12:00Z"
+updated_at: "2026-11-13T11:34:00Z"
 description: "SAM credential access involves attempts to obtain local account authentication material from the Windows Security Account Manager database."
 objective: "Identify, investigate, and validate suspicious access to the Security Account Manager and determine whether local account credentials may have been exposed."
 severity: "critical"
@@ -163,7 +163,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify SAM Access Alert
+### Step 1 - Identify SAM Access Alert
 
 Determine:
 
@@ -179,7 +179,7 @@ Determine:
 
 Preserve the original alert context before taking remediation actions.
 
-### Step 2 — Identify SAM Access Target
+### Step 2 - Identify SAM Access Target
 
 Determine which SAM-related resource was accessed.
 
@@ -188,7 +188,9 @@ Review available evidence for:
 - protected registry access;
 - SAM-related file access;
 - suspicious supporting artifacts;
-- access occurring during an unusual process chain.
+- access occurring during an unusual process chain;
+- correlated access to the SYSTEM registry hive or related security resources;
+- unexpected access to SAM backup copies, Volume Shadow Copies, or offline registry artifacts.
 
 Document the target and context without attempting to reproduce credential extraction.
 
@@ -210,7 +212,7 @@ Review:
 
 Determine whether the process belongs to approved security, administration, backup, recovery, or endpoint-management software.
 
-### Step 4 — Review Registry Activity
+### Step 4 - Review Registry Activity
 
 Review available registry telemetry associated with SAM.
 
@@ -225,7 +227,7 @@ Determine:
 
 Correlate SAM-related registry activity with the process execution timeline.
 
-### Step 5 — Assess Potential Account Exposure
+### Step 5 - Assess Potential Account Exposure
 
 Identify local accounts that may have been exposed.
 
@@ -239,7 +241,7 @@ Consider:
 
 Determine whether potentially exposed credentials could be reused on other systems.
 
-### Step 6 — Review Follow-on Activity
+### Step 6 - Review Follow-on Activity
 
 Correlate the SAM access event with:
 
@@ -254,7 +256,7 @@ Correlate the SAM access event with:
 
 Pay particular attention to activity occurring shortly after the suspected SAM access.
 
-### Step 7 — Determine SAM Access Scope
+### Step 7 - Determine SAM Access Scope
 
 Search the environment for:
 
@@ -274,7 +276,7 @@ Determine:
 - latest observed activity;
 - whether suspicious activity is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -355,7 +357,10 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether access involved the live SAM registry hive, offline copies, backup artifacts, or shadow-copy resources;
+- whether potentially affected local accounts use shared credentials across multiple endpoints or are protected by managed local administrator password policies;
+- whether subsequent local or remote authentication activity involving potentially affected accounts can be correlated with Pass-the-Hash indicators.
 
 ## Escalation
 
@@ -393,19 +398,11 @@ Do not extract, disclose, or reproduce real credentials during investigation or 
 ## Related Playbooks
 
 - `playbooks/credential-access/credential-dumping.md`
-- `playbooks/credential-access/lsass-dump.md`
-- `playbooks/credential-access/ntds-dump.md`
-- `playbooks/credential-access/credentials-from-password-stores.md`
-- `playbooks/credential-access/password-manager-credential-theft.md`
-- `playbooks/credential-access/browser-credential-theft.md`
-- `playbooks/credential-access/password-spraying.md`
 - `playbooks/lateral-movement/pass-the-hash.md`
-- `playbooks/privilege-escalation/token-manipulation.md`
 - `playbooks/triage/suspicious-process-triage.md`
 - `playbooks/triage/suspicious-login-triage.md`
 - `playbooks/response/credential-compromise-response.md`
 - `playbooks/response/lateral-movement-response.md`
-- `playbooks/response/malware-response.md`
 - `playbooks/response/isolate-host-response.md`
 
 ## Validation
