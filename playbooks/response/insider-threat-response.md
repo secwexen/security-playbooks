@@ -3,10 +3,10 @@ id: "insider-threat-response"
 name: "Insider Threat Response"
 category: "response"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-11-09T14:31:00Z"
-updated_at: "2026-11-09T14:31:00Z"
+updated_at: "2026-11-13T13:41:00Z"
 description: "Insider threats occur when employees, contractors, administrators, or other trusted individuals misuse authorized access, intentionally or unintentionally exposing organizational systems, sensitive information, or business operations to security risks."
 objective: "Identify, investigate, contain, and mitigate insider threats, determine affected users, accounts, systems, and information assets, preserve relevant evidence, and prevent further unauthorized or harmful activity."
 severity: "high"
@@ -170,7 +170,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Insider Threat Alert
+### Step 1 - Identify Insider Threat Alert
 
 Determine:
 
@@ -200,7 +200,7 @@ Preserve the original alert context and relevant identity, endpoint, network, ap
 
 Do not assume that unusual user behavior automatically indicates malicious intent.
 
-### Step 2 — Validate User Activity
+### Step 2 - Validate User Activity
 
 Determine whether the observed activity is consistent with legitimate business operations.
 
@@ -235,7 +235,7 @@ A deviation from normal behavior should not automatically be classified as an in
 
 Validate the activity using objective technical evidence and established organizational procedures.
 
-### Step 3 — Analyze Threat Behavior
+### Step 3 - Analyze Threat Behavior
 
 Analyze the observed behavior to identify the suspected insider threat category.
 
@@ -256,7 +256,7 @@ Review:
 
 Determine whether the behavior indicates intentional misuse, accidental exposure, or external compromise of a legitimate account.
 
-### Step 4 — Determine Incident Scope
+### Step 4 - Determine Incident Scope
 
 Search for:
 
@@ -292,7 +292,7 @@ Determine:
 
 Identify whether the incident is isolated to one identity or involves multiple users and systems.
 
-### Step 5 — Contain Insider Threat
+### Step 5 - Contain Insider Threat
 
 Apply appropriate containment controls based on the identified threat behavior.
 
@@ -316,7 +316,7 @@ For suspected account compromise, prioritize credential protection, session revo
 
 For confirmed malicious insider activity, coordinate containment with the incident-response team, identity administrators, data owners, and authorized organizational stakeholders.
 
-### Step 6 — Remediate Security Exposure
+### Step 6 - Remediate Security Exposure
 
 Review affected organizational resources and restore secure access conditions.
 
@@ -342,7 +342,7 @@ Coordinate remediation with identity, infrastructure, endpoint, application, dat
 
 Ensure that all remediation actions are authorized, documented, and supported by appropriate evidence.
 
-### Step 7 — Verify Security Recovery
+### Step 7 - Verify Security Recovery
 
 Verify:
 
@@ -365,7 +365,7 @@ Confirm that unauthorized access has been removed and legitimate users retain th
 
 Verify that compromised credentials, sessions, tokens, and unauthorized permissions cannot be reused.
 
-### Step 8 — Determine Response Outcome
+### Step 8 - Determine Response Outcome
 
 Classify the incident as:
 
