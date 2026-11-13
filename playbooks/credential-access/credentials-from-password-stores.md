@@ -3,10 +3,10 @@ id: "credentials-from-password-stores"
 name: "Credentials from Password Stores"
 category: "credential-access"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-18T19:05:00Z"
-updated_at: "2026-10-05T17:08:00Z"
+updated_at: "2026-11-13T10:59:00Z"
 description: "Unauthorized access to password stores can expose saved credentials, authentication secrets, and other sensitive account information."
 objective: "Identify, investigate, and validate suspicious access to password stores and determine whether stored authentication material may have been exposed."
 severity: "high"
@@ -158,7 +158,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Password Store Access Alert
+### Step 1 - Identify Password Store Access Alert
 
 Determine:
 
@@ -174,7 +174,7 @@ Determine:
 
 Preserve the original alert context before taking remediation actions.
 
-### Step 2 — Identify Password Store
+### Step 2 - Identify Password Store
 
 Determine:
 
@@ -187,7 +187,7 @@ Determine:
 
 Document the targeted store without extracting or displaying real credentials.
 
-### Step 3 — Review Process Context
+### Step 3 - Review Process Context
 
 Review:
 
@@ -204,7 +204,7 @@ Review:
 
 Determine whether the process belongs to the expected application, security tooling, backup software, or another approved workflow.
 
-### Step 4 — Review Store Access Activity
+### Step 4 - Review Store Access Activity
 
 Review available:
 
@@ -223,7 +223,7 @@ Determine:
 
 Investigate unexpected access by processes unrelated to the password-store application.
 
-### Step 5 — Assess Potential Credential Exposure
+### Step 5 - Assess Potential Credential Exposure
 
 Identify potentially affected accounts and services based on the available evidence.
 
@@ -238,7 +238,7 @@ Consider:
 
 Do not recover or display actual credentials as part of routine investigation.
 
-### Step 6 — Review Follow-on Activity
+### Step 6 - Review Follow-on Activity
 
 Correlate password-store access with:
 
@@ -253,7 +253,7 @@ Correlate password-store access with:
 
 Pay particular attention to authentication activity occurring shortly after the suspicious store access.
 
-### Step 7 — Determine Password Store Access Scope
+### Step 7 - Determine Password Store Access Scope
 
 Search the environment for:
 
@@ -273,7 +273,7 @@ Determine:
 - latest observed activity;
 - whether suspicious activity is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -393,14 +393,9 @@ Do not extract, display, or disclose real credentials during investigation or va
 
 ## Related Playbooks
 
-- `playbooks/credential-access/credential-dumping.md`
-- `playbooks/credential-access/lsass-dump.md`
-- `playbooks/credential-access/sam-dump.md`
-- `playbooks/credential-access/ntds-dump.md`
 - `playbooks/credential-access/browser-credential-theft.md`
 - `playbooks/credential-access/password-manager-credential-theft.md`
 - `playbooks/credential-access/windows-credential-manager.md`
-- `playbooks/credential-access/credential-access.md`
 - `playbooks/initial-access/valid-account-compromise.md`
 - `playbooks/triage/suspicious-file-triage.md`
 - `playbooks/triage/suspicious-process-triage.md`
