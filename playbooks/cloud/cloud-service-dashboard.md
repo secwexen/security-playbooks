@@ -3,10 +3,10 @@ id: "cloud-service-dashboard"
 name: "Cloud Service Dashboard"
 category: "cloud"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-23T16:59:00Z"
-updated_at: "2026-10-23T16:59:00Z"
+updated_at: "2026-11-13T10:35:00Z"
 description: "Investigate suspicious use of cloud service dashboards and administrative portals to identify unauthorized access and cloud resource discovery."
 objective: "Determine whether cloud dashboard access and subsequent resource exploration are legitimate, suspicious, or malicious, establish the scope of the activity, and support appropriate escalation or response."
 severity: "medium"
@@ -151,7 +151,7 @@ The available scope depends on the cloud provider, audit configuration, identity
 
 ## Investigation Procedure
 
-### Step 1 — Identify Cloud Dashboard Alert
+### Step 1 - Identify Cloud Dashboard Alert
 
 Collect:
 
@@ -168,7 +168,7 @@ Collect:
 
 Determine which event initiated the investigation and preserve the original alert details.
 
-### Step 2 — Identify Cloud Account and Session
+### Step 2 - Identify Cloud Account and Session
 
 Identify the account and session associated with the observed dashboard activity.
 
@@ -189,7 +189,7 @@ Determine whether the account and its privileges are expected for the affected c
 
 Distinguish human user sessions from service principals, service accounts, and other non-human identities where the platform supports this distinction.
 
-### Step 3 — Review Authentication Context
+### Step 3 - Review Authentication Context
 
 Review the authentication events associated with the dashboard session.
 
@@ -210,7 +210,7 @@ Correlate the authentication timestamp with the dashboard activity.
 
 An unfamiliar source or unusual login pattern should be treated as an investigative indicator rather than conclusive evidence of compromise.
 
-### Step 4 — Review Dashboard Activity
+### Step 4 - Review Dashboard Activity
 
 Review the dashboard and administrative portal activity available in the relevant audit logs.
 
@@ -229,7 +229,7 @@ Where telemetry permits, distinguish GUI-based dashboard activity from API, CLI,
 
 Identify gaps in dashboard navigation or audit records that limit the investigation.
 
-### Step 5 — Review Accessed Cloud Resources
+### Step 5 - Review Accessed Cloud Resources
 
 Identify the cloud resources and information accessed during the session.
 
@@ -249,7 +249,7 @@ Determine whether the accessed information was necessary for the user's role or 
 
 If evidence indicates data access, configuration modification, credential activity, or other behavior beyond discovery, document those actions separately and initiate the applicable investigation or response workflow.
 
-### Step 6 — Correlate Related Activity
+### Step 6 - Correlate Related Activity
 
 Correlate dashboard activity with other available security telemetry.
 
@@ -270,7 +270,7 @@ Determine whether the dashboard session forms part of a wider sequence of potent
 
 Do not attribute API or CLI activity to the dashboard session solely because the events occurred close together. Use session identifiers, principal identifiers, timestamps, and other available correlation fields.
 
-### Step 7 — Determine Activity Scope
+### Step 7 - Determine Activity Scope
 
 Establish the full scope of the investigated activity.
 
@@ -291,7 +291,7 @@ Document confirmed findings separately from inferred or unverified activity.
 
 Identify missing telemetry and explain how it affects confidence in the assessment.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
