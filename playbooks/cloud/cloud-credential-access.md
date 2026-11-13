@@ -3,10 +3,10 @@ id: "cloud-credential-access"
 name: "Cloud Credential Access"
 category: "cloud"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-20T14:15:00Z"
-updated_at: "2026-10-20T14:15:00Z"
+updated_at: "2026-11-13T10:32:00Z"
 description: "Investigate suspicious access to cloud credentials, application tokens, service credentials, and secrets stored or exposed within cloud environments."
 objective: "Determine whether cloud credential access or exposure is authorized, identify affected identities and resources, establish the scope of potential compromise, and support appropriate containment and remediation."
 severity: "high"
@@ -157,7 +157,7 @@ Do not copy raw credential values into tickets, investigation reports, or genera
 
 ## Investigation Procedure
 
-### Step 1 — Identify Cloud Credential Alert
+### Step 1 - Identify Cloud Credential Alert
 
 Identify the source and context of the alert.
 
@@ -177,7 +177,7 @@ Preserve the original alert and relevant event records before taking remediation
 
 Determine whether the alert concerns suspected credential retrieval, credential exposure, token theft, or subsequent credential use.
 
-### Step 2 — Identify the Credential Type
+### Step 2 - Identify the Credential Type
 
 Determine which authentication material may have been exposed or accessed.
 
@@ -199,7 +199,7 @@ Where possible, collect a credential identifier or metadata record rather than t
 
 Do not attempt to validate a suspected stolen credential by using it against production services without explicit authorization.
 
-### Step 3 — Review Identity and Access Context
+### Step 3 - Review Identity and Access Context
 
 Review the identity associated with the credential.
 
@@ -219,7 +219,7 @@ Compare the observed activity with established operational baselines.
 
 A valid identity or successful authentication does not establish that the activity was authorized.
 
-### Step 4 — Review Credential Acquisition Activity
+### Step 4 - Review Credential Acquisition Activity
 
 Investigate how the credential may have been accessed or exposed.
 
@@ -241,7 +241,7 @@ Assess whether the access was performed by an authorized administrator, applicat
 
 Treat a missing log record as an evidence limitation rather than proof that the activity did not occur.
 
-### Step 5 — Review Cloud API Activity
+### Step 5 - Review Cloud API Activity
 
 Review authentication and cloud API activity associated with the suspected credential or identity.
 
@@ -262,7 +262,7 @@ Determine whether observed operations are consistent with the identity's documen
 
 Identify any unauthorized access that may have occurred after the suspected exposure.
 
-### Step 6 — Correlate Related Events
+### Step 6 - Correlate Related Events
 
 Correlate the investigation timeline across relevant sources.
 
@@ -283,7 +283,7 @@ Determine whether credential access was isolated or part of a broader attack cha
 
 If multiple identities or credentials may be involved, document their relationships and investigate each affected scope separately.
 
-### Step 7 — Determine Credential Exposure Scope
+### Step 7 - Determine Credential Exposure Scope
 
 Establish the known and potential scope of the incident.
 
@@ -304,7 +304,7 @@ Distinguish confirmed activity from plausible but unverified exposure.
 
 Document relevant evidence gaps and any additional telemetry required to establish the full impact.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
