@@ -3,10 +3,10 @@ id: "ntds-dump"
 name: "NTDS Credential Access"
 category: "credential-access"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-15T20:06:00Z"
-updated_at: "2026-10-05T17:10:00Z"
+updated_at: "2026-11-13T11:17:00Z"
 description: "NTDS credential access involves attempts to obtain Active Directory account authentication material from the domain controller database."
 objective: "Identify, investigate, and validate suspicious access to the NTDS database and determine whether domain credentials may have been exposed."
 severity: "critical"
@@ -154,7 +154,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify NTDS Access Alert
+### Step 1 - Identify NTDS Access Alert
 
 Determine:
 
@@ -170,7 +170,7 @@ Determine:
 
 Preserve the original alert context before taking remediation actions.
 
-### Step 2 — Identify NTDS Access Target
+### Step 2 - Identify NTDS Access Target
 
 Determine what NTDS-related resource was accessed.
 
@@ -184,7 +184,7 @@ Investigate available evidence for:
 
 Document the access target and context without attempting credential extraction.
 
-### Step 3 — Review Process Context
+### Step 3 - Review Process Context
 
 Review:
 
@@ -201,7 +201,7 @@ Review:
 
 Determine whether the process belongs to approved domain-management, backup, recovery, security, or administrative software.
 
-### Step 4 — Review File Activity
+### Step 4 - Review File Activity
 
 Investigate:
 
@@ -223,7 +223,7 @@ Collect:
 
 Unexpected NTDS-related artifacts should be correlated with the initiating process and broader event timeline.
 
-### Step 5 — Review Domain Activity
+### Step 5 - Review Domain Activity
 
 Correlate the event with:
 
@@ -237,7 +237,7 @@ Correlate the event with:
 
 Pay particular attention to suspicious domain activity occurring immediately before or after the NTDS access event.
 
-### Step 6 — Assess Potential Domain Credential Exposure
+### Step 6 - Assess Potential Domain Credential Exposure
 
 Identify accounts that may have been exposed based on available evidence.
 
@@ -252,7 +252,7 @@ Prioritize:
 
 Determine whether potentially exposed credentials could affect additional systems or services.
 
-### Step 7 — Determine NTDS Access Scope
+### Step 7 - Determine NTDS Access Scope
 
 Search the environment for:
 
@@ -273,7 +273,7 @@ Determine:
 - latest observed activity;
 - whether suspicious activity is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -354,7 +354,10 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- affected domain controllers, initiating accounts, and potentially exposed domain accounts identified so far;
+- unresolved NTDS file-access patterns, artifacts, and process activity requiring further investigation;
+- recommended follow-up actions, additional evidence sources, and monitoring requirements.
 
 ## Escalation
 
@@ -392,15 +395,9 @@ Do not extract or disclose real domain credential material during response or va
 ## Related Playbooks
 
 - `playbooks/credential-access/credential-dumping.md`
-- `playbooks/credential-access/lsass-dump.md`
-- `playbooks/credential-access/sam-dump.md`
 - `playbooks/credential-access/kerberoasting.md`
 - `playbooks/credential-access/asrep-roasting.md`
-- `playbooks/credential-access/password-spraying.md`
 - `playbooks/lateral-movement/pass-the-hash.md`
-- `playbooks/lateral-movement/pass-the-ticket.md`
-- `playbooks/lateral-movement/wmi-lateral-movement.md`
-- `playbooks/lateral-movement/smb-lateral-movement.md`
 - `playbooks/triage/suspicious-process-triage.md`
 - `playbooks/triage/suspicious-login-triage.md`
 - `playbooks/response/credential-compromise-response.md`
