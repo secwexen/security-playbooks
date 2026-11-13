@@ -3,10 +3,10 @@ id: "pass-the-ticket"
 name: "Pass the Ticket"
 category: "lateral-movement"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-11T07:21:00Z"
-updated_at: "2026-10-30T14:52:00Z"
+updated_at: "2026-11-13T12:53:00Z"
 description: "Investigate suspected abuse of Kerberos tickets to authenticate to systems or services without using the account's plaintext password."
 objective: "Determine whether Kerberos ticket use is legitimate or unauthorized, identify affected accounts and systems, establish the scope of lateral movement, and preserve evidence for response."
 severity: "high"
@@ -133,7 +133,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Pass-the-Ticket Alert
+### Step 1 - Identify Pass-the-Ticket Alert
 
 Review the original alert and preserve its context.
 
@@ -150,7 +150,7 @@ Collect:
 
 Preserve the original alert and relevant event details before containment or remediation actions alter the available evidence.
 
-### Step 2 — Identify Accounts and Hosts
+### Step 2 - Identify Accounts and Hosts
 
 Determine which identity was used and which systems participated in the activity.
 
@@ -165,7 +165,7 @@ Collect:
 
 Identify unexpected use of privileged, service, or sensitive accounts. An account's privilege level alone is not evidence of malicious activity.
 
-### Step 3 — Review Kerberos Ticket Activity
+### Step 3 - Review Kerberos Ticket Activity
 
 Review available domain controller Security logs for relevant Kerberos authentication activity:
 
@@ -178,7 +178,7 @@ Review available domain controller Security logs for relevant Kerberos authentic
 
 Review event results and available ticket-related fields in the context of the account's expected behavior. Do not treat an individual event or an absent event as conclusive evidence of Pass-the-Ticket activity.
 
-### Step 4 — Review Authentication Context
+### Step 4 - Review Authentication Context
 
 Correlate Kerberos activity with available logon records.
 
@@ -198,7 +198,7 @@ Review logon type, source address, destination host, account history, normal acc
 
 Document gaps between ticket activity and observed logons, but assess them alongside collection coverage and other evidence rather than using them as a standalone verdict.
 
-### Step 5 — Correlate Credential Access Indicators
+### Step 5 - Correlate Credential Access Indicators
 
 Review endpoint telemetry around the relevant time window for:
 
@@ -210,7 +210,7 @@ Review endpoint telemetry around the relevant time window for:
 
 Correlate process events, command lines, file metadata, user context, and detection details where available. Do not execute suspicious files or attempt to extract tickets as part of routine triage.
 
-### Step 6 — Review Lateral Movement Activity
+### Step 6 - Review Lateral Movement Activity
 
 On the destination system, review remote logons and subsequent activity for signs that the authentication was used to perform unauthorized actions.
 
@@ -225,7 +225,7 @@ Consider:
 
 Correlate activity across systems to determine whether the suspected ticket use was isolated or part of a broader intrusion.
 
-### Step 7 — Determine Activity Scope
+### Step 7 - Determine Activity Scope
 
 Search available telemetry for related use of the same account, source host, destination host, service, and activity pattern.
 
@@ -240,7 +240,7 @@ Determine:
 
 Document the search window and data sources used so that another analyst can reproduce the scope assessment.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -319,7 +319,8 @@ Document:
 - evidence collected and evidence that supports or contradicts the hypothesis;
 - missing logs, collection limitations, and retention gaps;
 - additional identity, domain controller, or endpoint telemetry required;
-- the next investigative actions and responsible team.
+- the next investigative actions and responsible team;
+- whether the Kerberos ticket source and validity can be verified.
 
 ## Escalation
 
