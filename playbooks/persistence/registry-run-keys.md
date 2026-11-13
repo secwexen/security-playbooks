@@ -3,10 +3,10 @@ id: "registry-run-keys"
 name: "Registry Run Keys / Startup Folder"
 category: "persistence"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-14T13:59:00Z"
-updated_at: "2026-10-05T16:51:00Z"
+updated_at: "2026-11-13T13:03:00Z"
 description: "Registry Run Keys and related Windows startup mechanisms can be used to launch programs automatically when a user logs on."
 objective: "Identify, investigate, and validate suspicious registry-based persistence and determine whether the configured startup entry is legitimate, suspicious, or malicious."
 severity: "high"
@@ -122,8 +122,6 @@ Do not treat the presence of a Run key as malicious by itself. Investigate the c
 | --------- | ---------------------------------- | ------------------------------------------------------------------------------ |
 | T1547.001 | Registry Run Keys / Startup Folder | Relevant when registry-based startup entries are used to establish persistence |
 
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -161,7 +159,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Registry Persistence Alert
+### Step 1 - Identify Registry Persistence Alert
 
 Determine:
 
@@ -178,7 +176,7 @@ Determine:
 
 Preserve the original alert context before modifying the registry.
 
-### Step 2 — Identify Registry Entry
+### Step 2 - Identify Registry Entry
 
 Collect:
 
@@ -192,7 +190,7 @@ Collect:
 
 Determine whether the entry is user-specific or system-wide.
 
-### Step 3 — Review Modification Context
+### Step 3 - Review Modification Context
 
 Determine:
 
@@ -205,7 +203,7 @@ Determine:
 
 Investigate whether the registry modification occurred during a legitimate software installation, application update, administrative action, or system configuration change.
 
-### Step 4 — Review Startup Payload
+### Step 4 - Review Startup Payload
 
 Review the program or script referenced by the registry value.
 
@@ -227,7 +225,7 @@ Pay particular attention to payloads stored in:
 - unusual application data directories;
 - hidden or unexpected paths.
 
-### Step 5 — Review Startup Execution
+### Step 5 - Review Startup Execution
 
 Correlate the registry entry with:
 
@@ -239,7 +237,7 @@ Correlate the registry entry with:
 
 Determine whether the configured payload actually executed and whether the execution resulted in additional suspicious activity.
 
-### Step 6 — Review File and Network Activity
+### Step 6 - Review File and Network Activity
 
 Investigate:
 
@@ -251,7 +249,7 @@ Investigate:
 
 Collect relevant hashes, timestamps, and destination information.
 
-### Step 7 — Determine Persistence Scope
+### Step 7 - Determine Persistence Scope
 
 Search the environment for:
 
@@ -271,7 +269,7 @@ Determine:
 - latest observed execution;
 - whether the persistence remains configured.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -355,7 +353,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether the payload exists;
+- whether startup execution occurred.
 
 ## Escalation
 
