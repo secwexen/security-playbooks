@@ -3,10 +3,10 @@ id: "scheduled-task-execution"
 name: "Scheduled Task/Job Execution"
 category: "execution"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-11T11:40:00Z"
-updated_at: "2026-10-05T17:05:00Z"
+updated_at: "2026-11-13T12:04:00Z"
 description: "Scheduled Task/Job Execution enables commands or programs to run automatically at defined times or system events."
 objective: "Identify, investigate, and validate scheduled task or job execution and determine whether the activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -146,7 +146,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Scheduled Execution Alert
+### Step 1 - Identify Scheduled Execution Alert
 
 Determine:
 
@@ -160,7 +160,7 @@ Determine:
 
 Preserve the original alert context before making configuration or remediation changes.
 
-### Step 2 — Identify Task or Job
+### Step 2 - Identify Task or Job
 
 Collect:
 
@@ -176,7 +176,7 @@ Collect:
 
 Determine whether the task or job is expected on the affected system.
 
-### Step 3 — Review Scheduled Action
+### Step 3 - Review Scheduled Action
 
 Review:
 
@@ -195,7 +195,7 @@ Pay particular attention to actions that reference:
 - unknown executables;
 - encoded or obfuscated commands.
 
-### Step 4 — Review Task Context
+### Step 4 - Review Task Context
 
 Determine:
 
@@ -208,7 +208,7 @@ Determine:
 
 Compare task configuration with normal administrative or application behavior.
 
-### Step 5 — Review Process Activity
+### Step 5 - Review Process Activity
 
 Review:
 
@@ -221,7 +221,7 @@ Review:
 
 Determine whether the scheduled task launched unexpected processes.
 
-### Step 6 — Review Network Activity
+### Step 6 - Review Network Activity
 
 Review network activity associated with the scheduled task and spawned processes.
 
@@ -236,7 +236,7 @@ Collect:
 
 Investigate unexpected communication with external or suspicious infrastructure.
 
-### Step 7 — Determine Scheduled Execution Scope
+### Step 7 - Determine Scheduled Execution Scope
 
 Search across the environment for:
 
@@ -256,7 +256,7 @@ Determine:
 - latest observed execution;
 - whether the task remains active.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -334,7 +334,10 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- whether task configuration and execution account are authorized;
+- whether task creation and modification are legitimate;
+- whether spawned processes match the scheduled action.
 
 ## Escalation
 
@@ -370,7 +373,6 @@ Do not delete or modify the scheduled task, referenced files, or relevant logs b
 - `playbooks/triage/persistence-triage.md`
 - `playbooks/triage/suspicious-process-triage.md`
 - `playbooks/triage/suspicious-file-triage.md`
-- `playbooks/triage/malware-detection-triage.md`
 - `playbooks/execution/scripting.md`
 - `playbooks/execution/powershell.md`
 - `playbooks/execution/command-shell.md`
