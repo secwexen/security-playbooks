@@ -3,10 +3,10 @@ id: "keylogging"
 name: "Keylogging"
 category: "collection"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-29T19:54:00Z"
-updated_at: "2026-10-29T19:54:00Z"
+updated_at: "2026-11-13T10:44:00Z"
 description: "Investigate suspected keylogging activity to determine whether unauthorized keyboard input capture, credential collection, or sensitive data collection has occurred."
 objective: "Identify and investigate suspicious keylogging behavior, establish the affected systems and accounts, assess potential credential exposure, and determine appropriate containment and response actions."
 severity: "high"
@@ -148,7 +148,7 @@ Investigation coverage should reflect the operating systems and telemetry source
 
 ## Investigation Procedure
 
-### Step 1 — Identify Keylogging Alert
+### Step 1 - Identify Keylogging Alert
 
 Review the original alert and determine:
 
@@ -166,7 +166,7 @@ Preserve the original alert details and relevant timestamps.
 
 Determine whether the detection is based on behavioral telemetry, a known artifact, endpoint protection, or analyst observation.
 
-### Step 2 — Identify Affected Host and User
+### Step 2 - Identify Affected Host and User
 
 Identify the affected system and the accounts active during the suspected activity.
 
@@ -186,7 +186,7 @@ Determine whether privileged users, administrators, service accounts, or other s
 
 Do not assume that the account which generated the alert is necessarily the account whose input was captured.
 
-### Step 3 — Review Process Execution
+### Step 3 - Review Process Execution
 
 Examine the suspected process and its execution context.
 
@@ -206,7 +206,7 @@ Collect:
 
 Review whether the process originated from an expected installation directory and whether its behavior is consistent with its documented purpose.
 
-### Step 4 — Assess Input-Capture Indicators
+### Step 4 - Assess Input-Capture Indicators
 
 Review available telemetry for behavior consistent with unauthorized keyboard input capture.
 
@@ -224,7 +224,7 @@ Differentiate authorized accessibility tools, input-method software, remote admi
 
 Do not classify a process as malicious solely because it accesses keyboard-related functionality. Validate the behavior against the software's expected purpose and the organization's approved software inventory.
 
-### Step 5 — Review Persistence and System Modifications
+### Step 5 - Review Persistence and System Modifications
 
 Investigate whether the suspected process is associated with unauthorized persistence or changes to system configuration.
 
@@ -244,7 +244,7 @@ Establish which account or process performed each modification and whether the a
 
 Correlate the modification timestamps with the suspected input-capture activity.
 
-### Step 6 — Review Collected Artifacts and Network Activity
+### Step 6 - Review Collected Artifacts and Network Activity
 
 Investigate artifacts that may indicate the storage or transfer of captured input.
 
@@ -263,7 +263,7 @@ Review:
 
 Where evidence suggests possible data collection, preserve relevant artifacts using approved forensic procedures.
 
-### Step 7 — Determine Credential Exposure and Scope
+### Step 7 - Determine Credential Exposure and Scope
 
 Correlate the suspected keylogging activity with authentication and endpoint telemetry.
 
@@ -279,7 +279,7 @@ Determine:
 
 Establish the earliest known activity, latest observed activity, and potential exposure window.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
