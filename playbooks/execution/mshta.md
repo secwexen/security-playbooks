@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-13T14:58:00Z"
-updated_at: "2026-11-13T11:47:00Z"
+updated_at: "2026-11-13T12:14:00Z"
 description: "Mshta.exe is a Windows utility that can execute HTML Applications (HTA) and may be abused to execute scripts or other malicious content."
 objective: "Identify, investigate, and validate suspicious mshta.exe execution and determine whether the activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -104,8 +104,6 @@ The objective is to determine whether mshta execution is legitimate, suspicious,
 | Technique | Name                                 | Relevance                                                                             |
 | --------- | ------------------------------------ | ------------------------------------------------------------------------------------- |
 | T1218.005 | System Binary Proxy Execution: Mshta | Relevant when mshta.exe is used to execute content or scripts in a suspicious context |
-
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
 
 ## Trigger Conditions
 
