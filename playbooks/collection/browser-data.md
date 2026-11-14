@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-27T18:56:00Z"
-updated_at: "2026-11-13T10:41:00Z"
+updated_at: "2026-11-14T08:53:00Z"
 description: "Investigate suspicious access to web browser profiles and the collection of browser-related information."
 objective: "Determine whether browser data was accessed or collected without authorization, identify the affected users and systems, establish the scope of activity, and support appropriate incident response."
 severity: "medium"
@@ -111,8 +111,6 @@ This playbook focuses on browser information and associated artifacts. Suspected
 | --------- | ----------------------------- | ----------------------------------------------------------------------------------------------------- |
 | T1005     | Data from Local System        | Relevant when browser-related data is collected from local files, databases, or other system sources. |
 | T1217     | Browser Information Discovery | Relevant when browser profiles, history, bookmarks, or other browser information are enumerated.      |
-
-Technique mappings must reflect observed behavior. Browser data access alone does not establish malicious intent.
 
 ## Trigger Conditions
 
