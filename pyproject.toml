@@ -73,13 +73,15 @@ dev = [
   "pytest-cov==7.1.0,<8.0",
   "pytest-mock==3.14.0",
   "pytest-xdist>=3.5",
+  "pytest-asyncio>=0.23",
+  "build>=1.2",
   "yara-python",
   "black==26.10.1",
   "ruff>=0.16.8",
   "flake8==7.0.0",
   "isort==5.13.2",
   "pylint==4.0.9",
-  "mypy==1.10.0",
+  "mypy==2.4.1",
   "types-requests",
   "types-PyYAML",
   "types-python-dateutil",
@@ -96,7 +98,7 @@ Repository = "https://github.com/secwexen/security-playbooks"
 "Bug Tracker" = "https://github.com/secwexen/security-playbooks/issues"
 
 [tool.pytest.ini_options]
-addopts = "--cov=. --cov-report=term-missing --cov-report=html"
+addopts = "--cov --cov-report=term-missing --cov-report=html --cov-report=xml"
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
@@ -112,6 +114,7 @@ branch = true
 source = [
     "automation",
     "tools",
+    "scripts",
 ]
 
 [tool.coverage.report]
@@ -127,7 +130,7 @@ exclude_lines = [
 directory = "reports/coverage"
 
 [tool.black]
-line-length = 88
+line-length = 120
 target-version = ["py313"]
 
 [tool.ruff]
@@ -142,4 +145,3 @@ ignore = []
 python_version = "3.13"
 strict = true
 ignore_missing_imports = true
-mypy_path = "src"
