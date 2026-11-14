@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-20T14:15:00Z"
-updated_at: "2026-11-13T10:32:00Z"
+updated_at: "2026-11-14T08:48:00Z"
 description: "Investigate suspicious access to cloud credentials, application tokens, service credentials, and secrets stored or exposed within cloud environments."
 objective: "Determine whether cloud credential access or exposure is authorized, identify affected identities and resources, establish the scope of potential compromise, and support appropriate containment and remediation."
 severity: "high"
@@ -114,8 +114,6 @@ Credential exposure does not automatically establish account compromise. The inv
 | T1528     | Steal Application Access Token                                    | Relevant when application access tokens are obtained or used without authorization.                                  |
 | T1552.005 | Unsecured Credentials: Cloud Instance Metadata API                | Relevant when cloud instance metadata endpoints are accessed to obtain credentials or other sensitive information.   |
 | T1552.001 | Unsecured Credentials: Credentials In Files                       | Relevant when cloud credentials are exposed in files, configuration artifacts, or other insecurely stored locations. |
-
-Apply each technique only when the observed behavior supports the mapping. Credential exposure, token theft, and subsequent abuse of a valid cloud account are related but distinct activities.
 
 ## Trigger Conditions
 
