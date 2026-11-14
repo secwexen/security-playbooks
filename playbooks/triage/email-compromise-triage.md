@@ -3,10 +3,10 @@ id: "email-compromise-triage"
 name: "Email Compromise Triage"
 category: "triage"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-05T13:33:00Z"
-updated_at: "2026-10-05T16:59:00Z"
+updated_at: "2026-11-14T08:19:00Z"
 description: "Investigate suspected email account compromise and determine whether unauthorized access, mailbox manipulation, or malicious activity occurred."
 objective: "Determine the legitimacy, scope, and impact of suspected email account compromise and identify whether containment or incident response is required."
 severity: "high"
@@ -106,8 +106,6 @@ The objective is to determine whether unauthorized access or mailbox manipulatio
 | T1078     | Valid Accounts       | Relevant when legitimate account credentials are used for unauthorized access                                    |
 | T1098     | Account Manipulation | Relevant when account settings, authentication factors, or access permissions are modified without authorization |
 
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -147,7 +145,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Compromise Alert
+### Step 1 - Identify Compromise Alert
 
 Determine:
 
@@ -161,7 +159,7 @@ Determine:
 
 Preserve the original alert context before making account or mailbox changes.
 
-### Step 2 — Review Authentication Activity
+### Step 2 - Review Authentication Activity
 
 Review:
 
@@ -184,7 +182,7 @@ Pay particular attention to:
 - authentication outside expected operating periods;
 - suspicious MFA activity.
 
-### Step 3 — Review Mailbox Activity
+### Step 3 - Review Mailbox Activity
 
 Review:
 
@@ -200,7 +198,7 @@ Review:
 
 Investigate unexpected rules or forwarding destinations, especially when they redirect messages outside the organization's expected environment.
 
-### Step 4 — Review Account Changes
+### Step 4 - Review Account Changes
 
 Review:
 
@@ -215,7 +213,7 @@ Review:
 
 Determine whether these changes were expected and authorized.
 
-### Step 5 — Review Endpoint Activity
+### Step 5 - Review Endpoint Activity
 
 Review recently sent messages for:
 
@@ -230,7 +228,7 @@ Review recently sent messages for:
 
 Determine whether the account may have been used to conduct phishing, business email compromise, or other malicious activity.
 
-### Step 6 — Review Outbound Email Activity
+### Step 6 - Review Outbound Email Activity
 
 When relevant, investigate:
 
@@ -244,7 +242,7 @@ When relevant, investigate:
 
 Correlate endpoint events with suspicious sign-ins and mailbox access.
 
-### Step 7 — Determine Compromise Scope
+### Step 7 - Determine Compromise Scope
 
 Search across the environment for:
 
@@ -265,7 +263,7 @@ Determine:
 - most recent observed activity;
 - whether unauthorized access is ongoing.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -343,7 +341,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- unresolved authentication and mailbox activity;
+- potentially affected accounts, mailboxes, and messages.
 
 ## Escalation
 
