@@ -3,10 +3,10 @@ id: "application-access-token-abuse"
 name: "Application Access Token Abuse"
 category: "cloud"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-18T05:53:00Z"
-updated_at: "2026-11-13T10:11:00Z"
+updated_at: "2026-11-14T08:01:00Z"
 description: "Investigate suspected theft, unauthorized use, or abuse of application access tokens in cloud environments and SaaS applications."
 objective: "Determine whether an application access token has been compromised or used without authorization, identify affected identities and resources, establish the scope of the activity, and coordinate appropriate containment and remediation."
 severity: "high"
@@ -112,8 +112,6 @@ A valid token is not necessarily evidence of legitimate activity. The investigat
 | --------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | T1528     | Steal Application Access Token                                  | Relevant when application access tokens are suspected of being stolen or obtained without authorization.             |
 | T1550.001 | Use Alternate Authentication Material: Application Access Token | Relevant when a stolen or compromised application access token is used instead of normal authentication credentials. |
-
-Apply these mappings only when the observed behavior supports the corresponding technique. Token-related anomalies alone do not establish that token theft or unauthorized token use occurred.
 
 ## Trigger Conditions
 
