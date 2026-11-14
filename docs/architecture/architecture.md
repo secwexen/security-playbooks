@@ -49,7 +49,6 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │           docker-image.yml
 │           greetings.yml
 │           label.yml
-│           makefile.yml
 │           manual.yml
 │           pylint.yml
 │           python-package.yml
@@ -171,6 +170,7 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │   ├───playbooks
 │   │       playbook-authoring.md
 │   │       playbook-guide.md
+│   │       playbook-schema.md
 │   │       
 │   ├───product
 │   │       features.md
@@ -460,6 +460,17 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 ├───tests
 │   │   conftest.py
 │   │   
+│   ├───automation
+│   │       test_enrichment_error_handling.py
+│   │       test_feed_sync_error_handling.py
+│   │       
+│   ├───configuration
+│   │       test_invalid_configurations.py
+│   │       
+│   ├───detection-rules
+│   │       test_rule_duplicates.py
+│   │       test_rule_registry.py
+│   │       
 │   ├───integration
 │   │       test_detection_pipeline.py
 │   │       test_ioc_pipeline.py
@@ -476,6 +487,10 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │   │       test_playbook_metadata.py
 │   │       test_playbook_schema_validation.py
 │   │       test_playbook_structure.py
+│   │       
+│   ├───reporting
+│   │       test_coverage_report.py
+│   │       test_report_consistency.py
 │   │       
 │   ├───schemas
 │   │       test_alert_schema.py
@@ -513,8 +528,11 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │   │       test_queries.py
 │   │       
 │   ├───threat-intelligence
+│   │       test_feed_integrity.py
 │   │       test_feed_metadata.py
+│   │       test_ioc_deduplication.py
 │   │       test_ioc_metadata.py
+│   │       test_ioc_normalization.py
 │   │       test_mitre_actor_mapping.py
 │   │       test_sources.py
 │   │       
