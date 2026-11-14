@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-24T07:40:00Z"
-updated_at: "2026-11-13T10:37:00Z"
+updated_at: "2026-11-14T08:50:00Z"
 description: "Investigate suspicious cloud service enumeration and determine whether the activity represents legitimate administration, reconnaissance, or malicious discovery."
 objective: "Identify the cloud services and resources enumerated during suspicious activity, determine the associated identity and session context, establish the scope of discovery, and assess whether the activity is associated with unauthorized access or a broader security incident."
 severity: "medium"
@@ -107,8 +107,6 @@ Service enumeration alone does not establish malicious intent. The investigation
 | Technique | Name                    | Relevance                                                                          |
 | --------- | ----------------------- | ---------------------------------------------------------------------------------- |
 | T1526     | Cloud Service Discovery | Primary technique associated with the enumeration of cloud services and resources. |
-
-The investigation should focus on discovery activity across applicable cloud services and identity environments. Additional ATT&CK techniques should only be mapped when supported by observed behavior.
 
 ## Trigger Conditions
 
