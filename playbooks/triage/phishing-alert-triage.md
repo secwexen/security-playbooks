@@ -3,10 +3,10 @@ id: "phishing-alert-triage"
 name: "Phishing Alert Triage"
 category: "triage"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-02T20:38:00Z"
-updated_at: "2026-10-05T17:00:00Z"
+updated_at: "2026-11-14T08:31:00Z"
 description: "Investigate suspected phishing emails and determine whether the message is benign, malicious, or part of a broader account or security incident."
 objective: "Determine the legitimacy, scope, and impact of a suspected phishing message and identify required containment, investigation, or escalation actions."
 severity: "high"
@@ -94,20 +94,15 @@ validation:
 
 This playbook provides a structured SOC workflow for investigating suspected phishing messages.
 
-The objective is to determine whether the message is:
+It guides analysts in examining email headers, sender identity, message content, malicious URLs, and attachments to determine the legitimacy of suspected phishing attempts.
 
-- legitimate;
-- suspicious;
-- malicious; or
-- part of a broader account or security incident.
+The investigation aims to establish recipient exposure, identify potential credential theft or endpoint compromise, assess campaign scope, and determine whether containment or incident response is required.
 
 ## MITRE ATT&CK
 
 | Technique | Name     | Relevance                                                                              |
 | --------- | -------- | -------------------------------------------------------------------------------------- |
 | T1566     | Phishing | Relevant when an adversary uses phishing to deliver malicious content or obtain access |
-
-Additional sub-techniques should be mapped when the observed phishing behavior clearly supports them.
 
 ## Trigger Conditions
 
@@ -146,7 +141,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Phishing Alert
+### Step 1 - Identify Phishing Alert
 
 Determine:
 
@@ -159,7 +154,7 @@ Determine:
 
 Record the original alert information before making changes to the message or recipient account.
 
-### Step 2 — Review Message Metadata
+### Step 2 - Review Message Metadata
 
 Review:
 
@@ -177,7 +172,7 @@ Review:
 
 Pay particular attention to inconsistencies between sender identity and message infrastructure.
 
-### Step 3 — Analyze Message Content
+### Step 3 - Analyze Message Content
 
 Review:
 
@@ -193,7 +188,7 @@ Review:
 
 A suspicious characteristic alone should not establish malicious intent. Correlate content with technical indicators and recipient activity.
 
-### Step 4 — Analyze Indicators
+### Step 4 - Analyze Indicators
 
 For URLs, collect:
 
@@ -217,7 +212,7 @@ Use approved analysis and sandboxing capabilities when required.
 
 Do not open suspicious content on production endpoints outside approved analysis procedures.
 
-### Step 5 — Review Recipient Activity
+### Step 5 - Review Recipient Activity
 
 Determine whether the recipient:
 
@@ -231,7 +226,7 @@ Determine whether the recipient:
 
 Review associated timestamps to establish the sequence of events.
 
-### Step 6 — Correlate Account and Endpoint Activity
+### Step 6 - Correlate Account and Endpoint Activity
 
 When interaction occurred, investigate:
 
@@ -246,7 +241,7 @@ When interaction occurred, investigate:
 
 Determine whether the phishing message was followed by suspicious account or endpoint activity.
 
-### Step 7 — Determine Campaign Scope
+### Step 7 - Determine Campaign Scope
 
 Search across the environment for:
 
@@ -268,7 +263,7 @@ Determine:
 - earliest observed message;
 - latest observed message.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the message as:
 
@@ -345,7 +340,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional analysis required.
+- additional analysis required;
+- recipient interaction and potential credential exposure status;
+- unresolved sender, URL, or attachment indicators.
 
 ## Escalation
 
