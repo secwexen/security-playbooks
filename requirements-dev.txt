@@ -2,10 +2,13 @@
 pytest==9.0.3
 pytest-cov==7.1.0,<8.0
 pytest-mock==3.14.0
+pytest-asyncio>=0.23
+pytest-timeout>=2.3
 yara-python==4.5.4
 scapy==2.7.0
 
 # Linting and Formatting
+build>=1.2
 black==26.10.1
 flake8==7.0.0
 isort==5.13.2
