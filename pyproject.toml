@@ -115,7 +115,6 @@ branch = true
 source = [
     "automation",
     "tools",
-    "scripts",
 ]
 
 [tool.coverage.report]
