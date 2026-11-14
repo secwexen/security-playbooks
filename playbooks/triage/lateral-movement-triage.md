@@ -3,10 +3,10 @@ id: "lateral-movement-triage"
 name: "Lateral Movement Triage"
 category: "triage"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-04T21:10:00Z"
-updated_at: "2026-10-05T16:59:00Z"
+updated_at: "2026-11-14T08:21:00Z"
 description: "Investigate suspected lateral movement activity and determine whether unauthorized access or remote execution occurred between systems."
 objective: "Determine the source, destination, technique, scope, and legitimacy of suspected lateral movement and identify whether containment or incident response is required."
 severity: "high"
@@ -108,8 +108,6 @@ The objective is to determine whether remote authentication, remote execution, o
 | T1047     | Windows Management Instrumentation | Relevant when WMI is used for remote execution                                    |
 | T1078     | Valid Accounts                     | Relevant when legitimate credentials are used for unauthorized access             |
 
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -147,7 +145,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Lateral Movement Alert
+### Step 1 - Identify Lateral Movement Alert
 
 Determine:
 
@@ -162,7 +160,7 @@ Determine:
 
 Preserve the original alert context before making containment or remediation changes.
 
-### Step 2 — Identify Source and Destination
+### Step 2 - Identify Source and Destination
 
 Determine:
 
@@ -180,7 +178,7 @@ Pay particular attention to unexpected access to:
 - security infrastructure;
 - other privileged systems.
 
-### Step 3 — Review Authentication Activity
+### Step 3 - Review Authentication Activity
 
 Review:
 
@@ -202,7 +200,7 @@ Investigate unusual activity such as:
 - an account accessing multiple hosts in a short period;
 - successful authentication following suspicious failures.
 
-### Step 4 — Review Remote Service Activity
+### Step 4 - Review Remote Service Activity
 
 Identify the remote access mechanism.
 
@@ -227,7 +225,7 @@ Review:
 
 A legitimate remote administration protocol should not be classified as malicious without additional evidence.
 
-### Step 5 — Review Process Activity
+### Step 5 - Review Process Activity
 
 On the source and destination systems, review:
 
@@ -242,7 +240,7 @@ On the source and destination systems, review:
 
 Pay attention to unexpected remote execution patterns and processes that are inconsistent with normal administrative activity.
 
-### Step 6 — Correlate Related Activity
+### Step 6 - Correlate Related Activity
 
 Search for related:
 
@@ -257,7 +255,7 @@ Search for related:
 
 Determine whether the lateral movement occurred before or after another suspicious event.
 
-### Step 7 — Determine Movement Scope
+### Step 7 - Determine Movement Scope
 
 Search across the environment for:
 
@@ -278,7 +276,7 @@ Determine:
 - most recent observed activity;
 - whether movement is still active.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -356,7 +354,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- unverified source-to-destination movement paths;
+- unresolved account authorization and remote execution activity.
 
 ## Escalation
 
@@ -393,7 +393,6 @@ Do not terminate sessions, disable accounts, or isolate systems before required 
 - `playbooks/triage/suspicious-login-triage.md`
 - `playbooks/triage/suspicious-process-triage.md`
 - `playbooks/triage/suspicious-powershell-triage.md`
-- `playbooks/triage/malware-detection-triage.md`
 - `playbooks/lateral-movement/rdp-lateral-movement.md`
 - `playbooks/lateral-movement/smb-lateral-movement.md`
 - `playbooks/lateral-movement/winrm-lateral-movement.md`
