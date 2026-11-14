@@ -99,7 +99,7 @@ Repository = "https://github.com/secwexen/security-playbooks"
 "Bug Tracker" = "https://github.com/secwexen/security-playbooks/issues"
 
 [tool.pytest.ini_options]
-addopts = "--cov --cov-report=term-missing --cov-report=html --cov-report=xml"
+addopts = "--cov=. --cov-report=term-missing --cov-report=html --cov-report=xml"
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
