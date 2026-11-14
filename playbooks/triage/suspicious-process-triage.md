@@ -3,10 +3,10 @@ id: "suspicious-process-triage"
 name: "Suspicious Process Triage"
 category: "triage"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-08-30T10:56:00Z"
-updated_at: "2026-10-05T17:02:00Z"
+updated_at: "2026-11-14T08:42:00Z"
 description: "Investigate suspicious process execution and determine whether the observed process activity is benign, suspicious, or malicious."
 objective: "Determine the legitimacy, execution chain, scope, and potential impact of suspicious process activity and provide evidence for escalation or closure."
 severity: "high"
@@ -95,11 +95,9 @@ validation:
 
 This playbook provides a structured SOC workflow for investigating suspicious process execution on endpoint systems.
 
-The goal is to determine whether the observed process activity is:
+It guides analysts in examining process relationships, execution parameters, executable integrity, and associated file and network activity to identify potentially malicious behavior.
 
-- expected and legitimate;
-- suspicious and requiring additional investigation; or
-- confirmed malicious and requiring incident response.
+The investigation aims to establish process legitimacy, identify unauthorized execution, determine the scope of related activity, and assess whether containment or incident response is required.
 
 ## MITRE ATT&CK
 
@@ -107,8 +105,6 @@ The goal is to determine whether the observed process activity is:
 | --------- | --------------------------------- | -------------------------------------------------------------------------- |
 | T1059     | Command and Scripting Interpreter | Relevant when process activity involves command or script execution        |
 | T1105     | Ingress Tool Transfer             | Relevant when the suspicious process retrieves tools, scripts, or payloads |
-
-Additional ATT&CK mappings should only be added when the observed process behavior supports them.
 
 ## Trigger Conditions
 
@@ -146,7 +142,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Affected Host
+### Step 1 - Identify Affected Host
 
 Collect:
 
@@ -165,7 +161,7 @@ Determine whether the endpoint is:
 - a domain controller; or
 - another security-sensitive system.
 
-### Step 2 — Identify Associated User
+### Step 2 - Identify Associated User
 
 Determine which account initiated or was associated with the process.
 
@@ -186,7 +182,7 @@ Determine whether the account is:
 - a service account; or
 - unexpected for the affected host.
 
-### Step 3 — Review Process Tree
+### Step 3 - Review Process Tree
 
 Review:
 
@@ -217,7 +213,7 @@ Pay particular attention to unexpected relationships such as:
 
 A suspicious parent-child relationship should be investigated in context and should not be treated as malicious based on process names alone.
 
-### Step 4 — Review Command Line
+### Step 4 - Review Command Line
 
 Inspect the command line for:
 
@@ -234,7 +230,7 @@ Inspect the command line for:
 
 Capture the complete command line when available.
 
-### Step 5 — Review File Context
+### Step 5 - Review File Context
 
 Collect:
 
@@ -258,7 +254,7 @@ Pay particular attention to executables located in:
 
 Compare the observed executable with known-good software and approved administrative tooling.
 
-### Step 6 — Review Network Activity
+### Step 6 - Review Network Activity
 
 Determine whether the process generated network activity.
 
@@ -281,7 +277,7 @@ Prioritize investigation when the process communicates with:
 - unusual ports or protocols;
 - destinations unrelated to the expected application function.
 
-### Step 7 — Correlate Related Events
+### Step 7 - Correlate Related Events
 
 Search for related activity involving:
 
@@ -305,7 +301,7 @@ Search across the environment for:
 - the same destination;
 - the same user activity.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the process activity as:
 
@@ -389,7 +385,9 @@ Document:
 
 - what evidence was collected;
 - what evidence is missing;
-- what additional telemetry is required.
+- what additional telemetry is required;
+- unresolved executable provenance and process relationships;
+- undetermined impact on related processes and potentially affected hosts.
 
 ## Escalation
 
