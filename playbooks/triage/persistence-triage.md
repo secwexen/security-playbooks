@@ -3,10 +3,10 @@ id: "persistence-triage"
 name: "Persistence Triage"
 category: "triage"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-01T14:33:00Z"
-updated_at: "2026-10-05T17:00:00Z"
+updated_at: "2026-11-14T08:13:00Z"
 description: "Investigate suspected persistence mechanisms and determine whether unauthorized persistence is present on an endpoint."
 objective: "Identify, validate, scope, and assess suspected persistence mechanisms and determine whether escalation or containment is required."
 severity: "high"
@@ -95,11 +95,9 @@ validation:
 
 This playbook provides a structured SOC workflow for investigating suspected persistence mechanisms on endpoint systems.
 
-The objective is to determine whether a persistence mechanism is:
+It guides analysts in validating persistence configurations, associated executables, execution privileges, and related activity to distinguish legitimate system behavior from unauthorized changes.
 
-- legitimate and expected;
-- suspicious and requiring additional investigation; or
-- malicious and requiring incident response.
+The investigation also establishes the scope and potential impact of identified persistence mechanisms to determine whether further investigation, escalation, or containment is required.
 
 ## MITRE ATT&CK
 
@@ -107,8 +105,6 @@ The objective is to determine whether a persistence mechanism is:
 | --------- | --------------------------------- | ---------------------------------------------------------------------------- |
 | T1053     | Scheduled Task/Job                | Relevant when persistence is established through scheduled execution         |
 | T1547     | Boot or Logon Autostart Execution | Relevant when persistence is established through startup or logon mechanisms |
-
-Additional ATT&CK techniques should only be mapped when supported by the observed persistence behavior.
 
 ## Trigger Conditions
 
@@ -148,7 +144,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Persistence Alert
+### Step 1 - Identify Persistence Alert
 
 Determine:
 
@@ -162,7 +158,7 @@ Determine:
 
 Record the original alert before making remediation changes.
 
-### Step 2 — Identify Persistence Mechanism
+### Step 2 - Identify Persistence Mechanism
 
 Determine the mechanism responsible for automatic execution.
 
@@ -205,7 +201,7 @@ For registry or startup mechanisms, review:
 - modification time;
 - associated user or installation activity.
 
-### Step 3 — Review Execution Context
+### Step 3 - Review Execution Context
 
 Review:
 
@@ -220,7 +216,7 @@ Review:
 
 Determine whether the configured execution context is expected for the affected host.
 
-### Step 4 — Review File Context
+### Step 4 - Review File Context
 
 For referenced files, collect:
 
@@ -242,7 +238,7 @@ Pay particular attention to artifacts located in:
 - download locations;
 - unusual system locations.
 
-### Step 5 — Review Related Events
+### Step 5 - Review Related Events
 
 Correlate the persistence event with:
 
@@ -259,7 +255,7 @@ Correlate the persistence event with:
 
 Determine whether the persistence mechanism appeared before or after other suspicious activity.
 
-### Step 6 — Determine Scope
+### Step 6 - Determine Scope
 
 Search across the environment for:
 
@@ -279,7 +275,7 @@ Determine:
 - most recent observed time;
 - whether the mechanism remains active.
 
-### Step 7 — Assess Persistence
+### Step 7 - Assess Persistence
 
 Determine whether the mechanism is:
 
@@ -299,7 +295,7 @@ Consider:
 
 A persistence mechanism should not be classified as malicious solely because it uses a scheduled task, service, registry entry, or startup mechanism.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the finding as:
 
@@ -377,7 +373,9 @@ Document:
 
 - evidence collected;
 - missing evidence;
-- additional telemetry required.
+- additional telemetry required;
+- persistence execution status;
+- potentially affected hosts and accounts.
 
 ## Escalation
 
