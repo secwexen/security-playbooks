@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-25T14:25:00Z"
-updated_at: "2026-11-13T10:38:00Z"
+updated_at: "2026-11-14T08:51:00Z"
 description: "Investigate suspicious enumeration of cloud storage objects and determine whether the activity represents legitimate administration, unauthorized reconnaissance, or part of a broader security incident."
 objective: "Identify the cloud identity, storage resources, enumeration activity, and associated access patterns; determine the scope of the discovery activity; and establish whether escalation or incident response is required."
 severity: "medium"
@@ -111,8 +111,6 @@ The objective is to determine whether the observed enumeration is legitimate, su
 | Technique | Name                           | Relevance                                                                              |
 | --------- | ------------------------------ | -------------------------------------------------------------------------------------- |
 | T1619     | Cloud Storage Object Discovery | Primary technique associated with enumerating objects in cloud storage infrastructure. |
-
-The technique applies to object enumeration activity across supported cloud storage environments. The presence of an object-listing event alone does not establish malicious intent.
 
 ## Trigger Conditions
 
