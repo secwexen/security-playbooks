@@ -3,10 +3,10 @@ id: "suspicious-file-triage"
 name: "Suspicious File Triage"
 category: "triage"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-05T16:48:00Z"
-updated_at: "2026-10-05T17:01:00Z"
+updated_at: "2026-11-14T08:08:00Z"
 description: "Investigate suspicious files and determine whether an identified file is legitimate, suspicious, or malicious."
 objective: "Determine the origin, characteristics, execution context, prevalence, and potential impact of a suspicious file and identify whether further investigation or incident response is required."
 severity: "high"
@@ -96,12 +96,9 @@ validation:
 
 This playbook provides a structured SOC workflow for investigating suspicious files identified on endpoint systems.
 
-The objective is to determine whether the file is:
+The investigation focuses on identifying file origin, execution context, and associated activity.
 
-- legitimate;
-- suspicious;
-- malicious; or
-- inconclusive due to insufficient evidence.
+The objective is to determine the file's threat level, assess its potential impact, and identify whether further investigation or incident response is required.
 
 ## MITRE ATT&CK
 
@@ -109,8 +106,6 @@ The objective is to determine whether the file is:
 | --------- | ------------------------------- | -------------------------------------------------------------------------------- |
 | T1027     | Obfuscated Files or Information | Relevant when suspicious files contain obfuscated or otherwise concealed content |
 | T1105     | Ingress Tool Transfer           | Relevant when a suspicious file is retrieved or transferred from another system  |
-
-Additional ATT&CK techniques should only be mapped when supported by the observed file or execution behavior.
 
 ## Trigger Conditions
 
@@ -151,7 +146,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify File Alert
+### Step 1 - Identify File Alert
 
 Determine:
 
@@ -165,7 +160,7 @@ Determine:
 
 Preserve the original alert context before making remediation changes.
 
-### Step 2 — Collect File Metadata
+### Step 2 - Collect File Metadata
 
 Collect:
 
@@ -181,7 +176,7 @@ Collect:
 
 Use available file metadata to establish an initial assessment of the artifact.
 
-### Step 3 — Review File Location
+### Step 3 - Review File Location
 
 Assess whether the file path is expected.
 
@@ -196,7 +191,7 @@ Pay particular attention to files located in:
 
 An unusual file location is an indicator for further investigation but does not by itself establish malicious intent.
 
-### Step 4 — Review File Origin
+### Step 4 - Review File Origin
 
 Determine how the file entered the system.
 
@@ -213,7 +208,7 @@ Investigate:
 
 Establish the earliest known appearance of the file where telemetry permits.
 
-### Step 5 — Review Execution Context
+### Step 5 - Review Execution Context
 
 Determine whether the file was executed.
 
@@ -230,7 +225,7 @@ Review:
 
 Pay particular attention to unexpected process relationships and execution from user-writable or temporary locations.
 
-### Step 6 — Review Related Network Activity
+### Step 6 - Review Related Network Activity
 
 If the file or associated process executed, review:
 
@@ -244,7 +239,7 @@ If the file or associated process executed, review:
 
 Investigate suspicious external communication or network behavior that is not consistent with the file's expected purpose.
 
-### Step 7 — Determine File Prevalence
+### Step 7 - Determine File Prevalence
 
 Search the environment for:
 
@@ -263,7 +258,7 @@ Determine:
 - latest observed time;
 - whether the file remains present or active.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the file as:
 
@@ -344,7 +339,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- investigation limitations;
+- recommended next investigative actions.
 
 ## Escalation
 
