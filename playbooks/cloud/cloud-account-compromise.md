@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-16T19:48:00Z"
-updated_at: "2026-11-13T10:12:00Z"
+updated_at: "2026-11-14T08:47:00Z"
 description: "Investigate suspected compromise or unauthorized use of cloud accounts and determine the scope, impact, and persistence of the activity."
 objective: "Identify compromised cloud identities, establish the extent of unauthorized access, preserve relevant evidence, and coordinate containment and recovery."
 severity: "high"
@@ -109,8 +109,6 @@ A successful authentication alone does not establish account compromise. Finding
 | Technique | Name                           | Relevance                                                                                         |
 | --------- | ------------------------------ | ------------------------------------------------------------------------------------------------- |
 | T1078.004 | Valid Accounts: Cloud Accounts | Primary technique when valid cloud accounts are abused to obtain or maintain unauthorized access. |
-
-The technique is associated with Initial Access, Persistence, Privilege Escalation, and Stealth. Additional technique mappings should only be added when the observed behavior supports them.
 
 ## Trigger Conditions
 
