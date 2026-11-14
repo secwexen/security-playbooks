@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-22T17:45:00Z"
-updated_at: "2026-11-13T10:34:00Z"
+updated_at: "2026-11-14T08:49:00Z"
 description: "Investigate suspicious or unauthorized access to cloud-based secrets management services and determine whether sensitive credentials may have been exposed."
 objective: "Identify unauthorized cloud secrets access, assess potential credential exposure, determine the affected identities and resources, and provide evidence for containment and remediation."
 severity: "high"
@@ -108,8 +108,6 @@ The objective is to determine whether the observed access was authorized, identi
 | Technique | Name                                                              | Relevance                                                                                                                 |
 | --------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | T1555.006 | Credentials from Password Stores: Cloud Secrets Management Stores | Primary technique when cloud-native secrets management services are accessed to obtain credentials without authorization. |
-
-This mapping applies when the observed behavior involves acquiring credentials from a cloud secrets management store. Suspicious authentication, privilege changes, or subsequent use of exposed credentials should be mapped separately only when supported by the investigation evidence.
 
 ## Trigger Conditions
 
