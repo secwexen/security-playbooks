@@ -3,10 +3,10 @@ id: "sam-dump"
 name: "SAM Credential Access"
 category: "credential-access"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-16T16:11:00Z"
-updated_at: "2026-11-13T11:34:00Z"
+updated_at: "2026-11-14T07:59:00Z"
 description: "SAM credential access involves attempts to obtain local account authentication material from the Windows Security Account Manager database."
 objective: "Identify, investigate, and validate suspicious access to the Security Account Manager and determine whether local account credentials may have been exposed."
 severity: "critical"
@@ -121,10 +121,6 @@ Do not treat the presence of SAM access alone as conclusive evidence of maliciou
 | --------- | ----------------------------------------------- | ----------------------------------------------------------------------- |
 | T1003.002 | OS Credential Dumping: Security Account Manager | Relevant when local account credential material is targeted through SAM |
 
-MITRE ATT&CK identifies SAM credential dumping as sub-technique T1003.002.
-
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -194,7 +190,7 @@ Review available evidence for:
 
 Document the target and context without attempting to reproduce credential extraction.
 
-### Step 3 — Review Process Context
+### Step 3 - Review Process Context
 
 Review:
 
