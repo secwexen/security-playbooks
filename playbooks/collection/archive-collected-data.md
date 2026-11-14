@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-26T16:32:00Z"
-updated_at: "2026-11-13T10:40:00Z"
+updated_at: "2026-11-14T08:52:00Z"
 description: "Investigate suspicious compression, archiving, or encryption of collected data that may indicate preparation for unauthorized data transfer."
 objective: "Determine whether observed archiving activity is authorized, suspicious, or malicious; identify the affected data, associated processes, and potential relationship to data exfiltration."
 severity: "high"
@@ -126,8 +126,6 @@ Archive creation alone does not establish malicious intent or confirm data exfil
 | T1560.001 | Archive via Utility       | Relevant when archiving is performed using system or third-party utilities                           |
 | T1560.002 | Archive via Library       | Relevant when an application or script uses an archiving library                                     |
 | T1560.003 | Archive via Custom Method | Relevant when data is archived or encrypted using a custom implementation                            |
-
-All mappings should be evaluated against observed behavior. The presence of an archive file alone is not sufficient to establish a particular ATT&CK technique.
 
 ## Trigger Conditions
 
