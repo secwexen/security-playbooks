@@ -74,6 +74,7 @@ dev = [
   "pytest-mock==3.14.0",
   "pytest-xdist>=3.5",
   "pytest-asyncio>=0.23",
+  "pytest-timeout>=2.3",
   "build>=1.2",
   "yara-python",
   "black==26.10.1",
