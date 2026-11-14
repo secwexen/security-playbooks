@@ -1,4 +1,8 @@
+"""Shared pytest fixtures and schema validation helpers."""
+
 from __future__ import annotations
+
+# pylint: disable=missing-function-docstring
 
 import re
 from datetime import datetime, timezone
