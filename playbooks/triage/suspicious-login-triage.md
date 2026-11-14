@@ -3,10 +3,10 @@ id: "suspicious-login-triage"
 name: "Suspicious Login Triage"
 category: "triage"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-08-31T11:45:00Z"
-updated_at: "2026-11-05T15:43:00Z"
+updated_at: "2026-11-14T08:34:00Z"
 description: "Investigate suspicious authentication activity and determine whether observed login behavior is legitimate, suspicious, or indicative of account compromise."
 objective: "Determine the legitimacy, scope, and potential impact of suspicious login activity and identify whether additional account or incident response actions are required."
 severity: "high"
@@ -95,19 +95,15 @@ validation:
 
 This playbook provides a structured SOC workflow for investigating suspicious authentication and login activity.
 
-The objective is to determine whether observed authentication behavior is:
+It guides analysts in evaluating account context, authentication methods, source devices, network origins, and deviations from established login patterns.
 
-- expected and legitimate;
-- suspicious and requiring additional investigation; or
-- indicative of credential misuse or account compromise.
+The investigation aims to determine whether unauthorized access occurred, identify affected accounts and resources, assess potential compromise, and establish whether containment or incident response is required.
 
 ## MITRE ATT&CK
 
 | Technique | Name           | Relevance                                                                                   |
 | --------- | -------------- | ------------------------------------------------------------------------------------------- |
 | T1078     | Valid Accounts | Relevant when legitimate credentials are suspected of being misused for unauthorized access |
-
-Additional techniques should only be mapped when the observed authentication activity supports them.
 
 ## Trigger Conditions
 
@@ -148,7 +144,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Account
+### Step 1 - Identify Account
 
 Identify the account associated with the suspicious authentication event.
 
@@ -174,7 +170,7 @@ Determine whether the account is:
 
 Preserve the original detection context and associated authentication evidence.
 
-### Step 2 — Review Authentication Event
+### Step 2 - Review Authentication Event
 
 Review the authentication details:
 
@@ -201,7 +197,7 @@ Correlate authentication events with relevant identity-provider and directory-se
 
 Determine whether the authentication sequence indicates unusual or potentially unauthorized access.
 
-### Step 3 — Review Source Context
+### Step 3 - Review Source Context
 
 Investigate the source of the authentication attempt.
 
@@ -229,7 +225,7 @@ Pay particular attention to:
 
 Determine whether the source context is consistent with the account's normal access patterns.
 
-### Step 4 — Review Account History
+### Step 4 - Review Account History
 
 Compare the observed activity with normal account behavior.
 
@@ -249,7 +245,7 @@ Identify deviations from the established account baseline.
 
 A deviation from normal behavior should increase investigation priority but should not independently establish account compromise.
 
-### Step 5 — Review Related Events
+### Step 5 - Review Related Events
 
 Search for related authentication, identity, endpoint, and network activity.
 
@@ -289,7 +285,7 @@ Determine:
 
 A large volume of authentication failures across multiple accounts may indicate password spraying or brute-force activity. Correlate these findings with the relevant detection and hunting workflows.
 
-### Step 6 — Assess Account Compromise
+### Step 6 - Assess Account Compromise
 
 Assess whether the available evidence is consistent with credential misuse or unauthorized account access.
 
@@ -320,7 +316,7 @@ Do not classify an event as compromised solely because a login originated from a
 
 Document the evidence supporting the compromise assessment and distinguish confirmed unauthorized access from suspected credential misuse.
 
-### Step 7 — Determine Investigation Scope
+### Step 7 - Determine Investigation Scope
 
 Search across the environment for related authentication and account activity.
 
@@ -354,7 +350,7 @@ Determine:
 
 Document the identified scope and any telemetry limitations that prevent the full extent of the activity from being established.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the authentication activity as:
 
@@ -432,7 +428,9 @@ Document:
 
 - evidence collected;
 - evidence that is unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- unverified source device and network context;
+- unresolved session establishment and post-authentication activity.
 
 ## Escalation
 
