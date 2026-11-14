@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-10-23T16:59:00Z"
-updated_at: "2026-11-13T10:35:00Z"
+updated_at: "2026-11-14T08:50:00Z"
 description: "Investigate suspicious use of cloud service dashboards and administrative portals to identify unauthorized access and cloud resource discovery."
 objective: "Determine whether cloud dashboard access and subsequent resource exploration are legitimate, suspicious, or malicious, establish the scope of the activity, and support appropriate escalation or response."
 severity: "medium"
@@ -104,8 +104,6 @@ The objective is to determine whether the observed dashboard access is legitimat
 | Technique | Name                    | Relevance                                                                                                                        |
 | --------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | T1538     | Cloud Service Dashboard | Primary technique for investigating suspicious dashboard use to discover cloud services, resources, and operational information. |
-
-The technique applies when the observed behavior supports cloud service dashboard discovery. A suspicious login alone does not establish that T1538 activity occurred.
 
 ## Trigger Conditions
 
