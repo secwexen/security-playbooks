@@ -3,10 +3,10 @@ id: "suspicious-powershell-triage"
 name: "Suspicious PowerShell Triage"
 category: "triage"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-08-30T16:45:00Z"
-updated_at: "2026-11-05T16:02:00Z"
+updated_at: "2026-11-14T08:38:00Z"
 description: "Investigate suspicious PowerShell execution alerts and determine whether the observed activity is benign, suspicious, or malicious."
 objective: "Determine the nature, scope, and impact of suspicious PowerShell activity and provide evidence for escalation or closure."
 severity: "high"
@@ -94,11 +94,9 @@ validation:
 
 This playbook provides a structured SOC workflow for investigating suspicious PowerShell execution on Windows systems.
 
-The goal is to determine whether the observed activity is:
+It guides analysts in examining command lines, script content, process relationships, PowerShell logs, and associated network and file activity to identify potentially malicious execution.
 
-- expected administrative activity;
-- suspicious activity requiring additional investigation; or
-- confirmed malicious activity requiring incident response.
+The investigation aims to determine execution intent, identify related malicious behavior, assess affected systems, and establish whether containment or incident response is required.
 
 ## MITRE ATT&CK
 
@@ -136,7 +134,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify the Affected Host
+### Step 1 - Identify the Affected Host
 
 Identify the endpoint on which the suspicious PowerShell activity was observed.
 
@@ -161,7 +159,7 @@ Determine whether the endpoint is:
 
 Preserve the original alert and relevant endpoint telemetry before making investigation or remediation changes.
 
-### Step 2 — Identify the User
+### Step 2 - Identify the User
 
 Determine which account initiated or was associated with the PowerShell process.
 
@@ -186,7 +184,7 @@ Check whether the account is:
 
 Determine whether the account's permissions and expected responsibilities are consistent with the observed PowerShell activity.
 
-### Step 3 — Review Process Execution
+### Step 3 - Review Process Execution
 
 Collect the PowerShell process details:
 
@@ -215,7 +213,7 @@ Determine whether PowerShell was started by an expected administrative tool, sch
 
 Correlate the process execution timeline with the original detection.
 
-### Step 4 — Review Command Line and Script Content
+### Step 4 - Review Command Line and Script Content
 
 Inspect the PowerShell command line and available script content for:
 
@@ -248,7 +246,7 @@ Do not classify a command as malicious solely because it contains a suspicious-l
 
 Do not execute unknown or suspicious scripts on production systems.
 
-### Step 5 — Review PowerShell Logging
+### Step 5 - Review PowerShell Logging
 
 When available, review:
 
@@ -274,7 +272,7 @@ Determine whether the available logs provide visibility into the executed comman
 
 Identify relevant telemetry gaps, disabled logging sources, or missing events that limit the investigation.
 
-### Step 6 — Review Network and File Activity
+### Step 6 - Review Network and File Activity
 
 Investigate network connections associated with PowerShell execution.
 
@@ -326,7 +324,7 @@ Collect:
 
 Correlate file and network activity with the PowerShell execution timeline.
 
-### Step 7 — Correlate Related Events and Determine Scope
+### Step 7 - Correlate Related Events and Determine Scope
 
 Search for related activity on the same host and account.
 
@@ -373,7 +371,7 @@ Determine:
 
 Document the identified scope and any telemetry limitations that prevent the complete extent of the activity from being established.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the PowerShell activity as:
 
@@ -452,7 +450,9 @@ Document:
 
 - evidence collected;
 - evidence that is unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- unresolved command or script content analysis;
+- undetermined execution outcome and potential follow-on activity.
 
 Do not close the investigation as benign when material evidence remains unavailable.
 
