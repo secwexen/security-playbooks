@@ -3,10 +3,10 @@ id: "data-exfiltration-triage"
 name: "Data Exfiltration Triage"
 category: "triage"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-03T17:10:00Z"
-updated_at: "2026-10-05T16:58:00Z"
+updated_at: "2026-11-14T08:16:00Z"
 description: "Investigate suspected unauthorized data exfiltration and determine whether data was transferred outside the organization's authorized environment."
 objective: "Determine whether data exfiltration occurred, identify the affected data and transfer path, establish scope, and determine whether incident response is required."
 severity: "critical"
@@ -105,8 +105,6 @@ The objective is to determine whether data was transferred outside the organizat
 | T1041     | Exfiltration Over C2 Channel  | Relevant when data is transferred through an established command-and-control channel |
 | T1567     | Exfiltration Over Web Service | Relevant when data is transferred to an external web service or cloud service        |
 
-Additional ATT&CK techniques should only be mapped when supported by the observed exfiltration behavior.
-
 ## Trigger Conditions
 
 Start this playbook when one or more of the following conditions are observed:
@@ -146,7 +144,7 @@ The investigation should consider:
 
 ## Investigation Procedure
 
-### Step 1 — Identify Exfiltration Alert
+### Step 1 - Identify Exfiltration Alert
 
 Determine:
 
@@ -160,7 +158,7 @@ Determine:
 
 Preserve the original alert context before making containment or remediation changes.
 
-### Step 2 — Identify Potentially Exfiltrated Data
+### Step 2 - Identify Potentially Exfiltrated Data
 
 Determine what data may have been transferred.
 
@@ -187,7 +185,7 @@ Determine whether the data contains:
 
 Do not access sensitive content beyond what is necessary and authorized for the investigation.
 
-### Step 3 — Review Transfer Activity
+### Step 3 - Review Transfer Activity
 
 Review:
 
@@ -211,7 +209,7 @@ Pay attention to:
 - transfers involving newly observed destinations;
 - unexpected encrypted or tunneled traffic.
 
-### Step 4 — Review Source Context
+### Step 4 - Review Source Context
 
 Identify the system and identity responsible for the transfer.
 
@@ -234,7 +232,7 @@ Determine whether the transfer was initiated by:
 - an unexpected process;
 - an unauthorized user or process.
 
-### Step 5 — Review Destination
+### Step 5 - Review Destination
 
 Assess the destination:
 
@@ -257,7 +255,7 @@ Determine whether the destination is:
 
 Consider whether the destination is commonly used for legitimate business transfers or whether it presents an unusual data-transfer path.
 
-### Step 6 — Correlate Related Activity
+### Step 6 - Correlate Related Activity
 
 Search for:
 
@@ -288,7 +286,7 @@ Correlate staging activity with subsequent outbound connections.
 
 Determine whether the suspected exfiltration is part of a larger attack chain.
 
-### Step 7 — Determine Exfiltration Scope
+### Step 7 - Determine Exfiltration Scope
 
 Search across the environment for:
 
@@ -309,7 +307,7 @@ Determine:
 - latest observed activity;
 - whether the transfer is still active.
 
-### Step 8 — Determine Investigation Outcome
+### Step 8 - Determine Investigation Outcome
 
 Classify the activity as:
 
@@ -390,7 +388,9 @@ Document:
 
 - evidence collected;
 - evidence unavailable;
-- additional telemetry required.
+- additional telemetry required;
+- transfer authorization and business justification status;
+- estimated scope and sensitivity of potentially exposed data.
 
 ## Escalation
 
