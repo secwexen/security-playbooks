@@ -34,7 +34,8 @@ The hypothesis library focuses on common adversary tactics and techniques, inclu
 - Execution
 - Persistence
 - Privilege Escalation
-- Defense Evasion
+- Defense Impairment
+- Stealth
 - Credential Access
 - Discovery
 - Lateral Movement
@@ -42,11 +43,14 @@ The hypothesis library focuses on common adversary tactics and techniques, inclu
 - Command and Control
 - Exfiltration
 - Impact
+- Reconnaissance
+- Resource Development
 
-The repository also includes playbook categories that support investigations and response workflows:
+The repository also includes operational playbook categories that support investigations, detection, and response workflows:
 
-- Cloud
-- Triage
+- Cloud (`cloud/`)
+- Triage (`triage/`)
 - Incident Response (`response/`)
+- Threat Hunting (`threat-hunting/`)
 
 Hypothesis files guide analysts toward likely signals, suspicious behaviors, and investigation questions. Playbook categories provide related guidance for triage, cloud investigations, and incident response.
