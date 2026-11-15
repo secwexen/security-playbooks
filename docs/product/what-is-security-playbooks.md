@@ -28,29 +28,39 @@ The primary goal of Security Playbooks is to help security teams build, test, an
 The repository follows a practical security lifecycle:
 
 ```text
+Threat Intelligence / Threat Research
+                 ↓
 Threat / Attack Behavior
-        ↓
+                 ↓
 MITRE ATT&CK Mapping
-        ↓
-Detection Rules (Sigma / YARA / Suricata)
-        ↓
+                 ↓
+Telemetry & Log Collection
+                 ↓
+Detection Engineering (Sigma / YARA / Suricata)
+                 ↓
+Detection Deployment & Monitoring
+                 ↓
 Alert / Event Generated
-        ↓
-Triage & Prioritization (Playbooks)
-        ↓
+                 ↓
+Triage & Prioritization
+                 ↓
 Alert Investigation
-        ↓
+                 ↓
 Threat Hunting & Enrichment
-        ↓
-IOC / Threat Intelligence
-        ↓
+                 ↓
+IOC / Threat Intelligence Correlation
+                 ↓
 Incident Response
-        ↓
-Detection Validation (Labs & Tests)
-        ↓
+                 ↓
+Containment / Eradication / Recovery
+                 ↓
+Detection Validation (Labs / Simulations / Tests)
+                 ↓
 Automated Tests & Coverage Metrics
-        ↓
-Coverage / Reporting / Improvement
+                 ↓
+Post-Incident Review
+                 ↓
+Coverage / Reporting / Continuous Improvement
 ```
 
 This approach allows security teams to move beyond isolated security rules and documentation toward a repeatable and measurable security operations process.
