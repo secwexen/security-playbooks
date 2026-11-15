@@ -41,15 +41,11 @@ playbooks:
   - {id: "sam-dump", category: "credential-access", path: "credential-access/sam-dump.md"}
   - {id: "windows-credential-manager", category: "credential-access", path: "credential-access/windows-credential-manager.md"}
 
-  - {id: "amsi-bypass", category: "defense-evasion", path: "defense-evasion/amsi-bypass.md"}
-  - {id: "credential-security-tool-disabling", category: "defense-evasion", path: "defense-evasion/credential-security-tool-disabling.md"}
-  - {id: "disable-defender", category: "defense-evasion", path: "defense-evasion/disable-defender.md"}
-  - {id: "event-log-clearing", category: "defense-evasion", path: "defense-evasion/event-log-clearing.md"}
-  - {id: "lolbins", category: "defense-evasion", path: "defense-evasion/lolbins.md"}
-  - {id: "masquerading", category: "defense-evasion", path: "defense-evasion/masquerading.md"}
-  - {id: "obfuscated-powershell", category: "defense-evasion", path: "defense-evasion/obfuscated-powershell.md"}
-  - {id: "process-injection", category: "defense-evasion", path: "defense-evasion/process-injection.md"}
-  - {id: "timestomp", category: "defense-evasion", path: "defense-evasion/timestomp.md"}
+  - {id: "amsi-bypass", category: "defense-impairment", path: "defense-impairment/amsi-bypass.md"}
+  - {id: "credential-security-tool-disabling", category: "defense-impairment", path: "defense-impairment/credential-security-tool-disabling.md"}
+  - {id: "disable-defender", category: "defense-impairment", path: "defense-impairment/disable-defender.md"}
+  - {id: "disable-or-modify-system-firewall", category: "defense-impairment", path: "defense-impairment/disable-or-modify-system-firewall.md"}
+  - {id: "event-log-clearing", category: "defense-impairment", path: "defense-impairment/event-log-clearing.md"}
 
   - {id: "account-discovery", category: "discovery", path: "discovery/account-discovery.md"}
   - {id: "domain-trust-discovery", category: "discovery", path: "discovery/domain-trust-discovery.md"}
@@ -129,6 +125,12 @@ playbooks:
   - {id: "supply-chain-incident-response", category: "response", path: "response/supply-chain-incident-response.md"}
   - {id: "token-theft-session-hijacking-response", category: "response", path: "response/token-theft-session-hijacking-response.md"}
   - {id: "vulnerability-exploitation-response", category: "response", path: "response/vulnerability-exploitation-response.md"}
+
+  - {id: "lolbins", category: "stealth", path: "stealth/lolbins.md"}
+  - {id: "masquerading", category: "stealth", path: "stealth/masquerading.md"}
+  - {id: "obfuscated-powershell", category: "stealth", path: "stealth/obfuscated-powershell.md"}
+  - {id: "process-injection", category: "stealth", path: "stealth/process-injection.md"}
+  - {id: "timestomp", category: "stealth", path: "stealth/timestomp.md"}
 
   - {id: "data-exfiltration-triage", category: "triage", path: "triage/data-exfiltration-triage.md"}
   - {id: "email-compromise-triage", category: "triage", path: "triage/email-compromise-triage.md"}
