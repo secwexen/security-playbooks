@@ -1,4 +1,4 @@
-catalog_version: "1.1"
+catalog_version: "1.2"
 repository: "https://github.com/secwexen/security-playbooks"
 
 playbooks:
@@ -107,6 +107,18 @@ playbooks:
   - {id: "uac-bypass", category: "privilege-escalation", path: "privilege-escalation/uac-bypass.md"}
   - {id: "unquoted-service-path", category: "privilege-escalation", path: "privilege-escalation/unquoted-service-path.md"}
   - {id: "weak-service-permissions", category: "privilege-escalation", path: "privilege-escalation/weak-service-permissions.md"}
+
+  - {id: "active-scanning", category: "reconnaissance", path: "reconnaissance/active-scanning.md"}
+  - {id: "gather-victim-identity-information", category: "reconnaissance", path: "reconnaissance/gather-victim-identity-information.md"}
+  - {id: "gather-victim-network-information", category: "reconnaissance", path: "reconnaissance/gather-victim-network-information.md"}
+  - {id: "gather-victim-org-information", category: "reconnaissance", path: "reconnaissance/gather-victim-org-information.md"}
+  - {id: "phishing-for-information", category: "reconnaissance", path: "reconnaissance/phishing-for-information.md"}
+
+  - {id: "acquire-infrastructure", category: "resource-development", path: "resource-development/acquire-infrastructure.md"}
+  - {id: "compromise-accounts", category: "resource-development", path: "resource-development/compromise-accounts.md"}
+  - {id: "compromise-infrastructure", category: "resource-development", path: "resource-development/compromise-infrastructure.md"}
+  - {id: "establish-accounts", category: "resource-development", path: "resource-development/establish-accounts.md"}
+  - {id: "obtain-capabilities", category: "resource-development", path: "resource-development/obtain-capabilities.md"}
 
   - {id: "account-compromise-response", category: "response", path: "response/account-compromise-response.md"}
   - {id: "cloud-incident-response", category: "response", path: "response/cloud-incident-response.md"}
