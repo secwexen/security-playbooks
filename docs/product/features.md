@@ -15,7 +15,7 @@ The repository brings together the core disciplines needed to build and operate 
 
 ## Core Features
 
-### Detection Rules
+### 1. Detection Rules
 
 A comprehensive library of threat detection content across multiple rule formats and platforms:
 
@@ -23,19 +23,42 @@ A comprehensive library of threat detection content across multiple rule formats
 - YARA rules for malware and file-based detection
 - Suricata rules for network intrusion detection
 - Platform-agnostic and platform-specific rule coverage
-- Continuously updated detection logic
+- Continuously maintained detection logic
 
-### Security Playbooks
+### 2. Detection Engineering
+
+Structured processes for developing, improving, and maintaining high-quality security detections:
+
+- Detection logic development and optimization
+- Threat behavior analysis and detection research
+- Log source and telemetry requirements
+- Detection rule tuning and false-positive reduction
+- MITRE ATT&CK-aligned detection development
+- Detection lifecycle and content management
+
+### 3. Security Playbooks
 
 Structured operational guidance for defensive security teams:
 
-- Step-by-step response procedures
+- Step-by-step investigation procedures
 - Containment and eradication workflows
-- Recovery and remediation playbooks
-- MITRE ATT&CK-aligned operational guidance
-- Standardized response patterns for common scenarios
+- Recovery and remediation guidance
+- MITRE ATT&CK-aligned operational procedures
+- Standardized workflows for common security scenarios
+- Evidence collection and investigation guidance
 
-### Threat Hunting
+### 4. Threat Intelligence
+
+Threat intelligence collection, analysis, and operational application:
+
+- Threat actor and campaign research
+- Threat intelligence collection and analysis
+- Threat intelligence feed management
+- IOC identification and contextualization
+- Intelligence-driven detection development
+- Threat behavior and infrastructure tracking
+
+### 5. Threat Hunting
 
 Proactive detection and investigation workflows for identifying adversary behavior:
 
@@ -43,67 +66,140 @@ Proactive detection and investigation workflows for identifying adversary behavi
 - Search queries and analyst procedures
 - Behavioral indicators and anomaly detection
 - IOC validation and triage guidance
-- Threat actor and campaign tracking patterns
+- Threat actor and campaign tracking
+- Proactive investigation of suspicious activities
 
-### Incident Response
+### 6. Incident Response
 
 End-to-end guidance for handling security incidents and investigations:
 
 - Initial triage and incident scoping
 - Evidence collection and preservation
 - Timeline reconstruction and forensic analysis
-- Containment and eradication actions
+- Containment and eradication procedures
+- Recovery and remediation workflows
 - Post-incident analysis and reporting
 
-### Attack Scenarios
+### 7. Cloud Security
 
-Realistic adversary emulation content designed for testing and training:
+Security investigation and defensive operations across cloud environments and services:
 
-- Red team exercise templates
-- Simulated attack walkthroughs
-- Defensive response drills
-- Attack chain analysis
-- Real-world scenario-based learning
+- Cloud identity and access monitoring
+- Cloud infrastructure security investigations
+- SaaS application security monitoring
+- Cloud audit log analysis
+- Application and service principal investigations
+- Cloud-specific incident response procedures
 
-### Log Analysis
+### 8. IOC Management & Enrichment
+
+Tools and processes for managing indicators of compromise and improving their analytical value:
+
+- IOC collection, normalization, and management
+- Threat intelligence enrichment
+- IP address, domain, URL, and file hash analysis
+- Malware family and campaign identification
+- Indicator reputation and risk assessment
+- IOC correlation with security events and detection data
+
+### 9. Log Analysis
 
 Analyst-focused techniques for investigating and correlating security data:
 
 - Log parsing and normalization methods
 - Event correlation workflows
-- Threat detection validation
-- Alert investigation playbooks
+- Authentication and access log analysis
+- Threat detection and investigation support
 - Forensic review and anomaly analysis
+- Security event investigation procedures
 
-### IOC Enrichment
+### 10. Security Automation
 
-Tools and processes for improving the quality and context of indicators:
+Automation capabilities designed to improve the efficiency and consistency of security operations:
 
-- Threat intelligence enrichment
-- IOC contextualization
-- Malware family and campaign identification
-- Reputation and risk classification
-- Attribution support and research workflows
+- IOC enrichment automation
+- Detection content validation
+- Automated investigation workflows
+- Security data processing and normalization
+- Reusable security scripts and tooling
+- Operational workflow automation
 
-### Automated Testing
+### 11. Integrations
 
-Validation and quality assurance for security content:
+Integration capabilities for connecting security content and workflows with external platforms and tools:
+
+- SIEM platform integrations
+- EDR and endpoint security integrations
+- Threat intelligence integrations
+- Cloud security integrations
+- Security tool interoperability
+- Automated data exchange and enrichment workflows
+
+### 12. Attack Simulation
+
+Controlled adversary emulation scenarios designed to evaluate defensive capabilities:
+
+- Red team exercise templates
+- Simulated attack walkthroughs
+- Adversary behavior emulation
+- Defensive response exercises
+- Attack chain analysis
+- Detection and response scenario testing
+
+### 13. Security Validation
+
+Validation processes for assessing the effectiveness of detection logic and defensive security controls:
+
+- Detection rule validation
+- MITRE ATT&CK technique validation
+- Security control effectiveness testing
+- Detection coverage verification
+- Adversary simulation-based validation
+- Validation scenarios and test cases
+
+### 14. Labs & Training
+
+Practical learning environments and exercises for security professionals:
+
+- Hands-on defensive security labs
+- Attack simulation exercises
+- Detection engineering practice
+- Incident response scenarios
+- Threat hunting exercises
+- Practical security investigation walkthroughs
+
+### 15. MITRE ATT&CK Mapping
+
+Structured mapping of detection content, playbooks, and hunting activities to the MITRE ATT&CK framework:
+
+- Technique and sub-technique mapping
+- Detection coverage mapping
+- Playbook-to-technique relationships
+- Threat hunting hypothesis mapping
+- ATT&CK coverage gap identification
+- Technique-based detection validation
+
+### 16. Automated Testing
+
+Automated quality assurance and testing frameworks for maintaining security content:
 
 - Detection rule testing frameworks
 - Playbook validation scripts
-- Coverage and validation automation
-- Regression testing for rule changes
-- Security engineering quality checks
+- Schema and metadata validation
+- Regression testing for detection rule changes
+- Automated content integrity checks
+- Security engineering quality assurance
 
-### Coverage Reporting
+### 17. Coverage Reporting
 
-Operational visibility into detection and defense maturity:
+Operational visibility into detection coverage and defensive security capabilities:
 
 - Detection coverage analysis
-- Capability gap assessment
-- Control effectiveness reporting
-- Risk summary and tracking
-- Security program reporting metrics
+- MITRE ATT&CK coverage assessment
+- Capability gap identification
+- Security control effectiveness reporting
+- Risk assessment and tracking
+- Security program metrics and reporting
 
 ## Repository Scope
 
