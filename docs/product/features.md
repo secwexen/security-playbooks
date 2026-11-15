@@ -2,17 +2,6 @@
 
 Security Playbooks is a defensive cybersecurity repository designed for security engineers, SOC analysts, incident responders, and threat hunters. It provides a structured collection of detection content, response workflows, validation processes, and hands-on security exercises focused on practical defense operations.
 
-## Overview
-
-The repository brings together the core disciplines needed to build and operate a modern security defense capability:
-
-- Detection engineering and rule development
-- Threat hunting and IOC analysis
-- Incident response and containment workflows
-- Attack simulation and security validation
-- Security automation and testing
-- Coverage assessment and reporting
-
 ## Core Features
 
 ### 1. Detection Rules
