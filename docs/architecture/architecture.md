@@ -194,10 +194,10 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │           query-guidelines.md
 │           
 ├───integrations
-│       README.md
 │       crowdstrike.md
 │       elastic.md
 │       microsoft-defender.md
+│       README.md
 │       sentinel.md
 │       sigma-backends.md
 │       slack.md
@@ -310,16 +310,12 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │   │       sam-dump.md
 │   │       windows-credential-manager.md
 │   │       
-│   ├───defense-evasion
+│   ├───defense-impairment
 │   │       amsi-bypass.md
 │   │       credential-security-tool-disabling.md
 │   │       disable-defender.md
+│   │       disable-or-modify-system-firewall.md
 │   │       event-log-clearing.md
-│   │       lolbins.md
-│   │       masquerading.md
-│   │       obfuscated-powershell.md
-│   │       process-injection.md
-│   │       timestomp.md
 │   │       
 │   ├───discovery
 │   │       account-discovery.md
@@ -390,6 +386,20 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │   │       unquoted-service-path.md
 │   │       weak-service-permissions.md
 │   │       
+│   ├───reconnaissance
+│   │       active-scanning.md
+│   │       gather-victim-identity-information.md
+│   │       gather-victim-network-information.md
+│   │       gather-victim-org-information.md
+│   │       phishing-for-information.md
+│   │       
+│   ├───resource-development
+│   │       acquire-infrastructure.md
+│   │       compromise-accounts.md
+│   │       compromise-infrastructure.md
+│   │       establish-accounts.md
+│   │       obtain-capabilities.md
+│   │       
 │   ├───response
 │   │       account-compromise-response.md
 │   │       business-email-compromise-response.md
@@ -408,6 +418,13 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │   │       supply-chain-incident-response.md
 │   │       token-theft-session-hijacking-response.md
 │   │       vulnerability-exploitation-response.md
+│   │       
+│   ├───stealth
+│   │       lolbins.md
+│   │       masquerading.md
+│   │       obfuscated-powershell.md
+│   │       process-injection.md
+│   │       timestomp.md
 │   │       
 │   └───triage
 │           data-exfiltration-triage.md
@@ -565,7 +582,7 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │   │       collection.md
 │   │       command-and-control.md
 │   │       credential-access.md
-│   │       defense-evasion.md
+│   │       defense-impairment.md
 │   │       discovery.md
 │   │       execution.md
 │   │       exfiltration.md
@@ -574,6 +591,9 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │   │       lateral-movement.md
 │   │       persistence.md
 │   │       privilege-escalation.md
+│   │       reconnaissance.md
+│   │       resource-development.md
+│   │       stealth.md
 │   │       
 │   └───queries
 │       ├───elastic
