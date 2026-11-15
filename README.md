@@ -78,7 +78,7 @@ Coverage mappings are maintained in:
 - [Attack Navigator Layer](detection-rules/mappings/attack-navigator-layer.json) - ATT&CK Navigator layer
 - [Rule Coverage Map](detection-rules/mappings/rule-coverage-map.json) - Rule-to-technique coverage mapping
 
-## Supported Integrations
+## Integrations
 
 Security Playbooks includes integrations for common security platforms and collaboration tools:
 
