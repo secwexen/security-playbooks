@@ -104,21 +104,24 @@ For example:
 
 ```text
 playbooks/
-├── initial-access/
-├── execution/
-├── persistence/
-├── privilege-escalation/
-├── credential-access/
-├── defense-evasion/
-├── lateral-movement/
-├── discovery/
+├── cloud/
 ├── collection/
 ├── command-and-control/
+├── credential-access/
+├── defense-impairment/
+├── discovery/
+├── execution/
 ├── exfiltration/
 ├── impact/
-├── cloud/
-├── triage/
-└── response/
+├── initial-access/
+├── lateral-movement/
+├── persistence/
+├── privilege-escalation/
+├── reconnaissance/
+├── resource-development/
+├── response/
+├── stealth/
+└── triage/
 ```
 
 Start with the playbook that matches the observed security event or investigation objective.
