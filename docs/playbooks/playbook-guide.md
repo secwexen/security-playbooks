@@ -18,7 +18,7 @@ The main categories include:
 - `collection/` - Data and information collection activities
 - `command-and-control/` - C2 communication and remote control activities
 - `credential-access/` - Credential theft and credential access investigations
-- `defense-evasion/` - Techniques used to evade security controls
+- `defense-impairment/` - Activities that disable, modify, or impair defensive security mechanisms
 - `discovery/` - System, network, account, and environment discovery
 - `execution/` - Command, script, and program execution
 - `exfiltration/` - Data exfiltration activities
@@ -27,7 +27,10 @@ The main categories include:
 - `lateral-movement/` - Movement between systems
 - `persistence/` - Persistence mechanisms
 - `privilege-escalation/` - Privilege escalation techniques
+- `reconnaissance/` - External information gathering and target research activities
+- `resource-development/` - Adversary infrastructure, account, and capability preparation
 - `response/` - Incident response procedures
+- `stealth/` - Evasion, concealment, and activity-obfuscation behaviors
 - `triage/` - Initial alert and event investigation
 
 Each playbook should belong to the category that best represents its primary purpose.
@@ -42,6 +45,7 @@ Every playbook should follow a consistent structure.
 
 Recommended sections:
 
+- Playbook Title
 - Purpose
 - MITRE ATT&CK
 - Trigger Conditions
