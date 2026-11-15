@@ -98,35 +98,35 @@ This workflow shows how security behaviors are mapped, detected, investigated, e
 ```text
 Threat Intelligence / Threat Research
                  ↓
-Threat / Attack Behavior
+      Threat / Attack Behavior
                  ↓
-MITRE ATT&CK Mapping
+       MITRE ATT&CK Mapping
                  ↓
-Telemetry & Log Collection
+     Telemetry & Log Collection
                  ↓
 Detection Engineering (Sigma / YARA / Suricata)
                  ↓
-Detection Deployment & Monitoring
+  Detection Deployment & Monitoring
                  ↓
-Alert / Event Generated
+       Alert / Event Generated
                  ↓
-Triage & Prioritization
+       Triage & Prioritization
                  ↓
-Alert Investigation
+         Alert Investigation
                  ↓
-Threat Hunting & Enrichment
+      Threat Hunting & Enrichment
                  ↓
 IOC / Threat Intelligence Correlation
                  ↓
-Incident Response
+          Incident Response
                  ↓
 Containment / Eradication / Recovery
                  ↓
 Detection Validation (Labs / Simulations / Tests)
                  ↓
-Automated Tests & Coverage Metrics
+  Automated Tests & Coverage Metrics
                  ↓
-Post-Incident Review
+         Post-Incident Review
                  ↓
 Coverage / Reporting / Continuous Improvement
 ```
