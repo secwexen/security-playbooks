@@ -8,23 +8,24 @@ The playbooks provide practical and reproducible workflows for investigating sec
 
 Playbooks are organized into security-focused categories based on their primary purpose and operational workflow.
 
-| Category                | Description                                            |
-| ----------------------- | ------------------------------------------------------ |
-| `cloud/`                | Cloud security and cloud account activities            |
-| `collection/`           | Collection of data and information                     |
-| `command-and-control/`  | Command-and-control communication                      |
-| `credential-access/`    | Credential access and credential theft                 |
-| `defense-evasion/`      | Evasion of security controls                           |
-| `discovery/`            | Discovery of systems, accounts, services, and networks |
-| `execution/`            | Command, script, and program execution                 |
-| `exfiltration/`         | Data exfiltration activities                           |
-| `impact/`               | Destructive or disruptive activities                   |
-| `initial-access/`       | Initial access techniques and scenarios                |
-| `lateral-movement/`     | Movement between systems                               |
-| `persistence/`          | Persistence mechanisms                                 |
-| `privilege-escalation/` | Privilege escalation activities                        |
-| `response/`             | Incident response procedures                           |
-| `triage/`               | Initial alert and event investigation                  |
+| Category                | Description                                                                     |
+| ----------------------- | ------------------------------------------------------------------------------- |
+| `cloud/`                | Cloud security and cloud account activities                                     |
+| `collection/`           | Collection of data and information                                              |
+| `command-and-control/`  | Command-and-control communication                                               |
+| `credential-access/`    | Credential access and credential theft                                          |
+| `defense-impairment/`   | Disabling, degrading, or impairing security controls and defensive capabilities |
+| `discovery/`            | Discovery of systems, accounts, services, and networks                          |
+| `execution/`            | Command, script, and program execution                                          |
+| `exfiltration/`         | Data exfiltration activities                                                    |
+| `impact/`               | Destructive or disruptive activities                                            |
+| `initial-access/`       | Initial access techniques and scenarios                                         |
+| `lateral-movement/`     | Movement between systems                                                        |
+| `persistence/`          | Persistence mechanisms                                                          |
+| `privilege-escalation/` | Privilege escalation activities                                                 |
+| `response/`             | Incident response procedures                                                    |
+| `stealth/`              | Concealment activities and techniques used to avoid detection                   |
+| `triage/`               | Initial alert and event investigation                                           |
 
 ## How to Use
 
