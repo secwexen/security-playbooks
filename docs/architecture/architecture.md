@@ -194,6 +194,7 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │           query-guidelines.md
 │           
 ├───integrations
+│       README.md
 │       crowdstrike.md
 │       elastic.md
 │       microsoft-defender.md
