@@ -96,29 +96,39 @@ See [Integrations](integrations/) for implementation details.
 This workflow shows how security behaviors are mapped, detected, investigated, enriched, validated, tested, and measured across the repository.
 
 ```text
+Threat Intelligence / Threat Research
+                 ↓
 Threat / Attack Behavior
-        ↓
+                 ↓
 MITRE ATT&CK Mapping
-        ↓
-Detection Rules (Sigma / YARA / Suricata)
-        ↓
+                 ↓
+Telemetry & Log Collection
+                 ↓
+Detection Engineering (Sigma / YARA / Suricata)
+                 ↓
+Detection Deployment & Monitoring
+                 ↓
 Alert / Event Generated
-        ↓
-Triage & Prioritization (Playbooks)
-        ↓
+                 ↓
+Triage & Prioritization
+                 ↓
 Alert Investigation
-        ↓
+                 ↓
 Threat Hunting & Enrichment
-        ↓
-IOC / Threat Intelligence
-        ↓
+                 ↓
+IOC / Threat Intelligence Correlation
+                 ↓
 Incident Response
-        ↓
-Detection Validation (Labs & Tests)
-        ↓
+                 ↓
+Containment / Eradication / Recovery
+                 ↓
+Detection Validation (Labs / Simulations / Tests)
+                 ↓
 Automated Tests & Coverage Metrics
-        ↓
-Coverage / Reporting / Improvement
+                 ↓
+Post-Incident Review
+                 ↓
+Coverage / Reporting / Continuous Improvement
 ```
 
 ## Installation
