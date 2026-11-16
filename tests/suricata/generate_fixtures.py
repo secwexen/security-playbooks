@@ -1,28 +1,19 @@
+"""Generate PCAP fixtures for Suricata detection rule testing."""
+
 from __future__ import annotations
 
 from pathlib import Path
 
-from scapy.all import (
-    DNS,
-    DNSQR,
-    DNSRROPT,
-    Ether,
-    IP,
-    Raw,
-    TCP,
-    UDP,
-    wrpcap,
-)
-
+from scapy.layers.dns import DNS, DNSQR
+from scapy.layers.inet import IP, TCP, UDP
+from scapy.packet import Raw
+from scapy.utils import wrpcap
 
 BASE = Path(__file__).resolve().parent / "fixtures"
 
 
 def create_c2_http() -> None:
-    """
-    Create a TCP handshake followed by an HTTP request
-    containing User-Agent: curl.
-    """
+    """Create a TCP handshake followed by a suspicious HTTP request."""
 
     client_ip = "10.10.10.10"
     server_ip = "192.168.1.10"
@@ -41,7 +32,6 @@ def create_c2_http() -> None:
             flags="S",
             seq=1000,
         ),
-
         # TCP SYN/ACK
         IP(
             src=server_ip,
@@ -54,7 +44,6 @@ def create_c2_http() -> None:
             seq=2000,
             ack=1001,
         ),
-
         # TCP ACK
         IP(
             src=client_ip,
@@ -67,7 +56,6 @@ def create_c2_http() -> None:
             seq=1001,
             ack=2001,
         ),
-
         # HTTP request
         IP(
             src=client_ip,
@@ -101,9 +89,7 @@ def create_c2_http() -> None:
 
 
 def create_dns_tunnel() -> None:
-    """
-    Create a DNS TXT query containing example.test.
-    """
+    """Create a DNS TXT query containing example.test."""
 
     packets = [
         IP(
@@ -132,10 +118,7 @@ def create_dns_tunnel() -> None:
 
 
 def create_sample_traffic() -> None:
-    """
-    Create ordinary TCP traffic that should not trigger
-    the repository detection rules.
-    """
+    """Create ordinary TCP traffic for negative detection testing."""
 
     client_ip = "192.168.1.100"
     server_ip = "192.168.1.1"
@@ -151,7 +134,6 @@ def create_sample_traffic() -> None:
             flags="S",
             seq=1000,
         ),
-
         IP(
             src=server_ip,
             dst=client_ip,
@@ -163,7 +145,6 @@ def create_sample_traffic() -> None:
             seq=2000,
             ack=1001,
         ),
-
         IP(
             src=client_ip,
             dst=server_ip,
@@ -186,6 +167,8 @@ def create_sample_traffic() -> None:
 
 
 def main() -> None:
+    """Generate all PCAP fixtures and display their file sizes."""
+
     BASE.mkdir(
         parents=True,
         exist_ok=True,
@@ -195,17 +178,10 @@ def main() -> None:
     create_dns_tunnel()
     create_sample_traffic()
 
-    print(
-        "PCAP fixtures generated successfully."
-    )
+    print("PCAP fixtures generated successfully.")
 
-    for path in sorted(
-        BASE.glob("*.pcap")
-    ):
-        print(
-            f"{path.name}: "
-            f"{path.stat().st_size} bytes"
-        )
+    for path in sorted(BASE.glob("*.pcap")):
+        print(f"{path.name}: " f"{path.stat().st_size} bytes")
 
 
 if __name__ == "__main__":
