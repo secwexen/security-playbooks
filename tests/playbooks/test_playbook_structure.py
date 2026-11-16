@@ -11,7 +11,7 @@ EXPECTED_DIRECTORIES = [
     "collection",
     "command-and-control",
     "credential-access",
-    "defense-evasion",
+    "defense-impairment",
     "discovery",
     "execution",
     "exfiltration",
@@ -20,7 +20,10 @@ EXPECTED_DIRECTORIES = [
     "lateral-movement",
     "persistence",
     "privilege-escalation",
+    "reconnaissance",
+    "resource-development",
     "response",
+    "stealth",
     "triage",
 ]
 
