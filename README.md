@@ -104,7 +104,7 @@ Threat Intelligence / Threat Research
                  ↓
      Telemetry & Log Collection
                  ↓
-Detection Engineering (Sigma / YARA / Suricata)
+       Detection Engineering (Sigma / YARA / Suricata)
                  ↓
   Detection Deployment & Monitoring
                  ↓
@@ -122,7 +122,7 @@ IOC / Threat Intelligence Correlation
                  ↓
 Containment / Eradication / Recovery
                  ↓
-Detection Validation (Labs / Simulations / Tests)
+       Detection Validation (Labs / Simulations / Tests)
                  ↓
   Automated Tests & Coverage Metrics
                  ↓
