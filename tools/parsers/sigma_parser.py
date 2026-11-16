@@ -1,3 +1,5 @@
+"""Parse, normalize, and validate Sigma detection rules."""
+
 from __future__ import annotations
 
 import json
@@ -61,11 +63,7 @@ def parse_datetime(value: Any) -> str:
 
     for date_format in supported_formats:
         try:
-            parsed = datetime.strptime(
-                value,
-                date_format,
-            )
-
+            parsed = datetime.strptime(value, date_format)
             parsed = parsed.replace(tzinfo=timezone.utc)
 
             return parsed.isoformat()
@@ -74,12 +72,7 @@ def parse_datetime(value: Any) -> str:
             continue
 
     try:
-        parsed = datetime.fromisoformat(
-            value.replace(
-                "Z",
-                "+00:00",
-            )
-        )
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
 
         if parsed.tzinfo is None:
             parsed = parsed.replace(tzinfo=timezone.utc)
@@ -96,9 +89,7 @@ def parse_datetime(value: Any) -> str:
 
 
 def normalize_status(status: Any) -> str:
-    """
-    Normalize Sigma status into the project's detection status model.
-    """
+    """Normalize Sigma status into the project's detection status model."""
     if not status:
         return "testing"
 
@@ -118,9 +109,7 @@ def normalize_status(status: Any) -> str:
 
 
 def normalize_severity(level: Any) -> str:
-    """
-    Normalize Sigma levels into the project's severity model.
-    """
+    """Normalize Sigma levels into the project's severity model."""
     if not level:
         return "informational"
 
@@ -141,9 +130,7 @@ def normalize_severity(level: Any) -> str:
 
 
 def extract_mitre_attack(tags: list[str]) -> list[str]:
-    """
-    Extract MITRE ATT&CK technique IDs from Sigma tags.
-    """
+    """Extract MITRE ATT&CK technique IDs from Sigma tags."""
     mitre_attack: set[str] = set()
 
     for tag in tags:
@@ -159,9 +146,7 @@ def extract_mitre_attack(tags: list[str]) -> list[str]:
 
 
 def normalize_logsource(logsource: Any) -> list[dict[str, str]]:
-    """
-    Normalize Sigma logsource into the project's log_sources structure.
-    """
+    """Normalize Sigma logsource into the project's log_sources structure."""
     if not isinstance(logsource, dict):
         return []
 
@@ -183,19 +168,12 @@ def normalize_sigma_rule(
     sigma_rule: dict[str, Any],
     source_path: Path,
 ) -> dict[str, Any]:
-    """
-    Convert a Sigma rule into the project's normalized detection rule.
-    """
-
-    now = datetime.now(timezone.utc).isoformat()
-
+    """Convert a Sigma rule into the project's normalized detection rule."""
     rule_id = str(sigma_rule.get("id") or source_path.stem)
 
     name = str(sigma_rule.get("title") or source_path.stem)
 
-    description = str(
-        sigma_rule.get("description") or f"Normalized Sigma detection rule: {name}"
-    )
+    description = str(sigma_rule.get("description") or f"Normalized Sigma detection rule: {name}")
 
     author = str(sigma_rule.get("author") or "Secwexen")
 
@@ -208,11 +186,7 @@ def normalize_sigma_rule(
 
     created_at = parse_datetime(sigma_rule.get("date"))
 
-    updated_at = parse_datetime(
-        sigma_rule.get("modified")
-        or sigma_rule.get("modified_date")
-        or sigma_rule.get("date")
-    )
+    updated_at = parse_datetime(sigma_rule.get("modified") or sigma_rule.get("modified_date") or sigma_rule.get("date"))
 
     normalized_rule: dict[str, Any] = {
         "id": rule_id,
@@ -227,9 +201,7 @@ def normalize_sigma_rule(
         "mitre_attack": extract_mitre_attack(tags),
         "log_sources": normalize_logsource(sigma_rule.get("logsource")),
         "detection_logic": sigma_rule.get("detection") or {},
-        "false_positives": [
-            str(value) for value in (sigma_rule.get("falsepositives") or [])
-        ],
+        "false_positives": [str(value) for value in (sigma_rule.get("falsepositives") or [])],
         "created_at": created_at,
         "updated_at": updated_at,
     }
@@ -241,8 +213,7 @@ def normalize_sigma_rule(
 
     if normalized_rule["mitre_attack"]:
         normalized_rule["references_attack"] = [
-            f"https://attack.mitre.org/techniques/{technique}/"
-            for technique in normalized_rule["mitre_attack"]
+            ("https://attack.mitre.org/techniques/" f"{technique}/") for technique in normalized_rule["mitre_attack"]
         ]
 
     return normalized_rule
@@ -274,7 +245,7 @@ def load_and_normalize_rule(
     path: Path,
     schema: dict[str, Any],
 ) -> dict[str, Any] | None:
-
+    """Load, normalize, and validate a Sigma rule."""
     try:
         sigma_rule = load_sigma_rule(path)
 
@@ -288,7 +259,6 @@ def load_and_normalize_rule(
         ValueError,
         yaml.YAMLError,
     ) as exc:
-
         logger.error(
             "Failed to process %s: %s",
             path,
@@ -307,7 +277,7 @@ def load_and_normalize_rule(
 
 
 def main() -> None:
-
+    """Process Sigma rules and report normalization results."""
     if not RULES_DIR.exists():
         logger.error(
             "Sigma rules directory not found: %s",
@@ -330,7 +300,6 @@ def main() -> None:
         ValueError,
         json.JSONDecodeError,
     ) as exc:
-
         logger.error(
             "Failed to load schema: %s",
             exc,
@@ -351,7 +320,6 @@ def main() -> None:
     invalid_rules = 0
 
     for rule_file in rule_files:
-
         logger.info(
             "Processing Sigma rule: %s",
             rule_file.name,
@@ -363,11 +331,8 @@ def main() -> None:
         )
 
         if rule is None:
-
             invalid_rules += 1
-
             print(f"[FAIL] {rule_file.name}")
-
             continue
 
         valid_rules += 1
