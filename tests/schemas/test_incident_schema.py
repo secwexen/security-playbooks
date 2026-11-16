@@ -1,31 +1,31 @@
+"""Tests for the incident JSON schema."""
+
 import json
 from pathlib import Path
 from typing import Any
+
 import pytest
 from jsonschema import Draft202012Validator, ValidationError
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-SCHEMA_FILE = (
-    PROJECT_ROOT
-    / "schemas"
-    / "incident.schema.json"
-)
+SCHEMA_FILE = PROJECT_ROOT / "schemas" / "incident.schema.json"
 
 
-def load_schema():
+def load_schema() -> dict[str, Any]:
+    """Load and validate the incident JSON schema."""
     assert SCHEMA_FILE.exists()
 
     with SCHEMA_FILE.open("r", encoding="utf-8") as handle:
-        schema = json.load(handle)
+        schema: dict[str, Any] = json.load(handle)
 
     Draft202012Validator.check_schema(schema)
 
     return schema
 
 
-def build_valid_incident():
+def build_valid_incident() -> dict[str, Any]:
+    """Build a valid incident test instance."""
     return {
         "id": "incident-001",
         "title": "Suspicious PowerShell Activity",
@@ -36,10 +36,12 @@ def build_valid_incident():
 
 
 def test_incident_schema_exists():
+    """Verify that the incident schema file exists."""
     assert SCHEMA_FILE.exists()
 
 
 def test_incident_schema_is_valid():
+    """Verify that the incident schema is valid."""
     schema = load_schema()
 
     assert isinstance(schema, dict)
@@ -47,6 +49,7 @@ def test_incident_schema_is_valid():
 
 
 def test_minimal_incident_instance_is_valid():
+    """Verify that a minimal incident instance passes validation."""
     schema = load_schema()
     instance = build_valid_incident()
 
@@ -54,8 +57,10 @@ def test_minimal_incident_instance_is_valid():
 
 
 def test_incident_rejects_invalid_severity():
+    """Verify that invalid incident severity values are rejected."""
     schema = load_schema()
     instance = build_valid_incident()
+
     instance["severity"] = "invalid"
 
     validator = Draft202012Validator(schema)
@@ -65,6 +70,7 @@ def test_incident_rejects_invalid_severity():
 
 
 def test_incident_schema_rejects_unknown_property():
+    """Verify that unknown incident properties are rejected."""
     schema = load_schema()
     instance = build_valid_incident()
 
