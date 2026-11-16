@@ -1,4 +1,4 @@
-# Architecture
+# Security Playbooks Architecture
 
 The Security Playbooks is structured to provide a clear, modular, and professional layout for cybersecurity research, lab simulations.
 
