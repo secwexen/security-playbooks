@@ -9,7 +9,7 @@ Security Playbooks is an educational cybersecurity repository focused on:
 - Detection engineering
 - Threat hunting
 - Incident response
-- MITRE ATT&CK–aligned attack simulations
+- MITRE ATT&CK mapping
 - Security operations workflows
 
 The project is designed to help users gain practical, hands-on experience in controlled environments.
