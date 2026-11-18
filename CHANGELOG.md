@@ -15,7 +15,7 @@ It includes foundational detection content, incident response playbooks, and han
 ### Detection Rules
 
 - Sigma rules for common attack techniques
-- MITRE ATT&CK mapping detection logic
+- MITRE ATT&CK-aligned detection logic
 - Example log sources and mappings
 
 ### Incident Response Playbooks
