@@ -8,14 +8,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 
 This is the first Pre-release of the Security Playbooks project.
 
-It includes foundational detection content, incident response playbooks, and hands‑on lab scenarios designed to support SOC analysts, blue teamers, and cybersecurity experts.
+It includes foundational detection content, incident response playbooks, and hands‑on lab scenarios designed to support cybersecurity professionals, detection engineers, and SOC analysts.
 
 ## Added
 
 ### Detection Rules
 
 - Sigma rules for common attack techniques
-- MITRE ATT&CK–aligned detection logic
+- MITRE ATT&CK mapping detection logic
 - Example log sources and mappings
 
 ### Incident Response Playbooks
@@ -96,7 +96,6 @@ This Pre-release expands the **Security Playbooks** project from a foundational 
 - Detection examples
 - Expanded integrations documentation
 - Improved documentation organization
-- Expanded wiki content
 
 ## What's Changed
 
