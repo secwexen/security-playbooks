@@ -5,6 +5,8 @@ The following resources are recommended for security research, detection enginee
 ## Detection Engineering & Rules
 
 - [MITRE ATT&CK](https://attack.mitre.org/) - Adversary tactics, techniques, and procedures (TTPs) for detection engineering and threat hunting.
+- [MITRE ATT&CK - Persistence](https://attack.mitre.org/tactics/TA0003/) - Persistence techniques, adversary behaviors, and mechanisms used to maintain unauthorized access.
+- [MITRE ATT&CK - Pre-OS Boot (T1542)](https://attack.mitre.org/techniques/T1542/) - Bootkits, firmware persistence, and pre-operating system execution techniques.
 - [Sigma HQ](https://github.com/SigmaHQ/sigma) - Generic, platform-agnostic detection rules for SIEM systems.
 - [YARA Documentation](https://yara.readthedocs.io/) - Pattern matching and malware identification using YARA rules.
 - [Suricata Documentation](https://suricata.io/) - Network threat detection, intrusion detection, and network security monitoring.
@@ -18,6 +20,8 @@ The following resources are recommended for security research, detection enginee
 ## Incident Response
 
 - [NIST Incident Response Recommendations and Considerations (SP 800-61 Rev. 3)](https://csrc.nist.gov/pubs/sp/800/61/r3/final) - Current guidance for preparing for, detecting, responding to, and recovering from cybersecurity incidents.
+- [NIST Guide for Cybersecurity Event Recovery (SP 800-184)](https://csrc.nist.gov/pubs/sp/800/184/final) - Guidance for cybersecurity event recovery planning, recovery testing, and continuous improvement.
+- [CISA Incident and Vulnerability Response Playbooks](https://www.cisa.gov/sites/default/files/2024-08/Federal_Government_Cybersecurity_Incident_and_Vulnerability_Response_Playbooks_508C.pdf) - Operational guidance for incident investigation, evidence preservation, containment, eradication, and recovery.
 - [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html) - Guidance for preparing for and responding to security incidents in AWS environments.
 - [Microsoft Incident Response Playbooks](https://learn.microsoft.com/en-us/security/operations/incident-response-playbooks) - Step-by-step playbooks for investigating and responding to common security incidents.
 
