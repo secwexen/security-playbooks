@@ -1,6 +1,6 @@
 # MITRE ATT&CK Coverage Matrix
 
-> This document describes the current detection coverage maintained by Security Playbooks.
+This document describes the current detection coverage maintained by Security Playbooks.
 
 ## Summary
 
@@ -53,5 +53,5 @@ Covered by:
 
 No uncovered techniques are currently defined in this mapping dataset.
 
-> Coverage reflects the techniques declared in the repository mapping dataset.
-> It does not represent complete coverage of the entire MITRE ATT&CK framework.
+Coverage reflects the techniques declared in the repository mapping dataset.
+It does not represent complete coverage of the entire MITRE ATT&CK framework.
