@@ -355,7 +355,7 @@ rules:
   expected_results: "tests/yara/fixtures/expected_matches.json"
 
   related_playbooks:
-  - "playbooks/defense-evasion/obfuscated-powershell.md"
+  - "playbooks/stealth/obfuscated-powershell.md"
   - "playbooks/execution/powershell.md"
   - "playbooks/triage/suspicious-powershell-triage.md"
 
