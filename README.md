@@ -198,11 +198,11 @@ For the complete list of playbooks, see the [playbook catalog](playbooks/catalog
 
 ## Documentation
 
+- [Getting Started](docs/getting-started/getting-started.md)
 - [Architecture](docs/architecture/architecture.md)
 - [Security Workflow](docs/architecture/security-workflow.md)
 - [Playbook Guide](docs/playbooks/playbook-guide.md)
 - [Testing Guide](docs/testing/testing.md)
-- [FAQ](docs/FAQ.md)
 
 ## License
 
@@ -223,7 +223,7 @@ Contributions and suggestions are welcome!
 
 Please open an issue before submitting major changes or new features.
 
-See [CONTRIBUTING](CONTRIBUTING.md) for detailed contribution guidelines.
+See [Contributing Guidelines](CONTRIBUTING.md) for detailed contribution guidelines.
 
 ## Roadmap
 
@@ -235,7 +235,7 @@ Planned improvements include:
 - Standardized, machine-readable playbook formats
 - Alignment with security frameworks (NIST, CIS, ISO)
 
-For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
+For the full roadmap and upcoming features, see [Roadmap](ROADMAP.md).
 
 ## Community & Support
 
@@ -247,4 +247,4 @@ For the full roadmap and upcoming features, see [ROADMAP](ROADMAP.md).
 
 If you discover a security vulnerability, please follow our responsible disclosure process.
 
-See [SECURITY](SECURITY.md) for detailed information.
+See [Security Guide](SECURITY.md) for detailed information.
