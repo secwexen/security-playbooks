@@ -201,7 +201,7 @@ For the complete list of playbooks, see the [playbook catalog](playbooks/catalog
 - [Getting Started](docs/getting-started/getting-started.md)
 - [Architecture](docs/architecture/architecture.md)
 - [Security Workflow](docs/architecture/security-workflow.md)
-- [Playbook Guide](docs/playbooks/playbook-guide.md)
+- [Threat Hunting Guide](docs/threat-hunting/methodology.md)
 - [Testing Guide](docs/testing/testing.md)
 
 ## License
