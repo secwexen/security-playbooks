@@ -1,17 +1,14 @@
+"""Export MITRE ATT&CK detection coverage as a JSON matrix."""
+
 from __future__ import annotations
 
+import importlib
 import json
 import logging
 import sys
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
-
-try:
-    import yaml
-except ImportError:
-    yaml = None
-
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
@@ -21,9 +18,14 @@ OUTPUT_FILE = PROJECT_ROOT / "reports" / "attack-matrix.json"
 
 LOGGER = logging.getLogger("export_attack_matrix")
 
+try:
+    YAML_MODULE: Any = importlib.import_module("yaml")
+except ImportError:
+    YAML_MODULE = None
+
 
 def configure_logging() -> None:
-    """Configure logging."""
+    """Configure application logging."""
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
@@ -31,17 +33,15 @@ def configure_logging() -> None:
 
 
 def load_mapping() -> dict[str, Any]:
-    """Load the MITRE mapping YAML file."""
-    if yaml is None:
-        raise RuntimeError(
-            "PyYAML is not installed. " "Install it with: pip install PyYAML"
-        )
+    """Load the MITRE ATT&CK mapping YAML file."""
+    if YAML_MODULE is None:
+        raise RuntimeError("PyYAML is not installed. Install it with: pip install PyYAML")
 
     if not MAPPING_FILE.exists():
         raise FileNotFoundError(f"MITRE mapping file not found: {MAPPING_FILE}")
 
     with MAPPING_FILE.open("r", encoding="utf-8") as handle:
-        data = yaml.safe_load(handle)
+        data: Any = YAML_MODULE.safe_load(handle)
 
     if not isinstance(data, dict):
         raise ValueError("MITRE mapping must contain a YAML object.")
@@ -69,17 +69,11 @@ def validate_rules(data: dict[str, Any]) -> list[dict[str, Any]]:
         sources = rule.get("source", [])
 
         if not rule_id:
-            LOGGER.warning(
-                "Skipping rule %d: missing rule_id.",
-                index,
-            )
+            LOGGER.warning("Skipping rule %d: missing rule_id.", index)
             continue
 
         if not rule_name:
-            LOGGER.warning(
-                "Rule %s has no rule_name.",
-                rule_id,
-            )
+            LOGGER.warning("Rule %s has no rule_name.", rule_id)
 
         if not isinstance(techniques, list):
             techniques = [techniques]
@@ -102,8 +96,8 @@ def validate_rules(data: dict[str, Any]) -> list[dict[str, Any]]:
 def build_matrix(
     rules: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
-    """Build a technique-centric ATT&CK matrix."""
-    techniques: dict[str, dict[str, Any]] = defaultdict(
+    """Build a technique-centric ATT&CK coverage matrix."""
+    techniques: defaultdict[str, dict[str, Any]] = defaultdict(
         lambda: {
             "technique_id": "",
             "rules": [],
@@ -128,7 +122,7 @@ def build_matrix(
                 if source not in entry["sources"]:
                     entry["sources"].append(source)
 
-    matrix = []
+    matrix: list[dict[str, Any]] = []
 
     for technique_id, entry in techniques.items():
         matrix.append(
@@ -150,7 +144,7 @@ def build_matrix(
 def build_summary(
     matrix: list[dict[str, Any]],
 ) -> dict[str, Any]:
-    """Build coverage statistics."""
+    """Build ATT&CK coverage statistics."""
     total = len(matrix)
 
     covered = sum(1 for technique in matrix if technique["covered"])
@@ -174,7 +168,7 @@ def write_report(
     matrix: list[dict[str, Any]],
     summary: dict[str, Any],
 ) -> None:
-    """Write the attack matrix report."""
+    """Write the ATT&CK coverage report as JSON."""
     OUTPUT_FILE.parent.mkdir(
         parents=True,
         exist_ok=True,
@@ -188,10 +182,7 @@ def write_report(
         "techniques": matrix,
     }
 
-    with OUTPUT_FILE.open(
-        "w",
-        encoding="utf-8",
-    ) as handle:
+    with OUTPUT_FILE.open("w", encoding="utf-8") as handle:
         json.dump(
             report,
             handle,
@@ -200,14 +191,11 @@ def write_report(
         )
         handle.write("\n")
 
-    LOGGER.info(
-        "Attack matrix written to: %s",
-        OUTPUT_FILE,
-    )
+    LOGGER.info("Attack matrix written to: %s", OUTPUT_FILE)
 
 
 def main() -> int:
-    """Run the export."""
+    """Run the ATT&CK matrix export process."""
     configure_logging()
 
     LOGGER.info("Starting ATT&CK attack matrix export.")
@@ -230,7 +218,7 @@ def main() -> int:
         return 1
 
     LOGGER.info(
-        "Export complete: %d techniques, " "%d covered, %d uncovered.",
+        "Export complete: %d techniques, %d covered, %d uncovered.",
         summary["total_techniques"],
         summary["covered_techniques"],
         summary["uncovered_techniques"],
