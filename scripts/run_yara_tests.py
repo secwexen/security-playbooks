@@ -1,3 +1,5 @@
+"""Run YARA rule validation tests."""
+
 from __future__ import annotations
 
 import json
@@ -6,13 +8,13 @@ from typing import Any
 
 import yaml
 
+yara_import_error: ImportError | None = None
+
 try:
     import yara
 except ImportError as exc:
     yara = None
-    YARA_IMPORT_ERROR = exc
-else:
-    YARA_IMPORT_ERROR = None
+    yara_import_error = exc
 
 from tools.utils.logger import get_logger
 
@@ -92,9 +94,7 @@ def load_test_cases() -> list[dict[str, Any]]:
 def load_expected_results() -> dict[str, Any]:
     """Load expected YARA match results."""
     if not EXPECTED_RESULTS_FILE.exists():
-        raise FileNotFoundError(
-            f"Expected results file not found: " f"{EXPECTED_RESULTS_FILE}"
-        )
+        raise FileNotFoundError(f"Expected results file not found: " f"{EXPECTED_RESULTS_FILE}")
 
     data = load_json(EXPECTED_RESULTS_FILE)
 
@@ -102,7 +102,7 @@ def load_expected_results() -> dict[str, Any]:
         data,
         dict,
     ):
-        raise ValueError("expected_matches.json must contain " "a JSON object.")
+        raise ValueError("expected_matches.json must contain a JSON object.")
 
     return data
 
@@ -146,9 +146,9 @@ def compile_rule(
 ) -> Any:
     """Compile one YARA rule file."""
     if yara is None:
-        raise RuntimeError("yara-python is not installed.") from YARA_IMPORT_ERROR
+        raise RuntimeError("yara-python is not installed.") from yara_import_error
 
-    return yara.compile(filepath=str(rule_path))
+    return yara.compile(filepath=str(rule_path))  # pylint: disable=c-extension-no-member
 
 
 def normalize_expected_matches(
@@ -239,11 +239,7 @@ def run_test_case(
 
     rule_name = test_case.get("rule") or test_case.get("rule_file")
 
-    sample_name = (
-        test_case.get("sample")
-        or test_case.get("fixture")
-        or test_case.get("sample_file")
-    )
+    sample_name = test_case.get("sample") or test_case.get("fixture") or test_case.get("sample_file")
 
     if not rule_name:
         logger.error(
@@ -315,14 +311,14 @@ def run_test_case(
 
     if passed:
         logger.info(
-            "YARA test PASS: %s | " "expected=%s matched=%s",
+            "YARA test PASS: %s | expected=%s matched=%s",
             name,
             expected_rules,
             actual_rules,
         )
     else:
         logger.error(
-            "YARA test FAIL: %s | " "expected=%s matched=%s",
+            "YARA test FAIL: %s | expected=%s matched=%s",
             name,
             expected_rules,
             actual_rules,
@@ -336,10 +332,7 @@ def main() -> int:
     logger.info("Starting YARA test runner.")
 
     if yara is None:
-        logger.error(
-            "yara-python is not installed. "
-            "Install the dependency before running YARA tests."
-        )
+        logger.error("yara-python is not installed. Install the dependency before running YARA tests.")
         return 1
 
     if not YARA_RULES_DIR.exists():
@@ -385,7 +378,7 @@ def main() -> int:
     total = passed + failed
 
     logger.info(
-        "YARA tests completed. " "PASS=%d FAIL=%d TOTAL=%d",
+        "YARA tests completed. PASS=%d FAIL=%d TOTAL=%d",
         passed,
         failed,
         total,
