@@ -8,13 +8,12 @@ import pytest
 from jsonschema import Draft202012Validator, ValidationError
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-
 SCHEMA_FILE = PROJECT_ROOT / "schemas" / "incident.schema.json"
 
 
 def load_schema() -> dict[str, Any]:
     """Load and validate the incident JSON schema."""
-    assert SCHEMA_FILE.exists()
+    assert SCHEMA_FILE.exists(), f"Schema file not found: {SCHEMA_FILE}"
 
     with SCHEMA_FILE.open("r", encoding="utf-8") as handle:
         schema: dict[str, Any] = json.load(handle)
@@ -35,12 +34,12 @@ def build_valid_incident() -> dict[str, Any]:
     }
 
 
-def test_incident_schema_exists():
+def test_incident_schema_exists() -> None:
     """Verify that the incident schema file exists."""
     assert SCHEMA_FILE.exists()
 
 
-def test_incident_schema_is_valid():
+def test_incident_schema_is_valid() -> None:
     """Verify that the incident schema is valid."""
     schema = load_schema()
 
@@ -48,7 +47,7 @@ def test_incident_schema_is_valid():
     assert schema.get("$schema")
 
 
-def test_minimal_incident_instance_is_valid():
+def test_minimal_incident_instance_is_valid() -> None:
     """Verify that a minimal incident instance passes validation."""
     schema = load_schema()
     instance = build_valid_incident()
@@ -56,7 +55,7 @@ def test_minimal_incident_instance_is_valid():
     Draft202012Validator(schema).validate(instance)
 
 
-def test_incident_rejects_invalid_severity():
+def test_incident_rejects_invalid_severity() -> None:
     """Verify that invalid incident severity values are rejected."""
     schema = load_schema()
     instance = build_valid_incident()
@@ -69,7 +68,7 @@ def test_incident_rejects_invalid_severity():
         validator.validate(instance)
 
 
-def test_incident_schema_rejects_unknown_property():
+def test_incident_schema_rejects_unknown_property() -> None:
     """Verify that unknown incident properties are rejected."""
     schema = load_schema()
     instance = build_valid_incident()
