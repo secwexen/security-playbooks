@@ -1,3 +1,5 @@
+"""Execute fixture-based tests for Sigma detection rules."""
+
 from __future__ import annotations
 
 import json
@@ -259,9 +261,7 @@ def load_test_cases() -> list[dict[str, Any]]:
 def load_expected_results() -> dict[str, Any]:
     """Load expected Sigma test results."""
     if not EXPECTED_RESULTS_FILE.exists():
-        raise FileNotFoundError(
-            f"Expected results file not found: {EXPECTED_RESULTS_FILE}"
-        )
+        raise FileNotFoundError(f"Expected results file not found: {EXPECTED_RESULTS_FILE}")
 
     data = load_json(EXPECTED_RESULTS_FILE)
 
@@ -350,11 +350,7 @@ def _execute_test(
     events: list[dict[str, Any]],
 ) -> list[int]:
     """Evaluate all fixture events against one Sigma rule."""
-    return [
-        index
-        for index, event in enumerate(events)
-        if evaluate_detection(sigma_rule, event)
-    ]
+    return [index for index, event in enumerate(events) if evaluate_detection(sigma_rule, event)]
 
 
 def run_test_case(
@@ -398,7 +394,6 @@ def run_test_case(
         expected_indexes,
         actual_result,
         matched_indexes,
-        passed,
     )
 
     return passed
@@ -410,9 +405,10 @@ def _log_test_result(
     expected_indexes: list[Any],
     actual_result: str,
     matched_indexes: list[int],
-    passed: bool,
 ) -> None:
     """Log one Sigma test result."""
+    passed = actual_result == expected_result and matched_indexes == expected_indexes
+
     if passed:
         logger.info(
             "Sigma test PASS: %s | expected=%s matched=%s",
@@ -423,7 +419,7 @@ def _log_test_result(
         return
 
     logger.error(
-        "Sigma test FAIL: %s | " "expected=%s/%s actual=%s/%s",
+        "Sigma test FAIL: %s | expected=%s/%s actual=%s/%s",
         name,
         expected_result,
         expected_indexes,
