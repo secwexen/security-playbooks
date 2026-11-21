@@ -8,13 +8,12 @@ import pytest
 from jsonschema import Draft202012Validator, ValidationError
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-
 SCHEMA_FILE = PROJECT_ROOT / "schemas" / "ioc.schema.json"
 
 
 def load_schema() -> dict[str, Any]:
     """Load and validate the IOC JSON schema."""
-    assert SCHEMA_FILE.exists()
+    assert SCHEMA_FILE.exists(), f"Schema file not found: {SCHEMA_FILE}"
 
     with SCHEMA_FILE.open("r", encoding="utf-8") as handle:
         schema: dict[str, Any] = json.load(handle)
@@ -33,12 +32,12 @@ def build_valid_ioc() -> dict[str, Any]:
     }
 
 
-def test_ioc_schema_exists():
+def test_ioc_schema_exists() -> None:
     """Verify that the IOC schema file exists."""
     assert SCHEMA_FILE.exists()
 
 
-def test_ioc_schema_is_valid():
+def test_ioc_schema_is_valid() -> None:
     """Verify that the IOC schema is valid."""
     schema = load_schema()
 
@@ -46,7 +45,7 @@ def test_ioc_schema_is_valid():
     assert schema.get("$schema")
 
 
-def test_minimal_ioc_instance_is_valid():
+def test_minimal_ioc_instance_is_valid() -> None:
     """Verify that a minimal IOC instance passes validation."""
     schema = load_schema()
     instance = build_valid_ioc()
@@ -54,7 +53,7 @@ def test_minimal_ioc_instance_is_valid():
     Draft202012Validator(schema).validate(instance)
 
 
-def test_ioc_rejects_invalid_type():
+def test_ioc_rejects_invalid_type() -> None:
     """Verify that invalid IOC types are rejected."""
     schema = load_schema()
     instance = build_valid_ioc()
@@ -67,7 +66,7 @@ def test_ioc_rejects_invalid_type():
         validator.validate(instance)
 
 
-def test_ioc_schema_rejects_unknown_property():
+def test_ioc_schema_rejects_unknown_property() -> None:
     """Verify that unknown IOC properties are rejected."""
     schema = load_schema()
     instance = build_valid_ioc()
