@@ -8,13 +8,12 @@ import pytest
 from jsonschema import Draft202012Validator, ValidationError
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-
 SCHEMA_FILE = PROJECT_ROOT / "schemas" / "enrichment.schema.json"
 
 
 def load_schema() -> dict[str, Any]:
     """Load and validate the enrichment JSON schema."""
-    assert SCHEMA_FILE.exists()
+    assert SCHEMA_FILE.exists(), f"Schema file not found: {SCHEMA_FILE}"
 
     with SCHEMA_FILE.open("r", encoding="utf-8") as handle:
         schema: dict[str, Any] = json.load(handle)
@@ -33,12 +32,12 @@ def build_valid_enrichment() -> dict[str, Any]:
     }
 
 
-def test_enrichment_schema_exists():
+def test_enrichment_schema_exists() -> None:
     """Verify that the enrichment schema file exists."""
     assert SCHEMA_FILE.exists()
 
 
-def test_enrichment_schema_is_valid():
+def test_enrichment_schema_is_valid() -> None:
     """Verify that the enrichment schema is valid."""
     schema = load_schema()
 
@@ -46,7 +45,7 @@ def test_enrichment_schema_is_valid():
     assert schema.get("$schema")
 
 
-def test_minimal_enrichment_instance_is_valid():
+def test_minimal_enrichment_instance_is_valid() -> None:
     """Verify that a minimal enrichment instance passes validation."""
     schema = load_schema()
     instance = build_valid_enrichment()
@@ -54,7 +53,7 @@ def test_minimal_enrichment_instance_is_valid():
     Draft202012Validator(schema).validate(instance)
 
 
-def test_enrichment_rejects_invalid_status():
+def test_enrichment_rejects_invalid_status() -> None:
     """Verify that invalid enrichment statuses are rejected."""
     schema = load_schema()
     instance = build_valid_enrichment()
@@ -67,7 +66,7 @@ def test_enrichment_rejects_invalid_status():
         validator.validate(instance)
 
 
-def test_enrichment_schema_rejects_unknown_property():
+def test_enrichment_schema_rejects_unknown_property() -> None:
     """Verify that unknown enrichment properties are rejected."""
     schema = load_schema()
     instance = build_valid_enrichment()
