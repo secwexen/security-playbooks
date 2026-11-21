@@ -1,3 +1,5 @@
+"""Unit tests for Sigma parsing, normalization, and schema validation."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -19,28 +21,25 @@ from tools.parsers.sigma_parser import (
 
 def get_schema_path() -> Path:
     """Return the path to detection_rule.schema.json."""
-    return (
-        Path(__file__).resolve().parents[2]
-        / "schemas"
-        / "detection_rule.schema.json"
-    )
+    return Path(__file__).resolve().parents[2] / "schemas" / "detection_rule.schema.json"
 
 
 def test_parse_datetime_date_only() -> None:
+    """Verify that date-only values are normalized to UTC midnight."""
     result = parse_datetime("2026-08-22")
 
     assert result == "2026-08-22T00:00:00+00:00"
 
 
 def test_parse_datetime_iso8601() -> None:
-    result = parse_datetime(
-        "2026-08-22T12:00:00Z"
-    )
+    """Verify that ISO 8601 timestamps are normalized to UTC."""
+    result = parse_datetime("2026-08-22T12:00:00Z")
 
     assert result == "2026-08-22T12:00:00+00:00"
 
 
 def test_parse_datetime_invalid_value() -> None:
+    """Verify that invalid date values produce a valid UTC timestamp."""
     result = parse_datetime("invalid-date")
 
     assert "T" in result
@@ -48,6 +47,7 @@ def test_parse_datetime_invalid_value() -> None:
 
 
 def test_parse_datetime_missing_value() -> None:
+    """Verify that missing date values produce a valid UTC timestamp."""
     result = parse_datetime(None)
 
     assert "T" in result
@@ -55,6 +55,7 @@ def test_parse_datetime_missing_value() -> None:
 
 
 def test_normalize_status() -> None:
+    """Verify normalization of supported Sigma status values."""
     assert normalize_status("experimental") == "experimental"
     assert normalize_status("test") == "testing"
     assert normalize_status("testing") == "testing"
@@ -65,12 +66,14 @@ def test_normalize_status() -> None:
 
 
 def test_normalize_status_missing_or_unknown() -> None:
+    """Verify the default status for missing and unknown values."""
     assert normalize_status(None) == "testing"
     assert normalize_status("") == "testing"
     assert normalize_status("unknown") == "testing"
 
 
 def test_normalize_severity() -> None:
+    """Verify normalization of supported Sigma severity values."""
     assert normalize_severity("informational") == "informational"
     assert normalize_severity("low") == "low"
     assert normalize_severity("medium") == "medium"
@@ -79,12 +82,14 @@ def test_normalize_severity() -> None:
 
 
 def test_normalize_severity_missing_or_unknown() -> None:
+    """Verify the default severity for missing and unknown values."""
     assert normalize_severity(None) == "informational"
     assert normalize_severity("") == "informational"
     assert normalize_severity("unknown") == "informational"
 
 
 def test_extract_mitre_attack() -> None:
+    """Verify extraction and deduplication of MITRE ATT&CK techniques."""
     tags = [
         "attack.execution",
         "attack.t1059",
@@ -102,6 +107,7 @@ def test_extract_mitre_attack() -> None:
 
 
 def test_extract_mitre_attack_accepts_current_parser_behavior() -> None:
+    """Verify extraction of technique identifiers with varying lengths."""
     tags = [
         "attack.execution",
         "attack.t123",
@@ -122,6 +128,7 @@ def test_extract_mitre_attack_accepts_current_parser_behavior() -> None:
 
 
 def test_extract_mitre_attack_case_insensitive() -> None:
+    """Verify that MITRE ATT&CK tag extraction ignores letter case."""
     tags = [
         "ATTACK.T1059",
         "Attack.T1059.001",
@@ -136,6 +143,7 @@ def test_extract_mitre_attack_case_insensitive() -> None:
 
 
 def test_normalize_logsource() -> None:
+    """Verify normalization of a complete Sigma log source."""
     logsource = {
         "category": "process_creation",
         "product": "windows",
@@ -154,6 +162,7 @@ def test_normalize_logsource() -> None:
 
 
 def test_normalize_logsource_partial() -> None:
+    """Verify normalization of a log source with partial information."""
     result = normalize_logsource(
         {
             "product": "windows",
@@ -168,12 +177,14 @@ def test_normalize_logsource_partial() -> None:
 
 
 def test_normalize_logsource_empty() -> None:
-    assert normalize_logsource(None) == []
-    assert normalize_logsource({}) == []
-    assert normalize_logsource("invalid") == []
+    """Verify that missing, empty, and invalid log sources return no entries."""
+    assert not normalize_logsource(None)
+    assert not normalize_logsource({})
+    assert not normalize_logsource("invalid")
 
 
 def test_load_sigma_rule(tmp_path: Path) -> None:
+    """Verify loading and parsing of a valid Sigma YAML rule."""
     rule_path = tmp_path / "test_rule.yml"
 
     rule_path.write_text(
@@ -209,9 +220,8 @@ falsepositives:
     assert rule["logsource"]["category"] == "process_creation"
 
 
-def test_load_sigma_rule_rejects_non_dict(
-    tmp_path: Path,
-) -> None:
+def test_load_sigma_rule_rejects_non_dict(tmp_path: Path) -> None:
+    """Verify that loading a YAML list instead of a rule raises ValueError."""
     rule_path = tmp_path / "invalid.yml"
 
     rule_path.write_text(
@@ -224,6 +234,7 @@ def test_load_sigma_rule_rejects_non_dict(
 
 
 def test_normalize_sigma_rule() -> None:
+    """Verify complete normalization of a Sigma detection rule."""
     sigma_rule = {
         "title": "Suspicious PowerShell",
         "id": "sigma-test-001",
@@ -269,9 +280,7 @@ def test_normalize_sigma_rule() -> None:
     assert result["version"] == "1.0.0"
     assert result["status"] == "stable"
     assert result["severity"] == "high"
-    assert result["description"] == (
-        "Detects suspicious PowerShell activity."
-    )
+    assert result["description"] == ("Detects suspicious PowerShell activity.")
     assert result["author"] == "Secwexen"
 
     assert result["tags"] == [
@@ -315,16 +324,13 @@ def test_normalize_sigma_rule() -> None:
         "https://attack.mitre.org/techniques/T1059.001/",
     ]
 
-    assert result["created_at"] == (
-        "2026-08-22T00:00:00+00:00"
-    )
+    assert result["created_at"] == ("2026-08-22T00:00:00+00:00")
 
-    assert result["updated_at"] == (
-        "2026-08-22T00:00:00+00:00"
-    )
+    assert result["updated_at"] == ("2026-08-22T00:00:00+00:00")
 
 
 def test_normalize_sigma_rule_missing_optional_fields() -> None:
+    """Verify normalization when optional Sigma fields are absent."""
     sigma_rule = {
         "id": "minimal-rule",
         "title": "Minimal Rule",
@@ -341,25 +347,22 @@ def test_normalize_sigma_rule_missing_optional_fields() -> None:
     assert result["version"] == "1.0.0"
     assert result["status"] == "testing"
     assert result["severity"] == "informational"
-    assert result["description"] == (
-        "Normalized Sigma detection rule: Minimal Rule"
-    )
+    assert result["description"] == ("Normalized Sigma detection rule: Minimal Rule")
     assert result["author"] == "Secwexen"
-    assert result["tags"] == []
-    assert result["mitre_attack"] == []
-    assert result["log_sources"] == []
+    assert not result["tags"]
+    assert not result["mitre_attack"]
+    assert not result["log_sources"]
     assert result["detection_logic"] == {}
-    assert result["false_positives"] == []
+    assert not result["false_positives"]
     assert "references" not in result
     assert "references_attack" not in result
 
 
 def test_load_schema() -> None:
+    """Verify loading and basic structure of the detection rule schema."""
     schema = load_schema(get_schema_path())
 
-    assert schema["title"] == (
-        "Security Playbooks Detection Rule"
-    )
+    assert schema["title"] == ("Security Playbooks Detection Rule")
     assert schema["type"] == "object"
     assert schema["additionalProperties"] is False
 
@@ -379,6 +382,7 @@ def test_load_schema() -> None:
 
 
 def test_normalized_rule_passes_schema() -> None:
+    """Verify that a normalized Sigma rule passes schema validation."""
     schema = load_schema(get_schema_path())
 
     sigma_rule = {
@@ -410,13 +414,17 @@ def test_normalized_rule_passes_schema() -> None:
         Path("schema-test-001.yml"),
     )
 
-    assert validate_rule(
-        normalized,
-        schema,
-    ) is True
+    assert (
+        validate_rule(
+            normalized,
+            schema,
+        )
+        is True
+    )
 
 
 def test_invalid_normalized_rule_fails_schema() -> None:
+    """Verify that an invalid detection rule fails schema validation."""
     schema = load_schema(get_schema_path())
 
     invalid_rule = {
@@ -431,13 +439,17 @@ def test_invalid_normalized_rule_fails_schema() -> None:
         "updated_at": "2026-08-22T00:00:00+00:00",
     }
 
-    assert validate_rule(
-        invalid_rule,
-        schema,
-    ) is False
+    assert (
+        validate_rule(
+            invalid_rule,
+            schema,
+        )
+        is False
+    )
 
 
 def test_normalized_rule_rejects_extra_property() -> None:
+    """Verify that schema validation rejects unexpected properties."""
     schema = load_schema(get_schema_path())
 
     invalid_rule = {
@@ -453,7 +465,10 @@ def test_normalized_rule_rejects_extra_property() -> None:
         "unexpected_field": True,
     }
 
-    assert validate_rule(
-        invalid_rule,
-        schema,
-    ) is False
+    assert (
+        validate_rule(
+            invalid_rule,
+            schema,
+        )
+        is False
+    )
