@@ -1,3 +1,5 @@
+"""Validate Sigma detection rules and IOC records in the detection pipeline."""
+
 from __future__ import annotations
 
 import json
@@ -166,7 +168,7 @@ def validate_iocs(
     iocs = load_iocs()
 
     if not iocs:
-        logger.info("No normalized IOC records found. " "IOC validation skipped.")
+        logger.info("No normalized IOC records found. IOC validation skipped.")
         return valid, invalid
 
     for index, ioc in enumerate(iocs):
@@ -237,7 +239,7 @@ def validate_pipeline() -> bool:
     total_invalid = sigma_invalid + ioc_invalid
 
     logger.info(
-        "Pipeline validation completed. " "Valid=%d Invalid=%d",
+        "Pipeline validation completed. Valid=%d Invalid=%d",
         total_valid,
         total_invalid,
     )
