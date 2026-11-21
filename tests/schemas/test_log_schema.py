@@ -1,6 +1,5 @@
 import json
 from pathlib import Path
-from typing import Any
 import pytest
 from jsonschema import Draft202012Validator, ValidationError
 
