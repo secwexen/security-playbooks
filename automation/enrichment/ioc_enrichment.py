@@ -1,3 +1,5 @@
+"""Enrich and normalize IOC records from internal and external threat feeds."""
+
 from __future__ import annotations
 
 import hashlib
@@ -32,10 +34,7 @@ HASH_PATTERNS = {
 }
 
 DOMAIN_PATTERN = re.compile(
-    r"^(?=.{1,253}$)"
-    r"(?:[a-zA-Z0-9]"
-    r"(?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+"
-    r"[a-zA-Z]{2,63}$"
+    r"^(?=.{1,253}$)(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,63}$"
 )
 
 IOC_TYPE_KEYS = {
@@ -85,32 +84,29 @@ def normalize_value(value: str) -> str:
 def detect_ioc_type(value: str) -> str:
     """Detect the IOC type."""
     normalized = value.strip()
+    ioc_type = "other"
 
-    if not normalized:
-        return "other"
+    if normalized:
+        try:
+            ip = ipaddress.ip_address(normalized)
+            ioc_type = "ipv4" if isinstance(
+                ip,
+                ipaddress.IPv4Address,
+            ) else "ipv6"
 
-    try:
-        ip = ipaddress.ip_address(normalized)
+        except ValueError:
+            for hash_type, pattern in HASH_PATTERNS.items():
+                if pattern.fullmatch(normalized):
+                    ioc_type = hash_type
+                    break
 
-        if isinstance(ip, ipaddress.IPv4Address):
-            return "ipv4"
+            if ioc_type == "other":
+                if normalized.startswith(("http://", "https://")):
+                    ioc_type = "url"
+                elif DOMAIN_PATTERN.fullmatch(normalized):
+                    ioc_type = "domain"
 
-        return "ipv6"
-
-    except ValueError:
-        pass
-
-    for hash_type, pattern in HASH_PATTERNS.items():
-        if pattern.fullmatch(normalized):
-            return hash_type
-
-    if normalized.startswith(("http://", "https://")):
-        return "url"
-
-    if DOMAIN_PATTERN.fullmatch(normalized):
-        return "domain"
-
-    return "other"
+    return ioc_type
 
 
 def normalize_declared_type(value: Any) -> str | None:
@@ -159,6 +155,8 @@ def load_lines(path: Path) -> list[str]:
     return values
 
 
+# IOC metadata fields are explicit keyword-only arguments.
+# pylint: disable=too-many-arguments
 def create_normalized_ioc(
     value: str,
     *,
@@ -179,9 +177,7 @@ def create_normalized_ioc(
     if not normalized_value:
         raise ValueError("IOC value cannot be empty.")
 
-    ioc_type = normalize_declared_type(declared_type) or detect_ioc_type(
-        normalized_value
-    )
+    ioc_type = normalize_declared_type(declared_type) or detect_ioc_type(normalized_value)
 
     now = utc_now()
 
@@ -534,7 +530,7 @@ def main() -> None:
     save_iocs(normalized)
 
     logger.info(
-        "IOC enrichment completed. " "Text=%d JSON=%d Feeds=%d Stored=%d",
+        "IOC enrichment completed. Text=%d JSON=%d Feeds=%d Stored=%d",
         len(text_records),
         len(json_records),
         len(feed_records),
