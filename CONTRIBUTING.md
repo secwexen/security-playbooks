@@ -6,7 +6,7 @@ We welcome high‑quality contributions that improve the functionality, document
 
 ## Project Overview
 
-For planned features and project direction, see [ROADMAP](ROADMAP.md).
+For planned features and project direction, see [Roadmap](ROADMAP.md).
 
 ## Contribution Types Accepted
 
