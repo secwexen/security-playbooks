@@ -5,11 +5,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from automation.enrichment.ioc_enrichment import (
-    extract_iocs_from_json,
-    load_json_file,
-    merge_iocs,
-)
 from tools.utils.logger import get_logger
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
