@@ -1,3 +1,5 @@
+"""Validate all Sigma detection rules against the detection schema."""
+
 from __future__ import annotations
 
 import json
@@ -151,7 +153,7 @@ def main() -> int:
     total = valid_count + invalid_count
 
     logger.info(
-        "Rule validation completed. " "Valid=%d Invalid=%d Total=%d",
+        "Rule validation completed. Valid=%d Invalid=%d Total=%d",
         valid_count,
         invalid_count,
         total,
