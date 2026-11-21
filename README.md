@@ -247,4 +247,4 @@ For the full roadmap and upcoming features, see [Roadmap](ROADMAP.md).
 
 If you discover a security vulnerability, please follow our responsible disclosure process.
 
-See [Security Guide](SECURITY.md) for detailed information.
+See [Security Policy](SECURITY.md) for detailed information.
