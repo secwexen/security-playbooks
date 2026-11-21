@@ -2,7 +2,6 @@ import json
 from pathlib import Path
 
 import pytest
-from jsonschema import Draft202012Validator, ValidationError
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
