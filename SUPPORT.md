@@ -1,6 +1,6 @@
 # Support
 
-Thank you for your interest in the **Security Playbooks** project.
+Thank you for your interest in the Security Playbooks project.
 
 This document explains how to get help, report issues, and request improvements.
 
@@ -70,7 +70,7 @@ If you want to contribute:
 
 Please read:
 
-- [CONTRIBUTING](CONTRIBUTING.md)
+- [Contributing Guidelines](CONTRIBUTING.md)
 - [CODE OF CONDUCT](CODE_OF_CONDUCT.md)
 
 Pull requests are welcome.
