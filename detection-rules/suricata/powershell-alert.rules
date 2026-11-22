@@ -1,8 +1,12 @@
-alert tcp $HOME_NET any -> $EXTERNAL_NET any (  
-    msg: "PowerShell Encoded Command Execution Detected";
-    flow: to_server, established;
-    content: "powershell"; nocase;
-    content: "-enc"; nocase;
-    sid: 100001;
-    rev: 1;
+# Detects network traffic containing PowerShell and an encoded-command indicator.
+# This pattern does not independently confirm malicious execution.
+
+alert tcp $HOME_NET any -> $EXTERNAL_NET any (
+    msg:"Potential PowerShell Encoded Command Activity";
+    flow:established,to_server;
+    content:"powershell"; nocase;
+    content:"-enc"; nocase;
+    classtype:trojan-activity;
+    sid:100001;
+    rev:1;
 )
