@@ -2,11 +2,17 @@
 
 from __future__ import annotations
 
-import json
 from pathlib import Path
 from typing import Any
 
-from jsonschema import ValidationError, validate
+import yaml
+from jsonschema import (
+    Draft202012Validator,
+    FormatChecker,
+    SchemaError,
+    ValidationError,
+    validate,
+)
 
 from tools.parsers.sigma_parser import (
     load_schema,
@@ -33,6 +39,7 @@ def validate_detection_rule(
         validate(
             instance=rule,
             schema=schema,
+            format_checker=FormatChecker(),
         )
         return True, None
 
@@ -57,6 +64,7 @@ def process_sigma_rule(
     except (
         OSError,
         ValueError,
+        yaml.YAMLError,
     ) as exc:
         logger.error(
             "Failed to process %s: %s",
@@ -109,13 +117,16 @@ def validate_all_sigma_rules() -> tuple[int, int]:
 
     try:
         schema = load_schema(DETECTION_SCHEMA)
+
+        Draft202012Validator.check_schema(schema)
+
     except (
         OSError,
         ValueError,
-        json.JSONDecodeError,
+        SchemaError,
     ) as exc:
         logger.error(
-            "Failed to load detection schema: %s",
+            "Failed to load or validate detection schema: %s",
             exc,
         )
         return 0, 0
