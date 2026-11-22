@@ -320,8 +320,8 @@ def test_normalize_sigma_rule() -> None:
     ]
 
     assert result["references_attack"] == [
-        "https://attack.mitre.org/techniques/T1059/",
-        "https://attack.mitre.org/techniques/T1059.001/",
+    "https://attack.mitre.org/techniques/T1059/",
+    "https://attack.mitre.org/techniques/T1059/001/",
     ]
 
     assert result["created_at"] == ("2026-08-22T00:00:00+00:00")
