@@ -1,5 +1,8 @@
+# Detects HTTP requests containing a curl User-Agent.
+# Legitimate administrative scripts and automation may generate this traffic.
+
 alert http any any -> any any (
-    msg:"POTENTIAL Suspicious HTTP User-Agent - curl";
+    msg:"Potential Suspicious HTTP User-Agent - curl";
     flow:established,to_server;
     content:"User-Agent|3A| curl";
     http_header;
