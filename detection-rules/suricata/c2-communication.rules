@@ -1,5 +1,8 @@
+# Potential command-and-control indicators.
+# These rules identify suspicious network patterns and do not independently confirm C2 activity.
+
 alert tcp $HOME_NET any -> $EXTERNAL_NET any (
-    msg:"Potential C2 HTTP Beaconing - Suspicious Repeated User-Agent";
+    msg:"Potential C2 Communication - Suspicious User-Agent";
     flow:established,to_server;
     content:"User-Agent|3A|";
     http_header;
