@@ -1,13 +1,15 @@
-title: Suspicious Login Attempt
-id: example-sigma-001
+title: Windows Failed Logon Event
+id: 8f4c2d91-7a63-4e5b-9c21-6d0f3a8b1257
 status: experimental
-description: Detects Windows failed logon events for investigation of suspicious authentication activity.
-
-author: secwexen
-date: 2026/09/24
-
-references:
-  - https://attack.mitre.org/techniques/T1110/
+description: |
+  Detects failed Windows authentication attempts using Security
+  Event ID 4625.
+  Failed logon events may indicate authentication failures,
+  password guessing attempts, or other suspicious account activity.
+  A single failed logon event does not independently confirm
+  brute-force activity.
+author: Secwexen
+date: 2026/11/22
 
 logsource:
   product: windows
@@ -16,10 +18,18 @@ logsource:
 detection:
   selection:
     EventID: 4625
+
   condition: selection
+
+falsepositives:
+  - Users entering incorrect passwords
+  - Expired or recently changed passwords
+  - Applications attempting authentication with outdated credentials
+  - Automated services performing unsuccessful authentication
 
 level: low
 
 tags:
-  - attack.credential-access
-  - educational.example
+  - windows
+  - authentication
+  - failed-logon
