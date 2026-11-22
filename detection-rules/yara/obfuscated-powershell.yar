@@ -1,11 +1,12 @@
 rule Obfuscated_PowerShell
 {
     meta:
+        description = "Detects PowerShell-related content containing common obfuscation indicators, including encoded command switches, dynamic execution indicators, Base64 decoding, or string replacement. These indicators are heuristic and do not independently confirm malicious activity."
         author = "Secwexen"
-        description = "Detects common obfuscation indicators in PowerShell command content"
-        date = "2026-08-25"
+        date = "2026-11-22"
         reference = "https://attack.mitre.org/techniques/T1027/"
-        level = "medium"
+        severity = "medium"
+        confidence = "medium"
 
     strings:
         $ps1 = "powershell" nocase
