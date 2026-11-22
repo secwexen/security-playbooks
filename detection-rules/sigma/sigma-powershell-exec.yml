@@ -1,9 +1,13 @@
 title: PowerShell Encoded Command Execution
 id: f1a2b3c4-d5e6-7890-1234-56789abcdef0
 status: experimental
-description: Detects PowerShell execution with encoded commands parameters in Windows environments.
+description: |
+  Detects PowerShell and PowerShell Core processes executing commands
+  with encoded command-line parameters.
+  Encoded PowerShell commands may be used to obfuscate malicious
+  scripts and evade basic command-line inspection.
 author: Secwexen
-date: 2026/09/30
+date: 2026/11/22
 
 references:
   - https://attack.mitre.org/techniques/T1059/001/
@@ -27,15 +31,14 @@ detection:
 
   selection_commandline:
     CommandLine|contains:
-      - '-EncodedCommand'
-      - '-Encodedcommand'
       - '-encodedcommand'
-      - '-enc'
-      - '-ec'
+      - '-enc '
 
   condition: selection_image and selection_commandline
 
 falsepositives:
-  - Legitimate administrative PowerShell scripts may use encoded commands
+  - Legitimate administrative PowerShell scripts using encoded commands
+  - Authorized software deployment and configuration management tools
+  - Security automation executing encoded PowerShell scripts
 
 level: high
