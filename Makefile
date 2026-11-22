@@ -3,15 +3,15 @@
 help:
 	@echo "Security Playbooks Commands"
 	@echo "---------------------------"
-	@echo "install     Install dependencies"
-	@echo "lint        Run lint checks"
-	@echo "validate    Validate rules & playbooks"
-	@echo "test        Run tests"
-	@echo "security    Run security scanning"
-	@echo "build       Build docker environment"
-	@echo "check       Full pipeline"
-	@echo "clean       Clean artifacts"
-	@echo "docs        Docs generation"
+	@echo "install   -  Install dependencies"
+	@echo "lint      -  Run lint checks"
+	@echo "validate  -  Validate rules & playbooks"
+	@echo "test      -  Run tests"
+	@echo "security  -  Run security scanning"
+	@echo "build     -  Build docker environment"
+	@echo "check     -  Full pipeline"
+	@echo "clean     -  Clean artifacts"
+	@echo "docs      -  Docs generation"
 
 install:
 	python -m pip install -r requirements.txt
