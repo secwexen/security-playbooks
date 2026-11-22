@@ -7,7 +7,7 @@ description: |
   Unexpected LSASS process access may indicate credential dumping
   activity or attempts to access sensitive authentication material.
 author: Secwexen
-date: 2026/09/24
+date: 2026/11/22
 
 references:
   - https://attack.mitre.org/techniques/T1003/001/
