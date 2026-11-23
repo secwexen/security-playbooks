@@ -56,7 +56,7 @@ See [Ethics & Responsible Use Guidelines](docs/legal/ethics.md) for details.
 ## Features
 
 - **Detection Rules** - Sigma, YARA, Suricata (tested & validated)
-- **Security Playbooks** - IR & threat hunting workflows
+- **Security Playbooks** - Incident response & threat hunting workflows
 - **MITRE ATT&CK Mapping** - Mapped technique coverage
 - **Automated Testing** - Pytest suite with fixtures
 - **Coverage Reporting** - ATT&CK Navigator integration
