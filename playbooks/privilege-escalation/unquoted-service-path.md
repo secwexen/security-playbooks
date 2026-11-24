@@ -3,10 +3,10 @@ id: "unquoted-service-path"
 name: "Unquoted Service Path"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-23T15:39:00Z"
-updated_at: "2026-11-13T13:26:00Z"
+updated_at: "2026-11-24T11:24:00Z"
 description: "Unquoted Service Path abuse occurs when a Windows service executable path containing spaces is not enclosed in quotation marks and can be intercepted by an unintended executable."
 objective: "Identify, investigate, and validate suspicious unquoted service paths and determine whether path interception could result in unauthorized execution, privilege escalation, persistence, or related malicious activity."
 severity: "high"
@@ -378,8 +378,6 @@ For confirmed malicious unquoted service path abuse:
 10. Document the investigation timeline and remediation actions.
 
 Do not modify service paths, delete suspicious executables, or alter relevant evidence before required preservation and authorization have been considered.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
