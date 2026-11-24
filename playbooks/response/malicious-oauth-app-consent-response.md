@@ -3,10 +3,10 @@ id: "malicious-oauth-app-consent-response"
 name: "Malicious OAuth App Consent Response"
 category: "response"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-11-16T08:51:00Z"
-updated_at: "2026-11-16T08:51:00Z"
+updated_at: "2026-11-24T11:45:00Z"
 description: "Malicious OAuth App Consent Response provides a structured process for identifying unauthorized OAuth application consent, investigating malicious application permissions and token abuse, determining affected identities and resources, applying authorized containment, and validating remediation effectiveness."
 objective: "Identify, investigate, contain, and remediate malicious OAuth application consent while preserving evidence, preventing unauthorized access to organizational resources, and minimizing operational impact."
 severity: "critical"
@@ -575,8 +575,6 @@ For confirmed or high-confidence malicious OAuth application consent:
 Do not assume that removing OAuth consent automatically invalidates all previously issued tokens or terminates every active session.
 
 Do not restore application access solely because the suspicious consent grant has been removed. Maintain appropriate containment until authorized recovery criteria have been satisfied.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
