@@ -3,10 +3,10 @@ id: "credential-access"
 name: "Credential Access"
 category: "credential-access"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-20T12:58:00Z"
-updated_at: "2026-11-13T10:55:00Z"
+updated_at: "2026-11-24T10:02:00Z"
 description: "Credential access activity may expose passwords, authentication material, tokens, hashes, tickets, or other secrets used to access systems and services."
 objective: "Identify, investigate, and validate suspicious credential-access activity, determine the affected credentials and scope, and support appropriate containment and credential-compromise response actions."
 severity: "critical"
@@ -147,10 +147,6 @@ The investigation should focus on the **accessing process, account context, targ
 | T1110     | Brute Force                      | Relevant when repeated authentication attempts are used to obtain valid credentials          |
 | T1555     | Credentials from Password Stores | Relevant when stored passwords or other authentication material are targeted                 |
 | T1558     | Steal or Forge Kerberos Tickets  | Relevant when Kerberos tickets or related authentication material are targeted               |
-
-MITRE ATT&CK organizes credential-access techniques around obtaining authentication material such as passwords, hashes, tokens, and tickets. The specific technique and sub-technique should be selected according to the observed behavior.
-
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
 
 ## Trigger Conditions
 
@@ -449,30 +445,16 @@ Credential resets, token or session invalidation, account containment, and crede
 
 Do not extract, display, or disclose real credentials during investigation or validation.
 
-## Related Detection Rules
-
-- `detection-rules/sigma/lsass-access.yml`
-
 ## Related Playbooks
 
 - `playbooks/credential-access/credential-dumping.md`
-- `playbooks/credential-access/lsass-dump.md`
-- `playbooks/credential-access/ntds-dump.md`
-- `playbooks/credential-access/sam-dump.md`
 - `playbooks/credential-access/kerberoasting.md`
 - `playbooks/credential-access/password-spraying.md`
-- `playbooks/credential-access/asrep-roasting.md`
 - `playbooks/credential-access/browser-credential-theft.md`
 - `playbooks/credential-access/credentials-from-password-stores.md`
-- `playbooks/credential-access/password-manager-credential-theft.md`
-- `playbooks/credential-access/windows-credential-manager.md`
-- `playbooks/credential-access/dpapi-credential-access.md`
 - `playbooks/initial-access/valid-account-compromise.md`
-- `playbooks/triage/suspicious-process-triage.md`
-- `playbooks/triage/suspicious-login-triage.md`
 - `playbooks/response/credential-compromise-response.md`
 - `playbooks/response/account-compromise-response.md`
-- `playbooks/response/isolate-host-response.md`
 
 ## Validation
 
