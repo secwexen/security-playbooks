@@ -3,10 +3,10 @@ id: "pass-the-ticket"
 name: "Pass the Ticket"
 category: "lateral-movement"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-10-11T07:21:00Z"
-updated_at: "2026-11-13T12:53:00Z"
+updated_at: "2026-11-24T11:00:00Z"
 description: "Investigate suspected abuse of Kerberos tickets to authenticate to systems or services without using the account's plaintext password."
 objective: "Determine whether Kerberos ticket use is legitimate or unauthorized, identify affected accounts and systems, establish the scope of lateral movement, and preserve evidence for response."
 severity: "high"
@@ -31,7 +31,6 @@ tags:
   - "windows"
 references:
   - "https://attack.mitre.org/techniques/T1550/003/"
-  - "https://attack.mitre.org/detectionstrategies/DET0352/"
 steps:
   - id: "identify-pass-the-ticket-alert"
     order: 1
@@ -251,8 +250,6 @@ Classify the activity as:
 
 Document the evidence supporting the selected classification.
 
-Identify whether incident escalation, credential remediation, endpoint containment, or further investigation is required.
-
 ## Evidence to Collect
 
 | Evidence             | Description                                                                                                                                                                     |
@@ -349,8 +346,6 @@ For confirmed malicious activity:
 9. Document containment decisions, evidence, recovery actions, and residual risks.
 
 Do not purge logs, indiscriminately reset service-account credentials, or perform disruptive domain-wide actions without authorization and impact assessment.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
