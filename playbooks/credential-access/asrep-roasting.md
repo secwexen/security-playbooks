@@ -3,10 +3,10 @@ id: "asrep-roasting"
 name: "AS-REP Roasting"
 category: "credential-access"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-17T20:17:00Z"
-updated_at: "2026-11-13T10:48:00Z"
+updated_at: "2026-11-24T09:56:00Z"
 description: "AS-REP Roasting targets Active Directory accounts that do not require Kerberos pre-authentication and may expose material that can be subjected to offline credential-recovery attempts."
 objective: "Identify, investigate, and validate suspicious AS-REP activity and determine whether domain accounts may have been targeted or exposed."
 severity: "high"
@@ -113,8 +113,6 @@ The presence of such an account or an AS-REQ event is **not by itself evidence o
 | Technique | Name                                             | Relevance                                                                                                          |
 | --------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
 | T1558.004 | Steal or Forge Kerberos Tickets: AS-REP Roasting | Relevant when accounts that do not require Kerberos pre-authentication are targeted for credential-access activity |
-
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
 
 ## Trigger Conditions
 
@@ -381,8 +379,6 @@ For confirmed malicious AS-REP Roasting activity:
 Credential resets, account containment, session invalidation, and configuration changes should follow approved organizational procedures.
 
 Do not attempt to recover real account credentials during routine investigation or validation.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
