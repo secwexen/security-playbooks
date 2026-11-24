@@ -3,10 +3,10 @@ id: "registry-run-keys"
 name: "Registry Run Keys / Startup Folder"
 category: "persistence"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-14T13:59:00Z"
-updated_at: "2026-11-13T13:03:00Z"
+updated_at: "2026-11-24T11:08:00Z"
 description: "Registry Run Keys and related Windows startup mechanisms can be used to launch programs automatically when a user logs on."
 objective: "Identify, investigate, and validate suspicious registry-based persistence and determine whether the configured startup entry is legitimate, suspicious, or malicious."
 severity: "high"
@@ -385,8 +385,6 @@ For confirmed malicious registry persistence:
 10. Document the investigation timeline and remediation actions.
 
 Do not immediately delete the registry entry or referenced payload before required evidence preservation has been completed.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
