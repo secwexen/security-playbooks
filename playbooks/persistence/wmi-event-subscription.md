@@ -3,10 +3,10 @@ id: "wmi-event-subscription"
 name: "WMI Event Subscription"
 category: "persistence"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-28T17:15:00Z"
-updated_at: "2026-11-13T13:11:00Z"
+updated_at: "2026-11-24T11:14:00Z"
 description: "WMI Event Subscription persistence involves establishing Windows Management Instrumentation event filters, consumers, and bindings that trigger execution when defined system events occur."
 objective: "Identify, investigate, and validate suspicious WMI event subscription activity and determine whether the mechanism establishes unauthorized persistence or related privilege escalation."
 severity: "high"
@@ -406,8 +406,6 @@ For confirmed malicious WMI event subscription activity:
 11. Document the investigation timeline, evidence, and remediation actions.
 
 Do not delete WMI objects, payloads, logs, or related artifacts before required evidence preservation and appropriate authorization have been considered.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
