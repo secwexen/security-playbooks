@@ -3,10 +3,10 @@ id: "scripting"
 name: "Scripting"
 category: "execution"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-09T20:50:00Z"
-updated_at: "2026-11-13T12:12:00Z"
+updated_at: "2026-11-24T10:30:00Z"
 description: "Scripting enables adversaries to execute commands and code through scripting engines and interpreters available on a system."
 objective: "Identify, investigate, and validate suspicious scripting activity and determine whether script execution is associated with unauthorized or malicious behavior."
 severity: "high"
@@ -374,8 +374,6 @@ For confirmed malicious scripting activity:
 8. Document the investigation timeline and actions taken.
 
 Do not delete or modify relevant scripts, logs, or other evidence before required evidence preservation has been completed.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
