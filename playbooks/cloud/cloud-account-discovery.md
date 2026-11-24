@@ -3,10 +3,10 @@ id: "cloud-account-discovery"
 name: "Cloud Account Discovery"
 category: "cloud"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-17T15:47:00Z"
-updated_at: "2026-11-13T10:15:00Z"
+updated_at: "2026-11-24T09:39:00Z"
 description: "Investigate suspicious enumeration of cloud user accounts, service accounts, roles, and identity resources across cloud platforms and identity providers."
 objective: "Determine whether cloud account discovery activity is authorized, suspicious, or malicious; identify the identities and resources involved; establish the scope; and provide evidence for escalation or closure."
 severity: "medium"
@@ -384,8 +384,6 @@ For confirmed malicious cloud account discovery:
 10. Document containment, remediation, and recovery actions.
 
 Do not disable legitimate administrative identities solely because they performed account enumeration. Validate the activity and coordinate any access restrictions with the responsible team.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
