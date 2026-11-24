@@ -3,10 +3,10 @@ id: "suspicious-powershell-triage"
 name: "Suspicious PowerShell Triage"
 category: "triage"
 status: "active"
-version: "1.0.3"
+version: "1.0.4"
 author: "Secwexen"
 created_at: "2026-08-30T16:45:00Z"
-updated_at: "2026-11-14T08:38:00Z"
+updated_at: "2026-11-24T12:06:00Z"
 description: "Investigate suspicious PowerShell execution alerts and determine whether the observed activity is benign, suspicious, or malicious."
 objective: "Determine the nature, scope, and impact of suspicious PowerShell activity and provide evidence for escalation or closure."
 severity: "high"
@@ -384,8 +384,6 @@ Document the evidence supporting the classification.
 
 ## Evidence to Collect
 
-At minimum, collect:
-
 | Evidence       | Description                          |
 | -------------- | ------------------------------------ |
 | Host           | Hostname, IP, operating system       |
@@ -484,13 +482,6 @@ For confirmed malicious activity:
 8. Record the investigation timeline and findings.
 
 Do not remove artifacts before required evidence preservation has been completed.
-
-## Related Detection Rules
-
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/yara/obfuscated-powershell.yar`
-- `detection-rules/yara/yara-powershell-payload.yar`
-- `detection-rules/suricata/powershell-alert.rules`
 
 ## Related Playbooks
 
