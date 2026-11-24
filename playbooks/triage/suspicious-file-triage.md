@@ -3,10 +3,10 @@ id: "suspicious-file-triage"
 name: "Suspicious File Triage"
 category: "triage"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-05T16:48:00Z"
-updated_at: "2026-11-14T08:08:00Z"
+updated_at: "2026-11-24T12:02:00Z"
 description: "Investigate suspicious files and determine whether an identified file is legitimate, suspicious, or malicious."
 objective: "Determine the origin, characteristics, execution context, prevalence, and potential impact of a suspicious file and identify whether further investigation or incident response is required."
 severity: "high"
@@ -370,8 +370,6 @@ For confirmed malicious files:
 9. Document the investigation timeline and actions taken.
 
 Do not delete or modify relevant evidence before required evidence preservation has been completed.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
