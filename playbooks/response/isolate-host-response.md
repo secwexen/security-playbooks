@@ -3,10 +3,10 @@ id: "isolate-host-response"
 name: "Host Isolation Response"
 category: "response"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-27T16:40:00Z"
-updated_at: "2026-11-13T13:43:00Z"
+updated_at: "2026-11-24T11:42:00Z"
 description: "Host Isolation Response provides a structured process for identifying affected systems, assessing active threats, applying authorized network isolation, preserving evidence, and validating containment."
 objective: "Identify, contain, and validate isolation of affected hosts while preserving required evidence and minimizing operational impact."
 severity: "high"
@@ -106,10 +106,6 @@ Host isolation is a containment action intended to restrict unauthorized network
 The objective is to identify the correct affected host, assess the current threat, determine the required containment scope, apply authorized isolation, preserve evidence, and verify that containment is effective.
 
 ## MITRE ATT&CK
-
-Host isolation is a defensive response action and is not itself an adversary technique in MITRE ATT&CK.
-
-The following ATT&CK techniques represent adversary behaviors that may be associated with incidents requiring host isolation:
 
 | Technique | Name                     | Relevance                                                                                                                        |
 | --------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
@@ -403,8 +399,6 @@ For confirmed or high-confidence malicious activity requiring host isolation:
 12. Document the investigation, isolation, validation, remediation, and recovery timeline.
 
 Do not remove isolation solely to restore normal connectivity before required investigation and containment criteria have been satisfied.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
