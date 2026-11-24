@@ -3,10 +3,10 @@ id: "scheduled-task-execution"
 name: "Scheduled Task/Job Execution"
 category: "execution"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-11T11:40:00Z"
-updated_at: "2026-11-13T12:13:00Z"
+updated_at: "2026-11-24T10:29:00Z"
 description: "Scheduled Task/Job Execution enables commands or programs to run automatically at defined times or system events."
 objective: "Identify, investigate, and validate scheduled task or job execution and determine whether the activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -364,20 +364,15 @@ For confirmed malicious scheduled execution:
 
 Do not delete or modify the scheduled task, referenced files, or relevant logs before required evidence preservation has been completed.
 
-## Related Detection Rules
-
 ## Related Playbooks
 
 - `playbooks/triage/persistence-triage.md`
-- `playbooks/triage/suspicious-process-triage.md`
-- `playbooks/triage/suspicious-file-triage.md`
 - `playbooks/execution/scripting.md`
 - `playbooks/execution/powershell.md`
 - `playbooks/execution/command-shell.md`
 - `playbooks/persistence/scheduled-task-persistence.md`
 - `playbooks/privilege-escalation/scheduled-task-abuse.md`
 - `playbooks/response/persistence-removal-response.md`
-- `playbooks/response/malware-response.md`
 
 ## Validation
 
