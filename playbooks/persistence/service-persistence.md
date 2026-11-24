@@ -3,10 +3,10 @@ id: "service-persistence"
 name: "Windows Service Persistence"
 category: "persistence"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-14T16:15:00Z"
-updated_at: "2026-11-13T13:07:00Z"
+updated_at: "2026-11-24T11:11:00Z"
 description: "Windows services can be configured to start automatically and may be abused to establish persistence on Windows systems."
 objective: "Identify, investigate, and validate suspicious Windows service persistence and determine whether the service configuration or associated executable is legitimate, suspicious, or malicious."
 severity: "high"
@@ -387,8 +387,6 @@ For confirmed malicious service persistence:
 
 Do not immediately delete or modify the suspicious service before required evidence preservation has been completed.
 
-## Related Detection Rules
-
 ## Related Playbooks
 
 - `playbooks/persistence/scheduled-task-persistence.md`
@@ -399,11 +397,7 @@ Do not immediately delete or modify the suspicious service before required evide
 - `playbooks/privilege-escalation/weak-service-permissions.md`
 - `playbooks/privilege-escalation/unquoted-service-path.md`
 - `playbooks/triage/persistence-triage.md`
-- `playbooks/triage/suspicious-process-triage.md`
-- `playbooks/triage/suspicious-file-triage.md`
 - `playbooks/response/persistence-removal-response.md`
-- `playbooks/response/malware-response.md`
-- `playbooks/response/isolate-host-response.md`
 
 ## Validation
 
