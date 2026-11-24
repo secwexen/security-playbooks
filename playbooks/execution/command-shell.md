@@ -3,10 +3,10 @@ id: "command-shell"
 name: "Command Shell"
 category: "execution"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-12T11:08:00Z"
-updated_at: "2026-11-13T12:15:00Z"
+updated_at: "2026-11-24T10:22:00Z"
 description: "Command Shell execution involves using command-line interpreters to execute commands and programs on a system."
 objective: "Identify, investigate, and validate suspicious command shell activity and determine whether command execution is legitimate, suspicious, or malicious."
 severity: "high"
@@ -383,17 +383,11 @@ For confirmed malicious command shell activity:
 
 Do not delete or modify relevant scripts, files, logs, or other evidence before required evidence preservation has been completed.
 
-## Related Detection Rules
-
 ## Related Playbooks
 
-- `playbooks/triage/suspicious-process-triage.md`
-- `playbooks/triage/suspicious-file-triage.md`
-- `playbooks/triage/malware-detection-triage.md`
 - `playbooks/execution/scripting.md`
 - `playbooks/execution/user-execution.md`
 - `playbooks/execution/powershell.md`
-- `playbooks/execution/python-execution.md`
 - `playbooks/execution/wmi-execution.md`
 - `playbooks/defense-evasion/obfuscated-powershell.md`
 - `playbooks/response/malware-response.md`
