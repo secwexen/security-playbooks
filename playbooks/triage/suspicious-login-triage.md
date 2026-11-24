@@ -3,10 +3,10 @@ id: "suspicious-login-triage"
 name: "Suspicious Login Triage"
 category: "triage"
 status: "active"
-version: "1.0.3"
+version: "1.0.4"
 author: "Secwexen"
 created_at: "2026-08-31T11:45:00Z"
-updated_at: "2026-11-14T08:34:00Z"
+updated_at: "2026-11-24T12:03:00Z"
 description: "Investigate suspicious authentication activity and determine whether observed login behavior is legitimate, suspicious, or indicative of account compromise."
 objective: "Determine the legitimacy, scope, and potential impact of suspicious login activity and identify whether additional account or incident response actions are required."
 severity: "high"
@@ -458,10 +458,6 @@ For confirmed account compromise:
 8. Document the investigation timeline and actions taken.
 
 Response actions involving account disablement, credential reset, session revocation, or access changes must follow organizational authorization and change-management procedures.
-
-## Related Detection Rules
-
-- `detection-rules/sigma/suspicious-login.yml`
 
 ## Related Playbooks
 
