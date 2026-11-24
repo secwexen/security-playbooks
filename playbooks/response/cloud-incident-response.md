@@ -3,10 +3,10 @@ id: "cloud-incident-response"
 name: "Cloud Incident Response"
 category: "response"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-11-07T11:30:00Z"
-updated_at: "2026-11-13T13:35:00Z"
+updated_at: "2026-11-24T11:33:00Z"
 description: "Cloud security incidents involve unauthorized access, malicious activity, compromised identities, exposed resources, or abuse of cloud infrastructure, services, and configurations."
 objective: "Identify, investigate, contain, and remediate cloud security incidents while determining the scope of affected identities, workloads, resources, applications, and cloud services."
 severity: "high"
@@ -502,8 +502,6 @@ For confirmed cloud security incidents:
 13. Monitor restored cloud environments for recurring suspicious activity.
 
 Do not delete compromised resources, disable critical logging, or remove relevant cloud artifacts before required forensic evidence has been preserved.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
