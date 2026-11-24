@@ -3,10 +3,10 @@ id: "dpapi-credential-access"
 name: "DPAPI Credential Access"
 category: "credential-access"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-20T09:46:00Z"
-updated_at: "2026-11-13T11:02:00Z"
+updated_at: "2026-11-24T10:08:00Z"
 description: "Unauthorized access to Windows Data Protection API (DPAPI) protected data may expose credentials, secrets, or other protected authentication material."
 objective: "Identify, investigate, and validate suspicious access to DPAPI-protected data and determine whether protected credential material may have been exposed."
 severity: "critical"
@@ -125,10 +125,6 @@ The investigation should focus on the **accessing process, account context, targ
 | Technique | Name                             | Relevance                                                                       |
 | --------- | -------------------------------- | ------------------------------------------------------------------------------- |
 | T1555     | Credentials from Password Stores | Relevant when DPAPI-protected credential data is targeted for credential access |
-
-MITRE's current detection strategy for **T1555** explicitly includes monitoring suspicious access to password stores such as DPAPI and recommends correlating process execution with credential-store access.
-
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
 
 ## Trigger Conditions
 
@@ -408,21 +404,12 @@ Credential resets, session invalidation, account containment, and credential rem
 
 Do not extract, display, or disclose real credentials during investigation or validation.
 
-## Related Detection Rules
-
 ## Related Playbooks
 
 - `playbooks/credential-access/windows-credential-manager.md`
 - `playbooks/credential-access/browser-credential-theft.md`
 - `playbooks/credential-access/credentials-from-password-stores.md`
-- `playbooks/credential-access/password-manager-credential-theft.md`
-- `playbooks/initial-access/valid-account-compromise.md`
-- `playbooks/triage/suspicious-file-triage.md`
-- `playbooks/triage/suspicious-process-triage.md`
-- `playbooks/triage/suspicious-login-triage.md`
 - `playbooks/response/credential-compromise-response.md`
-- `playbooks/response/account-compromise-response.md`
-- `playbooks/response/malware-response.md`
 - `playbooks/response/isolate-host-response.md`
 
 ## Validation
