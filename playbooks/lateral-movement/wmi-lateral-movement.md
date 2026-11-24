@@ -3,10 +3,10 @@ id: "wmi-lateral-movement"
 name: "WMI Lateral Movement"
 category: "lateral-movement"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-15T18:55:00Z"
-updated_at: "2026-11-13T13:00:00Z"
+updated_at: "2026-11-24T11:06:00Z"
 description: "Investigate suspected lateral movement involving remote Windows Management Instrumentation activity."
 objective: "Determine whether WMI-related remote activity represents authorized administration or unauthorized lateral movement, identify affected hosts and accounts, and establish the scope of the activity."
 severity: "high"
@@ -98,8 +98,6 @@ This playbook provides a structured workflow for investigating suspected lateral
 WMI is a legitimate Windows management technology that supports local and remote access to system information and management operations. Remote WMI activity may be used by authorized administrators and management platforms, but adversaries may also abuse it to execute commands on remote systems.
 
 The objective is to determine whether the observed activity is authorized, suspicious, or malicious; identify the systems and accounts involved; and establish whether remote execution forms part of a broader attack chain.
-
-WMI activity must not be classified as malicious solely because it involves remote access or a Windows management process. The investigation must consider authorization, execution context, process activity, and related evidence.
 
 ## MITRE ATT&CK
 
@@ -448,8 +446,6 @@ For confirmed malicious WMI-related lateral movement:
 Do not indiscriminately terminate `WmiPrvSE.exe` processes or disable WMI across the environment. These components support legitimate Windows management operations, and unplanned changes may disrupt critical services.
 
 Response actions must follow approved authorization, evidence-preservation, and change-management procedures.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
