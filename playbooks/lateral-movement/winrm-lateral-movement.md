@@ -3,10 +3,10 @@ id: "winrm-lateral-movement"
 name: "WinRM Lateral Movement"
 category: "lateral-movement"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-14T17:05:00Z"
-updated_at: "2026-11-13T12:58:00Z"
+updated_at: "2026-11-24T11:05:00Z"
 description: "Investigate suspicious Windows Remote Management (WinRM) activity to determine whether remote access and execution indicate unauthorized lateral movement."
 objective: "Identify the source and destination systems, establish the authentication and execution context, determine the scope of suspicious WinRM activity, and support appropriate incident response decisions."
 severity: "high"
@@ -35,7 +35,6 @@ tags:
   - "incident-response"
 references:
   - "https://attack.mitre.org/techniques/T1021/006/"
-  - "https://attack.mitre.org/detectionstrategies/DET0477/"
 steps:
   - id: "identify-winrm-alert"
     order: 1
@@ -101,8 +100,6 @@ This playbook provides a structured workflow for investigating suspicious Window
 WinRM is a Windows remote management service and protocol used for authorized administration and remote interaction with Windows systems. It can also be abused by adversaries using valid accounts to access remote systems and execute commands in the context of the authenticated user.
 
 The objective is to determine whether the observed activity is consistent with authorized administration, requires further investigation, or indicates unauthorized lateral movement.
-
-A WinRM connection alone does not establish malicious activity. The investigation must consider authentication context, source and destination systems, process execution, timing, and related security events.
 
 ## MITRE ATT&CK
 
@@ -266,8 +263,6 @@ Pay particular attention to process activity that occurs shortly after the remot
 
 Investigate unexpected command execution, suspicious child processes, execution from unusual paths, and activity inconsistent with normal administrative operations.
 
-A process event alone may not conclusively identify the remote protocol responsible for execution. Correlate it with session and authentication telemetry.
-
 ### Step 6 - Correlate Related Activity
 
 Determine whether the WinRM session is associated with a broader attack sequence.
@@ -289,8 +284,6 @@ Search for:
 Compare timestamps and process relationships to establish whether the events are meaningfully related.
 
 Where multiple systems are involved, determine whether the activity represents an isolated administrative session or a sequence of remote accesses.
-
-Document the evidence supporting each correlation. Temporal proximity alone does not establish causation.
 
 ### Step 7 - Determine Lateral Movement Scope
 
@@ -448,8 +441,6 @@ For confirmed malicious WinRM activity:
 10. Document containment, remediation, recovery, and lessons learned.
 
 Do not disable WinRM indiscriminately across the environment. It may be required for legitimate administration and incident response. Changes to WinRM configuration, account permissions, or remote access controls must follow approved change and evidence-preservation procedures.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
