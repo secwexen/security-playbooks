@@ -3,10 +3,10 @@ id: "python-execution"
 name: "Python Execution"
 category: "execution"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-12T17:43:00Z"
-updated_at: "2026-11-13T12:13:00Z"
+updated_at: "2026-11-24T10:26:00Z"
 description: "Python execution involves using the Python interpreter or Python-based tooling to execute scripts and code on a system."
 objective: "Identify, investigate, and validate suspicious Python execution and determine whether the activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -393,8 +393,6 @@ For confirmed malicious Python activity:
 10. Document the investigation timeline and remediation actions.
 
 Do not delete or modify relevant scripts, files, package artifacts, logs, or other evidence before required evidence preservation has been completed.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
