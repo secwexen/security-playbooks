@@ -3,10 +3,10 @@ id: "browser-data"
 name: "Browser Data Collection"
 category: "collection"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-27T18:56:00Z"
-updated_at: "2026-11-14T08:53:00Z"
+updated_at: "2026-11-24T09:49:00Z"
 description: "Investigate suspicious access to web browser profiles and the collection of browser-related information."
 objective: "Determine whether browser data was accessed or collected without authorization, identify the affected users and systems, establish the scope of activity, and support appropriate incident response."
 severity: "medium"
@@ -387,8 +387,6 @@ For confirmed malicious browser data collection:
 9. Document the investigation timeline, scope, findings, and remediation actions.
 
 Do not indiscriminately delete browser profiles or reset user data before the impact and evidence-preservation requirements have been assessed.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
