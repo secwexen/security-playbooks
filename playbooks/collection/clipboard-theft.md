@@ -3,10 +3,10 @@ id: "clipboard-theft"
 name: "Clipboard Theft"
 category: "collection"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-28T16:53:00Z"
-updated_at: "2026-11-13T10:43:00Z"
+updated_at: "2026-11-24T09:51:00Z"
 description: "Investigate suspected unauthorized access to clipboard data and determine whether sensitive information was collected."
 objective: "Identify suspicious clipboard access, assess potential exposure of sensitive information, determine the scope of the activity, and provide evidence for escalation or incident response."
 severity: "medium"
@@ -104,8 +104,6 @@ The operating system clipboard may temporarily contain sensitive information cop
 Malicious software or unauthorized processes may access or monitor clipboard contents to collect information for subsequent misuse.
 
 The objective is to determine whether the observed activity represents legitimate application behavior, suspicious clipboard access, or confirmed malicious data collection.
-
-Clipboard access alone does not establish malicious intent. The investigation must consider the process identity, user context, access method, surrounding activity, and available evidence.
 
 ## MITRE ATT&CK
 
@@ -221,8 +219,6 @@ Review the process lineage to determine whether the process originated from an e
 
 Investigate unexpected relationships involving script interpreters, downloaded executables, temporary directories, or untrusted applications.
 
-A legitimate executable name or valid digital signature does not independently establish that the observed activity is authorized.
-
 ### Step 4 - Review Clipboard Access Method
 
 Determine how the process accessed or monitored clipboard data.
@@ -239,8 +235,6 @@ Relevant evidence may include:
 - application behavior that monitors or modifies clipboard contents.
 
 Review the available command-line, API, process, and endpoint telemetry.
-
-Distinguish clipboard reads from clipboard writes or replacement behavior where the available telemetry permits this distinction.
 
 Do not classify a utility or API call as malicious solely because it can interact with the clipboard. Determine whether its use is consistent with the application's purpose and the user's normal activity.
 
@@ -284,8 +278,6 @@ Review:
 Determine whether clipboard access was isolated or occurred as part of a broader activity chain.
 
 Investigate whether the observed behavior is associated with unauthorized collection, subsequent data staging, or possible exfiltration.
-
-Do not conclude that data was exfiltrated unless supported by available evidence.
 
 ### Step 7 - Determine Collection Scope
 
@@ -434,8 +426,6 @@ For confirmed malicious clipboard collection:
 11. Document the investigation, containment, remediation, and recovery actions.
 
 Do not terminate legitimate applications, clear clipboard contents, delete artifacts, or modify system state before considering evidence preservation and operational impact.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
