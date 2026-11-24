@@ -3,10 +3,10 @@ id: "suspicious-process-triage"
 name: "Suspicious Process Triage"
 category: "triage"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-08-30T10:56:00Z"
-updated_at: "2026-11-14T08:42:00Z"
+updated_at: "2026-11-24T12:08:00Z"
 description: "Investigate suspicious process execution and determine whether the observed process activity is benign, suspicious, or malicious."
 objective: "Determine the legitimacy, execution chain, scope, and potential impact of suspicious process activity and provide evidence for escalation or closure."
 severity: "high"
@@ -417,11 +417,6 @@ For confirmed malicious activity:
 8. Record the investigation timeline and findings.
 
 Do not delete suspicious artifacts before required evidence preservation has been completed.
-
-## Related Detection Rules
-
-- `detection-rules/sigma/lsass-access.yml`
-- `detection-rules/suricata/network-alert.rules`
 
 ## Related Playbooks
 
