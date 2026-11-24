@@ -3,10 +3,10 @@ id: "rdp-lateral-movement"
 name: "RDP Lateral Movement"
 category: "lateral-movement"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-12T11:47:00Z"
-updated_at: "2026-11-13T12:55:00Z"
+updated_at: "2026-11-24T11:02:00Z"
 description: "Investigate suspicious Remote Desktop Protocol (RDP) activity that may indicate lateral movement between systems."
 objective: "Determine whether RDP activity is authorized, identify affected accounts and hosts, establish the scope of potential lateral movement, and support appropriate incident response."
 severity: "high"
@@ -34,8 +34,6 @@ tags:
   - "privileged-access"
 references:
   - "https://attack.mitre.org/techniques/T1021/001/"
-  - "https://learn.microsoft.com/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4624"
-  - "https://learn.microsoft.com/windows/security/threat-protection/auditing/basic-audit-logon-events"
 steps:
   - id: "identify-rdp-alert"
     order: 1
@@ -440,8 +438,6 @@ For confirmed malicious RDP activity:
 11. Document containment, remediation, recovery, and validation results.
 
 Do not terminate sessions, disable accounts, isolate hosts, or modify system configuration before considering evidence preservation and the operational impact of the action. Perform containment and remediation through authorized incident-response procedures.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
