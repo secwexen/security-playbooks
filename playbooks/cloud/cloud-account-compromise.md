@@ -3,10 +3,10 @@ id: "cloud-account-compromise"
 name: "Cloud Account Compromise"
 category: "cloud"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-16T19:48:00Z"
-updated_at: "2026-11-14T08:47:00Z"
+updated_at: "2026-11-24T09:38:00Z"
 description: "Investigate suspected compromise or unauthorized use of cloud accounts and determine the scope, impact, and persistence of the activity."
 objective: "Identify compromised cloud identities, establish the extent of unauthorized access, preserve relevant evidence, and coordinate containment and recovery."
 severity: "high"
@@ -334,10 +334,6 @@ Classify the activity using the following outcomes:
 
 Document the selected classification and supporting evidence.
 
-Determine whether the activity requires additional investigation, incident-response escalation, account containment, or closure.
-
-Record unresolved questions and identify any additional evidence needed to support the final assessment.
-
 ## Evidence to Collect
 
 | Evidence       | Description                                                                       |
@@ -450,8 +446,6 @@ For confirmed or high-confidence cloud account compromise:
 Response actions must account for service dependencies, privileged access requirements, and potential operational impact. Coordinate disruptive changes with authorized owners unless emergency procedures explicitly permit immediate action.
 
 Do not assume that changing a password alone invalidates every existing session, token, access key, or application credential. Validate revocation and containment using the applicable provider's capabilities and audit evidence.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
