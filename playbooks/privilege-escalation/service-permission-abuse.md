@@ -3,10 +3,10 @@ id: "service-permission-abuse"
 name: "Service Permission Abuse"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-20T18:33:00Z"
-updated_at: "2026-11-13T13:19:00Z"
+updated_at: "2026-11-24T11:19:00Z"
 description: "Weak permissions on Windows service files or registry configuration may allow unauthorized modification of service execution behavior and privilege escalation."
 objective: "Identify, investigate, and validate suspicious abuse of weak Windows service permissions and determine whether the activity enabled unauthorized privilege escalation."
 severity: "high"
@@ -414,8 +414,6 @@ For confirmed malicious service permission abuse:
 10. Document the investigation timeline and remediation actions.
 
 Do not modify or delete relevant evidence before required evidence preservation has been completed.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
