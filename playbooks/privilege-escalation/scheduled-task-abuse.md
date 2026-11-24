@@ -3,10 +3,10 @@ id: "scheduled-task-abuse"
 name: "Scheduled Task Abuse"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-22T15:14:00Z"
-updated_at: "2026-11-13T13:17:00Z"
+updated_at: "2026-11-24T11:16:00Z"
 description: "Scheduled Task Abuse involves using Windows scheduled tasks to execute programs under an elevated or otherwise unauthorized security context."
 objective: "Identify, investigate, and validate suspicious scheduled task abuse and determine whether scheduled execution resulted in unauthorized privilege escalation or related malicious activity."
 severity: "high"
@@ -386,8 +386,6 @@ For confirmed malicious scheduled task abuse:
 9. Document the investigation timeline and remediation actions.
 
 Do not delete or modify the scheduled task, referenced files, or relevant logs before required evidence preservation and appropriate authorization have been considered.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
