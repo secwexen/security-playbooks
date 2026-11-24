@@ -55,7 +55,6 @@ Recommended sections:
 - Decision Criteria
 - Escalation
 - Response Guidance
-- Related Detection Rules
 - Related Playbooks
 - Validation
 - Safety
