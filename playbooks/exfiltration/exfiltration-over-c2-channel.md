@@ -3,10 +3,10 @@ id: "exfiltration-over-c2-channel"
 name: "Exfiltration Over C2 Channel"
 category: "exfiltration"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-04T17:50:00Z"
-updated_at: "2026-11-13T12:28:00Z"
+updated_at: "2026-11-24T10:40:00Z"
 description: "Investigate suspected data exfiltration performed through an established command-and-control channel."
 objective: "Determine whether data was transferred from an affected system through an existing command-and-control channel, identify the transferred data, destination, determine the scope and impact of the activity."
 severity: "high"
@@ -437,8 +437,6 @@ For confirmed malicious exfiltration over a C2 channel:
 10. Preserve the investigation timeline and document containment, eradication, recovery, and notification actions.
 
 Do not delete files, terminate processes, modify network artifacts, or destroy logs before required evidence preservation and appropriate authorization have been considered.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
