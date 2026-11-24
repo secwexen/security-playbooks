@@ -3,10 +3,10 @@ id: "lateral-movement-response"
 name: "Lateral Movement Response"
 category: "response"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-11-11T12:17:00Z"
-updated_at: "2026-11-13T13:45:00Z"
+updated_at: "2026-11-24T11:44:00Z"
 description: "Lateral Movement Response provides a structured process for identifying unauthorized movement between systems, investigating compromised accounts and remote access activity, determining the affected environment scope, applying authorized containment, and validating response effectiveness."
 objective: "Identify, investigate, contain, and validate suspected or confirmed lateral movement while preserving evidence, limiting further compromise, and minimizing operational impact."
 severity: "critical"
@@ -116,8 +116,6 @@ This playbook provides a structured incident-response workflow for investigating
 Lateral movement occurs when an adversary accesses or moves between systems, accounts, or network resources after obtaining an initial foothold.
 
 The activity may involve compromised credentials, unauthorized remote access, exploitation of remote services, abuse of administrative tools, or the transfer of malicious tools between systems.
-
-The objective is to identify the origin and destination of suspicious activity, validate associated identities and remote access behavior, determine the affected environment scope, apply authorized containment, preserve relevant evidence, and verify that further unauthorized movement has been restricted.
 
 ## MITRE ATT&CK
 
@@ -456,8 +454,6 @@ For confirmed or high-confidence lateral movement:
 12. Document the investigation, evidence, containment actions, validation results, remediation, recovery, and response timeline.
 
 Do not restore unrestricted access solely because the initial suspicious activity has stopped. Maintain appropriate containment until authorized recovery criteria have been satisfied.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
