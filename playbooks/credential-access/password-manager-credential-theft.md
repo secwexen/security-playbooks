@@ -3,10 +3,10 @@ id: "password-manager-credential-theft"
 name: "Password Manager Credential Theft"
 category: "credential-access"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-19T11:34:00Z"
-updated_at: "2026-11-13T11:23:00Z"
+updated_at: "2026-11-24T10:16:00Z"
 description: "Unauthorized access to password-manager data can expose stored credentials, secrets, and other authentication material."
 objective: "Identify, investigate, and validate suspicious access to password-manager data and determine whether stored credentials may have been exposed."
 severity: "critical"
@@ -122,8 +122,6 @@ The investigation should focus on the **accessing process, account context, targ
 | Technique | Name                                                | Relevance                                                                     |
 | --------- | --------------------------------------------------- | ----------------------------------------------------------------------------- |
 | T1555.005 | Credentials from Password Stores: Password Managers | Relevant when credentials stored by password-management software are targeted |
-
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
 
 ## Trigger Conditions
 
@@ -406,23 +404,13 @@ Credential resets, session invalidation, account containment, and vault remediat
 
 Do not extract, display, or disclose real password-manager credentials during investigation or validation.
 
-## Related Detection Rules
-
-- `detection-rules/sigma/suspicious-login.yml`
-
 ## Related Playbooks
 
 - `playbooks/credential-access/browser-credential-theft.md`
 - `playbooks/credential-access/credentials-from-password-stores.md`
 - `playbooks/credential-access/windows-credential-manager.md`
 - `playbooks/credential-access/dpapi-credential-access.md`
-- `playbooks/initial-access/valid-account-compromise.md`
-- `playbooks/triage/suspicious-file-triage.md`
-- `playbooks/triage/suspicious-process-triage.md`
-- `playbooks/triage/suspicious-login-triage.md`
 - `playbooks/response/credential-compromise-response.md`
-- `playbooks/response/malware-response.md`
-- `playbooks/response/isolate-host-response.md`
 
 ## Validation
 
