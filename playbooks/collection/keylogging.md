@@ -3,10 +3,10 @@ id: "keylogging"
 name: "Keylogging"
 category: "collection"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-29T19:54:00Z"
-updated_at: "2026-11-13T10:44:00Z"
+updated_at: "2026-11-24T09:53:00Z"
 description: "Investigate suspected keylogging activity to determine whether unauthorized keyboard input capture, credential collection, or sensitive data collection has occurred."
 objective: "Identify and investigate suspicious keylogging behavior, establish the affected systems and accounts, assess potential credential exposure, and determine appropriate containment and response actions."
 severity: "high"
@@ -401,8 +401,6 @@ For confirmed or high-confidence malicious keylogging activity:
 Do not reset credentials, remove artifacts, terminate processes, or modify the affected system in a manner that unnecessarily destroys evidence or disrupts critical services before the response team has considered the operational and forensic requirements.
 
 Credential protection measures should be prioritized according to the exposure risk.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
