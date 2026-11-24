@@ -3,10 +3,10 @@ id: "persistence-triage"
 name: "Persistence Triage"
 category: "triage"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-01T14:33:00Z"
-updated_at: "2026-11-14T08:13:00Z"
+updated_at: "2026-11-24T11:59:00Z"
 description: "Investigate suspected persistence mechanisms and determine whether unauthorized persistence is present on an endpoint."
 objective: "Identify, validate, scope, and assess suspected persistence mechanisms and determine whether escalation or containment is required."
 severity: "high"
@@ -405,8 +405,6 @@ For confirmed malicious persistence:
 9. Document the timeline and remediation actions.
 
 Do not remove or modify persistence artifacts before required evidence preservation has been completed.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
