@@ -3,10 +3,10 @@ id: "cloud-infrastructure-discovery"
 name: "Cloud Infrastructure Discovery"
 category: "cloud"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-21T17:16:00Z"
-updated_at: "2026-11-13T10:33:00Z"
+updated_at: "2026-11-24T09:41:00Z"
 description: "Investigate suspicious enumeration of cloud infrastructure resources, including virtual machines, disks, snapshots, storage services, databases, and network components across cloud environments."
 objective: "Determine whether cloud infrastructure discovery is authorized, identify the identities and resources involved, establish the scope of suspicious enumeration, and identify potential follow-on malicious activity."
 severity: "medium"
@@ -413,8 +413,6 @@ For confirmed malicious infrastructure discovery:
 12. Document containment, remediation, and verification results.
 
 Do not delete resources, revoke access, or modify cloud configurations before considering evidence preservation and appropriate authorization.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
