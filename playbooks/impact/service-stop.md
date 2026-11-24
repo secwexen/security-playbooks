@@ -3,10 +3,10 @@ id: "service-stop"
 name: "Service Stop"
 category: "impact"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-30T17:03:00Z"
-updated_at: "2026-11-13T12:38:00Z"
+updated_at: "2026-11-24T10:48:00Z"
 description: "Investigate suspicious service stop or disable activity that may disrupt system or application availability."
 objective: "Determine whether service stop or disable activity was authorized, identify affected services and systems, assess operational impact, and determine whether the activity is associated with malicious impact or broader compromise."
 severity: "high"
@@ -390,8 +390,6 @@ For confirmed malicious service stop activity:
 11. Document the investigation timeline, impact, containment, and recovery actions.
 
 Do not restart, reconfigure, or otherwise modify affected services before required evidence preservation and appropriate authorization have been considered.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
