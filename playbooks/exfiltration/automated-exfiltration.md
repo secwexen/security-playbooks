@@ -3,10 +3,10 @@ id: "automated-exfiltration"
 name: "Automated Exfiltration"
 category: "exfiltration"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-07T17:29:00Z"
-updated_at: "2026-11-13T12:18:00Z"
+updated_at: "2026-11-24T10:35:00Z"
 description: "Automated Exfiltration involves the automated transfer of collected data from a compromised environment to an external destination."
 objective: "Identify, investigate, and scope automated data exfiltration activity and determine whether collected data was transferred without authorization."
 severity: "high"
@@ -414,8 +414,6 @@ For confirmed malicious automated exfiltration:
 10. Document the investigation timeline, containment actions, affected data, and final assessment.
 
 Do not delete staging files, disable scheduled tasks, terminate suspicious processes, or block destinations before required evidence preservation and appropriate authorization have been considered.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
