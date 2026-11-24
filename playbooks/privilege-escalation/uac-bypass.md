@@ -3,10 +3,10 @@ id: "uac-bypass"
 name: "UAC Bypass"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-24T17:58:00Z"
-updated_at: "2026-11-13T13:23:00Z"
+updated_at: "2026-11-24T11:23:00Z"
 description: "UAC Bypass occurs when an attacker attempts to circumvent Windows User Account Control to execute a process with elevated privileges without following the expected elevation workflow."
 objective: "Identify, investigate, and validate suspicious UAC bypass activity and determine whether unauthorized privilege escalation occurred."
 severity: "high"
@@ -363,8 +363,6 @@ For confirmed malicious UAC bypass activity:
 11. Document the investigation timeline and remediation actions.
 
 Do not terminate processes, modify Registry entries, or change endpoint configuration before required evidence preservation and appropriate authorization have been considered.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
