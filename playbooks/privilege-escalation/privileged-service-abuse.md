@@ -3,10 +3,10 @@ id: "privileged-service-abuse"
 name: "Privileged Service Abuse"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-22T16:52:00Z"
-updated_at: "2026-11-13T13:15:00Z"
+updated_at: "2026-11-24T11:15:00Z"
 description: "Privileged Service Abuse involves abusing a Windows service or its execution context to obtain elevated privileges or execute unauthorized code."
 objective: "Identify, investigate, and validate suspicious privileged service activity and determine whether the activity resulted in unauthorized privilege escalation or related malicious behavior."
 severity: "high"
@@ -391,8 +391,6 @@ For confirmed malicious service abuse:
 9. Document the investigation timeline and remediation actions.
 
 Do not delete or modify the service, executable, logs, or other relevant evidence before required evidence preservation and appropriate authorization have been considered.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
