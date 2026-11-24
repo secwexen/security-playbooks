@@ -3,10 +3,10 @@ id: "cloud-exfiltration"
 name: "Cloud Storage Exfiltration"
 category: "exfiltration"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-08T17:33:00Z"
-updated_at: "2026-11-13T12:21:00Z"
+updated_at: "2026-11-24T10:37:00Z"
 description: "Cloud storage exfiltration involves transferring data from an affected environment to an external or unauthorized cloud storage service."
 objective: "Identify, investigate, and scope suspicious transfers of sensitive or collected data to cloud storage services and determine whether unauthorized exfiltration occurred."
 severity: "high"
@@ -404,8 +404,6 @@ For confirmed malicious cloud storage exfiltration:
 10. Document the investigation timeline, scope, containment actions, and recovery activities.
 
 Do not delete cloud objects, terminate accounts, or remove endpoint artifacts before required evidence preservation and appropriate authorization have been considered.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
