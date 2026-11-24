@@ -3,10 +3,10 @@ id: "dns-exfiltration"
 name: "DNS Exfiltration"
 category: "exfiltration"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-06T15:59:00Z"
-updated_at: "2026-11-13T12:26:00Z"
+updated_at: "2026-11-24T10:39:00Z"
 description: "DNS Exfiltration involves transferring collected data through DNS queries or responses to an external destination in order to bypass or reduce the effectiveness of conventional network controls."
 objective: "Identify, investigate, scope, and assess suspected DNS-based data exfiltration and determine whether unauthorized data transfer occurred."
 severity: "high"
@@ -402,8 +402,6 @@ For confirmed malicious DNS exfiltration:
 11. Document the investigation timeline, evidence, containment, and remediation actions.
 
 Do not delete DNS, endpoint, or network evidence before required evidence preservation and appropriate authorization have been considered.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
