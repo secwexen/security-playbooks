@@ -3,10 +3,10 @@ id: "application-consent-abuse"
 name: "Application Consent Abuse"
 category: "initial-access"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-08T11:11:00Z"
-updated_at: "2026-11-13T12:40:00Z"
+updated_at: "2026-11-24T10:50:00Z"
 description: "Investigate suspicious application consent, OAuth grants, and delegated access that may allow unauthorized access to user or organizational resources."
 objective: "Determine whether an application consent or delegated-access event was legitimate, identify affected accounts and permissions, establish scope, and determine whether containment or incident response is required."
 severity: "high"
@@ -365,8 +365,6 @@ For confirmed malicious application consent:
 10. Document the investigation timeline and remediation actions.
 
 Do not revoke access or delete application registrations before required evidence preservation and appropriate authorization have been considered.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
