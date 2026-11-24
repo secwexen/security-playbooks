@@ -3,10 +3,10 @@ id: "smb-lateral-movement"
 name: "SMB Lateral Movement"
 category: "lateral-movement"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-13T10:48:00Z"
-updated_at: "2026-11-13T12:56:00Z"
+updated_at: "2026-11-24T11:03:00Z"
 description: "Investigate suspicious SMB activity involving remote network shares, Windows administrative shares, and potential lateral movement between systems."
 objective: "Determine whether SMB-based remote access represents legitimate administrative activity or unauthorized lateral movement, identify affected systems and accounts, and establish the scope of the activity."
 severity: "high"
@@ -458,8 +458,6 @@ For confirmed malicious SMB-based lateral movement:
 10. Document containment, investigation, remediation, and recovery actions.
 
 Do not disable SMB globally, remove files, terminate processes, or modify services without evaluating operational impact and following approved incident-response procedures.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
