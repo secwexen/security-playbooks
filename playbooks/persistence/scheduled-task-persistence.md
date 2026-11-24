@@ -3,10 +3,10 @@ id: "scheduled-task-persistence"
 name: "Scheduled Task Persistence"
 category: "persistence"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-13T18:41:00Z"
-updated_at: "2026-11-13T13:05:00Z"
+updated_at: "2026-11-24T11:09:00Z"
 description: "Scheduled tasks can be configured to execute programs or scripts automatically and may be abused to maintain persistence on Windows systems."
 objective: "Identify, investigate, and validate suspicious scheduled task persistence and determine whether the task is legitimate, suspicious, or malicious."
 severity: "high"
@@ -371,8 +371,6 @@ For confirmed malicious scheduled task persistence:
 9. Document the investigation timeline and remediation actions.
 
 Do not immediately delete the task or referenced payload before required evidence preservation has been completed.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
