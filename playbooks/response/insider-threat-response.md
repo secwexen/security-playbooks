@@ -3,10 +3,10 @@ id: "insider-threat-response"
 name: "Insider Threat Response"
 category: "response"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-11-09T14:31:00Z"
-updated_at: "2026-11-13T13:41:00Z"
+updated_at: "2026-11-24T11:40:00Z"
 description: "Insider threats occur when employees, contractors, administrators, or other trusted individuals misuse authorized access, intentionally or unintentionally exposing organizational systems, sensitive information, or business operations to security risks."
 objective: "Identify, investigate, contain, and mitigate insider threats, determine affected users, accounts, systems, and information assets, preserve relevant evidence, and prevent further unauthorized or harmful activity."
 severity: "high"
@@ -494,8 +494,6 @@ For confirmed insider threat activity:
 13. Preserve forensic evidence and maintain chain-of-custody records.
 
 Do not assume that every unusual employee activity represents malicious intent.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
