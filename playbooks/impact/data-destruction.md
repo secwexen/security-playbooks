@@ -3,10 +3,10 @@ id: "data-destruction"
 name: "Data Destruction"
 category: "impact"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-03T15:25:00Z"
-updated_at: "2026-11-13T12:30:00Z"
+updated_at: "2026-11-24T10:41:00Z"
 description: "Data Destruction involves the unauthorized deletion, overwriting, or deliberate destruction of files and stored data to impair availability or render information irrecoverable."
 objective: "Identify, investigate, and scope suspected data destruction activity, determine the affected data and assets, assess recoverability, and support containment and recovery actions."
 severity: "high"
@@ -388,8 +388,6 @@ For confirmed malicious data destruction:
 10. Document the investigation timeline, affected data, recovery actions, and final disposition.
 
 Do not delete suspicious artifacts or immediately rebuild affected systems before required evidence preservation and appropriate authorization have been considered.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
