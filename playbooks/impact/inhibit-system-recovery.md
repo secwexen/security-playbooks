@@ -3,10 +3,10 @@ id: "inhibit-system-recovery"
 name: "Inhibit System Recovery"
 category: "impact"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-09-29T16:04:00Z"
-updated_at: "2026-11-13T12:34:00Z"
+updated_at: "2026-11-24T10:44:00Z"
 description: "Investigate activity that disables, deletes, or otherwise interferes with system recovery mechanisms, backups, snapshots, or recovery services."
 objective: "Determine whether recovery mechanisms were intentionally inhibited, assess the affected recovery capabilities and environmental scope, and support containment and recovery actions."
 severity: "critical"
@@ -401,8 +401,6 @@ For confirmed malicious recovery inhibition:
 11. Document the investigation timeline, recovery impact, containment actions, and restoration status.
 
 Do not delete, recreate, or modify recovery artifacts before required evidence preservation and appropriate authorization have been considered.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
