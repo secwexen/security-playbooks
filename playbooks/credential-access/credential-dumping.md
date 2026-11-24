@@ -3,10 +3,10 @@ id: "credential-dumping"
 name: "Credential Dumping"
 category: "credential-access"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-14T21:55:00Z"
-updated_at: "2026-11-13T10:57:00Z"
+updated_at: "2026-11-24T10:03:00Z"
 description: "Credential dumping involves attempts to obtain authentication material such as password hashes, cached credentials, or authentication secrets from systems."
 objective: "Identify, investigate, and validate suspicious credential dumping activity and determine whether authentication material may have been exposed."
 severity: "critical"
@@ -119,10 +119,6 @@ The exact source should be determined from telemetry and evidence rather than as
 | Technique | Name                  | Relevance                                                                                          |
 | --------- | --------------------- | -------------------------------------------------------------------------------------------------- |
 | T1003     | OS Credential Dumping | Relevant when credential material is accessed or collected from operating system credential stores |
-
-More specific T1003 sub-techniques should be mapped when the observed activity provides sufficient evidence to identify the specific credential source.
-
-Do not assign a sub-technique solely from an alert title.
 
 ## Trigger Conditions
 
@@ -383,8 +379,6 @@ For confirmed malicious credential dumping:
 10. Document the investigation timeline and remediation actions.
 
 Credential resets, session invalidation, or account containment should follow the organization's approved incident-response procedures.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
