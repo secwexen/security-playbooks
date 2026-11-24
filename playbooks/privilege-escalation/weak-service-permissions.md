@@ -3,10 +3,10 @@ id: "weak-service-permissions"
 name: "Weak Service Permissions"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-24T15:19:00Z"
-updated_at: "2026-11-13T13:28:00Z"
+updated_at: "2026-11-24T11:26:00Z"
 description: "Weak Service Permissions occur when a Windows service executable or its containing directory can be modified by an unauthorized user, allowing replacement or modification of the service binary."
 objective: "Identify, investigate, and validate suspicious service file or directory permissions and determine whether weak permissions enabled unauthorized execution, privilege escalation, persistence, or related malicious activity."
 severity: "high"
@@ -380,8 +380,6 @@ For confirmed malicious weak service permission abuse:
 11. Document the investigation timeline and remediation actions.
 
 Do not modify service files, permissions, or configuration before required evidence preservation and appropriate authorization have been considered.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
