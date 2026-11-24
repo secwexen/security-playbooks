@@ -3,10 +3,10 @@ id: "phishing-alert-triage"
 name: "Phishing Alert Triage"
 category: "triage"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-02T20:38:00Z"
-updated_at: "2026-11-14T08:31:00Z"
+updated_at: "2026-11-24T12:00:00Z"
 description: "Investigate suspected phishing emails and determine whether the message is benign, malicious, or part of a broader account or security incident."
 objective: "Determine the legitimacy, scope, and impact of a suspected phishing message and identify required containment, investigation, or escalation actions."
 severity: "high"
@@ -372,12 +372,6 @@ For confirmed malicious phishing:
 9. Document the timeline and remediation actions.
 
 Do not delete relevant evidence before required preservation has been completed.
-
-## Related Detection Rules
-
-- `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/yara/malware-sample.yar`
-- `detection-rules/suricata/network-alert.rules`
 
 ## Related Playbooks
 
