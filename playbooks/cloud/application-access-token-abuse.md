@@ -3,10 +3,10 @@ id: "application-access-token-abuse"
 name: "Application Access Token Abuse"
 category: "cloud"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-10-18T05:53:00Z"
-updated_at: "2026-11-14T08:01:00Z"
+updated_at: "2026-11-24T09:37:00Z"
 description: "Investigate suspected theft, unauthorized use, or abuse of application access tokens in cloud environments and SaaS applications."
 objective: "Determine whether an application access token has been compromised or used without authorization, identify affected identities and resources, establish the scope of the activity, and coordinate appropriate containment and remediation."
 severity: "high"
@@ -423,8 +423,6 @@ Token revocation behavior varies by identity provider and token type. Confirm th
 Do not rely solely on a password reset to invalidate all access tokens. Verify the status of affected sessions, refresh tokens, application credentials, and relevant authorization grants.
 
 Do not delete relevant logs, application records, or other evidence before required preservation has been completed.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
