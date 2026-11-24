@@ -3,10 +3,10 @@ id: "persistence-removal-response"
 name: "Persistence Removal Response"
 category: "response"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-11-18T10:17:00Z"
-updated_at: "2026-11-18T14:16:00Z"
+updated_at: "2026-11-24T11:50:00Z"
 description: "Persistence Removal Response provides a structured process for investigating unauthorized persistence, identifying associated access paths, containing affected assets, removing malicious persistence mechanisms, and validating that unauthorized access cannot continue."
 objective: "Identify, investigate, contain, and remove unauthorized persistence mechanisms, determine the scope of affected systems and identities, remediate the conditions that enabled persistence, and verify that access has not been re-established."
 severity: "high"
@@ -439,10 +439,6 @@ For confirmed malicious persistence:
 12. Monitor for recurrence and document the final response outcome.
 
 Do not remove persistence artifacts or modify affected systems before required evidence preservation and authorization have been considered, except where immediate containment is necessary to prevent ongoing material impact.
-
-## Related Detection Rules
-
-No directly associated detection rules are currently defined.
 
 ## Related Playbooks
 
