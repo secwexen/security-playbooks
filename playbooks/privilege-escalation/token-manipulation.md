@@ -3,10 +3,10 @@ id: "token-manipulation"
 name: "Token Manipulation"
 category: "privilege-escalation"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-21T14:29:00Z"
-updated_at: "2026-11-13T13:21:00Z"
+updated_at: "2026-11-24T11:21:00Z"
 description: "Token Manipulation involves abusing or modifying access tokens to impersonate users, obtain additional privileges, or execute processes under another security context."
 objective: "Identify, investigate, and validate suspicious access-token manipulation and determine whether token activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -374,8 +374,6 @@ For confirmed malicious token-manipulation activity:
 9. Document the investigation timeline and remediation actions.
 
 Do not terminate or modify relevant processes, accounts, tokens, or logs before required evidence preservation and appropriate authorization have been considered.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
