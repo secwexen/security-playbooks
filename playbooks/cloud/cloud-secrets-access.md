@@ -3,10 +3,10 @@ id: "cloud-secrets-access"
 name: "Cloud Secrets Access"
 category: "cloud"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-22T17:45:00Z"
-updated_at: "2026-11-14T08:49:00Z"
+updated_at: "2026-11-24T09:42:00Z"
 description: "Investigate suspicious or unauthorized access to cloud-based secrets management services and determine whether sensitive credentials may have been exposed."
 objective: "Identify unauthorized cloud secrets access, assess potential credential exposure, determine the affected identities and resources, and provide evidence for containment and remediation."
 severity: "high"
@@ -320,8 +320,6 @@ Classify the observed activity as:
 
 Document the supporting evidence, potentially exposed resources, affected identities, investigation limitations, and required follow-up actions.
 
-Escalate to the appropriate incident response process when the evidence indicates unauthorized secret retrieval, potential credential compromise, or subsequent misuse.
-
 ## Evidence to Collect
 
 | Evidence             | Description                                                                        |
@@ -436,8 +434,6 @@ For confirmed malicious or unauthorized cloud secrets access:
 10. Document containment, credential remediation, service impact, and recovery verification.
 
 Do not indiscriminately disable production identities or rotate shared credentials without evaluating dependencies and following the appropriate change or incident response procedure. Preserve required evidence before making changes whenever operationally feasible.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
