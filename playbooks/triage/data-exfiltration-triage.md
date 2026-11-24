@@ -3,10 +3,10 @@ id: "data-exfiltration-triage"
 name: "Data Exfiltration Triage"
 category: "triage"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-03T17:10:00Z"
-updated_at: "2026-11-14T08:16:00Z"
+updated_at: "2026-11-24T11:54:00Z"
 description: "Investigate suspected unauthorized data exfiltration and determine whether data was transferred outside the organization's authorized environment."
 objective: "Determine whether data exfiltration occurred, identify the affected data and transfer path, establish scope, and determine whether incident response is required."
 severity: "critical"
@@ -419,10 +419,6 @@ For confirmed unauthorized exfiltration:
 9. Document the investigation timeline and actions taken.
 
 Do not destroy staging files, logs, or other relevant evidence before required evidence preservation has been completed.
-
-## Related Detection Rules
-
-- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
