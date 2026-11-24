@@ -3,10 +3,10 @@ id: "browser-credential-theft"
 name: "Browser Credential Theft"
 category: "credential-access"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-18T14:47:00Z"
-updated_at: "2026-11-13T10:52:00Z"
+updated_at: "2026-11-24T09:57:00Z"
 description: "Browser credential theft involves attempts to access stored authentication material from web browsers and related browser profile data."
 objective: "Identify, investigate, and validate suspicious access to browser credential stores and determine whether authentication material may have been exposed."
 severity: "high"
@@ -123,8 +123,6 @@ The investigation should therefore focus on the **accessing process, user contex
 | Technique | Name                          | Relevance                                                                                |
 | --------- | ----------------------------- | ---------------------------------------------------------------------------------------- |
 | T1555.003 | Credentials from Web Browsers | Relevant when browser-stored credentials or related authentication material are targeted |
-
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
 
 ## Trigger Conditions
 
@@ -405,8 +403,6 @@ For confirmed malicious browser credential theft:
 Credential resets, session invalidation, and account containment must follow approved organizational procedures.
 
 Do not extract, display, or disclose real browser credentials during investigation or validation.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
