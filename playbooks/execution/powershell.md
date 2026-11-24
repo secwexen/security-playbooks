@@ -3,10 +3,10 @@ id: "powershell"
 name: "PowerShell"
 category: "execution"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-11T16:03:00Z"
-updated_at: "2026-11-13T12:14:00Z"
+updated_at: "2026-11-24T10:25:00Z"
 description: "PowerShell is a command and scripting interpreter commonly used for Windows administration and automation and may also be abused to execute malicious commands and scripts."
 objective: "Identify, investigate, and validate suspicious PowerShell activity and determine whether execution is legitimate, suspicious, or malicious."
 severity: "high"
@@ -380,12 +380,6 @@ For confirmed malicious PowerShell activity:
 9. Document the investigation timeline and remediation actions.
 
 Do not delete or modify relevant scripts, logs, or other evidence before required evidence preservation has been completed.
-
-## Related Detection Rules
-
-- `detection-rules/sigma/sigma-powershell-exec.yml`
-- `detection-rules/yara/obfuscated-powershell.yar`
-- `detection-rules/yara/yara-powershell-payload.yar`
 
 ## Related Playbooks
 
