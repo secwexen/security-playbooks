@@ -3,10 +3,10 @@ id: "drive-by-download"
 name: "Drive-by Compromise"
 category: "initial-access"
 status: "active"
-version: "1.0.3"
+version: "1.0.4"
 author: "Secwexen"
 created_at: "2026-09-09T13:49:00Z"
-updated_at: "2026-11-13T12:42:00Z"
+updated_at: "2026-11-24T10:51:00Z"
 description: "Investigate suspected drive-by compromise activity in which a user is exposed to malicious web content that may lead to unauthorized access or execution."
 objective: "Determine whether malicious web content resulted in exploitation, unwanted downloads, code execution, or other compromise and establish the affected users, systems, and scope."
 severity: "high"
@@ -371,8 +371,6 @@ For confirmed compromise:
 10. Document the investigation timeline and remediation actions.
 
 Do not delete browser history, downloaded artifacts, or relevant logs before required evidence preservation has been completed.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
