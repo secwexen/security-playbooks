@@ -3,10 +3,10 @@ id: "cloud-service-dashboard"
 name: "Cloud Service Dashboard"
 category: "cloud"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-23T16:59:00Z"
-updated_at: "2026-11-14T08:50:00Z"
+updated_at: "2026-11-24T09:43:00Z"
 description: "Investigate suspicious use of cloud service dashboards and administrative portals to identify unauthorized access and cloud resource discovery."
 objective: "Determine whether cloud dashboard access and subsequent resource exploration are legitimate, suspicious, or malicious, establish the scope of the activity, and support appropriate escalation or response."
 severity: "medium"
@@ -416,8 +416,6 @@ For confirmed malicious cloud dashboard activity:
 Avoid unnecessary disruption to legitimate cloud operations. Preserve evidence and coordinate containment with the appropriate cloud and identity owners.
 
 If data exfiltration, persistence, or other attack behaviors are identified, use the applicable response playbooks to address those findings.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
