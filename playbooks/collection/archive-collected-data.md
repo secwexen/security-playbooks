@@ -3,10 +3,10 @@ id: "archive-collected-data"
 name: "Archive Collected Data"
 category: "collection"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-26T16:32:00Z"
-updated_at: "2026-11-14T08:52:00Z"
+updated_at: "2026-11-24T09:48:00Z"
 description: "Investigate suspicious compression, archiving, or encryption of collected data that may indicate preparation for unauthorized data transfer."
 objective: "Determine whether observed archiving activity is authorized, suspicious, or malicious; identify the affected data, associated processes, and potential relationship to data exfiltration."
 severity: "high"
@@ -413,14 +413,6 @@ Escalate to the appropriate incident-response workflow.
 
 Use **inconclusive** when the available evidence is insufficient to determine whether the activity is legitimate or malicious.
 
-Examples include:
-
-- unavailable process or file telemetry;
-- inaccessible archive contents;
-- insufficient information about the associated account;
-- incomplete network or cloud activity records;
-- inability to establish whether the archive was transferred.
-
 Document:
 
 - evidence collected;
@@ -464,8 +456,6 @@ For confirmed malicious archive-related activity:
 11. Investigate file-access and data-collection activity preceding archive creation.
 
 Do not delete archives, modify source data, or disrupt legitimate backup and business processes before considering evidence preservation and operational impact.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
