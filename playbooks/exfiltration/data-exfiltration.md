@@ -3,10 +3,10 @@ id: "data-exfiltration"
 name: "Data Exfiltration"
 category: "exfiltration"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-05T16:42:00Z"
-updated_at: "2026-11-13T12:23:00Z"
+updated_at: "2026-11-24T10:38:00Z"
 description: "Investigate suspected unauthorized transfer of data from an affected environment to an external or attacker-controlled destination."
 objective: "Determine whether data was exfiltrated, identify the transferred data and transfer mechanism, establish the affected scope, and support appropriate containment and response actions."
 severity: "high"
@@ -430,8 +430,6 @@ For confirmed malicious data exfiltration:
 11. Document the investigation timeline, scope, containment actions, and recovery activities.
 
 Do not delete files, logs, network artifacts, or other relevant evidence before required evidence preservation has been completed.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
