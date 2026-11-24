@@ -3,10 +3,10 @@ id: "phishing"
 name: "Phishing"
 category: "initial-access"
 status: "active"
-version: "1.0.3"
+version: "1.0.4"
 author: "Secwexen"
 created_at: "2026-09-08T15:49:00Z"
-updated_at: "2026-11-13T12:48:00Z"
+updated_at: "2026-11-24T10:56:00Z"
 description: "Phishing is a social engineering technique used to obtain access, credentials, or user interaction through deceptive messages and content."
 objective: "Identify, analyze, and validate phishing activity and determine whether the technique resulted in credential exposure, malicious execution, or unauthorized access."
 severity: "high"
@@ -362,13 +362,6 @@ For confirmed malicious phishing activity:
 9. Document the investigation timeline and remediation actions.
 
 Do not delete relevant email, endpoint, or authentication evidence before required evidence preservation has been completed.
-
-## Related Detection Rules
-
-- `detection-rules/sigma/suspicious-login.yml`
-- `detection-rules/yara/malware-sample.yar`
-- `detection-rules/suricata/network-alert.rules`
-- `detection-rules/suricata/c2-communication.rules`
 
 ## Related Playbooks
 
