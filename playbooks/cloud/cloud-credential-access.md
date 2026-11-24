@@ -3,10 +3,10 @@ id: "cloud-credential-access"
 name: "Cloud Credential Access"
 category: "cloud"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-20T14:15:00Z"
-updated_at: "2026-11-14T08:48:00Z"
+updated_at: "2026-11-24T09:40:00Z"
 description: "Investigate suspicious access to cloud credentials, application tokens, service credentials, and secrets stored or exposed within cloud environments."
 objective: "Determine whether cloud credential access or exposure is authorized, identify affected identities and resources, establish the scope of potential compromise, and support appropriate containment and remediation."
 severity: "high"
@@ -434,8 +434,6 @@ For confirmed malicious cloud credential access:
 Credential rotation and identity containment can affect production workloads. Coordinate disruptive actions with the relevant service owners and incident response team unless immediate action is required by the organization's emergency procedures.
 
 Do not delete evidence or modify relevant resources before required evidence preservation and appropriate authorization have been considered.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
