@@ -3,10 +3,10 @@ id: "credentials-from-password-stores"
 name: "Credentials from Password Stores"
 category: "credential-access"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-18T19:05:00Z"
-updated_at: "2026-11-13T10:59:00Z"
+updated_at: "2026-11-24T10:04:00Z"
 description: "Unauthorized access to password stores can expose saved credentials, authentication secrets, and other sensitive account information."
 objective: "Identify, investigate, and validate suspicious access to password stores and determine whether stored authentication material may have been exposed."
 severity: "high"
@@ -118,8 +118,6 @@ The investigation should therefore evaluate the **accessing process, account con
 | Technique | Name                             | Relevance                                                                |
 | --------- | -------------------------------- | ------------------------------------------------------------------------ |
 | T1555     | Credentials from Password Stores | Relevant when stored credentials or authentication material are targeted |
-
-More specific T1555 sub-techniques should be used when the exact credential store is known and supported by the available evidence.
 
 ## Trigger Conditions
 
@@ -388,8 +386,6 @@ For confirmed malicious password-store access:
 Credential resets, session invalidation, and account containment must follow approved organizational procedures.
 
 Do not extract, display, or disclose real credentials during investigation or validation.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
