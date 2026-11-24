@@ -3,10 +3,10 @@ id: "cloud-service-discovery"
 name: "Cloud Service Discovery"
 category: "cloud"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-24T07:40:00Z"
-updated_at: "2026-11-14T08:50:00Z"
+updated_at: "2026-11-24T09:45:00Z"
 description: "Investigate suspicious cloud service enumeration and determine whether the activity represents legitimate administration, reconnaissance, or malicious discovery."
 objective: "Identify the cloud services and resources enumerated during suspicious activity, determine the associated identity and session context, establish the scope of discovery, and assess whether the activity is associated with unauthorized access or a broader security incident."
 severity: "medium"
@@ -99,8 +99,6 @@ This playbook provides a structured workflow for investigating suspicious cloud 
 Cloud service enumeration is a legitimate administrative activity used to inventory resources, manage cloud infrastructure, troubleshoot services, and assess security configurations. However, an unauthorized user or compromised identity may enumerate available services to identify valuable resources, understand the environment, locate security controls, or prepare subsequent attack activity.
 
 The objective is to determine whether the observed enumeration is consistent with authorized operations, represents suspicious reconnaissance, or forms part of a confirmed security incident.
-
-Service enumeration alone does not establish malicious intent. The investigation must consider identity context, authorization, activity patterns, environmental baselines, and related security events.
 
 ## MITRE ATT&CK
 
@@ -309,8 +307,6 @@ Classify the activity as:
 
 Document the evidence supporting the classification and identify any required escalation or follow-up actions.
 
-The classification must reflect the observed behavior and available evidence, not simply the presence of cloud service enumeration.
-
 ## Evidence to Collect
 
 | Evidence              | Description                                                                          |
@@ -416,8 +412,6 @@ For confirmed malicious cloud service discovery:
 10. Document the timeline, evidence, scope, containment decisions, and recovery requirements.
 
 Do not disable cloud services, revoke broad permissions, or remove resources solely because they were enumerated. Such actions may disrupt legitimate operations and should be based on confirmed risk and approved response procedures.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
