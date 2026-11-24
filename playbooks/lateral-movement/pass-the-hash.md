@@ -3,10 +3,10 @@ id: "pass-the-hash"
 name: "Pass the Hash"
 category: "lateral-movement"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-10T06:23:00Z"
-updated_at: "2026-11-13T12:51:00Z"
+updated_at: "2026-11-24T10:59:00Z"
 description: "Investigate suspected pass-the-hash activity involving the unauthorized use of captured password hashes to authenticate to remote Windows systems."
 objective: "Determine whether suspicious authentication and remote access activity indicate pass-the-hash, identify affected accounts and systems, establish the extent of lateral movement, and support appropriate incident response."
 severity: "high"
@@ -100,8 +100,6 @@ This playbook provides a structured workflow for investigating suspected pass-th
 Pass-the-hash is a technique in which an adversary uses a captured password hash to authenticate as an account without knowing its plaintext password. The technique may enable unauthorized access to remote systems and facilitate lateral movement.
 
 The objective is to determine whether observed authentication activity is legitimate, suspicious, or malicious; identify potentially compromised accounts and systems; and establish the extent of any associated lateral movement.
-
-A successful NTLM authentication or an unusual network logon does not, by itself, establish that a pass-the-hash attack occurred. Findings must be evaluated using authentication context, endpoint telemetry, account behavior, and corroborating evidence.
 
 ## MITRE ATT&CK
 
@@ -426,8 +424,6 @@ For confirmed or strongly suspected malicious activity:
 Credential remediation should account for the authentication mechanisms and credential material involved. Changing a password should not be assumed to resolve every form of active unauthorized access.
 
 Do not delete artifacts, reset systems, or perform disruptive containment actions before considering evidence preservation and the appropriate authorization process.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
