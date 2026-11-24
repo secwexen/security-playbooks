@@ -3,10 +3,10 @@ id: "sam-dump"
 name: "SAM Credential Access"
 category: "credential-access"
 status: "active"
-version: "1.0.3"
+version: "1.0.4"
 author: "Secwexen"
 created_at: "2026-09-16T16:11:00Z"
-updated_at: "2026-11-14T07:59:00Z"
+updated_at: "2026-11-24T10:18:00Z"
 description: "SAM credential access involves attempts to obtain local account authentication material from the Windows Security Account Manager database."
 objective: "Identify, investigate, and validate suspicious access to the Security Account Manager and determine whether local account credentials may have been exposed."
 severity: "critical"
@@ -388,8 +388,6 @@ For confirmed malicious SAM credential access:
 Credential resets, session invalidation, and account containment should follow approved organizational response procedures.
 
 Do not extract, disclose, or reproduce real credentials during investigation or validation.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
