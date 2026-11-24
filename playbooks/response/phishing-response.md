@@ -3,10 +3,10 @@ id: "phishing-response"
 name: "Phishing Response"
 category: "response"
 status: "active"
-version: "1.0.0"
+version: "1.0.1"
 author: "Secwexen"
 created_at: "2026-11-20T09:37:00Z"
-updated_at: "2026-11-20T09:37:00Z"
+updated_at: "2026-11-24T11:52:00Z"
 description: "Phishing Response provides a structured process for investigating phishing campaigns, identifying affected users and systems, containing malicious messages, mitigating compromised accounts, and preventing further unauthorized access."
 objective: "Identify, investigate, contain, and remediate phishing incidents, determine the scope of affected users and resources, mitigate compromised credentials and sessions, remove malicious messages and payloads, and prevent further exploitation."
 severity: "high"
@@ -516,10 +516,6 @@ For confirmed malicious phishing incidents:
 13. Document the incident classification and final response outcome.
 
 Do not assume that deleting a phishing email resolves the incident. Investigate whether users interacted with the message and whether credentials, accounts, or endpoints were compromised.
-
-## Related Detection Rules
-
-No directly associated detection rules are currently defined.
 
 ## Related Playbooks
 
