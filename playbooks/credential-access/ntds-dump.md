@@ -3,10 +3,10 @@ id: "ntds-dump"
 name: "NTDS Credential Access"
 category: "credential-access"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-15T20:06:00Z"
-updated_at: "2026-11-13T11:17:00Z"
+updated_at: "2026-11-24T10:13:00Z"
 description: "NTDS credential access involves attempts to obtain Active Directory account authentication material from the domain controller database."
 objective: "Identify, investigate, and validate suspicious access to the NTDS database and determine whether domain credentials may have been exposed."
 severity: "critical"
@@ -113,8 +113,6 @@ Do not copy, extract, disclose, or process real domain credential material as pa
 | Technique | Name                        | Relevance                                                                   |
 | --------- | --------------------------- | --------------------------------------------------------------------------- |
 | T1003.003 | OS Credential Dumping: NTDS | Relevant when Active Directory credential material is targeted through NTDS |
-
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
 
 ## Trigger Conditions
 
@@ -389,8 +387,6 @@ For confirmed malicious NTDS credential access:
 Credential resets, session invalidation, privileged-account containment, and other identity-response actions must follow approved organizational procedures.
 
 Do not extract or disclose real domain credential material during response or validation.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
