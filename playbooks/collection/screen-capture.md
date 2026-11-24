@@ -3,10 +3,10 @@ id: "screen-capture"
 name: "Screen Capture Collection"
 category: "collection"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-30T18:18:00Z"
-updated_at: "2026-11-13T10:45:00Z"
+updated_at: "2026-11-24T09:54:00Z"
 description: "Investigate suspicious screen capture activity and the unauthorized collection of screenshots or displayed visual information."
 objective: "Determine whether screen content was captured or collected without authorization, identify the affected users and systems, establish the scope of activity, and support appropriate incident response."
 severity: "medium"
@@ -426,8 +426,6 @@ For confirmed malicious screen capture collection:
 9. Document the investigation timeline, scope, findings, and remediation actions.
 
 Do not indiscriminately delete screenshot files, recordings, or associated applications before the impact and evidence-preservation requirements have been assessed.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
