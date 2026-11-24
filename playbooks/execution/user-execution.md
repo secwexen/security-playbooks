@@ -3,10 +3,10 @@ id: "user-execution"
 name: "User Execution"
 category: "execution"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-10T17:23:00Z"
-updated_at: "2026-11-13T12:12:00Z"
+updated_at: "2026-11-24T10:32:00Z"
 description: "User Execution involves adversaries relying on users to execute malicious files, links, scripts, or other content to initiate or continue malicious activity."
 objective: "Identify, investigate, and validate suspicious user-driven execution and determine whether user interaction resulted in unauthorized code execution or further compromise."
 severity: "high"
@@ -370,22 +370,17 @@ For confirmed malicious user execution:
 
 Do not delete or modify relevant files, logs, or other evidence before required evidence preservation has been completed.
 
-## Related Detection Rules
-
 ## Related Playbooks
 
 - `playbooks/triage/phishing-alert-triage.md`
 - `playbooks/triage/suspicious-file-triage.md`
 - `playbooks/triage/suspicious-process-triage.md`
-- `playbooks/triage/malware-detection-triage.md`
 - `playbooks/execution/scripting.md`
 - `playbooks/execution/powershell.md`
 - `playbooks/execution/command-shell.md`
-- `playbooks/execution/python-execution.md`
 - `playbooks/initial-access/phishing.md`
 - `playbooks/initial-access/malicious-attachment.md`
 - `playbooks/response/malware-response.md`
-- `playbooks/response/isolate-host-response.md`
 
 ## Validation
 
