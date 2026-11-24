@@ -3,10 +3,10 @@ id: "ransomware"
 name: "Ransomware"
 category: "impact"
 status: "active"
-version: "1.0.3"
+version: "1.0.4"
 author: "Secwexen"
 created_at: "2026-10-01T18:59:00Z"
-updated_at: "2026-11-13T12:36:00Z"
+updated_at: "2026-11-24T10:47:00Z"
 description: "Investigate suspected ransomware activity involving unauthorized data encryption and determine the affected scope, operational impact, and required response actions."
 objective: "Identify, investigate, contain, and scope ransomware activity while preserving evidence and supporting coordinated incident response."
 severity: "critical"
@@ -100,7 +100,7 @@ This playbook provides a structured workflow for investigating suspected ransomw
 
 The objective is to determine whether observed encryption activity is legitimate or malicious, identify the affected scope, preserve evidence, and support coordinated containment and incident response.
 
-Ransomware activity commonly involves large-scale encryption of files or data to interrupt availability. MITRE ATT&CK maps this behavior to **T1486 - Data Encrypted for Impact**.
+Ransomware activity commonly involves large-scale encryption of files or data to interrupt availability.
 
 ## MITRE ATT&CK
 
@@ -460,8 +460,6 @@ For confirmed ransomware activity:
 Do not modify, delete, or execute suspicious ransomware artifacts before required evidence preservation and appropriate authorization have been considered.
 
 Ransom payment decisions must follow the organization's legal, regulatory, executive, insurance, and incident-response requirements.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
