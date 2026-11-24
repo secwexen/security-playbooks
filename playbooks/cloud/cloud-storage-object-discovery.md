@@ -3,10 +3,10 @@ id: "cloud-storage-object-discovery"
 name: "Cloud Storage Object Discovery"
 category: "cloud"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-25T14:25:00Z"
-updated_at: "2026-11-14T08:51:00Z"
+updated_at: "2026-11-24T09:46:00Z"
 description: "Investigate suspicious enumeration of cloud storage objects and determine whether the activity represents legitimate administration, unauthorized reconnaissance, or part of a broader security incident."
 objective: "Identify the cloud identity, storage resources, enumeration activity, and associated access patterns; determine the scope of the discovery activity; and establish whether escalation or incident response is required."
 severity: "medium"
@@ -103,8 +103,6 @@ This playbook provides a structured workflow for investigating suspicious enumer
 Cloud storage platforms provide APIs that allow authorized identities to list storage objects and retrieve associated metadata. These operations are common in legitimate administrative workflows, inventory processes, backup operations, and application activity.
 
 Adversaries may also enumerate cloud storage objects to identify valuable information, locate sensitive data, and identify targets for subsequent collection or exfiltration.
-
-The objective is to determine whether the observed enumeration is legitimate, suspicious, or malicious, establish the scope of the activity, and identify whether additional investigation or incident response is required.
 
 ## MITRE ATT&CK
 
@@ -430,8 +428,6 @@ For confirmed malicious cloud storage discovery:
 9. Document containment decisions, remediation actions, and the final investigation outcome.
 
 Do not automatically revoke legitimate service identities or disrupt production workloads solely because object enumeration occurred. Validate the context and coordinate disruptive response actions with the responsible teams.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
