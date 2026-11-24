@@ -3,10 +3,10 @@ id: "data-exfiltration-response"
 name: "Data Exfiltration Response"
 category: "response"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-11-03T16:50:00Z"
-updated_at: "2026-11-13T13:39:00Z"
+updated_at: "2026-11-24T11:36:00Z"
 description: "Data exfiltration occurs when sensitive, confidential, or organizational data is transferred, copied, or removed from an authorized environment to an unauthorized destination or recipient."
 objective: "Identify, investigate, contain, and remediate confirmed or suspected data exfiltration and determine the scope, sensitivity, destination, and potential impact of unauthorized data transfers."
 severity: "critical"
@@ -109,8 +109,6 @@ This playbook provides a structured response workflow for suspected or confirmed
 Data exfiltration may involve sensitive information being transferred from endpoints, servers, cloud environments, databases, or other organizational resources to unauthorized external destinations.
 
 Exfiltration may occur through command-and-control channels, alternative network protocols, cloud storage services, web applications, email, removable media, or other transfer mechanisms.
-
-The objective is to establish whether unauthorized data transfer occurred, determine what information may have been exposed, identify the transfer mechanism and destination, contain ongoing exfiltration, and restore affected systems and data protection controls.
 
 ## MITRE ATT&CK
 
@@ -501,8 +499,6 @@ For confirmed data exfiltration:
 14. Document the incident timeline, affected data, evidence, destinations, response actions, and recovery state.
 
 Do not delete suspicious files, remove endpoint artifacts, or immediately terminate all network visibility before required forensic and network evidence has been preserved.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
