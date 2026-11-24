@@ -3,10 +3,10 @@ id: "lateral-movement-triage"
 name: "Lateral Movement Triage"
 category: "triage"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-04T21:10:00Z"
-updated_at: "2026-11-14T08:21:00Z"
+updated_at: "2026-11-24T11:56:00Z"
 description: "Investigate suspected lateral movement activity and determine whether unauthorized access or remote execution occurred between systems."
 objective: "Determine the source, destination, technique, scope, and legitimacy of suspected lateral movement and identify whether containment or incident response is required."
 severity: "high"
@@ -385,8 +385,6 @@ For confirmed malicious lateral movement:
 9. Document the investigation timeline and actions taken.
 
 Do not terminate sessions, disable accounts, or isolate systems before required evidence preservation and appropriate authorization have been considered.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
