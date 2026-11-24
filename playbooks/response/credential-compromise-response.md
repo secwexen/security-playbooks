@@ -3,10 +3,10 @@ id: "credential-compromise-response"
 name: "Credential Compromise Response"
 category: "response"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-11-02T12:00:00Z"
-updated_at: "2026-11-13T13:37:00Z"
+updated_at: "2026-11-24T11:34:00Z"
 description: "Respond to suspected or confirmed compromise of user, service, or application credentials, including passwords, MFA, tokens, and service-account secrets."
 objective: "Contain unauthorized access, validate the scope of compromise, invalidate exposed credentials, restore trusted access, and document the effective response and recovery actions."
 severity: "critical"
@@ -374,8 +374,6 @@ For confirmed credential compromise:
 11. Verify whether the compromised identity was used to access sensitive data, cloud services, or downstream systems.
 
 Do not restore service access before the authentication path has been validated and the risk of re-use is mitigated.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
