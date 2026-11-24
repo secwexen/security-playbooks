@@ -3,10 +3,10 @@ id: "ddos-response"
 name: "DDoS Response"
 category: "response"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-11-08T11:49:00Z"
-updated_at: "2026-11-13T13:40:00Z"
+updated_at: "2026-11-24T11:38:00Z"
 description: "Distributed Denial of Service (DDoS) attacks occur when multiple systems generate excessive traffic against network infrastructure or application services, causing resource exhaustion, service degradation, or unavailability."
 objective: "Identify, investigate, contain, and mitigate DDoS attacks, determine affected infrastructure and attack vectors, and restore normal service availability."
 severity: "critical"
@@ -110,8 +110,6 @@ This playbook provides a structured response workflow for suspected or confirmed
 DDoS attacks attempt to disrupt service availability by overwhelming network bandwidth, exhausting connection resources, or consuming application and infrastructure capacity.
 
 Attacks may involve volumetric flooding, protocol exhaustion, reflection and amplification, or application-layer request flooding.
-
-The objective is to identify the attack, determine its scope and impact, mitigate malicious traffic, and restore affected services.
 
 ## MITRE ATT&CK
 
@@ -441,8 +439,6 @@ For confirmed DDoS activity:
 Do not rely exclusively on local firewall filtering when upstream network capacity is saturated.
 
 Avoid indiscriminate traffic blocking that could disrupt legitimate users.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
