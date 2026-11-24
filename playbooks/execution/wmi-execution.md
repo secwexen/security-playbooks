@@ -3,10 +3,10 @@ id: "wmi-execution"
 name: "Windows Management Instrumentation"
 category: "execution"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-13T12:10:00Z"
-updated_at: "2026-11-13T12:11:00Z"
+updated_at: "2026-11-24T10:34:00Z"
 description: "Windows Management Instrumentation (WMI) can be used to manage Windows systems and execute commands or programs locally or remotely."
 objective: "Identify, investigate, and validate suspicious WMI activity and determine whether the activity is legitimate, suspicious, or malicious."
 severity: "high"
@@ -365,8 +365,6 @@ For confirmed malicious WMI activity:
 10. Document the investigation timeline and remediation actions.
 
 Do not terminate, delete, or modify relevant processes, files, WMI configuration, or logs before required evidence preservation has been completed.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
