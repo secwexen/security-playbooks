@@ -3,10 +3,10 @@ id: "malicious-attachment"
 name: "Malicious Attachment"
 category: "initial-access"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-07T09:50:00Z"
-updated_at: "2026-11-13T12:46:00Z"
+updated_at: "2026-11-24T10:53:00Z"
 description: "Investigate and assess malicious or suspicious email attachments that may deliver malware or enable unauthorized access."
 objective: "Determine whether a delivered attachment is malicious, identify recipient and endpoint impact, establish scope, and determine whether incident response is required."
 severity: "high"
@@ -361,8 +361,6 @@ For confirmed malicious attachments:
 9. Document the investigation timeline and remediation actions.
 
 Do not delete relevant email, attachment, endpoint, or network evidence before required evidence preservation has been completed.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
