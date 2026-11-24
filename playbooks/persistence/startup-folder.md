@@ -3,10 +3,10 @@ id: "startup-folder"
 name: "Startup Folder Persistence"
 category: "persistence"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-14T17:49:00Z"
-updated_at: "2026-11-13T13:09:00Z"
+updated_at: "2026-11-24T11:12:00Z"
 description: "Windows Startup Folders can automatically launch programs when a user logs on and may be abused to establish persistence."
 objective: "Identify, investigate, and validate suspicious Startup Folder persistence and determine whether startup items are legitimate, suspicious, or malicious."
 severity: "high"
@@ -389,8 +389,6 @@ For confirmed malicious Startup Folder persistence:
 10. Document the investigation timeline and remediation actions.
 
 Do not immediately delete or modify the startup item before required evidence preservation has been completed.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
