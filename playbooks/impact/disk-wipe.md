@@ -3,10 +3,10 @@ id: "disk-wipe"
 name: "Disk Wipe"
 category: "impact"
 status: "active"
-version: "1.0.1"
+version: "1.0.2"
 author: "Secwexen"
 created_at: "2026-10-02T18:41:00Z"
-updated_at: "2026-11-13T12:31:00Z"
+updated_at: "2026-11-24T10:43:00Z"
 description: "Disk Wipe involves corrupting or wiping disk data or disk structures to disrupt system availability and prevent normal system boot or operation."
 objective: "Identify, investigate, and scope suspected disk wiping activity and determine whether disk data or critical disk structures were intentionally corrupted or removed."
 severity: "critical"
@@ -415,8 +415,6 @@ For confirmed malicious disk-wiping activity:
 10. Document the incident timeline, affected assets, availability impact, and recovery actions.
 
 Do not perform disk repair, reformatting, imaging, or other recovery actions that could alter relevant evidence before required evidence preservation has been completed or appropriate authorization has been obtained.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
