@@ -3,10 +3,10 @@ id: "password-spraying"
 name: "Password Spraying"
 category: "credential-access"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-17T15:17:00Z"
-updated_at: "2026-11-13T11:26:00Z"
+updated_at: "2026-11-24T10:17:00Z"
 description: "Password spraying is an authentication attack pattern in which a limited number of common or compromised passwords are attempted against multiple accounts."
 objective: "Identify, investigate, and validate suspicious password-spraying activity and determine whether accounts may have been targeted or compromised."
 severity: "high"
@@ -122,8 +122,6 @@ Authentication failures should always be evaluated in context. Legitimate system
 | Technique | Name                           | Relevance                                                                                                       |
 | --------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------- |
 | T1110.003 | Brute Force: Password Spraying | Relevant when authentication attempts are distributed across multiple accounts using a limited set of passwords |
-
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
 
 ## Trigger Conditions
 
@@ -416,8 +414,6 @@ For confirmed malicious password-spraying activity:
 Account disablement, credential resets, session invalidation, and other identity response actions must follow approved organizational procedures.
 
 Do not test passwords against real user accounts as part of routine investigation or validation.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
