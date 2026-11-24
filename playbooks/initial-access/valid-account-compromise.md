@@ -3,10 +3,10 @@ id: "valid-account-compromise"
 name: "Valid Account Compromise"
 category: "initial-access"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-09T17:15:00Z"
-updated_at: "2026-11-13T12:50:00Z"
+updated_at: "2026-11-24T10:57:00Z"
 description: "Investigate suspected unauthorized use of valid credentials to access systems, applications, or cloud resources."
 objective: "Determine whether valid credentials were used without authorization, identify affected accounts and systems, establish scope, and determine whether containment or incident response is required."
 severity: "high"
@@ -371,10 +371,6 @@ For confirmed valid-account compromise:
 10. Document the investigation timeline and remediation actions.
 
 Do not disable accounts, terminate sessions, or modify authentication settings before required evidence preservation and appropriate authorization have been considered.
-
-## Related Detection Rules
-
-- `detection-rules/sigma/suspicious-login.yml`
 
 ## Related Playbooks
 
