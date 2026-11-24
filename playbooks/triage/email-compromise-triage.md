@@ -3,10 +3,10 @@ id: "email-compromise-triage"
 name: "Email Compromise Triage"
 category: "triage"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-05T13:33:00Z"
-updated_at: "2026-11-14T08:19:00Z"
+updated_at: "2026-11-24T11:55:00Z"
 description: "Investigate suspected email account compromise and determine whether unauthorized access, mailbox manipulation, or malicious activity occurred."
 objective: "Determine the legitimacy, scope, and impact of suspected email account compromise and identify whether containment or incident response is required."
 severity: "high"
@@ -373,8 +373,6 @@ For confirmed email account compromise:
 10. Document the investigation timeline and actions taken.
 
 Do not delete relevant mailbox or authentication evidence before required evidence preservation has been completed.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
