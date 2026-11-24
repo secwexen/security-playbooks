@@ -3,10 +3,10 @@ id: "kerberoasting"
 name: "Kerberoasting"
 category: "credential-access"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-16T18:45:00Z"
-updated_at: "2026-11-13T11:10:00Z"
+updated_at: "2026-11-24T10:09:00Z"
 description: "Kerberoasting involves requesting Kerberos service tickets for service accounts and attempting to recover account credentials from the captured ticket material."
 objective: "Identify, investigate, and validate suspicious Kerberoasting activity and determine whether service-account credentials may have been targeted or exposed."
 severity: "high"
@@ -116,8 +116,6 @@ The investigation should therefore focus on the request pattern, initiating iden
 | Technique | Name                                           | Relevance                                                                                                           |
 | --------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | T1558.003 | Steal or Forge Kerberos Tickets: Kerberoasting | Relevant when Kerberos service tickets are requested or used in a manner consistent with credential-access activity |
-
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
 
 ## Trigger Conditions
 
@@ -384,8 +382,6 @@ For confirmed malicious Kerberoasting activity:
 Credential resets, session invalidation, and service-account containment should follow approved organizational procedures.
 
 Do not attempt to recover real service-account passwords during routine investigation or validation.
-
-## Related Detection Rules
 
 ## Related Playbooks
 
