@@ -6,7 +6,7 @@ status: "active"
 version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-25T18:50:00Z"
-updated_at: "2026-11-24T11:28:00Z"
+updated_at: "2026-11-24T11:29:00Z"
 description: "Account compromise occurs when an unauthorized party gains access to a legitimate user account or abuses compromised credentials to access organizational resources."
 objective: "Identify, investigate, contain, and remediate confirmed or suspected account compromise and determine whether compromised credentials were used to access additional systems or services."
 severity: "high"
@@ -101,7 +101,7 @@ validation:
 
 This playbook provides a structured response workflow for suspected or confirmed compromise of user, administrative, service, or cloud identities.
 
-Account compromise may allow an unauthorized party to use legitimate credentials to access systems, applications, remote services, or other protected resources. MITRE ATT&CK maps abuse of legitimate credentials to **T1078 - Valid Accounts** and credential-guessing activity to **T1110 – Brute Force**.
+Account compromise may allow an unauthorized party to use legitimate credentials to access systems, applications, remote services, or other protected resources. MITRE ATT&CK maps abuse of legitimate credentials to **T1078 - Valid Accounts** and credential-guessing activity to **T1110 - Brute Force**.
 
 The objective is to establish whether the account was compromised, determine the extent of unauthorized access, contain active access paths, restore the account to a trusted state, and identify related compromise activity.
 
