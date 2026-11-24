@@ -3,10 +3,10 @@ id: "lsass-dump"
 name: "LSASS Credential Access"
 category: "credential-access"
 status: "active"
-version: "1.0.2"
+version: "1.0.3"
 author: "Secwexen"
 created_at: "2026-09-15T14:51:00Z"
-updated_at: "2026-11-13T11:13:00Z"
+updated_at: "2026-11-24T10:12:00Z"
 description: "LSASS credential access involves attempts to access the Local Security Authority Subsystem Service for authentication material."
 objective: "Identify, investigate, and validate suspicious access to LSASS and determine whether credential material may have been targeted or exposed."
 severity: "critical"
@@ -105,8 +105,6 @@ The objective is to determine whether the observed LSASS access is legitimate, s
 | Technique | Name                                | Relevance                                                      |
 | --------- | ----------------------------------- | -------------------------------------------------------------- |
 | T1003.001 | OS Credential Dumping: LSASS Memory | Relevant when LSASS is targeted for credential-access activity |
-
-Additional ATT&CK techniques should only be mapped when supported by the observed behavior.
 
 ## Trigger Conditions
 
@@ -370,22 +368,13 @@ Credential resets, session invalidation, and account containment should follow a
 
 Do not perform credential extraction or attempt to reproduce credential theft on production systems.
 
-## Related Detection Rules
-
-- `detection-rules/sigma/lsass-access.yml`
-
 ## Related Playbooks
 
 - `playbooks/credential-access/credential-dumping.md`
-- `playbooks/credential-access/credential-access.md`
 - `playbooks/credential-access/sam-dump.md`
 - `playbooks/credential-access/ntds-dump.md`
 - `playbooks/credential-access/dpapi-credential-access.md`
-- `playbooks/triage/suspicious-process-triage.md`
-- `playbooks/triage/suspicious-login-triage.md`
 - `playbooks/response/credential-compromise-response.md`
-- `playbooks/response/lateral-movement-response.md`
-- `playbooks/response/malware-response.md`
 - `playbooks/response/isolate-host-response.md`
 
 ## Validation
