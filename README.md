@@ -155,8 +155,13 @@ python -m scripts.run_yara_tests
 
 # Run Suricata tests
 python -m scripts.run_suricata_tests
+```
 
-# Run the full pytest suite
+### 3. Run Tests
+
+Run the full pytest suite:
+
+```python
 python -m pytest -v
 ```
 
