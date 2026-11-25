@@ -1,0 +1,130 @@
+security:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "SECURITY.md"
+          - "policies/**"
+          - "security/**"
+
+detection-rules:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "detection-rules/**"
+          - "config/sigma.yml"
+          - "config/suricata.yml"
+          - "config/yara.yml"
+
+sigma:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "detection-rules/sigma/**"
+          - "tests/sigma/**"
+          - "validation/sigma/**"
+
+suricata:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "detection-rules/suricata/**"
+          - "tests/suricata/**"
+          - "validation/suricata/**"
+
+yara:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "detection-rules/yara/**"
+          - "tests/yara/**"
+          - "validation/yara/**"
+
+threat-hunting:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "threat-hunting/**"
+
+threat-intelligence:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "threat-intelligence/**"
+          - "iocs/**"
+
+incident-response:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "playbooks/response/**"
+          - "docs/operations/**"
+
+playbooks:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "playbooks/**"
+          - "schemas/playbook.schema.json"
+          - "tests/playbooks/**"
+
+integrations:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "integrations/**"
+
+automation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "automation/**"
+          - "scripts/**"
+
+validation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "validation/**"
+
+testing:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "tests/**"
+
+labs:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "labs/**"
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "docs/**"
+          - "*.md"
+          - "**/*.md"
+
+github-actions:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/workflows/**"
+          - ".github/dependabot.yml"
+
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "pyproject.toml"
+          - "requirements.txt"
+          - "requirements-dev.txt"
+
+docker:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "Dockerfile"
+          - ".dockerignore"
+          - "docker-compose.yml"
+
+configuration:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "config/**"
+          - "schemas/**"
+
+reports:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "reports/**"
+
+build:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "Makefile"
+          - "pyproject.toml"
+          - ".pre-commit-config.yaml"
