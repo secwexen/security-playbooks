@@ -1,0 +1,28 @@
+# Benign PowerShell Test Sample
+# Purpose: YARA false-positive testing
+
+# Display PowerShell version
+$PSVersionTable
+
+# Get current date
+Get-Date
+
+# List files in current directory
+Get-ChildItem
+
+# Display current username
+whoami
+
+# Create a test directory
+New-Item -ItemType Directory -Name "YaraTestFolder" -Force
+
+# Write a harmless text file
+"YARA benign test" | Out-File "YaraTestFolder\sample.txt"
+
+# Read the test file
+Get-Content "YaraTestFolder\sample.txt"
+
+# Remove the test directory
+Remove-Item "YaraTestFolder" -Recurse -Force
+
+Write-Output "Benign PowerShell test completed."
