@@ -1,0 +1,37 @@
+{
+  "description": "Benign Windows events for Sigma false-positive testing",
+  "events": [
+    {
+      "name": "benign_powershell",
+      "EventID": 1,
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "CommandLine": "powershell.exe -Command Get-Date",
+      "User": "DOMAIN\\testuser",
+      "ParentImage": "C:\\Windows\\System32\\cmd.exe"
+    },
+    {
+      "name": "benign_user_login",
+      "EventID": 4624,
+      "TargetUserName": "testuser",
+      "LogonType": 2,
+      "IpAddress": "192.168.1.20",
+      "TargetDomainName": "DOMAIN"
+    },
+    {
+      "name": "benign_process_execution",
+      "EventID": 1,
+      "Image": "C:\\Windows\\System32\\notepad.exe",
+      "CommandLine": "notepad.exe",
+      "User": "DOMAIN\\testuser",
+      "ParentImage": "C:\\Windows\\explorer.exe"
+    },
+    {
+      "name": "benign_lsass_related_event",
+      "EventID": 10,
+      "SourceImage": "C:\\Windows\\System32\\Taskmgr.exe",
+      "TargetImage": "C:\\Windows\\System32\\lsass.exe",
+      "GrantedAccess": "0x1000",
+      "SourceUser": "DOMAIN\\administrator"
+    }
+  ]
+}
