@@ -1,0 +1,23 @@
+ENCODED PAYLOAD TEST SAMPLE
+===========================
+
+Sample 1:
+Base64: SGVsbG8gV29ybGQ=
+Decoded: Hello World
+
+Sample 2:
+Base64: UG93ZXJTaGVsbCBUZXN0
+Decoded: PowerShell Test
+
+Sample 3:
+Base64: U2VjdXJpdHkgRGV0ZWN0aW9u
+Decoded: Security Detection
+
+Sample 4:
+Base64: VGVzdGluZyBZQVJBIFJ1bGVz
+Decoded: Testing YARA Rules
+
+Purpose:
+- Test Base64-related YARA patterns.
+- Validate encoded string detection.
+- Check whether rules identify encoded content.
