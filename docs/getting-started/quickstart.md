@@ -36,6 +36,9 @@ python -m scripts.run_yara_tests
 
 # Run Suricata tests
 python -m scripts.run_suricata_tests
+
+# Run centralized validation for all detection rules
+python -m scripts.validate_all_rules
 ```
 
 The Suricata fixtures are real PCAP files generated with Scapy. Scapy is included as a project dependency. [Development Requirements](requirements-dev.txt).
