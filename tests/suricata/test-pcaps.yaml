@@ -7,3 +7,9 @@ tests:
 
   - name: sample_traffic_validation
     pcap: sample_traffic.pcap
+
+  - name: port_scan_validation
+    pcap: port_scan.pcap
+
+  - name: benign_traffic_validation
+    pcap: benign_traffic.pcap
