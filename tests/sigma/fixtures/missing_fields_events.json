@@ -1,0 +1,42 @@
+{
+  "description": "Windows events with missing or empty fields for Sigma robustness testing",
+  "events": [
+    {
+      "name": "missing_image",
+      "EventID": 1,
+      "CommandLine": "powershell.exe -Command Get-Date",
+      "User": "DOMAIN\\testuser"
+    },
+    {
+      "name": "missing_commandline",
+      "EventID": 1,
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "User": "DOMAIN\\testuser"
+    },
+    {
+      "name": "missing_target_image",
+      "EventID": 10,
+      "SourceImage": "C:\\Windows\\System32\\procexp.exe",
+      "GrantedAccess": "0x1010"
+    },
+    {
+      "name": "missing_username",
+      "EventID": 4624,
+      "TargetUserName": null,
+      "LogonType": 2,
+      "IpAddress": "192.168.1.20"
+    },
+    {
+      "name": "missing_event_id",
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "CommandLine": "powershell.exe"
+    },
+    {
+      "name": "empty_commandline",
+      "EventID": 1,
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "CommandLine": "",
+      "User": "DOMAIN\\testuser"
+    }
+  ]
+}
