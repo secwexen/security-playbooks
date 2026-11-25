@@ -165,6 +165,71 @@ def create_sample_traffic() -> None:
         packets,
     )
 
+def create_port_scan() -> None:
+    """Create TCP SYN traffic simulating a port scan."""
+
+    scanner_ip = "10.10.10.30"
+    target_ip = "192.168.1.50"
+
+    packets = []
+
+    for port in [21, 22, 23, 25, 80, 443, 445, 3306, 3389, 8080]:
+        packets.append(
+            IP(
+                src=scanner_ip,
+                dst=target_ip,
+            )
+            / TCP(
+                sport=45000,
+                dport=port,
+                flags="S",
+            )
+        )
+
+    output = BASE / "port_scan.pcap"
+
+    wrpcap(
+        str(output),
+        packets,
+    )
+
+
+def create_benign_traffic() -> None:
+    """Create ordinary UDP traffic for negative detection testing."""
+
+    packets = [
+        IP(
+            src="192.168.1.100",
+            dst="192.168.1.1",
+        )
+        / UDP(
+            sport=53000,
+            dport=123,
+        )
+        / Raw(
+            load=b"ordinary benign network traffic"
+        ),
+
+        IP(
+            src="192.168.1.101",
+            dst="192.168.1.1",
+        )
+        / UDP(
+            sport=53001,
+            dport=123,
+        )
+        / Raw(
+            load=b"normal network communication"
+        ),
+    ]
+
+    output = BASE / "benign_traffic.pcap"
+
+    wrpcap(
+        str(output),
+        packets,
+    )
+
 
 def main() -> None:
     """Generate all PCAP fixtures and display their file sizes."""
@@ -177,6 +242,8 @@ def main() -> None:
     create_c2_http()
     create_dns_tunnel()
     create_sample_traffic()
+    create_port_scan()
+    create_benign_traffic()
 
     print("PCAP fixtures generated successfully.")
 
