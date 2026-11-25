@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -11,6 +12,7 @@ import yaml
 from jsonschema import ValidationError, validate
 
 from tools.utils.logger import get_logger
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
@@ -129,6 +131,47 @@ def normalize_severity(level: Any) -> str:
     return "informational"
 
 
+def build_mitre_attack_url(technique_id: str) -> str:
+    """
+    Build a canonical MITRE ATT&CK technique URL.
+
+    Supported formats:
+    - T1059
+    - T1059.001
+
+    Examples:
+    - T1059     -> https://attack.mitre.org/techniques/T1059/
+    - T1059.001 -> https://attack.mitre.org/techniques/T1059/001/
+
+    Raises:
+        ValueError: If the technique ID has an invalid format.
+    """
+    if not isinstance(technique_id, str):
+        raise ValueError("Technique ID must be a string.")
+
+    technique_id = technique_id.strip().upper()
+
+    pattern = r"^T\d{4}(?:\.\d{3})?$"
+
+    if not re.fullmatch(pattern, technique_id):
+        raise ValueError(
+            f"Invalid MITRE ATT&CK technique ID: {technique_id}"
+        )
+
+    parts = technique_id.split(".")
+
+    if len(parts) == 1:
+        return (
+            "https://attack.mitre.org/techniques/"
+            f"{parts[0]}/"
+        )
+
+    return (
+        "https://attack.mitre.org/techniques/"
+        f"{parts[0]}/{parts[1]}/"
+    )
+
+
 def extract_mitre_attack(tags: list[str]) -> list[str]:
     """Extract MITRE ATT&CK technique IDs from Sigma tags."""
     mitre_attack: set[str] = set()
@@ -139,7 +182,7 @@ def extract_mitre_attack(tags: list[str]) -> list[str]:
         if value.startswith("attack.t"):
             technique = value.replace("attack.", "").upper()
 
-            if technique.startswith("T"):
+            if re.fullmatch(r"T\d{4}(?:\.\d{3})?", technique):
                 mitre_attack.add(technique)
 
     return sorted(mitre_attack)
@@ -173,7 +216,10 @@ def normalize_sigma_rule(
 
     name = str(sigma_rule.get("title") or source_path.stem)
 
-    description = str(sigma_rule.get("description") or f"Normalized Sigma detection rule: {name}")
+    description = str(
+        sigma_rule.get("description")
+        or f"Normalized Sigma detection rule: {name}"
+    )
 
     author = str(sigma_rule.get("author") or "Secwexen")
 
@@ -186,7 +232,11 @@ def normalize_sigma_rule(
 
     created_at = parse_datetime(sigma_rule.get("date"))
 
-    updated_at = parse_datetime(sigma_rule.get("modified") or sigma_rule.get("modified_date") or sigma_rule.get("date"))
+    updated_at = parse_datetime(
+        sigma_rule.get("modified")
+        or sigma_rule.get("modified_date")
+        or sigma_rule.get("date")
+    )
 
     normalized_rule: dict[str, Any] = {
         "id": rule_id,
@@ -199,9 +249,14 @@ def normalize_sigma_rule(
         "author": author,
         "tags": sorted(set(tags)),
         "mitre_attack": extract_mitre_attack(tags),
-        "log_sources": normalize_logsource(sigma_rule.get("logsource")),
+        "log_sources": normalize_logsource(
+            sigma_rule.get("logsource")
+        ),
         "detection_logic": sigma_rule.get("detection") or {},
-        "false_positives": [str(value) for value in (sigma_rule.get("falsepositives") or [])],
+        "false_positives": [
+            str(value)
+            for value in (sigma_rule.get("falsepositives") or [])
+        ],
         "created_at": created_at,
         "updated_at": updated_at,
     }
@@ -209,11 +264,14 @@ def normalize_sigma_rule(
     references = sigma_rule.get("references")
 
     if isinstance(references, list):
-        normalized_rule["references"] = [str(value) for value in references]
+        normalized_rule["references"] = [
+            str(value) for value in references
+        ]
 
     if normalized_rule["mitre_attack"]:
         normalized_rule["references_attack"] = [
-            ("https://attack.mitre.org/techniques/" f"{technique}/") for technique in normalized_rule["mitre_attack"]
+            build_mitre_attack_url(technique)
+            for technique in normalized_rule["mitre_attack"]
         ]
 
     return normalized_rule
