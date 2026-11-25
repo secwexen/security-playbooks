@@ -1,0 +1,23 @@
+# Obfuscated PowerShell Test Sample
+# Purpose: YARA detection testing
+
+$part1 = "Invo"
+$part2 = "ke-"
+$part3 = "Expression"
+
+$command = $part1 + $part2 + $part3
+
+# Encoded-looking variable names
+$a1 = "cGF5bG9hZA=="
+$b2 = "ZGV0ZWN0aW9u"
+$c3 = "b2JmdXNjYXRlZA=="
+
+# Suspicious string construction
+$hiddenCommand = "I" + "E" + "X"
+
+Write-Output "Obfuscation test sample"
+Write-Output $command
+Write-Output $hiddenCommand
+Write-Output $a1
+Write-Output $b2
+Write-Output $c3
