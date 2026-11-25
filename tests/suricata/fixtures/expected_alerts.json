@@ -1,7 +1,7 @@
 {
   "c2_http_alert": {
     "signatures": [
-      "POTENTIAL Suspicious HTTP User-Agent - curl"
+      "Potential Suspicious HTTP User-Agent - curl"
     ]
   },
   "dns_tunnel_alert": {
