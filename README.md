@@ -157,20 +157,20 @@ python -m scripts.run_yara_tests
 python -m scripts.run_suricata_tests
 ```
 
-### 3. Run Tests
-
-Run the full pytest suite:
-
-```python
-python -m pytest -v
-```
-
 The Suricata fixtures are real PCAP files generated with Scapy. Scapy is included as a project dependency. [Development Requirements](requirements-dev.txt).
 
 If the PCAP fixtures need to be regenerated:
 
 ```python
 python tests/suricata/generate_fixtures.py
+```
+
+### 3. Run Tests
+
+Run the full pytest suite:
+
+```python
+python -m pytest -v
 ```
 
 For complete setup instructions and troubleshooting, see the [Quick Start](docs/getting-started/quickstart.md) guide.
