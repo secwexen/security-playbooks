@@ -9,6 +9,6 @@
   },
   "lsass_process_access_match": {
     "expected": "match",
-    "matched_event_indexes": [0]
+    "matched_event_indexes": [0, 1]
   }
 }
