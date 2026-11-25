@@ -33,6 +33,7 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 ├───.github
 │   │   CODEOWNERS
 │   │   dependabot.yml
+│   │   labeler.yml
 │   │   PULL_REQUEST_TEMPLATE.md
 │   │   
 │   ├───ISSUE_TEMPLATE
@@ -440,17 +441,21 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │           suspicious-process-triage.md
 │           
 ├───reports
-│       attack-simulation-report.json
-│       coverage-analysis.json
-│       coverage-dashboard.json
-│       coverage-report.html
-│       coverage-report.json
-│       coverage-summary.md
-│       detection-gap-report.md
-│       execution-trace.json
-│       index.json
-│       validation-summary.json
-│       
+│   │   attack-simulation-report.json
+│   │   coverage-analysis.json
+│   │   coverage-dashboard.json
+│   │   coverage-report.html
+│   │   coverage-report.json
+│   │   coverage-summary.md
+│   │   detection-gap-report.md
+│   │   execution-trace.json
+│   │   index.json
+│   │   
+│   └───validation
+│           validation-details.json
+│           validation-report.md
+│           validation-summary.json
+│           
 ├───schemas
 │       alert_schema.json
 │       detection_rule.schema.json
@@ -525,8 +530,10 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │   │   │   test_sigma_rules.py
 │   │   │   
 │   │   └───fixtures
+│   │           benign_events.json
 │   │           expected_results.json
 │   │           lsass_events.json
+│   │           missing_fields_events.json
 │   │           powershell_events.json
 │   │           suspicious_login_events.json
 │   │           
@@ -536,9 +543,11 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │   │   │   test_suricata_rules.py
 │   │   │   
 │   │   └───fixtures
+│   │           benign_traffic.pcap
 │   │           c2_http.pcap
 │   │           dns_tunnel.pcap
 │   │           expected_alerts.json
+│   │           port_scan.pcap
 │   │           sample_traffic.pcap
 │   │           
 │   ├───threat-hunting
@@ -568,9 +577,12 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │       │   test_yara_rules.py
 │       │   
 │       └───fixtures
+│               benign_powershell.txt
 │               benign_sample.txt
+│               encoded_payload.txt
 │               expected_matches.json
 │               malicious_sample.txt
+│               obfuscated_sample.txt
 │               
 ├───threat-hunting
 │   │   methodology.md
