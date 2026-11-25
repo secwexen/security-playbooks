@@ -11,5 +11,11 @@
   },
   "sample_traffic_validation": {
     "signatures": []
+  },
+  "port_scan_validation": {
+    "signatures": []
+  },
+  "benign_traffic_validation": {
+    "signatures": []
   }
 }
