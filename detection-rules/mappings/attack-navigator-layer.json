@@ -31,21 +31,21 @@
   ],
   "techniques": [
     {
+      "techniqueID": "T1003.001",
+      "score": 1,
+      "comment": "Detected by Suspicious LSASS Process Access.",
+      "enabled": true
+    },
+    {
       "techniqueID": "T1027",
       "score": 1,
-      "comment": "Covered by PowerShell Encoded Command Execution.",
+      "comment": "Indicated by Obfuscated PowerShell Payload content detection.",
       "enabled": true
     },
     {
       "techniqueID": "T1059.001",
       "score": 1,
-      "comment": "Covered by PowerShell Encoded Command Execution.",
-      "enabled": true
-    },
-    {
-      "techniqueID": "T1110",
-      "score": 1,
-      "comment": "Covered by Suspicious Login Attempt.",
+      "comment": "Detected by PowerShell Encoded Command Execution.",
       "enabled": true
     }
   ],
