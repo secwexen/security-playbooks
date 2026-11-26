@@ -49,7 +49,33 @@ If the PCAP fixtures need to be regenerated:
 python tests/suricata/generate_fixtures.py
 ```
 
-## 3. Run Tests
+## 3. Generate Coverage Reports
+
+The project provides automated MITRE ATT&CK coverage reporting based on the detection rule registry and mapping files.
+
+Generate coverage reports:
+
+```python
+python -m tools.reports.coverage_report
+```
+
+This command generates:
+
+- `detection-rules/mappings/coverage_report.json`
+- `detection-rules/mappings/attack-coverage.json`
+- `detection-rules/mappings/rule_coverage_map.json`
+
+The reports include:
+
+- Total registered detection rules
+- Mapped and unmapped rule counts
+- MITRE ATT&CK technique coverage
+- Rule-to-technique relationships
+
+> [!NOTE]
+> Coverage figures represent the repository's current MITRE ATT&CK mapping dataset. They do not represent coverage of the entire ATT&CK Enterprise framework.
+
+## 4. Run Tests
 
 Run the full pytest suite:
 
