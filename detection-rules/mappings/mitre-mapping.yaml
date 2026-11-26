@@ -1,28 +1,72 @@
-version: "1.0.0"
+version: "1.1.0"
 
 metadata:
   name: "Security Playbooks MITRE ATT&CK Mapping"
   description: >
-    Mapping between detection rules and MITRE ATT&CK techniques.
+    Evidence-based mapping between registered detection rules
+    and MITRE ATT&CK techniques. Rules without sufficient
+    detection evidence are retained with empty technique lists.
 
 rules:
+  # Sigma
+  - rule_id: "6d8c1d4e-2f31-4b4a-9e20-7c6a9d8f1352"
+    registry_id: "DET-SIGMA-LSASS-ACCESS"
+    rule_name: "Suspicious LSASS Process Access"
+    techniques:
+      - "T1003.001"
+    source:
+      - "https://attack.mitre.org/techniques/T1003/001/"
 
   - rule_id: "f1a2b3c4-d5e6-7890-1234-56789abcdef0"
+    registry_id: "DET-SIGMA-POWERSHELL-EXEC"
     rule_name: "PowerShell Encoded Command Execution"
-
     techniques:
       - "T1059.001"
-      - "T1027"
-
     source:
       - "https://attack.mitre.org/techniques/T1059/001/"
+
+  - rule_id: "DET-SIGMA-SUSPICIOUS-LOGIN"
+    registry_id: "DET-SIGMA-SUSPICIOUS-LOGIN"
+    rule_name: "Suspicious Login Activity"
+    techniques: []
+    source: []
+
+  # YARA
+  - rule_id: "DET-YARA-MALWARE-SAMPLE"
+    registry_id: "DET-YARA-MALWARE-SAMPLE"
+    rule_name: "Malware Sample Detection"
+    techniques: []
+    source: []
+
+  - rule_id: "DET-YARA-OBFUSCATED-POWERSHELL"
+    registry_id: "DET-YARA-OBFUSCATED-POWERSHELL"
+    rule_name: "Obfuscated PowerShell Payload"
+    techniques:
+      - "T1027"
+    source:
       - "https://attack.mitre.org/techniques/T1027/"
 
-  - rule_id: "example-sigma-001"
-    rule_name: "Suspicious Login Attempt"
+  - rule_id: "DET-YARA-POWERSHELL-PAYLOAD"
+    registry_id: "DET-YARA-POWERSHELL-PAYLOAD"
+    rule_name: "PowerShell Payload Detection"
+    techniques: []
+    source: []
 
-    techniques:
-      - "T1110"
+  # Suricata
+  - rule_id: "DET-SURI-C2-COMMUNICATION"
+    registry_id: "DET-SURI-C2-COMMUNICATION"
+    rule_name: "C2 Communication Detection"
+    techniques: []
+    source: []
 
-    source:
-      - "https://attack.mitre.org/techniques/T1110/"
+  - rule_id: "DET-SURI-NETWORK-ALERT"
+    registry_id: "DET-SURI-NETWORK-ALERT"
+    rule_name: "Suspicious Network Traffic"
+    techniques: []
+    source: []
+
+  - rule_id: "DET-SURI-POWERSHELL-ALERT"
+    registry_id: "DET-SURI-POWERSHELL-ALERT"
+    rule_name: "PowerShell Network Activity"
+    techniques: []
+    source: []
