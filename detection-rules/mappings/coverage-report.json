@@ -1,69 +1,111 @@
 {
-  "schema_version": "1.0",
-  "project": "security-playbooks",
-  "source": "detection-rules/mappings/mitre-mapping.yaml",
+  "schema_version": "1.1.0",
+  "project": "Security Playbooks",
+  "coverage_scope": "Repository mapping dataset only. This report does not represent full ATT&CK Enterprise coverage.",
   "summary": {
-    "total_rules": 2,
-    "mapped_rules": 2,
-    "unmapped_rules": 0,
-    "total_techniques": 3,
-    "covered_techniques": 3,
-    "uncovered_techniques": 0,
-    "coverage_percent": 100.0
+    "total_rules": 9,
+    "mapped_rules": 3,
+    "unmapped_rules": 6,
+    "total_mapped_techniques": 3
   },
-  "by_rule": [
+  "rules": [
     {
-      "rule_id": "f1a2b3c4-d5e6-7890-1234-56789abcdef0",
-      "rule_name": "PowerShell Encoded Command Execution",
+      "registry_id": "DET-SIGMA-LSASS-ACCESS",
+      "rule_name": "LSASS Process Access Detection",
+      "format": "sigma",
+      "mapped": true,
       "techniques": [
-        {
-          "id": "T1059.001",
-          "name": "PowerShell",
-          "covered": true
-        },
-        {
-          "id": "T1027",
-          "name": "Obfuscated Files or Information",
-          "covered": true
-        }
-      ]
+        "T1003.001"
+      ],
+      "technique_count": 1
     },
     {
-      "rule_id": "example-sigma-001",
-      "rule_name": "Suspicious Login Attempt",
+      "registry_id": "DET-SIGMA-POWERSHELL-EXEC",
+      "rule_name": "Suspicious PowerShell Execution",
+      "format": "sigma",
+      "mapped": true,
       "techniques": [
-        {
-          "id": "T1110",
-          "name": "Brute Force",
-          "covered": true
-        }
-      ]
+        "T1059.001"
+      ],
+      "technique_count": 1
+    },
+    {
+      "registry_id": "DET-SIGMA-SUSPICIOUS-LOGIN",
+      "rule_name": "Suspicious Login Activity",
+      "format": "sigma",
+      "mapped": false,
+      "techniques": [],
+      "technique_count": 0
+    },
+    {
+      "registry_id": "DET-YARA-MALWARE-SAMPLE",
+      "rule_name": "Malware Sample Detection",
+      "format": "yara",
+      "mapped": false,
+      "techniques": [],
+      "technique_count": 0
+    },
+    {
+      "registry_id": "DET-YARA-OBFUSCATED-POWERSHELL",
+      "rule_name": "Obfuscated PowerShell Payload",
+      "format": "yara",
+      "mapped": true,
+      "techniques": [
+        "T1027"
+      ],
+      "technique_count": 1
+    },
+    {
+      "registry_id": "DET-YARA-POWERSHELL-PAYLOAD",
+      "rule_name": "PowerShell Payload Detection",
+      "format": "yara",
+      "mapped": false,
+      "techniques": [],
+      "technique_count": 0
+    },
+    {
+      "registry_id": "DET-SURI-C2-COMMUNICATION",
+      "rule_name": "C2 Communication Detection",
+      "format": "suricata",
+      "mapped": false,
+      "techniques": [],
+      "technique_count": 0
+    },
+    {
+      "registry_id": "DET-SURI-NETWORK-ALERT",
+      "rule_name": "Suspicious Network Traffic",
+      "format": "suricata",
+      "mapped": false,
+      "techniques": [],
+      "technique_count": 0
+    },
+    {
+      "registry_id": "DET-SURI-POWERSHELL-ALERT",
+      "rule_name": "PowerShell Network Activity",
+      "format": "suricata",
+      "mapped": false,
+      "techniques": [],
+      "technique_count": 0
     }
   ],
-  "by_technique": [
-    {
-      "id": "T1027",
-      "name": "Obfuscated Files or Information",
+  "techniques": {
+    "T1003.001": {
       "rule_count": 1,
       "rules": [
-        "f1a2b3c4-d5e6-7890-1234-56789abcdef0"
+        "DET-SIGMA-LSASS-ACCESS"
       ]
     },
-    {
-      "id": "T1059.001",
-      "name": "PowerShell",
+    "T1027": {
       "rule_count": 1,
       "rules": [
-        "f1a2b3c4-d5e6-7890-1234-56789abcdef0"
+        "DET-YARA-OBFUSCATED-POWERSHELL"
       ]
     },
-    {
-      "id": "T1110",
-      "name": "Brute Force",
+    "T1059.001": {
       "rule_count": 1,
       "rules": [
-        "example-sigma-001"
+        "DET-SIGMA-POWERSHELL-EXEC"
       ]
     }
-  ]
+  }
 }
