@@ -44,7 +44,7 @@ def test_attack_matrix_export() -> None:
 
     report = load_report()
 
-    assert report["schema_version"] == "1.0"
+    assert report["schema_version"] == "1.0.0"
     assert report["project"] == "security-playbooks"
 
 
