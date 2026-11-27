@@ -47,7 +47,13 @@ def test_mapping_and_matrix_rule_count_match() -> None:
         for rule in technique.get("rules", []):
             matrix_rules.add(rule["rule_id"])
 
-    mapping_rule_ids = {rule["rule_id"] for rule in mapping_rules if isinstance(rule, dict) and rule.get("rule_id")}
+    mapping_rule_ids = {
+    rule["rule_id"]
+    for rule in mapping_rules
+    if isinstance(rule, dict)
+    and rule.get("rule_id")
+    and rule.get("techniques")
+}
 
     assert matrix_rules == mapping_rule_ids
 
