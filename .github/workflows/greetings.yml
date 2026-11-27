@@ -19,7 +19,8 @@ jobs:
       - name: Welcome First-Time Contributors
         uses: actions/first-interaction@v3
         with:
-          issue_message: |
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: |
             👋 Welcome!
 
             Thank you for opening your first issue!
@@ -27,7 +28,7 @@ jobs:
 
             Your issue will be reviewed as soon as possible.
 
-          pr_message: |
+          pr-message: |
             🎉 Welcome!
 
             Thank you for submitting your first pull request!
