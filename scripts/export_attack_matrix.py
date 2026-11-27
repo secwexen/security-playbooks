@@ -33,7 +33,7 @@ def configure_logging() -> None:
 
 
 def load_mapping() -> dict[str, Any]:
-    """Load the MITRE ATT&CK mapping YAML file."""
+    """Load the authoritative MITRE ATT&CK mapping YAML file."""
     if YAML_MODULE is None:
         raise RuntimeError("PyYAML is not installed. Install it with: pip install PyYAML")
 
@@ -50,18 +50,18 @@ def load_mapping() -> dict[str, Any]:
 
 
 def validate_rules(data: dict[str, Any]) -> list[dict[str, Any]]:
-    """Validate and return the rules section."""
+    """Validate mapping entries and normalize their ATT&CK techniques."""
     rules = data.get("rules", [])
 
     if not isinstance(rules, list):
         raise ValueError("'rules' must be a YAML list.")
 
     validated: list[dict[str, Any]] = []
+    seen_rule_ids: set[str] = set()
 
     for index, rule in enumerate(rules, start=1):
         if not isinstance(rule, dict):
-            LOGGER.warning("Skipping invalid rule at index %d.", index)
-            continue
+            raise ValueError(f"Invalid mapping entry at index {index}: " "expected an object.")
 
         rule_id = rule.get("rule_id")
         rule_name = rule.get("rule_name")
@@ -69,24 +69,36 @@ def validate_rules(data: dict[str, Any]) -> list[dict[str, Any]]:
         sources = rule.get("source", [])
 
         if not rule_id:
-            LOGGER.warning("Skipping rule %d: missing rule_id.", index)
-            continue
+            raise ValueError(f"Mapping entry {index} is missing rule_id.")
 
-        if not rule_name:
-            LOGGER.warning("Rule %s has no rule_name.", rule_id)
+        rule_id = str(rule_id).strip()
+
+        if not rule_id:
+            raise ValueError(f"Mapping entry {index} has an empty rule_id.")
+
+        if rule_id in seen_rule_ids:
+            raise ValueError(f"Duplicate mapping rule_id: {rule_id}")
+
+        seen_rule_ids.add(rule_id)
 
         if not isinstance(techniques, list):
-            techniques = [techniques]
+            raise ValueError(f"Techniques for {rule_id} must be a YAML list.")
 
         if not isinstance(sources, list):
             sources = [sources]
 
+        normalized_techniques = sorted(
+            {str(technique).strip().upper() for technique in techniques if technique and str(technique).strip()}
+        )
+
+        normalized_sources = sorted({str(source).strip() for source in sources if source and str(source).strip()})
+
         validated.append(
             {
-                "rule_id": str(rule_id),
+                "rule_id": rule_id,
                 "rule_name": str(rule_name or ""),
-                "techniques": [str(technique) for technique in techniques if technique],
-                "source": [str(source) for source in sources if source],
+                "techniques": normalized_techniques,
+                "source": normalized_sources,
             }
         )
 
@@ -111,12 +123,13 @@ def build_matrix(
 
             entry["technique_id"] = technique_id
 
-            entry["rules"].append(
-                {
-                    "rule_id": rule["rule_id"],
-                    "rule_name": rule["rule_name"],
-                }
-            )
+            rule_entry = {
+                "rule_id": rule["rule_id"],
+                "rule_name": rule["rule_name"],
+            }
+
+            if rule_entry not in entry["rules"]:
+                entry["rules"].append(rule_entry)
 
             for source in rule["source"]:
                 if source not in entry["sources"]:
@@ -191,7 +204,10 @@ def write_report(
         )
         handle.write("\n")
 
-    LOGGER.info("Attack matrix written to: %s", OUTPUT_FILE)
+    LOGGER.info(
+        "ATT&CK matrix written to: %s",
+        OUTPUT_FILE,
+    )
 
 
 def main() -> int:
