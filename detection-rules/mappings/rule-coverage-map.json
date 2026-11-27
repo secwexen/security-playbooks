@@ -1,37 +1,44 @@
 {
-  "schema_version": "1.0",
-  "project": "security-playbooks",
-  "source": "detection-rules/mappings/mitre-mapping.yaml",
-  "rules": [
-    {
-      "rule_id": "f1a2b3c4-d5e6-7890-1234-56789abcdef0",
-      "rule_name": "PowerShell Encoded Command Execution",
-      "techniques": [
-        {
-          "id": "T1059.001",
-          "name": "PowerShell",
-          "relationship": "primary",
-          "source": "https://attack.mitre.org/techniques/T1059/001/"
-        },
-        {
-          "id": "T1027",
-          "name": "Obfuscated Files or Information",
-          "relationship": "secondary",
-          "source": "https://attack.mitre.org/techniques/T1027/"
-        }
-      ]
-    },
-    {
-      "rule_id": "example-sigma-001",
-      "rule_name": "Suspicious Login Attempt",
-      "techniques": [
-        {
-          "id": "T1110",
-          "name": "Brute Force",
-          "relationship": "primary",
-          "source": "https://attack.mitre.org/techniques/T1110/"
-        }
-      ]
-    }
-  ]
+  "DET-SIGMA-LSASS-ACCESS": {
+    "techniques": [
+      "T1003.001"
+    ],
+    "technique_count": 1
+  },
+  "DET-SIGMA-POWERSHELL-EXEC": {
+    "techniques": [
+      "T1059.001"
+    ],
+    "technique_count": 1
+  },
+  "DET-SIGMA-SUSPICIOUS-LOGIN": {
+    "techniques": [],
+    "technique_count": 0
+  },
+  "DET-YARA-MALWARE-SAMPLE": {
+    "techniques": [],
+    "technique_count": 0
+  },
+  "DET-YARA-OBFUSCATED-POWERSHELL": {
+    "techniques": [
+      "T1027"
+    ],
+    "technique_count": 1
+  },
+  "DET-YARA-POWERSHELL-PAYLOAD": {
+    "techniques": [],
+    "technique_count": 0
+  },
+  "DET-SURI-C2-COMMUNICATION": {
+    "techniques": [],
+    "technique_count": 0
+  },
+  "DET-SURI-NETWORK-ALERT": {
+    "techniques": [],
+    "technique_count": 0
+  },
+  "DET-SURI-POWERSHELL-ALERT": {
+    "techniques": [],
+    "technique_count": 0
+  }
 }
