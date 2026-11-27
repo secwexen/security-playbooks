@@ -25,7 +25,7 @@ jobs:
             Thank you for opening your first issue!
             We appreciate your contribution.
 
-            Our team will review your issue as soon as possible.
+            Your issue will be reviewed as soon as possible.
 
           pr_message: |
             🎉 Welcome!
@@ -33,4 +33,4 @@ jobs:
             Thank you for submitting your first pull request!
 
             We appreciate your contribution to this project.
-            Our team will review your changes soon.
+            Your changes will be reviewed as soon as possible.
