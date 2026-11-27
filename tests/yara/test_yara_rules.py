@@ -1,6 +1,13 @@
+"""Tests for YARA detection rules."""
+
 from __future__ import annotations
 
+from typing import Any
+
 import pytest
+
+# Pytest fixture parameters intentionally share fixture function names.
+# pylint: disable=redefined-outer-name
 
 from scripts.run_yara_tests import (
     load_expected_results,
@@ -10,13 +17,13 @@ from scripts.run_yara_tests import (
 
 
 @pytest.fixture(scope="module")
-def expected_results():
+def expected_results() -> Any:
     """Load expected YARA match results."""
     return load_expected_results()
 
 
 @pytest.fixture(scope="module")
-def test_cases():
+def test_cases() -> Any:
     """Load YARA test definitions."""
     return load_test_cases()
 
@@ -30,10 +37,10 @@ def test_cases():
     ],
 )
 def test_yara_rule(
-    test_name,
-    test_cases,
-    expected_results,
-):
+    test_name: str,
+    test_cases: Any,
+    expected_results: Any,
+) -> None:
     """Validate each configured YARA test case."""
     test_case = next(
         (
