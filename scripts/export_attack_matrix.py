@@ -188,7 +188,7 @@ def write_report(
     )
 
     report = {
-        "schema_version": "1.0",
+        "schema_version": "1.0.0",
         "project": "security-playbooks",
         "source": str(MAPPING_FILE.relative_to(PROJECT_ROOT)),
         "summary": summary,
