@@ -82,3 +82,13 @@ Run the full pytest suite:
 ```python
 python -m pytest -v
 ```
+
+## 5. Verify Coverage Reports
+
+After generating the coverage reports, validate that the JSON files are syntactically correct.
+
+```python
+python -m json.tool detection-rules/mappings/coverage-report.json
+python -m json.tool detection-rules/mappings/attack-coverage.json
+python -m json.tool detection-rules/mappings/rule-coverage-map.json
+```
