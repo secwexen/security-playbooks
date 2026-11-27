@@ -48,16 +48,12 @@ The Security Playbooks is structured to provide a clear, modular, and profession
 │           codeql.yml
 │           dependency-review.yml
 │           docker-image.yml
-│           greetings.yml
 │           label.yml
-│           manual.yml
 │           pylint.yml
 │           python-package.yml
 │           release.yml
 │           secret-scan.yml
 │           security.yml
-│           stale.yml
-│           summary.yml
 │           
 ├───.vscode
 │       extensions.json
