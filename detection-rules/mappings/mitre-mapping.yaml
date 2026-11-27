@@ -1,14 +1,14 @@
-version: "1.1.0"
+version: "1.1.1"
 
 metadata:
   name: "Security Playbooks MITRE ATT&CK Mapping"
   description: >
-    Evidence-based mapping between registered detection rules
-    and MITRE ATT&CK techniques. Rules without sufficient
-    detection evidence are retained with empty technique lists.
+    Authoritative mapping between registered detection rules
+    and MITRE ATT&CK techniques. Only evidence-supported
+    technique mappings are included.
 
 rules:
-  # Sigma
+
   - rule_id: "6d8c1d4e-2f31-4b4a-9e20-7c6a9d8f1352"
     registry_id: "DET-SIGMA-LSASS-ACCESS"
     rule_name: "Suspicious LSASS Process Access"
@@ -25,48 +25,46 @@ rules:
     source:
       - "https://attack.mitre.org/techniques/T1059/001/"
 
-  - rule_id: "DET-SIGMA-SUSPICIOUS-LOGIN"
+  - rule_id: "8f4c2d91-7a63-4e5b-9c21-6d0f3a8b1257"
     registry_id: "DET-SIGMA-SUSPICIOUS-LOGIN"
-    rule_name: "Suspicious Login Activity"
+    rule_name: "Windows Failed Logon Event"
     techniques: []
     source: []
 
-  # YARA
-  - rule_id: "DET-YARA-MALWARE-SAMPLE"
+  - rule_id: "Example_Malware_Pattern"
     registry_id: "DET-YARA-MALWARE-SAMPLE"
-    rule_name: "Malware Sample Detection"
+    rule_name: "Example Malware Pattern"
     techniques: []
     source: []
 
-  - rule_id: "DET-YARA-OBFUSCATED-POWERSHELL"
+  - rule_id: "Obfuscated_PowerShell"
     registry_id: "DET-YARA-OBFUSCATED-POWERSHELL"
-    rule_name: "Obfuscated PowerShell Payload"
+    rule_name: "Obfuscated PowerShell"
     techniques:
       - "T1027"
     source:
       - "https://attack.mitre.org/techniques/T1027/"
 
-  - rule_id: "DET-YARA-POWERSHELL-PAYLOAD"
+  - rule_id: "PowerShell_Encoded_Command"
     registry_id: "DET-YARA-POWERSHELL-PAYLOAD"
-    rule_name: "PowerShell Payload Detection"
+    rule_name: "PowerShell Encoded Command"
     techniques: []
     source: []
 
-  # Suricata
-  - rule_id: "DET-SURI-C2-COMMUNICATION"
+  - rule_id: "1000020+1000021"
     registry_id: "DET-SURI-C2-COMMUNICATION"
-    rule_name: "C2 Communication Detection"
+    rule_name: "Potential C2 Communication and DNS Indicators"
     techniques: []
     source: []
 
-  - rule_id: "DET-SURI-NETWORK-ALERT"
+  - rule_id: "1000010"
     registry_id: "DET-SURI-NETWORK-ALERT"
-    rule_name: "Suspicious Network Traffic"
+    rule_name: "Potential Suspicious HTTP User-Agent"
     techniques: []
     source: []
 
-  - rule_id: "DET-SURI-POWERSHELL-ALERT"
+  - rule_id: "100001"
     registry_id: "DET-SURI-POWERSHELL-ALERT"
-    rule_name: "PowerShell Network Activity"
+    rule_name: "Potential PowerShell Encoded Command Activity"
     techniques: []
     source: []
