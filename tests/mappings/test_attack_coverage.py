@@ -71,7 +71,7 @@ def test_attack_matrix_contains_techniques() -> None:
 
     assert "T1059.001" in technique_ids
     assert "T1027" in technique_ids
-    assert "T1110" in technique_ids
+    assert "T1003.001" in technique_ids
 
 
 def test_attack_matrix_entries_are_consistent() -> None:
