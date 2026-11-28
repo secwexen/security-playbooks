@@ -107,3 +107,31 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 * @manish01-hash made their first contribution in https://github.com/secwexen/security-playbooks/pull/20
 
 **Full Changelog**: https://github.com/secwexen/security-playbooks/compare/v0.1.0...v0.2.1
+
+# [v0.3.0] – 2026-11-28
+
+Improved Sigma, YARA, and Suricata rule quality, expanded automated detection validation, and strengthened MITRE ATT&CK coverage tracking. Added enhanced coverage reporting, historical mapping tracking, and documented detection gaps for better visibility and traceability.
+
+## Added
+
+- Added MITRE ATT&CK coverage tracking for detection rules.
+- Added historical ATT&CK mapping change tracking.
+- Added detection gap analysis and documentation.
+- Added technical validation findings for unmapped detection rules.
+- Added coverage baseline reporting for all 9 registered detection rules.
+- Added traceability between detection rules and ATT&CK techniques.
+
+## Improved
+
+- Improved Sigma, YARA, and Suricata rule metadata consistency.
+- Improved evidence-based ATT&CK technique mapping.
+- Improved automated detection validation and reporting consistency.
+- Improved coverage reporting accuracy and maintainability.
+
+## What's Changed
+
+* Potential fix for code scanning alert no. 4: Workflow does not contain permissions by @secwexen in https://github.com/secwexen/security-playbooks/pull/30
+* Potential fix for code scanning alert no. 5: Workflow does not contain permissions by @secwexen in https://github.com/secwexen/security-playbooks/pull/32
+* Bump pylint from 3.3.8 to 4.0.9 in the pip group across 1 directory by @dependabot[bot] in https://github.com/secwexen/security-playbooks/pull/34
+
+**Full Changelog**: https://github.com/secwexen/security-playbooks/compare/v0.2.1...v0.3.0
